@@ -1,10 +1,9 @@
-# site.ext
+# tyfte website
 
 ## Installation instructions
 
 1. run `composer install`
-2. run `php please make:user`
-3. run `npm i` && `npm run dev`
+2. run `npm i` && `npm run dev`
 
 ## Environment file contents
 
@@ -18,7 +17,7 @@ Dump your .env values here with sensitive data removed.
 
 ```env
 Dump your .env values here with sensitive data removed. The following is a production example that uses full static caching:
-APP_NAME="Tyfte"
+APP_NAME="tyfte"
 APP_ENV=production
 APP_KEY="base64:2TbqkQQvRAaPy31glNF6quP1d3YqabFISf4Mqv5No50="
 APP_DEBUG=false
