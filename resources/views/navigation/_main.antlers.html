@@ -3,8 +3,57 @@
     @desc The sites main navigation rendered on each page. There's a desktop and a mobile version.
 #}}
 
-{{# The desktop navigation. Hidden on smaller screen. Shown from md and up. #}}
-{{ partial:navigation/main_desktop }}
 
-{{# The mobile navigation. Hidden from md and up #}}
-{{ partial:navigation/main_mobile }}
+<nav class="fixed inset-[var(--frame)] z-50" aria-label="{{ trans:strings.main_navigation }}" 
+x-data="{ navOpen: false }"
+x-trap.inert.noscroll="navOpen"
+@keyup.escape="navOpen = false"
+x-cloak>
+    {{# Logo #}}
+    <a href="/" class="absolute h-8 cursor-pointer group" id="homeLink" aria-label="Back to home">
+        {{ svg:tyfte_logo aria-hidden="true" }}
+        {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[23px] pointer-events-none" aria-hidden="true" }}
+    </a>
+    
+
+    {{# burger menu & cta 2 #}}
+    <div class="absolute right-0 flex gap-8">
+        <button class="flex gap-2.5 border-2 rounded py-1 px-2.5 items-center hover:bg-light/20 text-button uppercase">
+            Start Project
+            <span class="inline-block">{{ svg:arrup alt="" aria-hidden="true" }}</span>
+        </button>
+
+        {{# {{ partial:components/button }} #}}
+        
+        <button id="burger" class="cursor-pointer group"
+        @click.prevent="navOpen = !navOpen"
+        :aria-label="navOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
+        :aria-expanded="navOpen">
+            {{ svg:burger alt="" aria-hidden="true" }}
+        </button>
+        
+    </div>
+    
+    {{# Three Liner #}}
+    <p class="absolute bottom-0 text-lead-2">
+        We consult.<br>
+        We design.<br>
+        We code.
+    </p>
+    
+    {{# Crowd Pleaser #}}
+    <div id="crowdpleaser" class="absolute right-0 flex flex-col uppercase -bottom-2 text-crowd">
+        
+        <div id="cp_headline" class="flex items-center w-full h-6 transition duration-700">Crowd Pleaser</div>
+        
+        <div id="cp_slider_1" class="flex items-center justify-between w-full h-6 gap-4 transition duration-700 group">
+            <label for="colors-silder" class="block transition text-crowd group-hover:text-yellow">Colors</label>
+            <input id="colors-silder" type="range" value="50">
+        </div>
+        
+        <div id="cp_slider_2" class="flex items-center justify-between w-full h-6 gap-4 font-mono transition duration-700 group">
+            <label for="patterns-silder" class="block transition text-crowd group-hover:text-yellow">Pattern</label>
+            <input id="patterns-silder" type="range" value="50">
+        </div>
+    </div> 
+</nav>

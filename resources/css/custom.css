@@ -1,13 +1,111 @@
 /* If you don't want to use the JS in CSS syntax from `tailwind.config.site.js` you can add your own custom CSS here. Use different layers to make sure your CSS either get's purged or not: https://tailwindcss.com/docs/functions-and-directives#layer. CSS in the base layer won't get purged. */
 
 @layer base {
+   html {
+      scroll-behavior: smooth;
+   }
 
+   @font-face {
+      font-family: 'Space Grotesk';
+      src: url('/public/fonts/SpaceGrotesk-Medium.woff2') format('woff2'),
+         url('/public/fonts/SpaceGrotesk-Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+}
+
+   @font-face {
+         font-family: 'Space Grotesk';
+         src: url('/public/fonts/SpaceGrotesk-Regular.woff2') format('woff2'),
+            url('/public/fonts/SpaceGrotesk-Regular.woff') format('woff');
+         font-weight: normal;
+         font-style: normal;
+         font-display: swap;
+   }
+
+   @font-face {
+         font-family: 'Space Grotesk';
+         src: url('/public/fonts/SpaceGrotesk-Bold.woff2') format('woff2'),
+            url('/public/fonts/SpaceGrotesk-Bold.woff') format('woff');
+         font-weight: bold;
+         font-style: normal;
+         font-display: swap;
+   }
+
+   @font-face {
+      font-family: 'Space Mono';
+      src: url('/public/fonts/SpaceMono-Regular.woff2') format('woff2'),
+         url('/public/fonts/SpaceMono-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+   }
+
+   @font-face {
+      font-family: 'Space Mono';
+      src: url('/public/fonts/SpaceMono-Bold.woff2') format('woff2'),
+         url('/public/fonts/SpaceMono-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+   }
 }
 
 @layer components {
+   
+   /* crowd pleaser stylings */
+   input[type="range"] {
+      @apply bg-light appearance-none h-0.5 rounded-full transition cursor-pointer w-28 group-hover:bg-yellow;
+   }
+    
+   input[type="range"]::-webkit-slider-thumb {
+      @apply transition appearance-none h-3 w-3 rounded-full cursor-pointer border-2 border-light border-solid bg-dark group-hover:border-yellow group-hover:scale-125 delay-75;
+   }
 
+
+
+   /* bg dot grid */
+   #dotgrid {
+      background-size: var(--frame) var(--frame);
+      background-position: calc(var(--frame) - calc(var(--frame)/2) ) calc(var(--frame) - calc(var(--frame)/2) ) ;
+      background-image: radial-gradient(circle, theme('colors.light.soft') 1px, rgba(0, 0, 0, 0) 1px);
+   } 
+   
+   @media (min-width: 992px) { 
+      #dotgrid {
+         background-size: calc(var(--frame)/2) calc(var(--frame)/2);
+         background-position: calc( var(--frame)/2 - calc(var(--frame)/2/2) )  calc( var(--frame)/2 - calc(var(--frame)/2/2) );
+         background-image: radial-gradient(circle, theme('colors.light.soft') 1px, rgba(0, 0, 0, 0) 1px);
+      }
+   }
+
+
+
+   /* home link to egg */
+   path.eggMask.eggYellow { 
+      filter: drop-shadow(10px 8px 15px rgba(0, 0, 0, 0.44)) drop-shadow(-3px -3px 5px rgba(255, 255, 255, 0.1));
+   }
+
+
+   
+   /* burger menu animation */
+   #burger > svg {
+      @apply transition-all duration-700;
+   }
+
+   #bar1 {
+      @apply transition-all duration-700 group-hover:w-2/3;
+   }
+   
+   #bar2 {
+      @apply transition-all duration-700 group-hover:translate-x-1/3 group-hover:w-2/3;
+   }
 }
 
 @layer utilities {
-
+   :root {
+      --mask-size: 8rem;
+      --frame: clamp(1rem, calc(1rem + ((1vw - 0.234375rem) * 6.0094)), 5rem);
+    }
 }
+

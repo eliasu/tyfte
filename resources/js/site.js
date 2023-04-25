@@ -4,6 +4,15 @@ import persist from '@alpinejs/persist'
 import focus from '@alpinejs/focus'
 import 'focus-visible'
 
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { Observer } from "gsap/Observer";
+
+// gsap.registerPlugin(ScrollTrigger, Observer);
+
+import initCrowdPleaser from './components/crowd_pleaser';
+import initTyfteLogo from './components/tyfte_logo';
+
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
     return await fetch('/!/statamic-peak-tools/dynamic-token/refresh')
@@ -22,3 +31,12 @@ Alpine.plugin(collapse)
 Alpine.plugin(persist)
 Alpine.plugin(focus)
 Alpine.start()
+
+document.addEventListener('readystatechange', (event) => {
+	switch (document.readyState) {
+		case "complete":
+			initCrowdPleaser();
+			initTyfteLogo();
+			break;
+	}
+});
