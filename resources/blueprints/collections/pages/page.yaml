@@ -1,4 +1,5 @@
 title: Page
+template: '@blueprint'
 sections:
   main:
     display: Main
@@ -14,13 +15,11 @@ sections:
           display: Title
           validate:
             - required
-      -
-        import: page_builder
   seo:
     display: SEO
     fields:
       -
-        import: statamic-peak-seo::seo
+        import: 'statamic-peak-seo::seo'
   sidebar:
     display: Sidebar
     fields:
@@ -28,13 +27,12 @@ sections:
         handle: meta
         field:
           type: section
-          instructions: 'This entry''s meta data.'
+          instructions: "This entry's meta data."
           display: Meta
       -
         handle: slug
         field:
           type: slug
-          required: true
           localizable: true
           generate: true
           listable: hidden

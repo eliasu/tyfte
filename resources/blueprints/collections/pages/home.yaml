@@ -1,0 +1,98 @@
+title: Home
+template: '@blueprint'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          input_type: text
+          localizable: true
+          listable: true
+          display: Title
+          validate:
+            - required
+      -
+        handle: bard_field
+        field:
+          collapse: true
+          always_show_set_button: false
+          previews: true
+          smart_typography: true
+          buttons:
+            - h1
+            - h2
+            - h3
+            - lead
+            - bold
+            - italic
+            - removeformat
+            - anchor
+          save_html: false
+          inline: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          remove_empty_nodes: true
+          display: 'Bard Field'
+          type: bard
+          icon: bard
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  seo:
+    display: SEO
+    fields:
+      -
+        import: 'statamic-peak-seo::seo'
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: meta
+        field:
+          type: section
+          instructions: "This entry's meta data."
+          display: Meta
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+          generate: true
+          listable: hidden
+          display: Slug
+          validate:
+            - required
+            - 'unique_entry_value:{collection},{id},{site}'
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+      -
+        handle: template
+        field:
+          hide_partials: true
+          blueprint: true
+          folder: pages
+          display: 'Template Field'
+          type: template
+          icon: template
+          listable: hidden
+          instructions_position: above
+          visibility: visible
