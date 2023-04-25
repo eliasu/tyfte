@@ -2,3 +2,7 @@ name: Elias
 super: true
 id: e4b6bc4b-4dca-46a8-8c99-e133faa2872a
 password_hash: $2y$10$yqdMVjuYhGqiLBzUZe6wCeAiX39t.N5SdJ9PQWkf8WIJiGjs3A5A6
+preferences:
+  collections:
+    pages:
+      after_save: continue_editing
