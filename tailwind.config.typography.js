@@ -1,73 +1,125 @@
 //--------------------------------------------------------------------------
 // Tailwind Typography configuration
 //--------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------
+// Tailwind custom Tyfte configuration
+//--------------------------------------------------------------------------
 //
-// Here you may overwrite the default Tailwind Typography (or prosé) styles or configure certain variants.
-// More info: https://tailwindcss.com/docs/typography-plugin.
+// Here we define base styles, components and utilities used by Tyfte.
 //
 
-const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   theme: {
     extend: {
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            '--tw-prose-body': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-headings': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-lead': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-links': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-bold': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-counters': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-bullets': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-hr': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-quotes': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-quote-borders': theme('colors.primary.DEFAULT'),
-            '--tw-prose-captions': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-code': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-pre-code': theme('colors.white'),
-            '--tw-prose-pre-bg': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-th-borders': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-td-borders': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-invert-body': theme('colors.white'),
-            '--tw-prose-invert-headings': theme('colors.white'),
-            '--tw-prose-invert-lead': theme('colors.white'),
-            '--tw-prose-invert-links': theme('colors.white'),
-            '--tw-prose-invert-bold': theme('colors.white'),
-            '--tw-prose-invert-counters': theme('colors.white'),
-            '--tw-prose-invert-bullets': theme('colors.white'),
-            '--tw-prose-invert-hr': theme('colors.white'),
-            '--tw-prose-invert-quotes': theme('colors.white'),
-            '--tw-prose-invert-quote-borders': theme('colors.white'),
-            '--tw-prose-invert-captions': theme('colors.white'),
-            '--tw-prose-invert-code': theme('colors.white'),
-            '--tw-prose-invert-pre-code': theme('colors.neutral.DEFAULT'),
-            '--tw-prose-invert-pre-bg': theme('colors.white'),
-            '--tw-prose-invert-th-borders': theme('colors.white'),
-            '--tw-prose-invert-td-borders': theme('colors.white'),
-            'ul > li > p, ol > li > p': {
-              marginTop: '0em !important',
-              marginBottom: '0em !important',
-            },
-            ':where(.prose > div > :first-child)': {
-              marginTop: '0 !important',
-            },
-            ':where(.prose > div > :last-child)': {
-              marginBottom: '0 !important',
-            },
-            '.not-prose': {
-              margin: '2rem 0 !important',
-            }
-          }
-        }
-      }),
-    }
+      fontSize: {
+        'lead-1': ['clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 0.5208)), 1.875rem)', {
+          lineHeight: '150%',
+          letterSpacing: '0.015em',
+          fontWeight: '500',
+        }],
+
+        'lead-2': ['clamp(1.125rem, calc(1.125rem + ((1vw - 0.48rem) * 0.1736)), 1.25rem)', {
+          lineHeight: '105%',
+        }],
+
+        'crowd': ['0.625rem', {
+          lineHeight: '100%',
+          letterSpacing: '0.2em',
+          fontWeight: '700',
+        }],
+
+        'button': ['1.375rem', {
+          lineHeight: '90%',
+          letterSpacing: '0.2em',
+          fontWeight: '700',
+        }],
+      },
+    },
   },
+  
   plugins: [
-    require('@tailwindcss/typography')({
-      modifiers: [],
+    plugin(function({ addBase, theme}) {
+      const typo = {
+        p: {
+          fontSize: '1rem',
+          marginTop: '0rem',
+          marginBottom: '0.6rem',
+          lineHeight: '135%',
+        },
+
+        h1: {
+          fontSize: 'clamp(2.5rem, calc(2.5rem + ((1vw - 0.48rem) * 2.6042)), 4.375rem)',
+          letterSpacing: '0.02em',
+          lineHeight: '105%',
+          fontWeight: '700',
+        },
+        
+        h2: {
+          fontSize: 'clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 0.5208)), 1.875rem)',
+          letterSpacing: '0.015em',
+          lineHeight: '95%',
+          fontWeight: '700',
+        },
+        
+        h3: {
+          fontSize: 'clamp(1.125rem, calc(1.125rem + ((1vw - 0.48rem) * 0.1736)), 1.25rem)',
+          letterSpacing: '0.095em',
+          lineHeight: '130%',
+          fontWeight: '700',
+          fontFamily: theme('fontFamily.mono'),
+          color: theme("colors.yellow.DEFAULT"),
+        },
+
+        // '@screen lg': {
+          
+        // },
+      }
+      
+      const defaults = {
+        ':root': {
+          minHeight: '0vw',
+          fontSize: '100%',
+          'font-size': '1rem',
+          lineHeight: '105%',
+        },
+
+        'html': {
+            color: theme('colors.light.DEFAULT'),
+            fontFamily: theme('fontFamily.sans'),
+        },
+        
+        '@media (prefers-reduced-motion: no-preference)': {
+          'a': {
+            transition: 'color .3s ease-in-out',
+          },
+        },
+      }
+
+      addBase(defaults)
+      addBase(typo)
+    }),
+
+    plugin(function({ addComponents, theme }) {
+      const components = {
+        // '.classname': {
+        //   width: '100%',
+        //   maxWidth: theme('screens.xl'),
+        // },
+      }
+      addComponents(components)
+    }),
+
+    plugin(function({ addUtilities, theme, variants }) {
+      const newUtilities = {
+        // '.cssclass': {
+        //   fill: 'currentColor',
+        // },
+      }
+      addUtilities(newUtilities)
     }),
   ]
 }

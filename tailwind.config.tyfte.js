@@ -1,0 +1,74 @@
+//--------------------------------------------------------------------------
+// Tailwind custom Tyfte configuration
+//--------------------------------------------------------------------------
+//
+// Here we define base styles, components and utilities used by Tyfte.
+//
+
+const plugin = require('tailwindcss/plugin')
+const colors = require('tailwindcss/colors')
+
+module.exports = {
+  theme: {
+    // set theme defaults
+    fontFamily: {
+      mono: [
+        'Space Mono', 'sans-serif'
+      ],
+      sans: [
+        'Space Grotesk', 'sans-serif'
+      ],
+    },
+    colors: {
+      current: 'currentColor',
+      transparent: 'transparent',
+      
+      light: {
+        DEFAULT: '#fff',
+        gray: '#E0E0E0',
+        soft: '#E0E0E030'
+      },
+      
+      dark: {
+        DEFAULT: '#252525',
+        gray: '#343434',
+        neutral: '#4D4D4D'
+      },
+
+      green: {
+        DEFAULT: '#0ACF83',
+        dark: '#1B9F6C',
+      },
+
+      yellow: {
+        DEFAULT: '#FFC32A',
+        dark: '#DDA600',
+      },
+
+      red: {
+        DEFAULT: '#E46A62',
+        dark: '#C23E3E',
+      },
+
+      purple: {
+        DEFAULT: '#C175FD',
+        dark: '#8E63E2',
+      },
+    },
+
+    // extending the theme
+    extend: {
+      spacing: {
+        'screen-d': '100dvh',
+        'screen-l': '100lvh',
+        'screen-s': '100svh',
+      },
+      zIndex: {
+        'behind': '-1',
+      },
+      transitionTimingFunction: {
+        'bouncy': 'cubic-bezier(.47,1.64,.41,.8)',
+      }
+    },
+  },
+}
