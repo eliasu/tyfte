@@ -12,6 +12,7 @@ import 'focus-visible'
 
 import initCrowdPleaser from './components/crowd_pleaser';
 import initTyfteLogo from './components/tyfte_logo';
+import initBackground from './components/background';
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
@@ -37,6 +38,7 @@ document.addEventListener('readystatechange', (event) => {
 		case "complete":
 			initCrowdPleaser();
 			initTyfteLogo();
+			initBackground();
 			break;
 	}
 });

@@ -79,11 +79,28 @@
       }
    }
 
+   #dotgridBig {
+      background-size: var(--frame) var(--frame);
+      background-position: calc(var(--frame) - calc(var(--frame)/2) ) calc(var(--frame) - calc(var(--frame)/2) ) ;
+      background-image: radial-gradient(circle, rgba(255,255,255,.15) 1px, rgba(0, 0, 0, 0) 2.5px);
+      mask-image: radial-gradient(circle at var(--bgx) var(--bgy), rgba(0,0,0,1) 0px, rgba(0, 0, 0, 0) var(--bgsize));
+      
+   } 
+   
+   @media (min-width: 992px) { 
+      #dotgridBig {
+         background-size: calc(var(--frame)/2) calc(var(--frame)/2);
+         background-position: calc( var(--frame)/2 - calc(var(--frame)/2/2) )  calc( var(--frame)/2 - calc(var(--frame)/2/2) );
+         background-image: radial-gradient(circle, rgba(255,255,255,.15) 1px, rgba(0, 0, 0, 0) 2.5px);
+         mask-image: radial-gradient(circle at var(--bgx) var(--bgy), rgba(0,0,0,1) 0px, rgba(0, 0, 0, 0) var(--bgsize));
+      }
+   }
+
 
 
    /* home link to egg */
    path.eggMask.eggYellow { 
-      filter: drop-shadow(10px 8px 15px rgba(0, 0, 0, 0.44)) drop-shadow(-3px -3px 5px rgba(255, 255, 255, 0.1));
+      filter: drop-shadow(10px 8px 15px rgba(0, 0, 0, 0.5)) drop-shadow(-3px -3px 5px rgba(230, 206, 133, 0.18));
    }
 
 
@@ -106,6 +123,9 @@
    :root {
       --mask-size: 8rem;
       --frame: clamp(1rem, calc(1rem + ((1vw - 0.234375rem) * 6.0094)), 5rem);
+      --bgx: 0px;
+      --bgy: 0px;
+      --bgsize: 400px;
     }
 }
 
