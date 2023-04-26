@@ -19,12 +19,18 @@ function addBgMask() {
 
     // If the device supports touch input replace mouse follower with random animation
     if (isTouchDevice) {
-        console.log("set to touch device")
+        console.log("set tyfte_logo.js to touch device")
+
+        // set initial state of the hover egg
+        gsap.set('.eggMask', {
+            scale: 0,
+            transformOrigin: '50% 50%',
+        })
     }
 
     // If the device doesn't support touch input, add an event listener for the "mousemove" event
     else {
-        console.log("set to desktop")
+        console.log("set tyfte_logo.js to desktop")
 
         // set initial state of the hover egg
         gsap.set('.eggMask', {

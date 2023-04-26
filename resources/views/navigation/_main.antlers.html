@@ -10,28 +10,26 @@ x-trap.inert.noscroll="navOpen"
 @keyup.escape="navOpen = false"
 x-cloak>
     {{# Logo #}}
-    <a href="/" class="absolute h-8 cursor-pointer group" id="homeLink" aria-label="Back to home">
-        {{ svg:tyfte_logo aria-hidden="true" }}
-        {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[23px] pointer-events-none" aria-hidden="true" }}
+    <a href="/" class="absolute h-6 lg:h-8 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
+        {{ svg:tyfte_logo class="w-full h-full" aria-hidden="true" }}
+        {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[27px] lg:-top-[23px] pointer-events-none" aria-hidden="true" }}
     </a>
     
 
     {{# burger menu & cta 2 #}}
     <div class="absolute right-0 flex gap-8">
-        <button class="flex gap-2.5 border-2 rounded py-1 px-2.5 items-center hover:bg-light/20 text-button uppercase">
-            Start Project
-            <span class="inline-block">{{ svg:arrup alt="" aria-hidden="true" }}</span>
-        </button>
-
-        {{# {{ partial:components/button }} #}}
         
-        <button id="burger" class="cursor-pointer group"
+        {{# start project button #}}
+        {{ partial:components/button class="hidden lg:flex" label="Start Project" icon="arrup"  }}
+            
+        {{# burger button #}}
+        <button id="burger" class="relative min-h-[1.5rem] flex flex-col justify-between cursor-pointer group"
         @click.prevent="navOpen = !navOpen"
         :aria-label="navOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
         :aria-expanded="navOpen">
-            {{ svg:burger alt="" aria-hidden="true" }}
+            <div class="h-1.5 lg:h-2 w-24 lg:w-30 bg-light" id="bar1"></div>
+            <div class="w-12 lg:w-15 h-1.5 lg:h-2 bg-light" id="bar2"></div>
         </button>
-        
     </div>
     
     {{# Three Liner #}}
@@ -40,19 +38,19 @@ x-cloak>
         We design.<br>
         We code.
     </p>
-    
+
     {{# Crowd Pleaser #}}
     <div id="crowdpleaser" class="absolute right-0 flex flex-col uppercase -bottom-2 text-crowd">
         
-        <div id="cp_headline" class="flex items-center w-full h-6 transition duration-700">Crowd Pleaser</div>
+        <div id="cp_headline" class="flex items-center w-full h-6 duration-700 motion-safe:transition">Crowd Pleaser</div>
         
-        <div id="cp_slider_1" class="flex items-center justify-between w-full h-6 gap-4 transition duration-700 group">
-            <label for="colors-silder" class="block transition text-crowd group-hover:text-yellow">Colors</label>
+        <div id="cp_slider_1" class="flex items-center justify-between w-full h-6 gap-4 duration-700 motion-safe:transition group">
+            <label for="colors-silder" class="block motion-safe:transition text-crowd group-hover:text-yellow">Colors</label>
             <input id="colors-silder" type="range" value="50">
         </div>
         
-        <div id="cp_slider_2" class="flex items-center justify-between w-full h-6 gap-4 font-mono transition duration-700 group">
-            <label for="patterns-silder" class="block transition text-crowd group-hover:text-yellow">Pattern</label>
+        <div id="cp_slider_2" class="flex items-center justify-between w-full h-6 gap-4 font-mono duration-700 motion-safe:transition group">
+            <label for="patterns-silder" class="block motion-safe:transition text-crowd group-hover:text-yellow">Pattern</label>
             <input id="patterns-silder" type="range" value="50">
         </div>
     </div> 

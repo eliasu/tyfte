@@ -10,28 +10,25 @@
 
 <!-- /components/_button.antlers.html -->
 {{ if label }}
-    <{{ as or 'a' }}
+    <{{ as or 'button' }}
         {{ slot:attributes }}
-        class="
-            font-bold underline decoration-2 focus:outline-none focus-visible:ring focus-visible:ring-offset-2
-            {{ if button_type === 'inline' }}
-                underline motion-safe:transition
-                {{ inverted
-                    ? 'text-white decoration-white focus-visible:ring-white'
-                    : 'text-neutral decoration-primary focus-visible:ring-primary'
-                }}
-            {{ else }}
-                inline-flex items-center py-3 px-4 rounded leading-none no-underline select-none whitespace-nowrap motion-safe:transition
-                {{ inverted
-                    ? 'bg-white text-primary focus-visible:ring-white'
-                    : 'bg-primary text-white focus-visible:ring-primary'
-                }}
-            {{ /if }}
-            {{ class }}
-        "
-        {{ !faux ?= { partial:snippets/button_attributes } }}
+        class="flex gap-2.5 border-2 rounded py-1 px-2.5 items-center uppercase whitespace-nowrap group hover:scale-105 hover:bg-light transition-all
+        {{ big ? 'text-buttonbig' : 'text-button' }}
+        {{ solid ?= 'bg-red' }}
+        {{ class }}"
+        {{ partial:snippets/button_attributes }}
     >
-        {{ link_type == 'email' ? { label | obfuscate_email } : label }}
-    </{{ as or 'a' }}>
+        {{# button text #}}
+        <div class="transition-all duration-700 origin-left group-hover:scale-90 group-hover:text-dark">
+            {{ link_type == 'email' ? { label | obfuscate_email } : label }}
+        </div>
+        
+        {{# button icon #}}
+        {{ if icon }}
+            <div class="h-[1em] aspect-square transition-all duration-700 origin-center group-hover:scale-110 group-hover:translate-x-0.5 group-hover:text-dark">
+                {{ svg:{{ icon }} class="w-full h-full" aria-hidden="true" }}
+            </div>
+        {{ /if }}
+    </{{ as or 'button' }}>
 {{ /if }}
 <!-- End: /components/_button.antlers.html -->

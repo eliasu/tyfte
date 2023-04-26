@@ -62,6 +62,8 @@ module.exports = {
         'screen-d': '100dvh',
         'screen-l': '100lvh',
         'screen-s': '100svh',
+        '15': '3.75rem',
+        '30': '7.5rem',
       },
       zIndex: {
         'behind': '-1',

@@ -18,12 +18,13 @@ function addBackgroundFollower() {
 
     // If the device supports touch input replace mouse follower with random animation
     if (isTouchDevice) {
-        console.log("set to touch device")
+        console.log("set background.js to touch device")
 
         function moving () {
             gsap.to(dotgridBig, {
                 '--bgx': `${Math.floor(Math.random() * 100)}%`,
                 '--bgy': `${Math.floor(Math.random() * 100)}%`,
+                '--bgsize': `${Math.floor(Math.random() * 150) + 150}`,
                 duration: 2,
                 ease: 'sine.out'
             })
@@ -35,7 +36,7 @@ function addBackgroundFollower() {
 
     // If the device doesn't support touch input, add an event listener for the "mousemove" event
     else {
-        console.log("set to desktop")
+        console.log("set background.js to desktop")
 
         // Mouse follower
         window.addEventListener('mousemove', (e) => {

@@ -32,7 +32,13 @@ module.exports = {
           fontWeight: '700',
         }],
 
-        'button': ['1.375rem', {
+        'button': ['clamp(20px, calc(1.25rem + ((1vw - 3.75px) * 0.1294)), 22px);', {
+          lineHeight: '90%',
+          letterSpacing: '0.2em',
+          fontWeight: '700',
+        }],
+
+        'buttonbig': ['clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 1.0417)), 2.25rem);', {
           lineHeight: '90%',
           letterSpacing: '0.2em',
           fontWeight: '700',

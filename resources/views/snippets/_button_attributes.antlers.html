@@ -10,8 +10,8 @@
     (link_type == 'tel') => 'href="tel:{{ tel }}"',
     (link_type == 'sms') => 'href="sms:{{ sms }}"',
     (link_type == 'asset') => 'href="{{ asset }}" download',
-    () => 'href="{{ url }}"'
+    () => 'href="{{ url ?? "/" }}"'
 )}}
 {{ target_blank ?= 'rel="noopener" target="_blank"' }}
-{{ attr_title ?= 'title="{{ attr_title }}"' }}
-{{ attr_aria ?= 'aria-label="{{ attr_aria }}"' }}
+{{ attr_title ? 'title="{{ attr_title }}"' : 'title="Button {{ label }}"' }}
+{{ attr_aria ? 'aria-label="{{ attr_aria }}"' : 'aria-label="Button {{ label }}"' }}
