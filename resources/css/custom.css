@@ -54,10 +54,59 @@
    a, button, input {
       @apply focus:outline-none focus-visible:ring focus-visible:ring-yellow/75 motion-safe:transition;
    }
+
+   svg {
+      overflow: visible;
+   }
+
+   svg.btn-bg {
+      stroke-dasharray: 500%,1000%;
+      stroke-dashoffset: 0%;
+      animation: emptyanim;
+   }
+   svg.btn-bg:hover {
+      animation: fusion 1.3s cubic-bezier(0, 0, 0, 1) forwards;
+   }  
+    
+   @keyframes emptyanim {}
+   
+   @keyframes fusion {
+      55% {
+         stroke-dasharray: 50%,1000%;
+         /* stroke-dashoffset: -210%; */
+      }
+      100% {
+         stroke-dashoffset: -210%;
+         stroke-dasharray: 50%,1000%;
+      }
+   }
 }
 
 @layer components {
+    
+   button:hover > [data-icon] {
+      @apply transition duration-700;
+      animation-play-state: running;
+      transform: scale(1.2);
+      background-image: conic-gradient(
+         #0ACF83,
+         #FFC32A,
+         #0ACF83
+      );
+   }
    
+   [data-icon] {
+      clip-path: url(#clipPathIcon);
+      animation: emphesize linear 1500ms infinite;
+      animation-play-state: paused;
+   }
+
+   @keyframes emphesize {
+      to { filter: hue-rotate(1turn); }
+   }
+
+   
+
    /* crowd pleaser stylings */
    input[type="range"] {
       @apply bg-light appearance-none h-0.5 rounded-full motion-safe:transition cursor-pointer w-28 group-hover:bg-yellow;
@@ -127,6 +176,7 @@
       --bgx: 0px;
       --bgy: 0px;
       --bgsize: 400px;
+      --test: 0deg;
     }
 }
 

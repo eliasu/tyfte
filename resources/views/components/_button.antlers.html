@@ -12,23 +12,27 @@
 {{ if label }}
     <{{ as or 'button' }}
         {{ slot:attributes }}
-        class="flex gap-2.5 border-2 rounded py-1 px-2.5 items-center uppercase whitespace-nowrap group hover:scale-105 hover:bg-light transition-all
+        class="relative flex gap-2.5 rounded py-1 px-2.5 items-center uppercase whitespace-nowrap transition group
         {{ big ? 'text-buttonbig' : 'text-button' }}
         {{ solid ?= 'bg-red' }}
         {{ class }}"
         {{ partial:snippets/button_attributes }}
     >
         {{# button text #}}
-        <div class="transition-all duration-700 origin-left group-hover:scale-90 group-hover:text-dark">
+        <div class="transition duration-500 group-hover:scale-95 group-hover:text-green">
             {{ link_type == 'email' ? { label | obfuscate_email } : label }}
         </div>
         
         {{# button icon #}}
         {{ if icon }}
-            <div class="h-[1em] aspect-square transition-all duration-700 origin-center group-hover:scale-110 group-hover:translate-x-0.5 group-hover:text-dark">
-                {{ svg:{{ icon }} class="w-full h-full" aria-hidden="true" }}
+            <div data-icon class="h-[1em] aspect-square bg-light scale-115">
+                {{# svg acts as a mask -> see custom.css #}}
+                {{ svg:{{ icon }} aria-hidden="true" }}
             </div>
         {{ /if }}
+            
+        {{ svg:bg class="absolute inset-0 w-full h-full transition duration-500 btn-bg text-light group-hover:text-green" aria-hidden="true" }}
+
     </{{ as or 'button' }}>
 {{ /if }}
 <!-- End: /components/_button.antlers.html -->

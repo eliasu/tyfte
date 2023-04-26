@@ -20,15 +20,15 @@ x-cloak>
     <div class="absolute right-0 flex gap-8">
         
         {{# start project button #}}
-        {{ partial:components/button class="hidden lg:flex" label="Start Project" icon="arrup"  }}
+        {{ partial:components/button class="hidden lg:flex" label="start project" icon="arrup"  }}
             
         {{# burger button #}}
         <button id="burger" class="relative min-h-[1.5rem] flex flex-col justify-between cursor-pointer group"
         @click.prevent="navOpen = !navOpen"
         :aria-label="navOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
         :aria-expanded="navOpen">
-            <div class="h-1.5 lg:h-2 w-24 lg:w-30 bg-light" id="bar1"></div>
-            <div class="w-12 lg:w-15 h-1.5 lg:h-2 bg-light" id="bar2"></div>
+            <div class="h-1.5 lg:h-2 w-24 lg:w-30 bg-light group-hover:bg-green" id="bar1"></div>
+            <div class="w-12 lg:w-15 h-1.5 lg:h-2 bg-light group-hover:bg-green" id="bar2"></div>
         </button>
     </div>
     
