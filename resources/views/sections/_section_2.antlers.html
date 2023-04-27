@@ -4,44 +4,31 @@
 #}}
 
 <!-- sections/section_2.antlers.html -->
-<section class="grid items-center w-full h-full grid-cols-2 pager">
-    
-    <div class="flex flex-col gap-4">
-        
-        {{# tag wrapper #}}
-        <div class="flex flex-wrap gap-x-6 gap-y-2">
-            {{ partial:components/tag text="The yellow from the egg" url="/" class="bg-yellow" }}
-            {{ partial:components/tag text="The last team you need" url="/" class="bg-purple" }}
+{{ partial:layout/section }}
+
+    {{# main content grid #}}
+    <div class="relative grid items-center w-full h-full grid-cols-2">
+
+        <div class="flex flex-col gap-4">
+            
+            {{# tag wrapper #}}
+            {{ partial:components/tags }}
+                {{ partial:components/tag text="Webflow" url="/" class="bg-green" }}
+                {{ partial:components/tag text="Statamic" url="/" class="bg-purple" }}
+                {{ partial:components/tag text="Hibedibu" url="/" class="bg-red" }}
+            {{ /partial:components/tags }}
+            
+            <p class="text-lead-1">
+                Togehter we develop the right concept to fullfill your users and your needs and get your message across. The right idea and the right strategy to make it happen.
+            </>
+
         </div>
-        
+
         {{# Headline #}}
-        <h1>
-            Section Zwei 
-            {{ partial:components/button class="relative inline-flex top-[-.2em] text-yellow hover:text-purple" label="say whaaat" icon="arrup" big="true" }}
-        </h1>
+        <h2 class="absolute left-0 text-left bottom-24">
+            pixel perfect design
+        </h2>
     </div>
 
-    {{# container video and scroll  #}}
-    <div class="relative h-2/3"> 
-        {{# opener video #}}
-        <div class="relative h-full left-[-20%] w-[120%] z-behind rounded overflow-hidden shadow-big">
-            <img class="object-cover w-full h-full" src="/images/still.jpg" alt="">
-        </div>
-
-        {{# scroll instructions #}}
-        <div class="absolute flex flex-col items-start gap-4 -translate-y-1/2 top-1/2 right-24">
-            <div class="">
-                <div class="flex items-center gap-2 mb-2">
-                    <p class="mb-0 font-bold">Scroll</p>
-                    <div data-line class="absolute left-16 right-[calc((6rem+var(--frame))*-1)] h-0.5"></div>
-                </div>
-                <p class="max-w-[20ch]">or click here to see some of our projects.</p>
-            </div>
-            {{ partial:components/button label="work" icon="arrup" }}
-        </div>
-    </div>
-    
-    {{# Thank you message right top #}}
-    <div class="absolute top-0 right-0 origin-top-right -rotate-90 -translate-x-6 translate-y-4 text-tag text-light">Thank you for <span class="font-bold" id="loveCount">23</span> loves</div>
-</section>
+{{ /partial:layout/section }}
 <!-- End: sections/section_2.antlers.html -->

@@ -68,6 +68,10 @@ module.exports = {
           marginBottom: 'theme(spacing.8)',
         },
         
+        '.text-lead-1': {
+          maxWidth: '35ch',
+        },
+
         a: {
           color: 'theme(colors.yellow.DEFAULT)',
         },

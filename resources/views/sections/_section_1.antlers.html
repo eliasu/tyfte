@@ -12,10 +12,10 @@
         <div class="flex flex-col gap-4">
             
             {{# tag wrapper #}}
-            <div class="flex flex-wrap gap-x-6 gap-y-2">
+            {{ partial:components/tags }}
                 {{ partial:components/tag text="The yellow from the egg" url="/" class="bg-yellow" }}
                 {{ partial:components/tag text="The last team you need" url="/" class="bg-purple" }}
-            </div>
+            {{ /partial:components/tags }}
             
             {{# Headline #}}
             <h1 class="text-left">
@@ -52,5 +52,5 @@
     {{# Thank you message right top #}}
     <div class="absolute top-0 right-0 origin-top-right -rotate-90 -translate-x-6 translate-y-4 text-tag text-light">Thank you for <span class="font-bold" id="loveCount">23</span> loves</div>
 
-    {{ /partial:layout/section }}
+{{ /partial:layout/section }}
 <!-- End: sections/section_1.antlers.html -->
