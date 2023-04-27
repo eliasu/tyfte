@@ -32,6 +32,12 @@ module.exports = {
           fontWeight: '700',
         }],
 
+        'tag': ['0.75rem', {
+          lineHeight: '100%',
+          letterSpacing: '0.095em',
+          fontWeight: '700',
+        }],
+
         'button': ['clamp(20px, calc(1.25rem + ((1vw - 3.75px) * 0.1294)), 22px);', {
           lineHeight: '90%',
           letterSpacing: '0.2em',
@@ -59,7 +65,7 @@ module.exports = {
 
         h1: {
           fontSize: 'clamp(2.5rem, calc(2.5rem + ((1vw - 0.48rem) * 2.6042)), 4.375rem)',
-          letterSpacing: '0.02em',
+          letterSpacing: 'clamp(0.15em, calc(0.15rem + ((1vw - 0.234375em) * 0.2036)), 0.2em)',
           lineHeight: '105%',
           fontWeight: '700',
         },

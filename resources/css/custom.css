@@ -54,40 +54,17 @@
    a, button, input {
       @apply focus:outline-none focus-visible:ring focus-visible:ring-yellow/75 motion-safe:transition;
    }
-
-   svg {
-      overflow: visible;
-   }
-
-   svg.btn-bg {
-      stroke-dasharray: 500%,1000%;
-      stroke-dashoffset: 0%;
-      animation: emptyanim;
-   }
-   svg.btn-bg:hover {
-      animation: fusion 1.3s cubic-bezier(0, 0, 0, 1) forwards;
-   }  
     
-   @keyframes emptyanim {}
-   
-   @keyframes fusion {
-      55% {
-         stroke-dasharray: 50%,1000%;
-         /* stroke-dashoffset: -210%; */
-      }
-      100% {
-         stroke-dashoffset: -210%;
-         stroke-dasharray: 50%,1000%;
-      }
-   }
 }
 
 @layer components {
-    
+   
+   /* button animation (the rainbow effect on the icons & the border line animation */
+   /* rainbow effect on icon */
    button:hover > [data-icon] {
-      @apply transition duration-700;
+      @apply scale-125;
+      animation: colorchange linear 1500ms infinite;
       animation-play-state: running;
-      transform: scale(1.2);
       background-image: conic-gradient(
          #0ACF83,
          #FFC32A,
@@ -96,13 +73,69 @@
    }
    
    [data-icon] {
-      clip-path: url(#clipPathIcon);
-      animation: emphesize linear 1500ms infinite;
+      @apply transition duration-700;
+      animation: resetanimation;
       animation-play-state: paused;
+      mask-size: cover;
+      mask-repeat: no-repeat;
    }
 
-   @keyframes emphesize {
+   /* applying the correct mask */
+   [data-icon="arrup"] { mask-image: url(/resources/svg/arrup.svg); }
+   [data-icon="arrdown"] { mask-image: url(/resources/svg/arrdown.svg); }
+   [data-icon="hearth"] { mask-image: url(/resources/svg/hearth.svg); }
+
+
+   svg {
+      /* for outline svg */
+      overflow: visible;
+   }
+
+   /* button border line animation */
+   svg.btn-bg {
+      stroke-dasharray: 500%,1000%;
+      stroke-dashoffset: 0%;
+      animation: resetanimation;
+   }
+   svg.btn-bg:hover {
+      animation: strokeanimation 1.3s cubic-bezier(0, 0, 0, 1) forwards;
+   }
+    
+   @keyframes resetanimation {}
+
+   @keyframes colorchange {
       to { filter: hue-rotate(1turn); }
+   }
+
+   @keyframes strokeanimation {
+      55% {
+         stroke-dasharray: 50%,1000%;
+      }
+      100% {
+         stroke-dashoffset: -210%;
+         stroke-dasharray: 50%,1000%;
+      }
+   }
+
+
+   /* scrolling instruction line animation to the right */
+   [data-line] {
+      background-image: linear-gradient(90deg, theme(colors.light.DEFAULT) 50%, theme(colors.light.soft) 50%);
+      background-size: 200% 100%;
+      background-position: 100% 0;
+      animation: scrolldown 2.2s cubic-bezier(0.76, 0, 0.3, 1) forwards infinite;
+   }
+
+   @keyframes scrolldown {
+      0%{
+         background-position: 100% 0;
+      }
+      75% {
+         background-position: 0 0;
+      }
+      100%{
+         background-position: -100% 0;
+      }
    }
 
    
@@ -179,4 +212,3 @@
       --test: 0deg;
     }
 }
-

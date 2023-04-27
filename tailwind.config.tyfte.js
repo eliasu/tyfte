@@ -65,6 +65,12 @@ module.exports = {
         '15': '3.75rem',
         '30': '7.5rem',
       },
+      boxShadow: {
+        'big': '30px 54px 124px 0px #00000040',
+      },
+      padding: {
+        '0.5': '0.125rem',
+      },
       zIndex: {
         'behind': '-1',
       },

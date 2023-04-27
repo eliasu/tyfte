@@ -13,5 +13,5 @@
     () => 'href="{{ url ?? "/" }}"'
 )}}
 {{ target_blank ?= 'rel="noopener" target="_blank"' }}
-{{ attr_title ? 'title="{{ attr_title }}"' : 'title="Button {{ label }}"' }}
-{{ attr_aria ? 'aria-label="{{ attr_aria }}"' : 'aria-label="Button {{ label }}"' }}
+{{ attr_title ? 'title="{{ attr_title }}"' : 'title="{{ label }}"' }}
+{{ attr_aria ? 'aria-label="{{ attr_aria }}"' : 'aria-label="{{ label }}"' }}

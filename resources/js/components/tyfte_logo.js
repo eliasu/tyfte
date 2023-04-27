@@ -47,8 +47,6 @@ function addBgMask() {
             })
         };
 
-        // setInterval(rotating, 2000);
-
         // the yellow from the egg gets big on hover
         let animation = gsap.to(".eggMask", {
             paused: true,

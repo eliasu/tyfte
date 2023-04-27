@@ -4,43 +4,43 @@
 #}}
 
 
-<nav class="fixed inset-[var(--frame)] z-50" aria-label="{{ trans:strings.main_navigation }}" 
+<nav class="fixed inset-[var(--frame)] pointer-events-none z-50" aria-label="{{ trans:strings.main_navigation }}" 
 x-data="{ navOpen: false }"
 x-trap.inert.noscroll="navOpen"
 @keyup.escape="navOpen = false"
 x-cloak>
     {{# Logo #}}
-    <a href="/" class="absolute h-6 lg:h-8 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
+    <a href="/" class="absolute h-6 pointer-events-auto lg:h-8 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
         {{ svg:tyfte_logo class="w-full h-full" aria-hidden="true" }}
         {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[27px] lg:-top-[23px] pointer-events-none" aria-hidden="true" }}
     </a>
     
 
     {{# burger menu & cta 2 #}}
-    <div class="absolute right-0 flex gap-8">
+    <div class="absolute right-0 flex gap-8 pointer-events-auto">
         
         {{# start project button #}}
-        {{ partial:components/button class="hidden lg:flex" label="start project" icon="arrup"  }}
+        {{ partial:components/button class="hidden lg:flex" label="start project" icon="arrup" }}
             
         {{# burger button #}}
         <button id="burger" class="relative min-h-[1.5rem] flex flex-col justify-between cursor-pointer group"
         @click.prevent="navOpen = !navOpen"
         :aria-label="navOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
         :aria-expanded="navOpen">
-            <div class="h-1.5 lg:h-2 w-24 lg:w-30 bg-light group-hover:bg-green" id="bar1"></div>
-            <div class="w-12 lg:w-15 h-1.5 lg:h-2 bg-light group-hover:bg-green" id="bar2"></div>
+            <div class="h-1.5 lg:h-2 w-24 lg:w-30 bg-light group-hover:bg-yellow" id="bar1"></div>
+            <div class="w-12 lg:w-15 h-1.5 lg:h-2 bg-light group-hover:bg-yellow" id="bar2"></div>
         </button>
     </div>
     
     {{# Three Liner #}}
-    <p class="absolute bottom-0 mb-0 text-lead-2">
+    <p class="absolute bottom-0 mb-0 pointer-events-auto text-lead-2">
         We consult.<br>
         We design.<br>
         We code.
     </p>
 
     {{# Crowd Pleaser #}}
-    <div id="crowdpleaser" class="absolute right-0 flex flex-col uppercase -bottom-2 text-crowd">
+    <div id="crowdpleaser" class="absolute right-0 flex flex-col uppercase pointer-events-auto -bottom-2 text-crowd">
         
         <div id="cp_headline" class="flex items-center w-full h-6 duration-700 motion-safe:transition">Crowd Pleaser</div>
         

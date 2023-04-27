@@ -12,26 +12,23 @@
 {{ if label }}
     <{{ as or 'button' }}
         {{ slot:attributes }}
-        class="relative flex gap-2.5 rounded py-1 px-2.5 items-center uppercase whitespace-nowrap transition group
+        class="text-light hover:text-green relative flex gap-2.5 rounded py-1 px-2.5 items-center uppercase whitespace-nowrap transition group
         {{ big ? 'text-buttonbig' : 'text-button' }}
         {{ solid ?= 'bg-red' }}
         {{ class }}"
         {{ partial:snippets/button_attributes }}
     >
         {{# button text #}}
-        <div class="transition duration-500 group-hover:scale-95 group-hover:text-green">
+        <div class="transition duration-500 group-hover:scale-95 pt-0.5">
             {{ link_type == 'email' ? { label | obfuscate_email } : label }}
         </div>
         
         {{# button icon #}}
         {{ if icon }}
-            <div data-icon class="h-[1em] aspect-square bg-light scale-115">
-                {{# svg acts as a mask -> see custom.css #}}
-                {{ svg:{{ icon }} aria-hidden="true" }}
-            </div>
+            <div data-icon="{{icon}}" class="h-[1em] aspect-square bg-current"></div>
         {{ /if }}
             
-        {{ svg:bg class="absolute inset-0 w-full h-full transition duration-500 btn-bg text-light group-hover:text-green" aria-hidden="true" }}
+        {{ svg:bg class="absolute inset-0 w-full h-full transition duration-500 btn-bg" aria-hidden="true" }}
 
     </{{ as or 'button' }}>
 {{ /if }}

@@ -4,12 +4,47 @@
 #}}
 
 <!-- sections/section_1.antlers.html -->
+
+<section class="grid items-center w-full h-full grid-cols-2 p-[var(--frame)]">
     
-    <div class="absolute inset-0 grid-cols-4 grid-rows-4">
-        {{# <div id="rec1" class="h-1/2 aspect-square bg-red"></div>
-        <div id="rec1" class="h-1/2 aspect-square bg-red"></div>
-        <div id="rec1" class="h-1/2 aspect-square bg-red"></div>
-        <div id="rec1" class="h-1/2 aspect-square bg-red"></div> #}}
+    <div class="flex flex-col gap-4">
+        
+        {{# tag wrapper #}}
+        <div class="flex flex-wrap gap-x-6 gap-y-2">
+            {{ partial:components/tag text="The yellow from the egg" url="/" class="bg-yellow" }}
+            {{ partial:components/tag text="The last team you need" url="/" class="bg-purple" }}
+        </div>
+        
+        {{# Headline #}}
+        <h1 class="text-left">
+            Artisan 
+            {{ partial:components/button class="relative inline-flex top-[-.2em] text-yellow hover:text-purple" label="digital design" icon="arrup" big="true" }}
+            from Berlin with
+            {{ partial:components/button class="relative inline-flex top-[-.2em] text-red hover:text-yellow" label="love" icon="hearth" big="true" }}
+        </h1>
     </div>
 
+    {{# container video and scroll  #}}
+    <div class="relative h-2/3"> 
+        {{# opener video #}}
+        <div class="relative h-full left-[-20%] w-[120%] z-behind rounded overflow-hidden shadow-big">
+            <img class="object-cover w-full h-full" src="/images/still.jpg" alt="">
+        </div>
+
+        {{# scroll instructions #}}
+        <div class="absolute flex flex-col items-start gap-4 -translate-y-1/2 top-1/2 right-24">
+            <div class="">
+                <div class="flex items-center gap-2 mb-2">
+                    <p class="mb-0 font-bold">Scroll</p>
+                    <div data-line class="absolute left-16 right-[calc((6rem+var(--frame))*-1)] h-0.5"></div>
+                </div>
+                <p class="max-w-[20ch]">or click here to see some of our projects.</p>
+            </div>
+            {{ partial:components/button label="work" icon="arrup" }}
+        </div>
+    </div>
+    
+    {{# Thank you message right top #}}
+    <div class="absolute top-0 right-0 origin-top-right -rotate-90 -translate-x-6 translate-y-4 text-tag text-light">Thank you for <span class="font-bold" id="loveCount">23</span> loves</div>
+</section>
 <!-- End: sections/section_1.antlers.html -->
