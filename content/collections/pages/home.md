@@ -9,7 +9,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template_field: pages/home
 updated_by: e4b6bc4b-4dca-46a8-8c99-e133faa2872a
-updated_at: 1682609405
+updated_at: 1682632641
 template: '@blueprint'
 bard_field:
   -
@@ -102,4 +102,5 @@ bard_field:
       values:
         type: button
         label: 'Hier ein Test'
+video: final-comp.mp4
 ---

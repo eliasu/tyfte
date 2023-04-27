@@ -54,6 +54,27 @@
    a, button, input {
       @apply focus:outline-none focus-visible:ring focus-visible:ring-yellow/75 motion-safe:transition;
    }
+   
+   /* Hide scrollbar */
+   body::-webkit-scrollbar {
+      display: none;
+    }
+
+   [data-container] {
+       /* IE, Edge and Firefox */
+      -ms-overflow-style: none;  
+      scrollbar-width: none; 
+   }
+
+   [data-videowrapper] {
+      background-image: linear-gradient(to right, transparent 50%, black 90%);
+      /* background-image: url(/resources/images/overlay.jpg); */
+      @apply absolute inset-0 bg-cover mix-blend-multiply opacity-80;
+   }
+
+   [data-dotgrid] {
+      @apply transition-all ease-out duration-[1s];
+   }
     
 }
 
@@ -190,7 +211,23 @@
       filter: drop-shadow(10px 8px 15px rgba(0, 0, 0, 0.5)) drop-shadow(-3px -3px 5px rgba(230, 206, 133, 0.18));
    }
 
+   body {
+      overscroll-behavior: none;
+   }
 
+   [data-container] {
+      overscroll-behavior: none;
+      width: 600%;
+      height: 100%;
+      /* display: flex;
+      flex-wrap: nowrap; */
+   }
+
+   [data-section] {
+      width: 100%;
+      height: 100%;
+   }
+    
    
    /* burger menu animation */
    #bar1 {

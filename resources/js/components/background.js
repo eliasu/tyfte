@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 export default function initBg() { 
     console.log("** init tyfte logo from /components/background.js **")
     addBackgroundFollower()
+    addParallaxBackground()
 }
 
 function addBackgroundFollower() {
@@ -54,4 +55,31 @@ function addBackgroundFollower() {
         })
  
     }
+}
+
+function addParallaxBackground() {
+    const elements = document.querySelectorAll('[data-dotgrid]')
+    const container = document.querySelector('[data-container]')
+    
+    // listen for the scroll event
+    window.addEventListener('scroll', () => {
+        
+        // affect all elements with the class "bg-grid"
+        elements.forEach(element => {
+            // calculate the position of the element relative to the top of the page
+            const elementPosition = container.getBoundingClientRect().top;
+            
+            // calculate the scroll position of the page
+            const scrollPosition = window.scrollY;
+            
+            // get the scroll value from the data attribute
+            const scrollValue = element.dataset.scroll ?? 0.05;
+
+            // calculate the new background position
+            const bgPosition = (scrollPosition - elementPosition) * -scrollValue;
+            
+            // set the new background position
+            element.style.backgroundPositionX = `${bgPosition}px`;
+        });
+    });
 }

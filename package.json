@@ -16,6 +16,7 @@
     "alpinejs": "^3.11.1",
     "focus-visible": "^5.2.0",
     "gsap": "^3.11.5",
+    "horizontal-scroll": "^1.1.0",
     "puppeteer": "^19.9.1"
   },
   "devDependencies": {

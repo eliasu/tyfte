@@ -5,25 +5,31 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function initScroller() { 
     console.log("** init scroller from /components/scroller.js **")
 
-    let pages = [...document.querySelectorAll('.pager')]
-    gsap.to(pages, {
-    xPercent: -100 * (pages.length - 1),
-    ease: "ease",
-    scrollTrigger: {
-        trigger: ".scrollcontainer",
-        pin: true,
-        markers: true,
-        scrub: 1,
-        snap: 1 / (pages.length - 1),
-        // base vertical scrolling on how wide the container is so it feels more natural.
-        end: () => "+=" + document.querySelector(".scrollcontainer").offsetWidth
-    }
+    gsap.registerPlugin(ScrollTrigger);
+
+    let sections = gsap.utils.toArray("[data-section]");
+
+    gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: "[data-container]",
+            pin: true,
+            scrub: .2,
+            snap: {
+            snapTo: 1 / (sections.length - 1),
+            duration: 1
+            },
+            // base vertical scrolling on how wide the container is so it feels more natural.
+            end: "+=3500",
+        }
     });
+
+
 }
 
 

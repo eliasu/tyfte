@@ -68,6 +68,9 @@ module.exports = {
       boxShadow: {
         'big': '30px 54px 124px 0px #00000040',
       },
+      aspectRatio: {
+        '16/11': '16 / 11',
+      },
       padding: {
         '0.5': '0.125rem',
       },
