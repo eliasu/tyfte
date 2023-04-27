@@ -29,7 +29,7 @@ return [
             'name' => 'Lead',
             'ident' => 'L',
             'icon' => null,
-            'class' => 'text-lead-1',
+            'class' => ' text-lead-1 ',
             'cp_css' => 'font-size: 1.25em',
             'cp_badge' => false,
         ],

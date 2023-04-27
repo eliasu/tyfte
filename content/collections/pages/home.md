@@ -9,7 +9,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template_field: pages/home
 updated_by: e4b6bc4b-4dca-46a8-8c99-e133faa2872a
-updated_at: 1682079411
+updated_at: 1682609405
 template: '@blueprint'
 bard_field:
   -
@@ -85,7 +85,7 @@ bard_field:
   -
     type: paragraph
     attrs:
-      class: lead
+      class: ' text-lead-1 '
     content:
       -
         type: text
@@ -95,4 +95,11 @@ bard_field:
       -
         type: text
         text: 'The Big Oxmox advised her not to do because there were thousands of bad Commas, wild Question Marks and devious Semikoli.'
+  -
+    type: set
+    attrs:
+      id: lgz97k94
+      values:
+        type: button
+        label: 'Hier ein Test'
 ---

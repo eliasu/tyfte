@@ -56,11 +56,24 @@ module.exports = {
   plugins: [
     plugin(function({ addBase, theme}) {
       const typo = {
+        
         p: {
           fontSize: '1rem',
           marginTop: '0rem',
           marginBottom: '0.6rem',
           lineHeight: '135%',
+        },
+        
+        '.prose p': {
+          marginBottom: 'theme(spacing.8)',
+        },
+        
+        a: {
+          color: 'theme(colors.yellow.DEFAULT)',
+        },
+        
+        'a:hover': {
+          color: 'theme(colors.green.DEFAULT)',
         },
 
         h1: {
@@ -68,6 +81,10 @@ module.exports = {
           letterSpacing: 'clamp(0.15em, calc(0.15rem + ((1vw - 0.234375em) * 0.2036)), 0.2em)',
           lineHeight: '105%',
           fontWeight: '700',
+        },
+
+        '.prose h1': {
+          marginBottom: 'theme(spacing.8)',
         },
         
         h2: {

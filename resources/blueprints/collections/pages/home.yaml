@@ -21,16 +21,20 @@ sections:
           collapse: true
           always_show_set_button: false
           previews: true
-          smart_typography: true
+          smart_typography: false
           buttons:
-            - h1
             - h2
             - h3
-            - lead
             - bold
             - italic
+            - leader
+            - unorderedlist
+            - orderedlist
             - removeformat
+            - quote
             - anchor
+            - image
+            - table
           save_html: false
           inline: false
           toolbar_mode: fixed
@@ -50,6 +54,12 @@ sections:
           listable: hidden
           instructions_position: above
           visibility: visible
+          sets:
+            button:
+              display: Button
+              fields:
+                -
+                  import: button
   seo:
     display: SEO
     fields:

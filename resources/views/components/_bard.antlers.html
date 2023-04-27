@@ -1,0 +1,14 @@
+{{#
+    @name Bard
+    @desc The bard component
+
+    #Use it like this:  {partial:components/bard :content="bard_field"}
+#}}
+
+<!-- /components/_bard.antlers.html -->
+<article class="flex flex-col items-start [&>a]:text-yellow {{ class }}">
+    {{ content }}
+        {{ partial src="components/{type}" }}
+    {{ /content }}
+</article>
+<!-- End: /components/_bard.antlers.html -->
