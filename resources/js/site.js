@@ -3,6 +3,7 @@ import collapse from '@alpinejs/collapse'
 import persist from '@alpinejs/persist'
 import focus from '@alpinejs/focus'
 import 'focus-visible'
+import MediaPlayer from 'dashjs';
 
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,6 +15,7 @@ import initCrowdPleaser from './components/crowd_pleaser';
 import initTyfteLogo from './components/tyfte_logo';
 import initBackground from './components/background';
 import initScroller from './components/scroller';
+import initSection1 from './components/section_1';
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
@@ -41,6 +43,7 @@ document.addEventListener('readystatechange', (event) => {
 			initTyfteLogo();
 			initBackground();
 			initScroller();
+			initSection1();
 			break;
 	}
 });
