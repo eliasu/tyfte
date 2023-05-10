@@ -1,123 +1,108 @@
 title: Home
-template: '@blueprint'
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          type: text
-          required: true
-          input_type: text
-          localizable: true
-          listable: true
-          display: Title
-          validate:
-            - required
-      -
-        handle: bard_field
-        field:
-          collapse: true
-          always_show_set_button: false
-          previews: true
-          smart_typography: false
-          buttons:
-            - h2
-            - h3
-            - bold
-            - italic
-            - leader
-            - unorderedlist
-            - orderedlist
-            - removeformat
-            - quote
-            - anchor
-            - image
-            - table
-          save_html: false
-          inline: false
-          toolbar_mode: fixed
-          link_noopener: false
-          link_noreferrer: false
-          target_blank: false
-          reading_time: false
-          fullscreen: true
-          allow_source: true
-          enable_input_rules: true
-          enable_paste_rules: true
-          antlers: false
-          remove_empty_nodes: true
-          display: 'Bard Field'
-          type: bard
-          icon: bard
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          sets:
-            button:
-              display: Button
-              fields:
-                -
-                  import: button
-      -
-        handle: video
-        field:
-          mode: list
-          container: files
-          restrict: false
-          allow_uploads: true
-          show_filename: true
-          max_files: 1
-          display: Video
-          type: assets
-          icon: assets
-          listable: hidden
-          instructions_position: above
-          visibility: visible
+        display: General
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              input_type: text
+              localizable: true
+              listable: true
+              display: Title
+              validate:
+                - required
+          -
+            handle: video
+            field:
+              max_files: 1
+              mode: list
+              container: files
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: Video
+              icon: assets
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
   seo:
     display: SEO
-    fields:
+    sections:
       -
-        import: 'statamic-peak-seo::seo'
+        display: Basic
+        instructions: 'Basic SEO settings.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_basic'
+      -
+        display: Advanced
+        instructions: 'Advanced SEO settings.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_advanced'
+      -
+        display: 'Open Graph'
+        instructions: 'Open Graph meta tags for social sharing.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_open_graph'
+      -
+        display: Sitemap
+        instructions: 'Sitemap configuration.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_sitemap'
+      -
+        display: 'JSON-ld Schema'
+        instructions: 'Custom JSON-ld schema objects.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_jsonld'
   sidebar:
     display: Sidebar
-    fields:
+    sections:
       -
-        handle: meta
-        field:
-          type: section
-          instructions: "This entry's meta data."
-          display: Meta
-      -
-        handle: slug
-        field:
-          type: slug
-          localizable: true
-          generate: true
-          listable: hidden
-          display: Slug
-          validate:
-            - required
-            - 'unique_entry_value:{collection},{id},{site}'
-      -
-        handle: parent
-        field:
-          type: entries
-          collections:
-            - pages
-          max_items: 1
-          listable: false
-          localizable: true
-      -
-        handle: template
-        field:
-          hide_partials: true
-          blueprint: true
-          folder: pages
-          display: 'Template Field'
-          type: template
-          icon: template
-          listable: hidden
-          instructions_position: above
-          visibility: visible
+        display: Meta
+        instructions: "This entry's meta data."
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              generate: true
+              listable: hidden
+              display: Slug
+              validate:
+                - required
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true
+          -
+            handle: template
+            field:
+              hide_partials: true
+              blueprint: true
+              type: template
+              display: Template
+              icon: template
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              folder: pages

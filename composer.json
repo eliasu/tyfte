@@ -12,16 +12,16 @@
         "php": "^8.0",
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
-        "jacksleight/statamic-bard-texstyle": "^2.1",
+        "jacksleight/statamic-bard-texstyle": "^3.0.2",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "spatie/browsershot": "^3.57",
-        "statamic/cms": "3.4.8",
-        "studio1902/statamic-peak-browser-appearance": "^1.0",
-        "studio1902/statamic-peak-commands": "^1.0",
-        "studio1902/statamic-peak-seo": "^1.0",
-        "studio1902/statamic-peak-tools": "^2.0"
+        "statamic/cms": "^4.0",
+        "studio1902/statamic-peak-browser-appearance": "^2.0",
+        "studio1902/statamic-peak-commands": "^2.0",
+        "studio1902/statamic-peak-seo": "^2.0",
+        "studio1902/statamic-peak-tools": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
