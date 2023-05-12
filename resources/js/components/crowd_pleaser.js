@@ -9,12 +9,12 @@ export default function initCrowdPleaser() {
 
     const s1fx = new S1FX();
 
-
     let valDim= .2;
 
     let slider_h = document.querySelector('#cp_headline');
     let slider_1 = document.querySelector('#cp_slider_1');
     let slider_2 = document.querySelector('#cp_slider_2');
+    let content = document.querySelectorAll('[data-fade]');
     
     let patternsSlider;
     let colorsSlider;
@@ -31,12 +31,20 @@ export default function initCrowdPleaser() {
         slider_h.style.opacity = 1;
         slider_1.style.opacity = 1;
         slider_2.style.opacity = 1;
+        
+        content.forEach(element => {
+            element.classList.remove("dimmed")
+        });
     }
     
     const dimAll = () => {
         slider_h.style.opacity = valDim;
         slider_1.style.opacity = valDim;
         slider_2.style.opacity = valDim;
+        
+        content.forEach(element => {
+            element.classList.add("dimmed")
+        });
     }
 
     const show = (slider) => {

@@ -106,6 +106,7 @@
    [data-icon="arrdown"] { mask-image: url(/resources/svg/arrdown.svg); }
    [data-icon="hearth"] { mask-image: url(/resources/svg/hearth.svg); }
 
+   /* this class get added if pressed on the love button */
    .loveEmphasis {
       @apply scale-[2.5] px-4;
       animation: colorchange linear 1500ms infinite;
@@ -114,6 +115,11 @@
          #FFC32A,
          #0ACF83
       );
+   }
+
+   #sectionGrain {
+      background-image: url(/resources/images/grain_bg.jpg);
+      @apply mix-blend-multiply opacity-20;
    }
 
    svg {
@@ -179,7 +185,13 @@
       @apply motion-safe:transition appearance-none h-3 w-3 rounded-full cursor-pointer border-2 border-light border-solid bg-dark group-hover:border-yellow group-hover:scale-125 delay-75;
    }
 
-
+   [data-fade] {
+      @apply duration-700 transition-all;
+   }
+   
+   [data-fade].dimmed {
+      @apply opacity-20 blur-sm;
+   }
 
    /* bg dot grid */
    #dotgrid {
@@ -199,7 +211,7 @@
    #dotgridBig {
       background-size: var(--frame) var(--frame);
       background-position: calc(var(--frame) - calc(var(--frame)/2) ) calc(var(--frame) - calc(var(--frame)/2) ) ;
-      background-image: radial-gradient(circle, rgba(255,255,255,.15) 1px, rgba(0, 0, 0, 0) 2.5px);
+      background-image: radial-gradient(circle, rgba(255,255,255,.35) 1px, rgba(0, 0, 0, 0) 2.5px);
       mask-image: radial-gradient(circle at var(--bgx) var(--bgy), rgba(0,0,0,1) 0px, rgba(0, 0, 0, 0) var(--bgsize));
       
    } 
@@ -208,7 +220,7 @@
       #dotgridBig {
          background-size: calc(var(--frame)/2) calc(var(--frame)/2);
          background-position: calc( var(--frame)/2 - calc(var(--frame)/2/2) )  calc( var(--frame)/2 - calc(var(--frame)/2/2) );
-         background-image: radial-gradient(circle, rgba(255,255,255,.15) 1px, rgba(0, 0, 0, 0) 2.5px);
+         background-image: radial-gradient(circle, rgba(255,255,255,.35) 1px, rgba(0, 0, 0, 0) 2.5px);
          mask-image: radial-gradient(circle at var(--bgx) var(--bgy), rgba(0,0,0,1) 0px, rgba(0, 0, 0, 0) var(--bgsize));
       }
    }
@@ -226,7 +238,6 @@
 
    [data-container] {
       overscroll-behavior: none;
-      width: 600%;
       height: 100%;
       /* display: flex;
       flex-wrap: nowrap; */

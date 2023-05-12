@@ -10,14 +10,14 @@ x-trap.inert.noscroll="navOpen"
 @keyup.escape="navOpen = false"
 x-cloak>
     {{# Logo #}}
-    <a href="/" class="absolute h-6 pointer-events-auto lg:h-8 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
+    <a data-fade href="/" class="absolute h-6 pointer-events-auto lg:h-8 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
         {{ svg:tyfte_logo class="w-full h-full" aria-hidden="true" }}
         {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[27px] lg:-top-[23px] pointer-events-none" aria-hidden="true" }}
     </a>
     
 
     {{# burger menu & cta 2 #}}
-    <div class="absolute right-0 flex gap-8 pointer-events-auto">
+    <div data-fade class="absolute right-0 flex gap-8 pointer-events-auto">
         
         {{# start project button #}}
         {{ partial:components/button class="hidden lg:flex" label="start project" icon="arrup" }}
@@ -33,7 +33,7 @@ x-cloak>
     </div>
     
     {{# Three Liner #}}
-    <p class="absolute bottom-0 mb-0 pointer-events-auto text-lead-2">
+    <p data-fade class="absolute bottom-0 mb-0 pointer-events-auto text-lead-2">
         We consult.<br>
         We design.<br>
         We code.
