@@ -107,7 +107,13 @@
    [data-icon="hearth"] { mask-image: url(/resources/svg/hearth.svg); }
 
    .loveEmphasis {
-      @apply scale-[2] px-4;
+      @apply scale-[2.5] px-4;
+      animation: colorchange linear 1500ms infinite;
+      background-image: conic-gradient(
+         #0ACF83,
+         #FFC32A,
+         #0ACF83
+      );
    }
 
    svg {

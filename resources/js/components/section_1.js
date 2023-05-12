@@ -100,9 +100,9 @@ export class S1FX {
 
     changePattern(num) {
         this.s1fx.setOptions({
-            blurFactor: this.mapRange(num, 0,100,.5,1.3),
-            speed: this.mapRange(num, 0,100,1,2.6),
-            zoom: this.mapRange(num, 0,100,.8,.4)
+            blurFactor: this.mapRange(num, 0,100,.2,1.6),
+            speed: this.mapRange(num, 0,100,.8,2.8),
+            zoom: this.mapRange(num, 0,100,.9,.3)
         })
     }
 }

@@ -15,7 +15,7 @@ export default function initLoveCounter() {
         span.classList.add('loveEmphasis');
         span.innerText = response.data;
         clearTimeout(animtimer)
-        animtimer = setTimeout(clear, 700);
+        animtimer = setTimeout(clear, 1500);
     }
 
     function clear() {
