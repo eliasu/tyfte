@@ -1,0 +1,17 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: count
+            field:
+              default: '0'
+              type: integer
+              display: count
+              icon: integer
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false

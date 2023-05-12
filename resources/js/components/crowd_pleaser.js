@@ -2,9 +2,13 @@
  * crowd pleaser component
  * import with "import initCrowdPleaser from './components/crowd_pleaser';"
 **/
+import { S1FX } from './section_1';
 
 export default function initCrowdPleaser() { 
     console.log("** init crowd pleaser from /components/crowd_pleaser.js **")
+
+    const s1fx = new S1FX();
+
 
     let valDim= .2;
 
@@ -44,10 +48,12 @@ export default function initCrowdPleaser() {
         switch (slider.id) {
             case "patterns-silder":
                 patternsSlider = slider.value;
+                s1fx.changePattern(parseInt(slider.value))
                 console.log("The patterns slider: " + patternsSlider)
             break;
             case "colors-silder":
                 colorsSlider = slider.value;
+                s1fx.changeColor(parseInt(slider.value));
                 console.log("The colors slider: " + colorsSlider)
             break;
             default:

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NumberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 // Route::statamic('example', 'example-view', [
 //    'title' => 'Example'
 // ]);
+
+// In your web.php routes file
+// Route::post('/update-number', 'NumberController@update');
+Route::post('update-number', [NumberController::class, 'update']);

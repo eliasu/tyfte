@@ -106,6 +106,9 @@
    [data-icon="arrdown"] { mask-image: url(/resources/svg/arrdown.svg); }
    [data-icon="hearth"] { mask-image: url(/resources/svg/hearth.svg); }
 
+   .loveEmphasis {
+      @apply scale-[2] px-4;
+   }
 
    svg {
       /* for outline svg */

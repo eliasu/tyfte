@@ -48,7 +48,9 @@
     </div>
     
     {{# Thank you message right top #}}
-    <div class="absolute top-0 right-0 origin-top-right -rotate-90 -translate-x-6 translate-y-4 text-tag text-light">Thank you for <span class="font-bold" id="loveCount">23</span> loves</div>
+    <div class="absolute top-0 right-0 origin-top-right -rotate-90 -translate-x-6 translate-y-4 text-tag text-light">Thank you for 
+        <span class="relative inline-block font-bold transition-all" id="loveCount">{{ love_counter:count }}</span> loves
+    </div>
     
     {{# background animation  #}}
     <div id="sectionFx1" class="absolute inset-0 z-behind"></div>

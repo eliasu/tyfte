@@ -43,7 +43,7 @@ document.addEventListener('readystatechange', (event) => {
 			initTyfteLogo();
 			initBackground();
 			initScroller();
-			// initLoveCounter();
+			initLoveCounter();
 			break;
 	}
 });
