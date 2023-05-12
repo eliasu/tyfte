@@ -15,7 +15,7 @@ import initCrowdPleaser from './components/crowd_pleaser';
 import initTyfteLogo from './components/tyfte_logo';
 import initBackground from './components/background';
 import initScroller from './components/scroller';
-import initSection1 from './components/section_1';
+import initLoveCounter from './components/love_counter';
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
@@ -43,7 +43,7 @@ document.addEventListener('readystatechange', (event) => {
 			initTyfteLogo();
 			initBackground();
 			initScroller();
-			initSection1();
+			// initLoveCounter();
 			break;
 	}
 });
