@@ -16,7 +16,9 @@ export default function initPreloader() {
         path: '/files/lottie/tyfte_logo_lottie.json', // Specify the path to your animation JSON file
     });
 
+    // fadeout the pre´loader and start the video
     animation.onComplete = function() {
+        document.getElementById("hero-video").play();
         document.getElementById('preloader').classList.add("fin");
       }
 }
