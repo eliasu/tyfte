@@ -5,7 +5,7 @@
 import { gsap } from "gsap";
 
 export default function initBg() { 
-    console.log("** init tyfte logo from /components/background.js **")
+    console.log("** init background grid from /components/background.js **")
     addBackgroundFollower()
     addParallaxBackground()
 }

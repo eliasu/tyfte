@@ -11,6 +11,7 @@ import MediaPlayer from 'dashjs';
 
 // gsap.registerPlugin(ScrollTrigger, Observer);
 
+import initPreloader from './components/preloader';
 import initCrowdPleaser from './components/crowd_pleaser';
 import initTyfteLogo from './components/tyfte_logo';
 import initBackground from './components/background';
@@ -36,14 +37,17 @@ Alpine.plugin(persist)
 Alpine.plugin(focus)
 Alpine.start()
 
+// if DOMContent has loaded
+window.addEventListener("DOMContentLoaded", (event) => {
+	console.log("Welcome to tyfte.de")
+	initPreloader();
+ });
+
+// if document is interactive
 document.addEventListener('readystatechange', (event) => {
-	switch (document.readyState) {
-		case "complete":
-			initCrowdPleaser();
-			initTyfteLogo();
-			initBackground();
-			initScroller();
-			initLoveCounter();
-			break;
-	}
+	initCrowdPleaser();
+	initTyfteLogo();
+	initBackground();
+	initScroller();
+	initLoveCounter();
 });

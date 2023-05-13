@@ -79,7 +79,11 @@
 }
 
 @layer components {
-   
+   #preloader.fin {
+      @apply opacity-0;
+   }
+
+
    /* button animation (the rainbow effect on the icons & the border line animation */
    /* rainbow effect on icon */
    button:hover > [data-icon] {

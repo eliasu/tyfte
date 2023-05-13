@@ -76,6 +76,7 @@ module.exports = {
       },
       zIndex: {
         'behind': '-1',
+        '100': '100',
       },
       transitionTimingFunction: {
         'bouncy': 'cubic-bezier(.47,1.64,.41,.8)',
