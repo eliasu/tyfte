@@ -94,6 +94,12 @@
       @apply opacity-0 scale-[2];
    }
 
+   #mobileNav > a::after {
+      @apply bg-red block relative -top-12 -left-4 w-[calc(100%+2rem)] z-0 mix-blend-multiply h-[.3em];
+      content: "";
+      
+   }
+
 
    /* button animation (the rainbow effect on the icons & the border line animation */
    /* rainbow effect on icon */
@@ -207,6 +213,16 @@
    [data-fade].dimmed {
       @apply opacity-20 blur-sm;
    }
+
+   /* fade if mobile nav is open */
+   #hero-video {
+      @apply duration-700 transition-all;
+   }
+   
+   #hero-video.dimmed {
+      @apply opacity-20 blur-sm;
+   }
+
 
    /* bg dot grid */
    #dotgrid {

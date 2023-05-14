@@ -49,6 +49,12 @@ module.exports = {
           letterSpacing: '0.2em',
           fontWeight: '700',
         }],
+
+        'navlink': ['clamp(4.375rem, calc(4.375rem + ((1vw - 0.234375rem) * 7.7348)), 8.75rem);', {
+          lineHeight: '105%',
+          letterSpacing: '0.02em',
+          fontWeight: '700',
+        }],
       },
     },
   },

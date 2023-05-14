@@ -5,12 +5,6 @@ import focus from '@alpinejs/focus'
 import 'focus-visible'
 import MediaPlayer from 'dashjs';
 
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { Observer } from "gsap/Observer";
-
-// gsap.registerPlugin(ScrollTrigger, Observer);
-
 import initPreloader from './components/preloader';
 import initCrowdPleaser from './components/crowd_pleaser';
 import initTyfteLogo from './components/tyfte_logo';

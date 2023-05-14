@@ -37,7 +37,7 @@
                     <div class="flex items-center gap-2 mb-2">
                         <p class="mb-0 font-bold">Scroll</p>
                         {{# line #}}
-                        <div data-line class="absolute left-16 -right-[var(--frame)] h-0.5"></div>
+                        <div data-line class="absolute left-16 -right-frame h-0.5"></div>
                     </div>
                     <p class="max-w-[20ch]">or click here to see some of our projects.</p>
                 </div>
@@ -55,7 +55,7 @@
     
     {{# background video #}}
     <div data-videooverlay class="absolute inset-0 pointer-events-none z-behind mix-blend-lighten">
-        <video data-dashjs-player 
+        <video data-dashjs-player
             id="hero-video"
             class="object-cover w-full h-full opacity-50" 
             width="100%" height="100%" 

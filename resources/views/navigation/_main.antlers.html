@@ -4,18 +4,50 @@
 #}}
 
 
-<nav class="fixed inset-[var(--frame)] pointer-events-none z-50" aria-label="{{ trans:strings.main_navigation }}" 
-x-data="{ navOpen: false }"
-x-trap.inert.noscroll="navOpen"
-@keyup.escape="navOpen = false"
-x-cloak>
+<nav class="fixed z-50 pointer-events-none inset-frame mix-blend-lighten" 
+    aria-label="{{ trans:strings.main_navigation }}" 
+    x-data="{ navOpen: false }"
+    x-effect="console.log('jeah')"
+    x-trap.inert.noscroll="navOpen"
+    @keyup.escape="navOpen = false"
+    x-cloak
+    x-init="$watch('navOpen', (value) => {
+                let content = document.querySelectorAll('[data-fade]');
+                if (value === true) {
+                    document.querySelector('#hero-video').classList.add('dimmed');
+                    content.forEach(element => {
+                        element.classList.add('dimmed')
+                    });
+                }
+                else {
+                    document.querySelector('#hero-video').classList.remove('dimmed');
+                    content.forEach(element => {
+                        element.classList.remove('dimmed')
+                    });
+                }
+            });"   
+    >
+    
+    {{# open Nav #}}
+    <div id="mobileNav" 
+    class="absolute flex flex-col items-start justify-center transition-all border-light -inset-frame p-frame bg-light/90"
+    :class="navOpen ? 'border-frame-0.5 opacity-100 pointer-events-auto' : 'border-0 opacity-0 pointer-events-none'"
+    :aria-label="navOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
+    :aria-expanded="navOpen"
+    >
+        <a href="/" class="cursor-pointer text-navlink text-dark">idea</a>
+        <a href="/" class="cursor-pointer text-navlink text-dark">consult</a>
+        <a href="/" class="cursor-pointer text-navlink text-dark">design</a>
+        <a href="/" class="cursor-pointer text-navlink text-dark">code</a>
+        <a href="/" class="cursor-pointer text-navlink text-dark">our work</a>
+    </div>
+    
     {{# Logo #}}
     <a data-fade href="/" class="absolute h-6 pointer-events-auto lg:h-8 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
         {{ svg:tyfte_logo class="w-full h-full" aria-hidden="true" }}
         {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[27px] lg:-top-[23px] pointer-events-none" aria-hidden="true" }}
     </a>
     
-
     {{# burger menu & cta 2 #}}
     <div data-fade class="absolute right-0 flex gap-8 pointer-events-auto">
         
@@ -33,7 +65,7 @@ x-cloak>
     </div>
 
     {{# Thank you message right top #}}
-    <div class="absolute -top-[calc(var(--frame))] -right-[calc(var(--frame))] origin-top-right -rotate-90 -translate-x-6 translate-y-4 text-tag text-light">Thank you for 
+    <div class="absolute origin-top-right -rotate-90 -translate-x-6 translate-y-4 -top-frame -right-frame text-tag text-light">Thank you for 
         <span class="relative inline-block font-bold text-transparent transition-all bg-clip-text bg-light" id="loveCount">{{ love_counter:count }}</span> loves
     </div>
     
