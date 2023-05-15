@@ -95,7 +95,7 @@
    }
 
    #mobileNav > a::after {
-      @apply transition duration-500 translate-x-20 block relative -top-10 -left-4 w-[calc(100%+2rem)] z-0 mix-blend-multiply h-[.2em];
+      @apply transition duration-500 translate-x-12 block relative -top-10 -left-4 w-[calc(100%+2rem)] z-0 mix-blend-multiply h-[.2em];
       content: "";  
    }
 

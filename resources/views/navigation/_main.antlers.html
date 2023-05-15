@@ -20,11 +20,11 @@
     :aria-label="navOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
     :aria-expanded="navOpen"
     >
-        <a x-show="navOpen" x-transition:enter.delay.500ms href="/" class="cursor-pointer after:ease-bouncy hover:text-red after:hover:bg-red-dark text-navlink text-dark">idea</a>
-        <a x-show="navOpen" x-transition:enter.delay.600ms href="/" class="cursor-pointer after:ease-bouncy hover:text-yellow after:hover:bg-yellow-dark text-navlink text-dark">consult</a>
-        <a x-show="navOpen" x-transition:enter.delay.700ms href="/" class="cursor-pointer after:ease-bouncy hover:text-green after:hover:bg-green-dark text-navlink text-dark">design</a>
-        <a x-show="navOpen" x-transition:enter.delay.800ms href="/" class="cursor-pointer after:ease-bouncy hover:text-purple after:hover:bg-purple-dark text-navlink text-dark">code</a>
-        <a x-show="navOpen" x-transition:enter.delay.900ms href="/" class="cursor-pointer after:ease-bouncy hover:text-dark-neutral after:hover:bg-dark text-navlink text-dark">our work</a>
+        <a x-show="navOpen" x-transition:enter.delay.500ms href="/" class="cursor-pointer hover:text-red after:hover:bg-red-dark text-navlink text-dark">idea</a>
+        <a x-show="navOpen" x-transition:enter.delay.600ms href="/" class="cursor-pointer hover:text-yellow after:hover:bg-yellow-dark text-navlink text-dark">consult</a>
+        <a x-show="navOpen" x-transition:enter.delay.700ms href="/" class="cursor-pointer hover:text-green after:hover:bg-green-dark text-navlink text-dark">design</a>
+        <a x-show="navOpen" x-transition:enter.delay.800ms href="/" class="cursor-pointer hover:text-purple after:hover:bg-purple-dark text-navlink text-dark">code</a>
+        <a x-show="navOpen" x-transition:enter.delay.900ms href="/" class="cursor-pointer hover:text-dark-neutral after:hover:bg-dark text-navlink text-dark">our work</a>
     </div>
 
     {{# burger menu & cta 2 #}}
