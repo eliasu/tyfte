@@ -38,7 +38,7 @@ module.exports = {
           fontWeight: '700',
         }],
 
-        'button': ['clamp(20px, calc(1.25rem + ((1vw - 3.75px) * 0.1294)), 22px);', {
+        'button': ['clamp(1.375rem, calc(1.5625rem + ((1vw - 0.3rem) * -0.375)), 1.5625rem);', {
           lineHeight: '90%',
           letterSpacing: '0.2em',
           fontWeight: '700',
@@ -50,7 +50,7 @@ module.exports = {
           fontWeight: '700',
         }],
 
-        'navlink': ['clamp(4.375rem, calc(4.375rem + ((1vw - 0.234375rem) * 7.7348)), 8.75rem);', {
+        'navlink': ['clamp(4.375rem, calc(4.375rem + ((1vw - 0.234375rem) * 4.5307)), 8.75rem);', {
           lineHeight: '105%',
           letterSpacing: '0.02em',
           fontWeight: '700',

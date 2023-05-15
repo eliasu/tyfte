@@ -7,10 +7,10 @@
 {{ partial:layout/section }}
 
     {{# main content grid #}}
-    <div data-content class="flex flex-col-reverse items-center w-full h-full transition-all lg:grid lg:grid-cols-2 p-frame">
+    <div data-content class="grid items-center w-full h-full grid-cols-1 gap-8 transition-all lg:grid lg:grid-cols-2 p-frame">
 
         {{# claim with tags #}}
-        <div class="relative z-10 flex flex-col gap-4">
+        <div class="relative z-10 flex flex-col self-end gap-4 sm:w-3/4 lg:w-auto lg:self-center">
             
             {{# tag wrapper #}}
             {{ partial:components/tags }}
@@ -29,19 +29,19 @@
         </div>
 
         {{# container scroll instructions #}}
-        <div class="relative flex items-end justify-end h-full"> 
+        <div class="relative top-0 flex items-end self-end justify-end sm:self-start lg:self-end lg:-top-frame-3"> 
 
             {{# scroll instructions #}}
-            <div class="relative flex flex-col items-start gap-4 bottom-1/4">
+            <div class="relative flex flex-col items-start gap-4">
                 <div>
-                    <div class="flex items-center gap-2 mb-2">
+                    <div class="flex items-center w-[50vw] gap-2 sm:w-auto sm:mb-2">
                         <p class="mb-0 font-bold">Scroll</p>
                         {{# line #}}
                         <div data-line class="absolute left-16 -right-frame h-0.5"></div>
                     </div>
-                    <p class="max-w-[20ch]">or click here to see some of our projects.</p>
+                    <p class="max-w-[20ch] hidden sm:block">or click here to see some of our projects.</p>
                 </div>
-                {{ partial:components/button label="work" icon="arrup" }}
+                {{ partial:components/button class="hidden sm:flex" label="work" icon="arrup" }}
             </div>
         </div>
     
