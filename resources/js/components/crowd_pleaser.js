@@ -14,7 +14,7 @@ export default function initCrowdPleaser() {
     let slider_h = document.querySelector('#cp_headline');
     let slider_1 = document.querySelector('#cp_slider_1');
     let slider_2 = document.querySelector('#cp_slider_2');
-    let content = document.querySelectorAll('[data-fade]');
+    let content = document.querySelectorAll('[data-content]');
     
     let patternsSlider;
     let colorsSlider;
@@ -33,7 +33,7 @@ export default function initCrowdPleaser() {
         slider_2.style.opacity = 1;
         
         content.forEach(element => {
-            element.classList.remove("dimmed")
+            element.classList.remove("blur-md")
         });
     }
     
@@ -43,7 +43,7 @@ export default function initCrowdPleaser() {
         slider_2.style.opacity = valDim;
         
         content.forEach(element => {
-            element.classList.add("dimmed")
+            element.classList.add("blur-md")
         });
     }
 

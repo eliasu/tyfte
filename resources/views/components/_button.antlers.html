@@ -12,6 +12,7 @@
 {{ if label }}
     <{{ as or 'button' }}
         {{ cssid ?= "id='{cssid}'" }}
+        {{ slot }}
         {{ slot:attributes }}
         class="text-light hover:text-green relative flex gap-2.5 rounded py-1 px-2.5 items-center uppercase whitespace-nowrap transition group
         {{ big ? 'text-buttonbig' : 'text-button' }}

@@ -95,9 +95,12 @@
    }
 
    #mobileNav > a::after {
-      @apply bg-red block relative -top-12 -left-4 w-[calc(100%+2rem)] z-0 mix-blend-multiply h-[.3em];
-      content: "";
-      
+      @apply transition duration-500 translate-x-20 block relative -top-10 -left-4 w-[calc(100%+2rem)] z-0 mix-blend-multiply h-[.2em];
+      content: "";  
+   }
+
+   #mobileNav > a:hover::after {
+      @apply translate-x-0 translate-y-0;
    }
 
 
@@ -126,6 +129,7 @@
    [data-icon="arrup"] { mask-image: url(/resources/svg/arrup.svg); }
    [data-icon="arrdown"] { mask-image: url(/resources/svg/arrdown.svg); }
    [data-icon="hearth"] { mask-image: url(/resources/svg/hearth.svg); }
+   [data-icon="close"] { mask-image: url(/resources/svg/close.svg); }
 
    /* this class get added if pressed on the love button */
    .loveEmphasis {
@@ -206,24 +210,6 @@
       @apply motion-safe:transition appearance-none h-3 w-3 rounded-full cursor-pointer border-2 border-light border-solid bg-dark group-hover:border-yellow group-hover:scale-125 delay-75;
    }
 
-   [data-fade] {
-      @apply duration-700 transition-all;
-   }
-   
-   [data-fade].dimmed {
-      @apply opacity-20 blur-sm;
-   }
-
-   /* fade if mobile nav is open */
-   #hero-video {
-      @apply duration-700 transition-all;
-   }
-   
-   #hero-video.dimmed {
-      @apply opacity-20 blur-sm;
-   }
-
-
    /* bg dot grid */
    #dotgrid {
       background-size: var(--frame) var(--frame);
@@ -279,15 +265,6 @@
       height: 100%;
    }
     
-   
-   /* burger menu animation */
-   #bar1 {
-      @apply transition duration-700 group-hover:scale-x-50 group-hover:-translate-x-1/4; 
-   }
-   
-   #bar2 {
-      @apply transition duration-700 group-hover:translate-x-3/4;
-   }
 }
 
 @layer utilities {

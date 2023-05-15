@@ -3,92 +3,91 @@
     @desc The sites main navigation rendered on each page. There's a desktop and a mobile version.
 #}}
 
-
-<nav class="fixed z-50 pointer-events-none inset-frame mix-blend-lighten" 
+<nav id="navigation" class="fixed inset-0 z-50 block transition-all duration-500 pointer-events-none mix-blend-lighten"
+    :class="navOpen ? 'backdrop-blur-lg' : ''"
     aria-label="{{ trans:strings.main_navigation }}" 
     x-data="{ navOpen: false }"
     x-effect="console.log('jeah')"
     x-trap.inert.noscroll="navOpen"
     @keyup.escape="navOpen = false"
     x-cloak
-    x-init="$watch('navOpen', (value) => {
-                let content = document.querySelectorAll('[data-fade]');
-                if (value === true) {
-                    document.querySelector('#hero-video').classList.add('dimmed');
-                    content.forEach(element => {
-                        element.classList.add('dimmed')
-                    });
-                }
-                else {
-                    document.querySelector('#hero-video').classList.remove('dimmed');
-                    content.forEach(element => {
-                        element.classList.remove('dimmed')
-                    });
-                }
-            });"   
     >
     
     {{# open Nav #}}
     <div id="mobileNav" 
-    class="absolute flex flex-col items-start justify-center transition-all border-light -inset-frame p-frame bg-light/90"
+    class="absolute inset-0 flex flex-col items-start justify-center transition-all duration-500 border-light p-frame bg-light/70"
     :class="navOpen ? 'border-frame-0.5 opacity-100 pointer-events-auto' : 'border-0 opacity-0 pointer-events-none'"
     :aria-label="navOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
     :aria-expanded="navOpen"
     >
-        <a href="/" class="cursor-pointer text-navlink text-dark">idea</a>
-        <a href="/" class="cursor-pointer text-navlink text-dark">consult</a>
-        <a href="/" class="cursor-pointer text-navlink text-dark">design</a>
-        <a href="/" class="cursor-pointer text-navlink text-dark">code</a>
-        <a href="/" class="cursor-pointer text-navlink text-dark">our work</a>
+        <a x-show="navOpen" x-transition:enter.delay.500ms href="/" class="cursor-pointer after:ease-bouncy hover:text-red after:hover:bg-red-dark text-navlink text-dark">idea</a>
+        <a x-show="navOpen" x-transition:enter.delay.600ms href="/" class="cursor-pointer after:ease-bouncy hover:text-yellow after:hover:bg-yellow-dark text-navlink text-dark">consult</a>
+        <a x-show="navOpen" x-transition:enter.delay.700ms href="/" class="cursor-pointer after:ease-bouncy hover:text-green after:hover:bg-green-dark text-navlink text-dark">design</a>
+        <a x-show="navOpen" x-transition:enter.delay.800ms href="/" class="cursor-pointer after:ease-bouncy hover:text-purple after:hover:bg-purple-dark text-navlink text-dark">code</a>
+        <a x-show="navOpen" x-transition:enter.delay.900ms href="/" class="cursor-pointer after:ease-bouncy hover:text-dark-neutral after:hover:bg-dark text-navlink text-dark">our work</a>
     </div>
-    
-    {{# Logo #}}
-    <a data-fade href="/" class="absolute h-6 pointer-events-auto lg:h-8 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
-        {{ svg:tyfte_logo class="w-full h-full" aria-hidden="true" }}
-        {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[27px] lg:-top-[23px] pointer-events-none" aria-hidden="true" }}
-    </a>
-    
+
     {{# burger menu & cta 2 #}}
-    <div data-fade class="absolute right-0 flex gap-8 pointer-events-auto">
-        
+    <div class="absolute flex gap-8 pointer-events-auto top-frame right-frame">
+            
         {{# start project button #}}
         {{ partial:components/button class="hidden lg:flex" label="start project" icon="arrup" }}
+            x-show="!navOpen"
+            x-transition:enter.delay.1000ms
+        {{ /partial:components/button }}
             
         {{# burger button #}}
         <button id="burger" class="relative min-h-[1.5rem] flex flex-col justify-between cursor-pointer group"
         @click.prevent="navOpen = !navOpen"
         :aria-label="navOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
         :aria-expanded="navOpen">
-            <div class="h-1.5 lg:h-2 w-24 lg:w-30 bg-light group-hover:bg-yellow" id="bar1"></div>
-            <div class="w-12 lg:w-15 h-1.5 lg:h-2 bg-light group-hover:bg-yellow" id="bar2"></div>
-        </button>
+            <div x-show="!navOpen" x-transition:enter.duration.500ms class="h-1.5 lg:h-2 w-24 lg:w-30 bg-light group-hover:bg-yellow transition duration-500 group-hover:scale-x-50 group-hover:-translate-x-1/4" id="bar1"></div>
+            
+            <div x-show="!navOpen" x-transition:enter.duration.500ms class="w-12 lg:w-15 h-1.5 lg:h-2 bg-light group-hover:bg-yellow transition duration-500 group-hover:translate-x-full" id="bar2"></div>
+
+            {{ partial:components/button class="!absolute text-dark hover:text-light right-0 " label="close" icon="close" }}
+                x-show="navOpen"
+                x-transition:enter.delay.500ms
+                @click.prevent="navOpen = false"
+            {{ /partial:components/button }}
     </div>
 
-    {{# Thank you message right top #}}
-    <div class="absolute origin-top-right -rotate-90 -translate-x-6 translate-y-4 -top-frame -right-frame text-tag text-light">Thank you for 
-        <span class="relative inline-block font-bold text-transparent transition-all bg-clip-text bg-light" id="loveCount">{{ love_counter:count }}</span> loves
+    {{# blur container #}}
+    <div class="fixed inset-0 transition-all duration-500" :class="navOpen ? 'blur-lg pointer-events-none' : ''">
+        {{# Logo #}}
+        <a href="/" class="absolute h-6 pointer-events-auto top-frame left-frame lg:h-8 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
+            {{ svg:tyfte_logo class="w-full h-full" aria-hidden="true" }}
+            {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[27px] lg:-top-[23px] pointer-events-none" aria-hidden="true" }}
+        </a>
+
+        {{# Thank you message right top #}}
+        <div class="absolute top-0 right-0 origin-top-right -rotate-90 -translate-x-6 translate-y-4 text-tag text-light">Thank you for 
+            <span class="relative inline-block font-bold text-transparent transition-all bg-clip-text bg-light" id="loveCount">{{ love_counter:count }}</span> loves
+        </div>
+
+        {{# Three Liner #}}
+        <p class="absolute mb-0 pointer-events-auto bottom-frame left-frame text-lead-2">
+            We consult.<br>
+            We design.<br>
+            We code.
+        </p>
+
+        {{# Crowd Pleaser #}}
+        <div id="crowdpleaser" class="absolute flex flex-col uppercase translate-y-2 pointer-events-auto right-frame bottom-frame text-crowd">
+            
+            <div id="cp_headline" class="flex items-center w-full h-6 duration-500 motion-safe:transition">Crowd Pleaser</div>
+            
+            <div id="cp_slider_1" class="flex items-center justify-between w-full h-6 gap-4 duration-500 motion-safe:transition group">
+                <label for="colors-silder" class="block motion-safe:transition text-crowd group-hover:text-yellow">Colors</label>
+                <input id="colors-silder" type="range" min="1" max="5" value="3">
+            </div>
+            
+            <div id="cp_slider_2" class="flex items-center justify-between w-full h-6 gap-4 font-mono duration-500 motion-safe:transition group">
+                <label for="patterns-silder" class="block motion-safe:transition text-crowd group-hover:text-yellow">Pattern</label>
+                <input id="patterns-silder" type="range" value="50">
+            </div>
+        </div>
     </div>
     
-    {{# Three Liner #}}
-    <p data-fade class="absolute bottom-0 mb-0 pointer-events-auto text-lead-2">
-        We consult.<br>
-        We design.<br>
-        We code.
-    </p>
-
-    {{# Crowd Pleaser #}}
-    <div id="crowdpleaser" class="absolute right-0 flex flex-col uppercase pointer-events-auto -bottom-2 text-crowd">
-        
-        <div id="cp_headline" class="flex items-center w-full h-6 duration-700 motion-safe:transition">Crowd Pleaser</div>
-        
-        <div id="cp_slider_1" class="flex items-center justify-between w-full h-6 gap-4 duration-700 motion-safe:transition group">
-            <label for="colors-silder" class="block motion-safe:transition text-crowd group-hover:text-yellow">Colors</label>
-            <input id="colors-silder" type="range" min="1" max="5" value="3">
-        </div>
-        
-        <div id="cp_slider_2" class="flex items-center justify-between w-full h-6 gap-4 font-mono duration-700 motion-safe:transition group">
-            <label for="patterns-silder" class="block motion-safe:transition text-crowd group-hover:text-yellow">Pattern</label>
-            <input id="patterns-silder" type="range" value="50">
-        </div>
-    </div> 
 </nav>
+
