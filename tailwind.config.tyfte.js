@@ -58,6 +58,9 @@ module.exports = {
 
     // extending the theme
     extend: {
+      screens: {
+        'xs': '480px',
+      },
       spacing: {
         'screen-d': '100dvh',
         'screen-l': '100lvh',

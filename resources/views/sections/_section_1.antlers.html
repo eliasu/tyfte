@@ -13,7 +13,7 @@
         <div class="relative z-10 flex flex-col self-end gap-4 sm:w-3/4 lg:w-auto lg:self-center">
             
             {{# tag wrapper #}}
-            {{ partial:components/tags }}
+            {{ partial:components/tags class="hidden xs:flex" }}
                 {{ partial:components/tag text="The yellow from the egg" url="/" class="bg-yellow" }}
                 {{ partial:components/tag text="The last team you need" url="/" class="bg-purple" }}
             {{ /partial:components/tags }}
@@ -29,7 +29,7 @@
         </div>
 
         {{# container scroll instructions #}}
-        <div class="relative top-0 flex items-end self-end justify-end sm:self-start lg:self-end lg:-top-frame-3"> 
+        <div class="relative flex items-end self-end justify-end sm:self-start lg:self-end lg:-top-frame-3"> 
 
             {{# scroll instructions #}}
             <div class="relative flex flex-col items-start gap-4">
