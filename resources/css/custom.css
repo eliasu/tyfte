@@ -212,33 +212,43 @@
 
    /* bg dot grid */
    #dotgrid {
-      background-size: var(--frame) var(--frame);
-      background-position: calc(var(--frame) - calc(var(--frame)/2) ) calc(var(--frame) - calc(var(--frame)/2) ) ;
+      background-size: calc(var(--frame)*2) calc(var(--frame)*2);
+      background-position: calc(var(--frame)*2 - calc(var(--frame)*2*2) )  calc(var(--frame)*2 - calc(var(--frame)*2*2) );
       background-image: radial-gradient(circle, theme('colors.light.soft') 1px, rgba(0, 0, 0, 0) 1px);
-   } 
    
-   @media (min-width: 992px) { 
+   }
+   @media (min-width: 480px) { 
+      #dotgrid {
+         background-size: var(--frame) var(--frame);
+         background-position: calc(var(--frame) - calc(var(--frame)/2) ) calc(var(--frame) - calc(var(--frame)/2) ) ;
+      }
+   }
+   
+   @media (min-width: 1024px) { 
       #dotgrid {
          background-size: calc(var(--frame)/2) calc(var(--frame)/2);
-         background-position: calc( var(--frame)/2 - calc(var(--frame)/2/2) )  calc( var(--frame)/2 - calc(var(--frame)/2/2) );
-         background-image: radial-gradient(circle, theme('colors.light.soft') 1px, rgba(0, 0, 0, 0) 1px);
+         background-position: calc(var(--frame)/2 - calc(var(--frame)/2/2) )  calc(var(--frame)/2 - calc(var(--frame)/2/2) );
       }
    }
 
    #dotgridBig {
-      background-size: var(--frame) var(--frame);
-      background-position: calc(var(--frame) - calc(var(--frame)/2) ) calc(var(--frame) - calc(var(--frame)/2) ) ;
+      background-size: calc(var(--frame)*2) calc(var(--frame)*2);
+      background-position: calc(var(--frame)*2 - calc(var(--frame)*2*2) )  calc(var(--frame)*2 - calc(var(--frame)*2*2) );
       background-image: radial-gradient(circle, rgba(255,255,255,.35) 1px, rgba(0, 0, 0, 0) 2.5px);
       mask-image: radial-gradient(circle at var(--bgx) var(--bgy), rgba(0,0,0,1) 0px, rgba(0, 0, 0, 0) var(--bgsize));
-      
    } 
+
+   @media (min-width: 480px) { 
+      #dotgridBig {
+         background-size: var(--frame) var(--frame);
+         background-position: calc(var(--frame) - calc(var(--frame)/2) ) calc(var(--frame) - calc(var(--frame)/2) ) ;
+      } 
+   }
    
-   @media (min-width: 992px) { 
+   @media (min-width: 1024px) { 
       #dotgridBig {
          background-size: calc(var(--frame)/2) calc(var(--frame)/2);
          background-position: calc( var(--frame)/2 - calc(var(--frame)/2/2) )  calc( var(--frame)/2 - calc(var(--frame)/2/2) );
-         background-image: radial-gradient(circle, rgba(255,255,255,.35) 1px, rgba(0, 0, 0, 0) 2.5px);
-         mask-image: radial-gradient(circle at var(--bgx) var(--bgy), rgba(0,0,0,1) 0px, rgba(0, 0, 0, 0) var(--bgsize));
       }
    }
 

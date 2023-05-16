@@ -4,10 +4,9 @@
 #}}
 
 <nav id="navigation" class="fixed inset-0 z-50 block transition-all duration-500 pointer-events-none mix-blend-lighten"
-    :class="navOpen ? 'backdrop-blur-lg' : ''"
+    :class="navOpen ? 'backdrop-blur-md' : ''"
     aria-label="{{ trans:strings.main_navigation }}" 
     x-data="{ navOpen: false }"
-    x-effect="console.log('jeah')"
     x-trap.inert.noscroll="navOpen"
     @keyup.escape="navOpen = false"
     x-cloak
