@@ -84,9 +84,9 @@ export default function initScroller() {
                 
                 window.s1fx = new S1FX();
                 let crowdPleaser = new CrowdPleaser();
+                crowdPleaser.setSliders(s1fx, "Colors", 1, 5, 3, "Pattern", 1, 100, 50)
                 
                 document.getElementById("section-fx").classList.remove("opacity-0")
-                crowdPleaser.setSliders(s1fx, "Colors", 1, 5, 3, "Pattern", 1, 100, 50)
             break;
             case 2:
                 // console.log("Section 2: onEnter")
