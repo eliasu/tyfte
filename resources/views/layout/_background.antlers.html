@@ -1,0 +1,27 @@
+{{#
+    @name Background FX
+    @desc The sites background wrapper for alle the effects
+#}}
+
+<!-- /layout/_background.antlers.html -->
+<div id="background" class="fixed inset-0 pointer-events-none">
+    {{# background grain  #}}
+    <div id="sectionGrain" class="absolute inset-0 z-0 pointer-events-none"></div>
+
+    {{# background animation  #}}
+    <div id="section-fx" class="absolute inset-0 transition duration-500 pointer-events-none z-behind"></div>
+
+    {{# background video #}}
+    <div data-videooverlay class="absolute inset-0 transition duration-500 pointer-events-none z-behind mix-blend-lighten">
+        <video data-dashjs-player
+            id="hero-video"
+            class="object-cover w-full h-full opacity-50" 
+            width="100%" height="100%" 
+            muted playsinline loop 
+            src="{{video}}">
+        </video>
+    </div>
+</div>
+
+
+<!-- End: /layout/_background.antlers.html -->

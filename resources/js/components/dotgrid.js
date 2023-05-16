@@ -1,11 +1,11 @@
 /**
- * background component
- * import with "import initBackground from './components/background';"
+ * dotgrid component
+ * import with "import initBackground from './components/dotgrid';"
 **/
 import { gsap } from "gsap";
 
-export default function initBg() { 
-    console.log("** init background grid from /components/background.js **")
+export default function initDotgrid() { 
+    console.log("** init dotgrid from /components/dotgrid.js **")
     addBackgroundFollower()
     addParallaxBackground()
 }
@@ -59,7 +59,7 @@ function addBackgroundFollower() {
 
 function addParallaxBackground() {
     const elements = document.querySelectorAll('[data-dotgrid]')
-    const container = document.querySelector('[data-container]')
+    const container = document.querySelector('#scroll-container')
     
     // listen for the scroll event
     window.addEventListener('scroll', () => {

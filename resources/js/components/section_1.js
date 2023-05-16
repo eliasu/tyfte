@@ -15,7 +15,7 @@ export class S1FX {
 
     init() {
         const s1fxConst = VANTA.FOG({
-            el: "#sectionFx1",
+            el: "#section-fx",
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
@@ -40,8 +40,7 @@ export class S1FX {
         });
     }
 
-    changeColor(num) {
-        // console.log(this.s1fx)
+    changeParam1(num) {
         switch (num) {
             case 1:
                 this.s1fx.setOptions({
@@ -84,26 +83,25 @@ export class S1FX {
                 })  
             break;
         }
-        
-        // this.s1fx.setOptions({
-        //     baseColor: 0xff88cc
-        // })
-
-        // this.s1fx.resize()
     }
 
-    mapRange(num, inMin, inMax, outMin, outMax) {
-        let result = (num - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
-        console.log(result);
-        return result;
-    }
-
-    changePattern(num) {
+    changeParam2(num) {
         this.s1fx.setOptions({
             blurFactor: this.mapRange(num, 0,100,.2,1.6),
             speed: this.mapRange(num, 0,100,.8,2.8),
             zoom: this.mapRange(num, 0,100,.9,.3)
         })
+    }
+
+    destroy() {
+        this.s1fx.destroy();
+    }
+
+    // helper functions
+    mapRange(num, inMin, inMax, outMin, outMax) {
+        let result = (num - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+        console.log(result);
+        return result;
     }
 }
 

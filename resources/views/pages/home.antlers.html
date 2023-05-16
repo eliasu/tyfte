@@ -4,12 +4,11 @@
 #}}
 
 <!-- pages/home.antlers.html -->
-<main class="w-screen h-screen" id="content">
-    {{# scroll container #}}
-    <div data-container class="w-[300%] flex">
-        {{ partial:sections/section_1 }}
-        {{ partial:sections/section_2 }}
-        {{ partial:sections/section_3 }}
-    </div>
+
+{{# scroll container #}}
+<main id="scroll-container" class="w-[300%] h-screen-d flex relative z-10">
+    {{ partial:sections/section_1 }}
+    {{ partial:sections/section_2 }}
+    {{ partial:sections/section_3 }}
 </main>
 <!-- End: pages/home.antlers.html -->

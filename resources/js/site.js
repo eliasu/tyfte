@@ -6,9 +6,9 @@ import 'focus-visible'
 import MediaPlayer from 'dashjs';
 
 import initPreloader from './components/preloader';
-import initCrowdPleaser from './components/crowd_pleaser';
+// import { CrowdPleaser } from './components/crowd_pleaser';
 import initTyfteLogo from './components/tyfte_logo';
-import initBackground from './components/background';
+import initDotgrid from './components/dotgrid';
 import initScroller from './components/scroller';
 import initLoveCounter from './components/love_counter';
 
@@ -39,9 +39,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 // if document is interactive
 document.addEventListener('readystatechange', (event) => {
-	initCrowdPleaser();
 	initTyfteLogo();
-	initBackground();
+	initDotgrid();
 	initLoveCounter();
 	initScroller();
+    // window.crowdPleaser = new CrowdPleaser();
 });

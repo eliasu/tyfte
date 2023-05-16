@@ -16,8 +16,8 @@
         {{ partial:statamic-peak-tools::snippets/live_preview }}
     </head>
     
-    
-    <body class="relative flex flex-col min-h-screen bg-dark selection:bg-yellow selection:text-dark">
+
+    <body class="relative w-full h-full bg-dark selection:bg-yellow selection:text-dark">
         {{ partial:statamic-peak-tools::snippets/noscript }}
         {{ partial:statamic-peak-tools::components/toolbar }}
         {{ yield:seo_body }}
@@ -25,6 +25,7 @@
         {{# {{ partial:layout/preloader }} #}}
         {{ partial:navigation/main }}
         {{ template_content }}
+        {{ partial:layout/background }}
         {{ partial:layout/dotgrid }}
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>   
