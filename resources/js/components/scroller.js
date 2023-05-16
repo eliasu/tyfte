@@ -33,6 +33,11 @@ export default function initScroller() {
         ease: "none"
     });
 
+    // initialize on load
+    window.s1fx = new S1FX();
+    let crowdPleaser = new CrowdPleaser();
+    crowdPleaser.setSliders(s1fx, "Colors", 1, 5, 3, "Pattern", 1, 100, 50)
+
     // add enter/leave callbacks
     sections.forEach((section, index) => {    
         
@@ -83,13 +88,14 @@ export default function initScroller() {
                 document.querySelector("[data-videooverlay]").style.opacity = 1;
                 
                 window.s1fx = new S1FX();
-                let crowdPleaser = new CrowdPleaser();
                 crowdPleaser.setSliders(s1fx, "Colors", 1, 5, 3, "Pattern", 1, 100, 50)
                 
                 document.getElementById("section-fx").classList.remove("opacity-0")
             break;
             case 2:
-                // console.log("Section 2: onEnter")
+                crowdPleaser.setSliders(s1fx, "Angle", 1, 360, 180, "Speed", 1, 10, 5)
+                
+                document.getElementById("section-fx").classList.remove("opacity-0")
             break;
             case 3:
                 // console.log("Section 3: onEnter")
