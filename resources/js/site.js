@@ -42,6 +42,6 @@ document.addEventListener('readystatechange', (event) => {
 	initCrowdPleaser();
 	initTyfteLogo();
 	initBackground();
-	initScroller();
 	initLoveCounter();
+	initScroller();
 });

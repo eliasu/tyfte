@@ -7,13 +7,10 @@
 {{ partial:layout/section }}
 
     {{# main content grid #}}
-    <div class="relative grid items-center w-full h-full">
+    <div data-content class="grid items-center w-full h-full grid-cols-1 gap-8 transition-all duration-700 lg:grid lg:grid-cols-2 p-frame">
 
-        {{# line #}}
-        {{# <div class="absolute h-0.5 -left-[var(--frame)] -right-[var(--frame)] bg-light "></div> #}}
-
-        <div class="relative top-[10%] flex flex-col gap-4 left-1/2">
-
+        <div class="flex flex-col gap-4">
+            
             {{# tag wrapper #}}
             {{ partial:components/tags }}
                 {{ partial:components/tag text="Webflow" url="/" class="bg-green" }}
@@ -23,12 +20,12 @@
             
             <p class="text-lead-1">
                 Togehter we develop the right concept to fullfill your users and your needs and get your message across. The right idea and the right strategy to make it happen.
-            </p>
+            </>
 
         </div>
 
         {{# Headline #}}
-        <h2 class="absolute left-0 text-left bottom-24">
+        <h2 class="absolute left-frame text-left bottom-[calc(6rem+var(--frame))]">
             pixel perfect design
         </h2>
     </div>
