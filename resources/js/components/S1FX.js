@@ -1,6 +1,6 @@
 /**
  * section 1 component
- * import with "import { S1FX } from './section_1';"
+ * import with "import { S1FX } from './S1FX';"
 **/
 // import * as THREE from 'three';
 import FOG from 'vanta/dist/vanta.fog.min'

@@ -1,0 +1,51 @@
+{{#
+    @name Section 0
+    @desc a section wrapped in the main element from pages/home.antlers.html
+#}}
+
+<!-- sections/section_0.antlers.html -->
+{{ partial:layout/section }}
+
+    {{# main content grid #}}
+    <div data-content="0" class="grid items-center w-full h-full grid-cols-1 gap-8 transition-all duration-700 lg:grid lg:grid-cols-2 p-frame">
+
+        {{# claim with tags #}}
+        <div class="relative z-10 flex flex-col self-end gap-4 sm:w-3/4 lg:w-auto lg:self-center">
+            
+            {{# tag wrapper #}}
+            {{ partial:components/tags class="hidden xs:flex" }}
+                {{ partial:components/tag text="The yellow from the egg" url="/" class="bg-yellow" }}
+                {{ partial:components/tag text="The last team you need" url="/" class="bg-purple" }}
+            {{ /partial:components/tags }}
+            
+            {{# Headline #}}
+            <h1 class="text-left">
+                Studio for artisan 
+                {{ partial:components/button class="relative inline-flex top-[-.2em] text-yellow hover:text-purple" label="digital design" big="true" }}
+                from Berlin with
+                {{ partial:components/button cssid="love" class="relative inline-flex top-[-.2em] text-red hover:text-yellow" label="love" icon="hearth" big="true" }}
+            </h1>
+
+        </div>
+
+        {{# container scroll instructions #}}
+        <div class="relative flex items-end self-end justify-end sm:self-start lg:self-end lg:-top-frame-3"> 
+
+            {{# scroll instructions #}}
+            <div class="relative flex flex-col items-start gap-4">
+                <div>
+                    <div class="flex items-center w-[50vw] gap-2 sm:w-auto sm:mb-2">
+                        <p class="mb-0 font-bold">Scroll</p>
+                        {{# line #}}
+                        <div data-line class="absolute left-16 -right-frame h-0.5"></div>
+                    </div>
+                    <p class="max-w-[20ch] hidden sm:block">or click here to see some of our projects.</p>
+                </div>
+                {{ partial:components/button class="hidden sm:flex" label="work" icon="arrup" }}
+            </div>
+        </div>
+    
+    </div>
+
+{{ /partial:layout/section }}
+<!-- End: sections/section_0.antlers.html -->
