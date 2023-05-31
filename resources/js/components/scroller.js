@@ -7,25 +7,29 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CrowdPleaser } from './crowd_pleaser';
 
 import { S1FX } from './S1FX';
+import { S2FX } from './S2FX';
+
+window.s1fx = null;
+window.s2fx = null;
+window.s3fx = null;
+window.s4fx = null;
+window.s5fx = null;
 
 export default function initScroller() { 
     gsap.registerPlugin(ScrollTrigger);
-
-    // initialize first FX on load
-    window.s1fx = new S1FX();
     
     // init crowd pleaser
     let crowdPleaser = new CrowdPleaser();
-    
-    // init first crowdpleaser
-    crowdPleaser.setSliders(s1fx, "Colors", 1, 5, 3, "Pattern", 1, 100, 50)
 
     // init horizontal scroller 
     let fxWrapper = document.getElementById("section-fx");
     let duration = 10
 	let	sections = gsap.utils.toArray("[data-section]")
 	let	sectionIncrement = duration / (sections.length - 1)
-    
+
+    // initialize first FX on load
+    setFx(0,99)
+
     // init scroll timeline
     let timelineMain = gsap.timeline({
         scrollTrigger: {
@@ -125,7 +129,8 @@ export default function initScroller() {
                 crowdPleaser.setSliders(s1fx, "Colors", 1, 5, 3, "Pattern", 1, 100, 50)
             break;
             case 1:
-                crowdPleaser.setSliders(s1fx, "Angle", 1, 360, 180, "Speed", 1, 10, 5)
+                s2fx = new S2FX();
+                crowdPleaser.setSliders(s2fx, "Angle", 1, 360, 360, "Speed", 2, 50, 10)
             break;
             case 2:
                 // console.log("Section 3: onEnter")
@@ -145,7 +150,7 @@ export default function initScroller() {
                 s1fx.destroy();
             break;
             case 1:
-                // console.log("Section 2: onLeave")
+                s2fx.destroy();
             break;
             case 2:
                 // console.log("Section 3: onLeave")

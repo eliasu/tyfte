@@ -6,13 +6,14 @@
 <!-- /layout/_background.antlers.html -->
 <div id="background" class="fixed inset-0 pointer-events-none">
     {{# background grain  #}}
-    <div id="sectionGrain" class="absolute inset-0 z-0 pointer-events-none"></div>
+    <div id="sectionGrain" class="absolute inset-0 z-0"></div>
 
     {{# background animation  #}}
-    <div id="section-fx" class="absolute inset-0 transition duration-500 pointer-events-none z-behind"></div>
+    <div id="section-fx" class="absolute inset-0 transition duration-500 z-behind">
+    </div>
 
     {{# background video #}}
-    <div data-videooverlay class="absolute inset-0 transition duration-500 pointer-events-none z-behind mix-blend-lighten">
+    <div data-videooverlay class="absolute inset-0 transition duration-500 z-behind mix-blend-lighten">
         <video data-dashjs-player
             id="hero-video"
             class="object-cover w-full h-full opacity-50" 

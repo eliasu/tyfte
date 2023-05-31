@@ -75,6 +75,21 @@
 }
 
 @layer components {
+   /* fx 2 conic gradients */
+   [data-fxgradient] {
+      @apply transition-all;
+      background: conic-gradient(from var(--angle) at 50% 50%, #8E63E2 0deg, rgba(193, 117, 253, 0) 360deg);
+   }
+
+   [data-fxgradient-a0] {--angle: 0deg; }
+   [data-fxgradient-a1] {--angle: 45deg;}
+   [data-fxgradient-a2] {--angle: 90deg;}
+   [data-fxgradient-a3] {--angle: 135deg;}
+   [data-fxgradient-a4] {--angle: 180deg;}
+   [data-fxgradient-a5] {--angle: 225deg;}
+   [data-fxgradient-a6] {--angle: 270deg;}
+   [data-fxgradient-a7] {--angle: 315deg;}
+   
    /* preloader styles */
    #preloader-lottie {
       animation: pulse 2s infinite;
@@ -140,7 +155,7 @@
 
    #sectionGrain {
       background-image: url(/resources/images/grain_bg.jpg);
-      @apply mix-blend-multiply opacity-20;
+      @apply mix-blend-multiply opacity-10;
    }
 
    svg {
@@ -264,6 +279,16 @@
       --bgx: 0px;
       --bgy: 0px;
       --bgsize: 400px;
-      --test: 0deg;
+      
+      /* angles for FX2 */
+      --angle: 0deg;
+      --a0: 0deg;
+      --a1: 45deg;
+      --a2: 90deg;
+      --a3: 135deg;
+      --a4: 180deg;
+      --a5: 225deg;
+      --a6: 270deg;
+      --a7: 315deg;
     }
 }

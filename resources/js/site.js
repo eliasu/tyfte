@@ -6,7 +6,6 @@ import 'focus-visible'
 import MediaPlayer from 'dashjs';
 
 import initPreloader from './components/preloader';
-// import { CrowdPleaser } from './components/crowd_pleaser';
 import initTyfteLogo from './components/tyfte_logo';
 import initDotgrid from './components/dotgrid';
 import initScroller from './components/scroller';
@@ -43,5 +42,4 @@ document.addEventListener('readystatechange', (event) => {
 	initDotgrid();
 	initLoveCounter();
 	initScroller();
-    // window.crowdPleaser = new CrowdPleaser();
 });
