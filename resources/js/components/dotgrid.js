@@ -79,7 +79,7 @@ function addParallaxBackground() {
             const bgPosition = (scrollPosition - elementPosition) * -scrollValue;
             
             // set the new background position
-            element.style.backgroundPositionX = `${bgPosition}px`;
+            element.style.backgroundPositionY = `${bgPosition}px`;
         });
     });
 }

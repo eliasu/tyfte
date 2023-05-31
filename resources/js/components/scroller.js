@@ -9,6 +9,8 @@ import { CrowdPleaser } from './crowd_pleaser';
 import { S1FX } from './S1FX';
 import { S2FX } from './S2FX';
 
+gsap.registerPlugin(ScrollTrigger);
+
 window.s1fx = null;
 window.s2fx = null;
 window.s3fx = null;
@@ -16,84 +18,18 @@ window.s4fx = null;
 window.s5fx = null;
 
 export default function initScroller() { 
-    gsap.registerPlugin(ScrollTrigger);
     
-    // init crowd pleaser
+    // init crowd pleaser object
     let crowdPleaser = new CrowdPleaser();
 
-    // init horizontal scroller 
+    // get fx wrapper 
     let fxWrapper = document.getElementById("section-fx");
-    let duration = 10
-	let	sections = gsap.utils.toArray("[data-section]")
-	let	sectionIncrement = duration / (sections.length - 1)
 
-    // initialize first FX on load
+    // initialize first FX on load: setFX(effectToStart, effectToEnd)
     setFx(0,99)
 
-    // init scroll timeline
-    let timelineMain = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#scroll-container",
-            pin: true,
-            scrub: 1,
-            snap: 1 / (sections.length - 1),
-            start: "top top",
-            end: "+=5000",
-            duration: {min: 0.2, max: 0.4}, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-            delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
-        }
-    });
-
-    // scroll animation
-    timelineMain.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        duration: duration,
-        ease: "none"
-    });
-
     // add enter/leave callbacks
-    sections.forEach((section, index) => {    
-        
-        // add the enter/leave callbacks for all sections
-        addSectionCallbacks(timelineMain, {
-            start: sectionIncrement * (index - 0.99),
-            end: sectionIncrement * (index + 0.99),
-            onEnter: function() { 
-                setFx( index, index-1 )
-            },
-            // onLeave: function() { 
-            //     setFx( index, index-1 )
-            // },
-            onEnterBack: function() { 
-                setFx( index, index+1 )
-            },
-            // onLeaveBack: function() { 
-            //     setFx( index, index+1 )
-            // },
-        });
-    });
-
-    // helper function for setting callbacks 
-    // that lets us define a section in a timeline that spans between two times (start/end) and lets us add onEnter/onLeave/onEnterBack/onLeaveBack callbacks
-    function addSectionCallbacks(timeline, {start, end, param, onEnter, onLeave, onEnterBack, onLeaveBack}) {
-        let trackDirection = animation => { // just adds a "direction" property to the animation that tracks the moment-by-moment playback direction (1 = forward, -1 = backward)
-            let onUpdate = animation.eventCallback("onUpdate"), // in case it already has an onUpdate
-                prevTime = animation.time();
-            animation.direction = animation.reversed() ? -1 : 1;
-            animation.eventCallback("onUpdate", () => {
-            let time = animation.time();
-            if (prevTime !== time) {
-                animation.direction = time < prevTime ? -1 : 1;
-                prevTime = time;
-            }
-            onUpdate && onUpdate.call(animation);
-            });
-        },
-        empty = v => v; // in case one of the callbacks isn't defined
-        timeline.direction || trackDirection(timeline); // make sure direction tracking is enabled on the timeline
-        start >= 0 && timeline.add(() => ((timeline.direction < 0 ? onLeaveBack : onEnter) || empty)(param), start);
-        end <= timeline.duration() && timeline.add(() => ((timeline.direction < 0 ? onEnterBack : onLeave) || empty)(param), end);
-    }
+   // TODO
 
     function setFx(sectionIndex, sectionIndexPrev) {
         console.log(`setFX: Activate section${sectionIndex} and deactivate section${sectionIndexPrev}`)
