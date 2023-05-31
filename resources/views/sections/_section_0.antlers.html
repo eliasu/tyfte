@@ -7,7 +7,7 @@
 {{ partial:layout/section }}
 
     {{# main content grid #}}
-    <div data-content="0" class="grid items-center w-full h-full grid-cols-1 gap-8 transition-all duration-700 lg:grid lg:grid-cols-2 p-frame">
+    <div data-content="0" class="grid items-center w-full grid-cols-1 gap-8 h-screen-d lg:grid lg:grid-cols-2 p-frame">
 
         {{# claim with tags #}}
         <div class="relative z-10 flex flex-col self-end gap-4 sm:w-3/4 lg:w-auto lg:self-center">
@@ -37,7 +37,7 @@
                     <div class="flex items-center w-[50vw] gap-2 sm:w-auto sm:mb-2">
                         <p class="mb-0 font-bold">Scroll</p>
                         {{# line #}}
-                        <div data-line class="absolute left-16 -right-frame h-0.5"></div>
+                        <div data-line class="absolute -left-frame-0.5 top-0 bottom-0 w-0.5"></div>
                     </div>
                     <p class="max-w-[20ch] hidden sm:block">or click here to see some of our projects.</p>
                 </div>
