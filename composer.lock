@@ -1944,16 +1944,16 @@
         },
         {
             "name": "jacksleight/statamic-bard-texstyle",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jacksleight/statamic-bard-texstyle.git",
-                "reference": "e6f5e8e8144b731b153e1b0cf2642eeacaffb032"
+                "reference": "89a964b27524273c371dd22018be1d624b32711e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jacksleight/statamic-bard-texstyle/zipball/e6f5e8e8144b731b153e1b0cf2642eeacaffb032",
-                "reference": "e6f5e8e8144b731b153e1b0cf2642eeacaffb032",
+                "url": "https://api.github.com/repos/jacksleight/statamic-bard-texstyle/zipball/89a964b27524273c371dd22018be1d624b32711e",
+                "reference": "89a964b27524273c371dd22018be1d624b32711e",
                 "shasum": ""
             },
             "require": {
@@ -1989,9 +1989,9 @@
             "notification-url": "https://packagist.org/downloads/",
             "support": {
                 "issues": "https://github.com/jacksleight/statamic-bard-texstyle/issues",
-                "source": "https://github.com/jacksleight/statamic-bard-texstyle/tree/3.0.2"
+                "source": "https://github.com/jacksleight/statamic-bard-texstyle/tree/3.1.0"
             },
-            "time": "2023-05-04T11:27:30+00:00"
+            "time": "2023-05-17T11:37:29+00:00"
         },
         {
             "name": "james-heinrich/getid3",
@@ -5461,16 +5461,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v4.1.2",
+            "version": "v4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "770a9840d07c5149a92a5b1d3bdb82a1021e1027"
+                "reference": "451192e387950b8101327d47e83f6e9631fd3930"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/770a9840d07c5149a92a5b1d3bdb82a1021e1027",
-                "reference": "770a9840d07c5149a92a5b1d3bdb82a1021e1027",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/451192e387950b8101327d47e83f6e9631fd3930",
+                "reference": "451192e387950b8101327d47e83f6e9631fd3930",
                 "shasum": ""
             },
             "require": {
@@ -5550,7 +5550,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v4.1.2"
+                "source": "https://github.com/statamic/cms/tree/v4.4.0"
             },
             "funding": [
                 {
@@ -5558,7 +5558,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-15T19:31:18+00:00"
+            "time": "2023-05-30T19:05:21+00:00"
         },
         {
             "name": "statamic/stringy",
@@ -5718,16 +5718,16 @@
         },
         {
             "name": "studio1902/statamic-peak-seo",
-            "version": "v2.0",
+            "version": "v2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studio1902/statamic-peak-seo.git",
-                "reference": "3be04407ffbc47354e97fb6faa367713e882094a"
+                "reference": "492187f85c1024c1f9a9b0f78df6246ad61e3404"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studio1902/statamic-peak-seo/zipball/3be04407ffbc47354e97fb6faa367713e882094a",
-                "reference": "3be04407ffbc47354e97fb6faa367713e882094a",
+                "url": "https://api.github.com/repos/studio1902/statamic-peak-seo/zipball/492187f85c1024c1f9a9b0f78df6246ad61e3404",
+                "reference": "492187f85c1024c1f9a9b0f78df6246ad61e3404",
                 "shasum": ""
             },
             "type": "library",
@@ -5750,7 +5750,7 @@
             "notification-url": "https://packagist.org/downloads/",
             "support": {
                 "issues": "https://github.com/studio1902/statamic-peak-seo/issues",
-                "source": "https://github.com/studio1902/statamic-peak-seo/tree/v2.0"
+                "source": "https://github.com/studio1902/statamic-peak-seo/tree/v2.1"
             },
             "funding": [
                 {
@@ -5758,7 +5758,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-09T06:45:54+00:00"
+            "time": "2023-05-22T13:45:52+00:00"
         },
         {
             "name": "studio1902/statamic-peak-tools",
