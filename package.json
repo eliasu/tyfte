@@ -13,6 +13,7 @@
     "@alpinejs/collapse": "^3.11.1",
     "@alpinejs/focus": "^3.11.1",
     "@alpinejs/persist": "^3.11.1",
+    "@studio-freight/lenis": "^1.0.14",
     "alpinejs": "^3.11.1",
     "axios": "^1.4.0",
     "dashjs": "^4.7.0",

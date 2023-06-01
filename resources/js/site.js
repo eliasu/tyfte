@@ -4,6 +4,7 @@ import persist from '@alpinejs/persist'
 import focus from '@alpinejs/focus'
 import 'focus-visible'
 import MediaPlayer from 'dashjs';
+import Lenis from '@studio-freight/lenis'
 
 
 
@@ -35,6 +36,9 @@ Alpine.plugin(collapse)
 Alpine.plugin(persist)
 Alpine.plugin(focus)
 Alpine.start()
+
+window.Lenis = Lenis;
+
 
 // if DOMContent has loaded
 window.addEventListener("DOMContentLoaded", (event) => {
