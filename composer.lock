@@ -5718,16 +5718,16 @@
         },
         {
             "name": "studio1902/statamic-peak-seo",
-            "version": "v2.1",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studio1902/statamic-peak-seo.git",
-                "reference": "492187f85c1024c1f9a9b0f78df6246ad61e3404"
+                "reference": "7c4b793960a8f6aad60aeb9da6120df47f547b26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studio1902/statamic-peak-seo/zipball/492187f85c1024c1f9a9b0f78df6246ad61e3404",
-                "reference": "492187f85c1024c1f9a9b0f78df6246ad61e3404",
+                "url": "https://api.github.com/repos/studio1902/statamic-peak-seo/zipball/7c4b793960a8f6aad60aeb9da6120df47f547b26",
+                "reference": "7c4b793960a8f6aad60aeb9da6120df47f547b26",
                 "shasum": ""
             },
             "type": "library",
@@ -5750,7 +5750,7 @@
             "notification-url": "https://packagist.org/downloads/",
             "support": {
                 "issues": "https://github.com/studio1902/statamic-peak-seo/issues",
-                "source": "https://github.com/studio1902/statamic-peak-seo/tree/v2.1"
+                "source": "https://github.com/studio1902/statamic-peak-seo/tree/v2.1.1"
             },
             "funding": [
                 {
@@ -5758,7 +5758,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-22T13:45:52+00:00"
+            "time": "2023-05-31T19:28:14+00:00"
         },
         {
             "name": "studio1902/statamic-peak-tools",
