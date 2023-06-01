@@ -5,11 +5,17 @@ import focus from '@alpinejs/focus'
 import 'focus-visible'
 import MediaPlayer from 'dashjs';
 
+
+
+
 import initPreloader from './components/preloader';
 import initTyfteLogo from './components/tyfte_logo';
 import initDotgrid from './components/dotgrid';
 import initScroller from './components/scroller';
 import initLoveCounter from './components/love_counter';
+import test from './components/textify';
+
+test();
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
