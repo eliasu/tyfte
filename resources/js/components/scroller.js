@@ -9,6 +9,8 @@ import { CrowdPleaser } from './crowd_pleaser';
 import { S1FX } from './S1FX';
 import { S2FX } from './S2FX';
 
+import textifyJs from 'textify.js'
+
 gsap.registerPlugin(ScrollTrigger);
 
 window.s1fx = null;
@@ -26,24 +28,59 @@ export default function initScroller() {
     let fxWrapper = document.getElementById("section-fx");
 
     // initialize first FX on load: setFX(effectToStart, effectToEnd)
-    // setFx(0,99)
+    setFx(0,99)
 
     // add enter/leave callbacks
     // TODO
 
+    // create scroll triggers for sections
     gsap.utils.toArray("[data-section]").forEach(function(elem) {
         
         ScrollTrigger.create({
             trigger: elem,
             markers: true,
-            onEnter: (i,el) => { console.log(`onEnter Section: ${getValue(i)}`) }, 
-            onEnterBack: (i,el) => { console.log(`onEnterBack Section: ${getValue(i)}`) }, 
-            // onLeave: (i,el) => { console.log(`onLeave Section: ${getValue(i)}`) }, 
-            // onLeaveBack: (i,el) => { console.log(`onLeaveBack Section: ${getValue(i)}`) }, 
+            onEnter: (i,el) => { console.log(`onEnter Section: ${getSectionNum(i)}`) }, 
+            onEnterBack: (i,el) => { console.log(`onEnterBack Section: ${getSectionNum(i)}`) }, 
+            // onLeave: (i,el) => { console.log(`onLeave Section: ${getSectionNum(i)}`) }, 
+            // onLeaveBack: (i,el) => { console.log(`onLeaveBack Section: ${getSectionNum(i)}`) }, 
         });
     });
 
-    function getValue(elem) {
+    // create scroll triggers for headline
+    gsap.to("[data-type='headline']", {
+        scrollTrigger: {
+            trigger: "[data-type='headline']",
+            // toggleActions: "restart pause reverse pause",
+            start: "top center",
+            // end: "top 100px",
+            markers: true,
+            scrub: true,
+            pin: true,
+            pinSpacing: false,
+        },
+        autoAlpha: 1,
+    })
+
+    let tl = gsap.timeline
+
+    // const headlineObj = new Textify({
+    //     selector: "[data-type='headline']",
+    //     duration: 1000,
+    //     stagger: 100,
+    //     fade: true,
+    //     once: false,
+    //   });
+
+    const textObj = new Textify({
+        selector: "[data-type='text']",
+        duration: 1000,
+        stagger: 100,
+        fade: true,
+        once: false,
+    });
+      
+
+    function getSectionNum(elem) {
         return elem.trigger.querySelector("[data-content]").dataset.content
     }
 
@@ -79,7 +116,7 @@ export default function initScroller() {
 
         let fxChange = gsap.timeline({ 
             defaults: {
-                duration: .5,
+                duration: 1,
                 ease: "circ" 
           },
         });
@@ -104,7 +141,7 @@ export default function initScroller() {
                 document.getElementById("hero-video").play();
                 document.querySelector("[data-videooverlay]").style.opacity = 1;
                 
-                s1fx = new S1FX();
+                // s1fx = new S1FX();
                 crowdPleaser.setSliders(s1fx, "Colors", 1, 5, 3, "Pattern", 1, 100, 50)
             break;
             case 1:

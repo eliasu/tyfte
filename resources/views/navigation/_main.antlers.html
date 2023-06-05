@@ -75,25 +75,33 @@
             <span class="relative inline-block font-bold text-transparent transition-all bg-clip-text bg-light" id="loveCount">{{ love_counter:count }}</span> loves
         </div>
 
-        {{# Three Liner #}}
-        <p class="absolute mb-0 pointer-events-auto bottom-frame left-frame text-lead-2">
-            We consult.<br>
-            We design.<br>
-            We code.
-        </p>
+        {{# Four Liner #}}
+        <div class="absolute flex flex-col mb-0 pointer-events-auto bottom-frame left-frame">
+            
+            {{# line wrapper #}}
+            <div class="absolute top-0 bottom-0 -left-4">
+                <div class="absolute top-1/4 w-0.5 h-1/4 bg-green"></div>
+                <div class="w-0.5 h-full bg-light/20 "></div>
+            </div>
+
+            <a class="mb-0 text-light text-lead-2" href="">ideate</a>
+            <a class="mb-0 text-light text-lead-2" href="">plan</a>
+            <a class="mb-0 text-light text-lead-2" href="">design</a>
+            <a class="mb-0 text-light text-lead-2" href="">code</a>
+        </div>
 
         {{# Crowd Pleaser #}}
-        <div id="crowdpleaser" class="absolute flex-col hidden uppercase translate-y-2 pointer-events-auto sm:flex right-frame bottom-frame text-crowd">
+        <div id="crowdpleaser" class="absolute flex-col hidden uppercase translate-y-2 pointer-events-auto sm:flex right-frame bottom-frame text-small-1">
             
             <div id="cp_headline" class="flex items-center w-full h-6 duration-500 motion-safe:transition">Crowd Pleaser</div>
             
             <div id="cp_slider_1" class="flex items-center justify-between w-full h-6 gap-4 duration-500 motion-safe:transition group">
-                <label id="cp_slider_1_label" for="cp_slider_1_input" class="block motion-safe:transition text-crowd group-hover:text-yellow">Colors</label>
+                <label id="cp_slider_1_label" for="cp_slider_1_input" class="block motion-safe:transition text-small-1 group-hover:text-yellow">Colors</label>
                 <input id="cp_slider_1_input" type="range" min="1" max="5" value="3">
             </div>
             
             <div id="cp_slider_2" class="flex items-center justify-between w-full h-6 gap-4 font-mono duration-500 motion-safe:transition group">
-                <label id="cp_slider_2_label" for="cp_slider_2_input" class="block motion-safe:transition text-crowd group-hover:text-yellow">Pattern</label>
+                <label id="cp_slider_2_label" for="cp_slider_2_input" class="block motion-safe:transition text-small-1 group-hover:text-yellow">Pattern</label>
                 <input id="cp_slider_2_input" type="range" value="50">
             </div>
         </div>

@@ -4,7 +4,7 @@
 #}}
 
 <!-- /components/_tag.antlers.html -->
-<div class="selection:bg-green rounded-full bg-yellow text-dark text-tag py-0.5 px-2 uppercase {{class}}" aria-label="{{ text }}">
+<div class="selection:bg-green rounded-full text-dark text-tag py-0.5 px-2 uppercase {{ class ?? 'bg-light' }}" aria-label="{{ text }}">
     {{text}}
 </div>
 <!-- End: /components/_tag.antlers.html -->

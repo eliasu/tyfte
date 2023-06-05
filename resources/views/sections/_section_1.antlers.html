@@ -8,26 +8,38 @@
 
     {{# main content grid #}}
     <div data-content="1" class="grid items-center w-full h-full min-h-screen grid-cols-1 gap-8 lg:grid lg:grid-cols-2 p-frame">
-
-        <div class="flex flex-col gap-4">
-            
+        
+        {{# headline wrapper #}}
+        <div data-type="headline" class="flex flex-col gap-4">
             {{# tag wrapper #}}
             {{ partial:components/tags }}
-                {{ partial:components/tag text="Webflow" url="/" class="bg-green" }}
-                {{ partial:components/tag text="Statamic" url="/" class="bg-purple" }}
-                {{ partial:components/tag text="Hibedibu" url="/" class="bg-red" }}
+                {{ partial:components/tag text="Webflow" url="/" }}
+                {{ partial:components/tag text="Statamic" url="/" }}
+                {{ partial:components/tag text="Hibedibu" url="/" }}
             {{ /partial:components/tags }}
             
-            <p class="text-lead-1">
-                Togehter we develop the right concept to fullfill your users and your needs and get your message across. The right idea and the right strategy to make it happen.
-            </>
+            {{# Headline #}}
+            <h2 class="w-[12ch] mb-8 text-head-1">
+                Value Proposition and Brand
+            </h2>
+
+            {{# progress bar wrapper #}}
+            <div class="flex flex-col w-1/4 gap-2">
+                {{# prograss bar #}}
+                <div class="relative">
+                    <div class="h-0.5 bg-light w-1/2 absolute"></div>
+                    <div class="h-0.5 bg-light/20 w-full"></div>
+                </div>
+
+                <div class="text-small-1">1 – 2</div>
+            </div>
 
         </div>
 
-        {{# Headline #}}
-        <h2 class="absolute left-frame text-left bottom-[calc(6rem+var(--frame))]">
-            pixel perfect design
-        </h2>
+        {{# textblock #}}
+        <p data-type="text" class="text-lead-1">
+            When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.
+        </p>
     </div>
 
 {{ /partial:layout/section }}
