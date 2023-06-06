@@ -1,4 +1,6 @@
-import Animations from 'textify.js';
+// import Animations from 'textify.js';
+// import Animations from '/Users/hanneshoepfner/Documents/Projekte/tyfte/tyfte/node_modules/textify.js/src/index.js';
+import Animations from '../c-textify/src/index';
 
 const { Textify } = Animations;
 
@@ -22,6 +24,7 @@ export default function test() {
     threshold: 0.5,
     transformOrigin: "left top",
     reveal: true,
+    doViewportObs: false,
 
 
   });
