@@ -7,7 +7,7 @@ import Prefix from "../vendors/prefix";
 import { isBrowser } from "../utils";
 
 export default class Animation {
-    constructor({ element, elements }) {
+    constructor({ element, elements, noObserver}) {
         console.log("-----------------custom SCR WOOOOOOW build");
         const { animationDelay, animationTarget } = element.dataset;
 
@@ -27,9 +27,15 @@ export default class Animation {
 
         // this.doViewportObs = this.options.doViewportObs;
 
-        console.log("this animation", this);
+        // debugger
 
-        if (this.doViewportObs) {
+        this.noObserver = noObserver;
+
+        console.log("this animation", this);
+        console.log("no observer",this.noObserver);
+
+        if (!this.noObserver) {
+
             if (isBrowser && "IntersectionObserver" in window) {
                 this.createObserver();
 

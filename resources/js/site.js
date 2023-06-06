@@ -7,16 +7,10 @@ import MediaPlayer from 'dashjs';
 import Lenis from '@studio-freight/lenis'
 
 
-
-
-import initPreloader from './components/preloader';
-import initTyfteLogo from './components/tyfte_logo';
-import initDotgrid from './components/dotgrid';
-import initScroller from './components/scroller';
-import initLoveCounter from './components/love_counter';
 import test from './components/textify';
-
 test();
+
+
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
@@ -40,16 +34,6 @@ Alpine.start()
 window.Lenis = Lenis;
 
 
-// if DOMContent has loaded
-window.addEventListener("DOMContentLoaded", (event) => {
-	console.log("Welcome to tyfte.de")
-	initPreloader();
- });
-
-// if document is interactive
-document.addEventListener('readystatechange', (event) => {
-	initTyfteLogo();
-	initDotgrid();
-	initLoveCounter();
-	initScroller();
-});
+function check() {
+    console.log("test");
+}

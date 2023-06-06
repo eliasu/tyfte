@@ -34,16 +34,17 @@ export default class Text extends Animation {
       element,
       elements: {
         lines
-      }
+      },
+      noObserver: options.noObserver
     });
 
     this.options = Object.assign({}, DEFAULT, options);
     this.repeat = this.options.once;
 
     this.threshold = this.options.threshold;
-    this.doViewportObs = this.options.doViewportObs;
+    // this.noObserver = this.options.noObserver;
 
-    console.log("this",this);
+    // console.log("this",this);
 
 
     this.onResize();
