@@ -23,10 +23,10 @@
         {{ yield:seo_body }}
 
         {{# {{ partial:layout/preloader }} #}}
-        {{ partial:navigation/main }}
+        {{# {{ partial:navigation/main }} #}}
         {{ template_content }}
-        {{ partial:layout/background }}
-        {{ partial:layout/dotgrid }}
+        {{# {{ partial:layout/background }} #}}
+        {{# {{ partial:layout/dotgrid }} #}}
 
         {{# <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>    #}}
     </body>

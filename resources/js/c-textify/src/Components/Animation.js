@@ -31,8 +31,8 @@ export default class Animation {
 
         this.noObserver = noObserver;
 
-        console.log("this animation", this);
-        console.log("no observer",this.noObserver);
+        // console.log("this animation", this);
+        // console.log("no observer",this.noObserver);
 
         if (!this.noObserver) {
 

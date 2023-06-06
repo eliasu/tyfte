@@ -11,7 +11,7 @@ export default class Text extends Animation {
    * @param {object} options - Configuration options of Textify.js
    */
   constructor({ element, options = {} }) {
-    console.log("optiios", options);
+    // console.log("optiios", options);
     const lines = [];
     const paragraphs = isBrowser ? element.querySelectorAll("h1, h2, p") : [];
 

@@ -3,12 +3,14 @@ import collapse from '@alpinejs/collapse'
 import persist from '@alpinejs/persist'
 import focus from '@alpinejs/focus'
 import 'focus-visible'
-import MediaPlayer from 'dashjs';
-import Lenis from '@studio-freight/lenis'
+// import MediaPlayer from 'dashjs';
+
+import scroller from './components/scroller';
 
 
-import test from './components/textify';
-test();
+import startTextify from './components/textify';
+startTextify();
+scroller();
 
 
 
@@ -31,7 +33,7 @@ Alpine.plugin(persist)
 Alpine.plugin(focus)
 Alpine.start()
 
-window.Lenis = Lenis;
+
 
 
 function check() {
