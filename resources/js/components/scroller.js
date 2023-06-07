@@ -25,69 +25,105 @@ export default function initScroller() {
     //     lenis.raf(time * 1000);
     // });
 
-  
-    const anim = gsap.to("#seeker", {
-        transform: 'translate(90vw, 120vh)'},
-    );
-
-     let tl = gsap.timeline(
-        { defaults: { 
-            duration: 1, ease: "back",
-            } 
-        });
-        tl.to("#seeker", {transform: 'translate(90vw, 120vh)'})
-        .to("#seeker", {
-            transform: 'translate(10vw, 220vh)',
-            scale: 5
-        })
-        .to("#seeker", {
-            transform: 'translate(100vw, 260vh)',
-            scale: 2
-        })
-        ;
-
-
-    ScrollTrigger.create({
-        // trigger: "#s1",
-        trigger: "#scroll-container",
-        animation: tl,
-        markers: true,
-        start: "top top",
-        end: "bottom bottom",
-        // toggleClass: "active",
-        // pin: true,
-        scrub: 1,
-        onUpdate: (self) => {
-            // console.log(
-            //     "progress:",
-            //     self.progress.toFixed(3),
-            //     "direction:",
-            //     self.direction,
-            //     // "velocity",
-            //     // self.getVelocity()
-            // );
-        },
-    });
-
-    console.log(texti);
-
-    gsap.utils.toArray(texti.elements).forEach(function(elem, index) {
+    gsap.utils.toArray("section.section-dummy").forEach(function (elem, index) {
+        console.log(elem);
 
         ScrollTrigger.create({
+            // trigger: "#s1",
+            scroller: "main",
             trigger: elem,
             markers: true,
             start: "top center",
-            end: "bottom center",
+            end: "bottom top",
+            // toggleClass: "active",
             // pin: true,
-            onEnter: (i,el) => { console.log(`onEnter`), texti.animations[index].
-            animateIn()},
-            onLeave: (i,el) => { console.log(`leaving`), texti.animations[index].
-            animateOut()},
-            onLeaveBack: (i,el) => { console.log(`leaving`), texti.animations[index].
-            animateOut()},
-            onEnterBack: (i,el) => { console.log(`onEnterBack`), texti.animations[index].
-            animateIn() },
-           
+            scrub: 1,
+            onUpdate: (self) => {
+                // console.log(
+                //     "progress:",
+                //     self.progress.toFixed(3),
+                //     "direction:",
+                //     self.direction,
+                //     // "velocity",
+                //     // self.getVelocity()
+                // );
+            },
+            onEnter: (i, el) => {
+                console.log(`onEnter ${index}`);
+            },
+            onLeave: (i, el) => {
+                console.log(`leaving ${index}`);
+            },
+            onLeaveBack: (i, el) => {
+                console.log(`leaving ${index}`);
+            },
+            onEnterBack: (i, el) => {
+                console.log(`onEnterBack ${index}`);
+            },
         });
     });
+
+    // const anim = gsap.to("#seeker", {
+    //     transform: 'translate(90vw, 120vh)'},
+    // );
+
+    //  let tl = gsap.timeline(
+    //     { defaults: {
+    //         duration: 1, ease: "back",
+    //         }
+    //     });
+    //     tl.to("#seeker", {transform: 'translate(90vw, 120vh)'})
+    //     .to("#seeker", {
+    //         transform: 'translate(10vw, 220vh)',
+    //         scale: 5
+    //     })
+    //     .to("#seeker", {
+    //         transform: 'translate(100vw, 260vh)',
+    //         scale: 2
+    //     })
+    //     ;
+
+    // ScrollTrigger.create({
+    //     // trigger: "#s1",
+    //     trigger: "#scroll-container",
+    //     animation: tl,
+    //     markers: true,
+    //     start: "top top",
+    //     end: "bottom bottom",
+    //     // toggleClass: "active",
+    //     // pin: true,
+    //     scrub: 1,
+    //     onUpdate: (self) => {
+    //         // console.log(
+    //         //     "progress:",
+    //         //     self.progress.toFixed(3),
+    //         //     "direction:",
+    //         //     self.direction,
+    //         //     // "velocity",
+    //         //     // self.getVelocity()
+    //         // );
+    //     },
+    // });
+
+    // console.log(texti);
+
+    // gsap.utils.toArray(texti.elements).forEach(function(elem, index) {
+
+    //     ScrollTrigger.create({
+    //         trigger: elem,
+    //         markers: true,
+    //         start: "top center",
+    //         end: "bottom center",
+    //         // pin: true,
+    //         onEnter: (i,el) => { console.log(`onEnter`), texti.animations[index].
+    //         animateIn()},
+    //         onLeave: (i,el) => { console.log(`leaving`), texti.animations[index].
+    //         animateOut()},
+    //         onLeaveBack: (i,el) => { console.log(`leaving`), texti.animations[index].
+    //         animateOut()},
+    //         onEnterBack: (i,el) => { console.log(`onEnterBack`), texti.animations[index].
+    //         animateIn() },
+
+    //     });
+    // });
 }

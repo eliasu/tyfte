@@ -10,7 +10,7 @@ import scroller from './components/scroller';
 
 import startTextify from './components/textify';
 // startTextify();
-// scroller();
+scroller();
 
 
 
