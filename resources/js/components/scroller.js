@@ -5,7 +5,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { CrowdPleaser } from "./crowd_pleaser";
-import Lenis from '@studio-freight/lenis'
+import Lenis from "@studio-freight/lenis";
 window.Lenis = Lenis;
 
 // import { S1FX } from './S1FX';
@@ -14,16 +14,16 @@ window.Lenis = Lenis;
 gsap.registerPlugin(ScrollTrigger);
 
 export default function initScroller() {
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
+    // const lenis = new Lenis({
+    //     duration: 1.1,
+    //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    // });
 
-    lenis.on("scroll", ScrollTrigger.update);
+    // lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
+    // gsap.ticker.add((time) => {
+    //     lenis.raf(time * 1000);
+    // });
 
     // // You can use a ScrollTrigger in a tween or timeline
     // gsap.to(".b", {
@@ -46,20 +46,66 @@ export default function initScroller() {
     //     duration: 3
     //   });
 
-    const anim = gsap.to(".c", {
-        x: 400,
-        rotation: 360,
-        duration: 3,
-    });
+    // const anim = gsap.to("#seeker", {
+    //     x: vw(50),
+    //     y: vh(70),
+    //     modifiers:{
+    //         x: function(x){
+    //           return tween.ratio * vw(50);
+    //         },
+    //         y: function(y){
+    //           return tween.ratio * vh(50);
+    //         }
+    //     }
+    // });
+    const anim = gsap.to("#seeker", {
+        transform: 'translate(90vw, 120vh)'},
+    );
+
+     let tl = gsap.timeline(
+        { defaults: { 
+            duration: 1, ease: "back",
+            } 
+        });
+        tl.to("#seeker", {transform: 'translate(90vw, 120vh)'})
+        .to("#seeker", {
+            transform: 'translate(10vw, 220vh)',
+            scale: 5
+        })
+        .to("#seeker", {
+            transform: 'translate(100vw, 260vh)',
+            scale: 2
+        })
+        ;
+
+    // let tl = gsap.timeline(
+    //     { defaults: { 
+    //         duration: 1, ease: "back",
+
+    //         } 
+    //     });
+    // tl.to("#seeker", {  x: vw(50), y: vh(70),
+    //     modifiers:{
+    //         x: function(x){
+    //           return tween.ratio * vw(50);
+    //         },
+    //         y: function(y){
+    //           return tween.ratio * vh(50);
+    //         }
+    //       }  })
+    //     // to("#seeker", {  x: vw(80), y: vh(30), })
+    //     // .to("#seeker", { left: 0, y: "10vh" })
+    //     ;
 
     ScrollTrigger.create({
-        trigger: ".c",
-        animation: anim,
+        // trigger: "#s1",
+        trigger: "#scroll-container",
+        animation: tl,
         markers: true,
-        start: "top center",
-        end: "top 100px",
-        toggleClass: "active",
-        pin: true,
+        start: "top top",
+        end: "bottom bottom",
+        // toggleClass: "active",
+        // pin: true,
         scrub: 1,
         onUpdate: (self) => {
             console.log(

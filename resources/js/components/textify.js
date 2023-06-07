@@ -30,8 +30,17 @@ export default function textifyStart() {
   // });
 
   const textObj = new Textify({
-    // noObserver: fla,
+    duration: 1000,
+    stagger: 100,
+    easing: "elasticInOut",
+    reveal: true,
+    threshold: 0.1,
+    once: false,
+    
+    noObserver: true,
   });
+
+  window.texti = textObj.elements;
 
 
   console.log(textObj);
