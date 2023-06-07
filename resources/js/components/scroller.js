@@ -25,39 +25,7 @@ export default function initScroller() {
     //     lenis.raf(time * 1000);
     // });
 
-    // // You can use a ScrollTrigger in a tween or timeline
-    // gsap.to(".b", {
-    //     x: 400,
-    //     rotation: 360,
-    //     scrollTrigger: {
-    //       trigger: ".b",
-    //       start: "top center",
-    //       end: "top 100px",
-    //       scrub: true,
-    //       markers: true,
-    //       id: "scrub"
-    //     }
-    //   });
-
-    //   // Or you can attach a tween or timeline to a ScrollTrigger later
-    //   const anim = gsap.to(".c", {
-    //     x: 400,
-    //     rotation: 360,
-    //     duration: 3
-    //   });
-
-    // const anim = gsap.to("#seeker", {
-    //     x: vw(50),
-    //     y: vh(70),
-    //     modifiers:{
-    //         x: function(x){
-    //           return tween.ratio * vw(50);
-    //         },
-    //         y: function(y){
-    //           return tween.ratio * vh(50);
-    //         }
-    //     }
-    // });
+  
     const anim = gsap.to("#seeker", {
         transform: 'translate(90vw, 120vh)'},
     );
@@ -78,24 +46,6 @@ export default function initScroller() {
         })
         ;
 
-    // let tl = gsap.timeline(
-    //     { defaults: { 
-    //         duration: 1, ease: "back",
-
-    //         } 
-    //     });
-    // tl.to("#seeker", {  x: vw(50), y: vh(70),
-    //     modifiers:{
-    //         x: function(x){
-    //           return tween.ratio * vw(50);
-    //         },
-    //         y: function(y){
-    //           return tween.ratio * vh(50);
-    //         }
-    //       }  })
-    //     // to("#seeker", {  x: vw(80), y: vh(30), })
-    //     // .to("#seeker", { left: 0, y: "10vh" })
-    //     ;
 
     ScrollTrigger.create({
         // trigger: "#s1",
@@ -108,26 +58,36 @@ export default function initScroller() {
         // pin: true,
         scrub: 1,
         onUpdate: (self) => {
-            console.log(
-                "progress:",
-                self.progress.toFixed(3),
-                "direction:",
-                self.direction,
-                "velocity",
-                self.getVelocity()
-            );
+            // console.log(
+            //     "progress:",
+            //     self.progress.toFixed(3),
+            //     "direction:",
+            //     self.direction,
+            //     // "velocity",
+            //     // self.getVelocity()
+            // );
         },
     });
 
-    // gsap.utils.toArray("[data-section]").forEach(function(elem) {
+    console.log(texti);
 
-    //     ScrollTrigger.create({
-    //         trigger: elem,
-    //         markers: true,
-    //         onEnter: (i,el) => { console.log(`onEnter Section: ${getValue(i)}`) },
-    //         onEnterBack: (i,el) => { console.log(`onEnterBack Section: ${getValue(i)}`) },
-    //         // onLeave: (i,el) => { console.log(`onLeave Section: ${getValue(i)}`) },
-    //         // onLeaveBack: (i,el) => { console.log(`onLeaveBack Section: ${getValue(i)}`) },
-    //     });
-    // });
+    gsap.utils.toArray(texti.elements).forEach(function(elem, index) {
+
+        ScrollTrigger.create({
+            trigger: elem,
+            markers: true,
+            start: "top center",
+            end: "bottom center",
+            // pin: true,
+            onEnter: (i,el) => { console.log(`onEnter`), texti.animations[index].
+            animateIn()},
+            onLeave: (i,el) => { console.log(`leaving`), texti.animations[index].
+            animateOut()},
+            onLeaveBack: (i,el) => { console.log(`leaving`), texti.animations[index].
+            animateOut()},
+            onEnterBack: (i,el) => { console.log(`onEnterBack`), texti.animations[index].
+            animateIn() },
+           
+        });
+    });
 }

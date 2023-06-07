@@ -40,7 +40,7 @@ export default function textifyStart() {
     noObserver: true,
   });
 
-  window.texti = textObj.elements;
+  window.texti = textObj;
 
 
   console.log(textObj);
