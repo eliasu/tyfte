@@ -23,6 +23,10 @@ window.getToken = async () => {
         })
 }
 
+// create sitewide controller for functions etc.
+const controller = {}
+window.controller = controller
+
 // Call Alpine.
 window.Alpine = Alpine
 Alpine.plugin(collapse)

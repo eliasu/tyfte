@@ -153,7 +153,6 @@ export default function initScroller() {
         return elem.trigger.querySelector("[data-content]").dataset.content
     }
 
-
     function setFx(sectionIndex, sectionIndexPrev) {
         console.log(`setFX: Activate section${sectionIndex} and deactivate section${sectionIndexPrev}`)
         // startFx(sectionIndex)
