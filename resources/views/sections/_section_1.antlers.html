@@ -20,7 +20,7 @@
             {{ /partial:components/tags }}
             
             {{# Headline #}}
-            <h2 data-type="headline" class="w-[12ch] mb-8 text-head-1">
+            <h2 data-type="headline-obs" class="w-[12ch] mb-8 text-head-1">
                 {{ s1_title }}
             </h2>
 
@@ -42,7 +42,18 @@
         </div>
 
         {{# all accordion groups wrapper #}}
-        <div class="relative flex flex-col gap-frame-3 lg:gap-24" x-data="{selected:0}">
+        <div class="relative flex flex-col gap-frame-3 lg:gap-24" 
+        x-data="
+        {
+            selected: 0,
+            show: function(index) {
+                window.tfx.hide(this.selected);
+                this.selected = index;
+                window.tfx.show(index);
+            },
+        }"
+        x-init="show(0)"
+        >
             
             {{# set variable for total items (there is no total in the md file) #}}
             {{ index_items = 0 }}
@@ -54,7 +65,7 @@
                 <div class="relative flex flex-col last-of-type:">
                     
                     {{# Headline #}}
-                    <h2 data-type="headline" class="text-head-accordion mb-8 {{ color }}">{{ title }}</h2>
+                    <h2 data-type="headline-obs" class="text-head-accordion mb-8 {{ color }}">{{ title }}</h2>
 
                     {{# loop all accordion items #}}
                     {{ accordion }}
@@ -63,7 +74,7 @@
                         <button
                             type="button" 
                             data-type="accordion-item"
-                            @click="selected = {{ index_items }}"    
+                            @click="show( {{ index_items }} )"    
                             :aria-expanded="selected == {{  index_items  }} ? 'true' : 'false'"
                             aria-controls="accordion-panel-{{ index_items }}"     
                             class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group py-frame lg:py-frame-1/2 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color }} ">
@@ -72,8 +83,9 @@
                             <div class="relative flex items-center justify-between w-full lg:w-auto gap-frame-1/4">
                                 
                                 {{# title #}}
-                                <h4 class="uppercase transition origin-left text-subhead-accordion" 
-                                    :class="selected == {{ index_items }} ? 'scale-75 md:scale-50' : ''">
+                                <h4 class="font-mono transition origin-left text-subhead-accordion" 
+                                    :class="selected == {{ index_items }} ? 'scale-75 md:scale-50' : ''"
+                                    data-type="headline-obs">
                                     {{ title }}
                                 </h4>
             
@@ -82,7 +94,7 @@
                             </div>
             
                             {{# accordion content #}}
-                            <div class="relative transition-all duration-500" 
+                            <div class="relative transition-all duration-500 max-w-prose" 
                                 :class="selected == {{ index_items }} ? 'opacity-100 max-h-112' : 'opacity-0 max-h-0 -mt-frame-1/4'"
                                 :aria-hidden="selected == {{  index_items  }} ? 'false' : 'true'" 
                                 aria-labelledby="accordion-header-{{ index_items }}"

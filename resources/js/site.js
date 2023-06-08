@@ -10,6 +10,7 @@ import initTyfteLogo from './components/tyfte_logo';
 import initDotgrid from './components/dotgrid';
 import initScroller from './components/scroller';
 import initLoveCounter from './components/love_counter';
+import { Accordion } from './components/accordion';
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {

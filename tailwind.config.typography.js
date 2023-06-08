@@ -30,7 +30,7 @@ module.exports = {
         
         'subhead-accordion': ['clamp(1.25rem, calc(1.25rem + ((1vw - 0.3rem) * 0.8333)), 1.875rem)', {
           lineHeight: '110%',
-          letterSpacing: '0.15em',
+          letterSpacing: '0em',
           fontWeight: '500',
         }],
 

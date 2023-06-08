@@ -7,7 +7,7 @@ export default function textifyStart() {
   
   const textObj = new Textify({
     duration: 800,
-    stagger: 40,
+    stagger: 5,
     rotation: 20,
     scale: .3,
     easing: "elasticInOut",

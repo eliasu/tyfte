@@ -2,29 +2,39 @@
  * accordion component
  * import with "import initAccordion from './components/accordion';"
 **/
-
+import Animations from '../c-textify/src/index';
 
 export class Accordion {
 
-    constructor() {
-        this.items = document.querySelector('[data-type="accordion-item"]');
-        this.init()
-    }
-
-    init() {
-        console.log("** init accordion from /components/accordion.js **")
+    constructor(selector, noObserver=false, time=1000) {
+        console.log(`Init Text effect for following selector: ${selector}`)
         
-
-        window.tfx
-        this.items.forEach(element => {
-            element.addEventListener("mouseenter", (event) => { this.show(event.target); });    
+        this.textObj = new Textify({
+            duration: time,
+            stagger: 50,
+            rotation: 20,
+            scale: .3,
+            easing: "elasticInOut",
+            transformOrigin: "center bottom",
+            reveal: true,
+            threshold: 0.2,
+            once: false, 
+            noObserver: noObserver,
+            selector: selector,
         });
-
-        
-        this.slider_1.addEventListener("mouseleave", (event) => { this.showAll(); });
-    
-        this.slider_2.addEventListener("mouseenter", (event) => { this.show(event.target); });
-        this.slider_2.addEventListener("mouseleave", (event) => { this.showAll(); });
     }
 
+    show(num) {
+        this.textObj.animations[num].animateIn()
+    }
+
+    hide(num) {
+        this.textObj.animations[num].animateOut()
+    }
 }
+
+
+window.tfx = new Accordion('[data-type="accordion-item"]', true)
+window.tfx2 = new Accordion('[data-type="headline-obs"]' )
+
+window.tfx3 = new Accordion('[data-type="tag"]', false, 3000)
