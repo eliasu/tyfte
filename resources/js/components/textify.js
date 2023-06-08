@@ -6,8 +6,10 @@ const { Textify } = Animations;
 
 // const Textify = Animations.Textify();
 
+export let textiObj;
 
-export default function textifyStart() {
+
+export function textifyStart() {
   // console.log("fuck");
 
   // const textObj = new Textify({
@@ -29,7 +31,7 @@ export default function textifyStart() {
 
   // });
 
-  const textObj = new Textify({
+  textiObj = new Textify({
     duration: 800,
     stagger: 40,
     rotation: 20,
@@ -43,10 +45,10 @@ export default function textifyStart() {
     noObserver: true,
   });
 
-  window.texti = textObj;
+  // window.texti = textObj;
 
 
-  console.log(textObj);
+  // console.log(textObj);
 
   // const lenis = new Lenis();
 

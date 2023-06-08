@@ -5,12 +5,22 @@ import focus from '@alpinejs/focus'
 import 'focus-visible'
 // import MediaPlayer from 'dashjs';
 
-import scroller from './components/scroller';
+import {initScroller} from './components/scroller';
 
 
-import startTextify from './components/textify';
-startTextify();
-scroller();
+import {textifyStart} from './components/textify';
+textifyStart();
+initScroller();
+
+debugger
+import {init, myvar} from './components/test1';
+import {init as init2} from './components/test2';
+
+init();
+init2();
+myvar = 44;
+init2();
+
 
 
 

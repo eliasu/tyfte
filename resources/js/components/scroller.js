@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { CrowdPleaser } from "./crowd_pleaser";
 import Lenis from "@studio-freight/lenis";
 window.Lenis = Lenis;
+import { textiObj } from './textify';
 
 let prevScrollDir = 0;
 
@@ -15,7 +16,7 @@ let prevScrollDir = 0;
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function initScroller() {
+export function initScroller() {
     // const lenis = new Lenis({
     //     duration: 1.1,
     //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -31,6 +32,8 @@ export default function initScroller() {
     /** for skewing */
     initImgSkew();
     initTextifyAnimate();
+
+    console.log("texti on init", textiObj);
 
   
    
@@ -55,18 +58,18 @@ function initTextifyAnimate() {
             scrub: 1,
             onEnter: (i, el) => {
                 // console.log(`onEnter ${index}`);
-                window.texti.animations[index].animateIn();
+                textiObj.animations[index].animateIn();
             },
             onLeave: (i, el) => {
                 // console.log(`leaving ${index}`);
-                window.texti.animations[index].animateOut();
+                textiObj.animations[index].animateOut();
             },
             onLeaveBack: (i, el) => {
                 // console.log(`leaving ${index}`);
-                window.texti.animations[index].animateOut();
+                textiObj.animations[index].animateOut();
             },
             onEnterBack: (i, el) => {
-                window.texti.animations[index].animateIn();
+                textiObj.animations[index].animateIn();
                 // console.log(`onEnterBack ${index}`);
             },
         });
