@@ -12,14 +12,18 @@ import {textifyStart} from './components/textify';
 textifyStart();
 initScroller();
 
+window.state = {};
+
 debugger
-import {init, myvar} from './components/test1';
+import {init, myvar, setit} from './components/test1';
 import {init as init2} from './components/test2';
 
 init();
 init2();
-myvar = 44;
-init2();
+// myvar = 44;
+// init2();
+setit();
+console.log(window.state);
 
 
 
