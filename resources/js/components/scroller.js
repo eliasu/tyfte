@@ -25,21 +25,52 @@ export default function initScroller() {
     //     lenis.raf(time * 1000);
     // });
 
-    gsap.utils.toArray("section.section-dummy").forEach(function (elem, index) {
+    const ani1 = gsap.to('#bg-container', {
+        backgroundColor: "red",
+        immediateRender: true,
+        // onComplete() {
+        //     console.log("complete");
+        // },
+        // onComplete: (self) => {
+        //     console.log("complete", self);
+        // },
+    // , overwrite:true
+} );
+    const ani2 = gsap.to('#bg-container', {backgroundColor: "green", overwrite:false,
+    immediateRender: true} );
+    const ani3 = gsap.to('#bg-container', {backgroundColor: "blue", overwrite:false,
+    immediateRender: true} );
+
+    const aniArray = [ani1,ani2,ani3];
+
+    gsap.utils.toArray("section.section-dummy").forEach(function (elem, index, arr) {
         console.log(elem);
 
         ScrollTrigger.create({
             // trigger: "#s1",
+            animation: aniArray[index],
             scroller: "main",
             trigger: elem,
             markers: true,
-            start: "top center",
+            start: "top top",
             end: "bottom top",
             // toggleClass: "active",
             // pin: true,
             scrub: 1,
             onUpdate: (self) => {
+                if(self.progress >= 1) {
+                    console.log(self);
+                    // gsap.set
+                    // gsap.set(self, {x: 100, y: 50, opacity: 0});
+                    console.log("done", index);
+                    console.log(aniArray[index+1].vars);
+                    console.log("resetting");
+                    aniArray[index+1].invalidate();
+                    // aniArray[index+1].restart();
+                    console.log(aniArray[index+1].vars);
+                }
                 // console.log(
+                //     index,
                 //     "progress:",
                 //     self.progress.toFixed(3),
                 //     "direction:",
@@ -48,6 +79,7 @@ export default function initScroller() {
                 //     // self.getVelocity()
                 // );
             },
+           
             onEnter: (i, el) => {
                 console.log(`onEnter ${index}`);
             },
@@ -63,67 +95,5 @@ export default function initScroller() {
         });
     });
 
-    // const anim = gsap.to("#seeker", {
-    //     transform: 'translate(90vw, 120vh)'},
-    // );
-
-    //  let tl = gsap.timeline(
-    //     { defaults: {
-    //         duration: 1, ease: "back",
-    //         }
-    //     });
-    //     tl.to("#seeker", {transform: 'translate(90vw, 120vh)'})
-    //     .to("#seeker", {
-    //         transform: 'translate(10vw, 220vh)',
-    //         scale: 5
-    //     })
-    //     .to("#seeker", {
-    //         transform: 'translate(100vw, 260vh)',
-    //         scale: 2
-    //     })
-    //     ;
-
-    // ScrollTrigger.create({
-    //     // trigger: "#s1",
-    //     trigger: "#scroll-container",
-    //     animation: tl,
-    //     markers: true,
-    //     start: "top top",
-    //     end: "bottom bottom",
-    //     // toggleClass: "active",
-    //     // pin: true,
-    //     scrub: 1,
-    //     onUpdate: (self) => {
-    //         // console.log(
-    //         //     "progress:",
-    //         //     self.progress.toFixed(3),
-    //         //     "direction:",
-    //         //     self.direction,
-    //         //     // "velocity",
-    //         //     // self.getVelocity()
-    //         // );
-    //     },
-    // });
-
-    // console.log(texti);
-
-    // gsap.utils.toArray(texti.elements).forEach(function(elem, index) {
-
-    //     ScrollTrigger.create({
-    //         trigger: elem,
-    //         markers: true,
-    //         start: "top center",
-    //         end: "bottom center",
-    //         // pin: true,
-    //         onEnter: (i,el) => { console.log(`onEnter`), texti.animations[index].
-    //         animateIn()},
-    //         onLeave: (i,el) => { console.log(`leaving`), texti.animations[index].
-    //         animateOut()},
-    //         onLeaveBack: (i,el) => { console.log(`leaving`), texti.animations[index].
-    //         animateOut()},
-    //         onEnterBack: (i,el) => { console.log(`onEnterBack`), texti.animations[index].
-    //         animateIn() },
-
-    //     });
-    // });
+    
 }
