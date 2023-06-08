@@ -35,9 +35,10 @@ export default function initScroller() {
     );
 
     sectionTweens.push(
-        gsap.to("#bg-container", {
-            backgroundColor: "green",
-        })
+        null
+        // gsap.to("#bg-container", {
+        //     backgroundColor: "green",
+        // })
     );
 
     sectionTweens.push(
@@ -46,13 +47,18 @@ export default function initScroller() {
         })
     );
 
+    console.log(sectionTweens);
+
     gsap.utils.toArray("section.section-dummy").forEach(function (elem, index) {
         console.log(elem);
+        const correspondingSectionTween = sectionTweens[index];
+        // if (!correspondingSectionTween) return;
         // let scrollDir = 0;
+
 
         ScrollTrigger.create({
             // trigger: "#s1",
-            animation: sectionTweens[index],
+            animation: correspondingSectionTween,
             scroller: "main",
             trigger: elem,
             markers: true,
@@ -69,7 +75,7 @@ export default function initScroller() {
                 //     "velocity",
                 //     self.getVelocity()
                 // );
-                handleScrollSnapping(self.direction);
+                // handleScrollSnapping(self.direction);
             },
 
             onEnter: (i, el) => {
