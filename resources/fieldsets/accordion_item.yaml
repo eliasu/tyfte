@@ -1,0 +1,28 @@
+title: 'Accordion Item'
+fields:
+  -
+    handle: title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Title
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      width: 66
+  -
+    import: colors
+  -
+    handle: description
+    field:
+      antlers: false
+      type: textarea
+      display: Description
+      icon: textarea
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false

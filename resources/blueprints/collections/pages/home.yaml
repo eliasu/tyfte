@@ -4,7 +4,7 @@ tabs:
     display: Main
     sections:
       -
-        display: General
+        display: 'Hero Section'
         fields:
           -
             handle: title
@@ -34,36 +34,15 @@ tabs:
               instructions_position: above
               visibility: visible
               hide_display: false
+      -
+        display: 'Ideation Section'
+        fields:
           -
-            handle: bard_field
-            field:
-              buttons:
-                - h2
-                - h3
-                - lead
-                - removeformat
-                - anchor
-              smart_typography: false
-              save_html: false
-              inline: false
-              toolbar_mode: fixed
-              reading_time: false
-              fullscreen: true
-              allow_source: true
-              enable_input_rules: true
-              enable_paste_rules: true
-              remove_empty_nodes: false
-              antlers: false
-              link_noopener: false
-              link_noreferrer: false
-              target_blank: false
-              type: bard
-              display: 'Bard Field'
-              icon: bard
-              listable: hidden
-              instructions_position: above
-              visibility: visible
-              hide_display: false
+            import: section_title
+            prefix: s1_
+          -
+            import: accordion
+            prefix: s1_
   seo:
     display: SEO
     sections:

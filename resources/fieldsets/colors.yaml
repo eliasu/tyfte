@@ -1,0 +1,26 @@
+title: Colors
+fields:
+  -
+    handle: color
+    field:
+      taggable: false
+      push_tags: false
+      multiple: false
+      clearable: false
+      searchable: false
+      cast_booleans: false
+      type: select
+      display: Color
+      icon: select
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      options:
+        light: Light
+        yellow: Yellow
+        green: Green
+        red: Red
+        purple: Purple
+      default: bg-light
+      width: 33

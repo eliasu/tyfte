@@ -1,0 +1,28 @@
+title: Tags
+fields:
+  -
+    handle: tags
+    field:
+      collapse: true
+      previews: true
+      fullscreen: true
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          instructions: null
+          icon: null
+          sets:
+            tags:
+              display: Tags
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: tag
+      type: replicator
+      display: Tags
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false

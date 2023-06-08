@@ -1,0 +1,30 @@
+title: Accordion
+fields:
+  -
+    handle: accordion
+    field:
+      collapse: true
+      previews: true
+      fullscreen: false
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          instructions: null
+          icon: null
+          sets:
+            accordion_item:
+              display: 'Accordion Item'
+              instructions: null
+              icon: text-formatting-quotation
+              fields:
+                -
+                  import: accordion_item
+      type: replicator
+      display: Accordion
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      instructions: 'Add accordion items for this section'
+      max_sets: 3
