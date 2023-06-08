@@ -55,7 +55,6 @@ export default function initScroller() {
         // if (!correspondingSectionTween) return;
         // let scrollDir = 0;
 
-
         ScrollTrigger.create({
             // trigger: "#s1",
             animation: correspondingSectionTween,
@@ -94,6 +93,31 @@ export default function initScroller() {
             },
         });
     });
+
+    let proxy = { skew: 0 },
+        skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
+        clamp = gsap.utils.clamp(-20, 20); // don't let the skew go beyond 20 degrees.
+
+    const skewTest = ScrollTrigger.create({
+        scroller: "main",
+        onUpdate: (self) => {
+            let skew = clamp(self.getVelocity() / -300);
+            // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+            if (Math.abs(skew) > Math.abs(proxy.skew)) {
+                proxy.skew = skew;
+                gsap.to(proxy, {
+                    skew: 0,
+                    duration: 0.8,
+                    ease: "power3",
+                    overwrite: true,
+                    onUpdate: () => {skewSetter(proxy.skew)},
+                });
+            }
+        },
+    });
+
+    // make the right edge "stick" to the scroll bar. force3D: true improves performance
+    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
 }
 
 function refreshStartValues(tweens, index) {
@@ -101,19 +125,17 @@ function refreshStartValues(tweens, index) {
 }
 
 function handleScrollSnapping(scrollDir) {
-
     console.log(scrollDir, prevScrollDir);
 
-    if(prevScrollDir != scrollDir) {
+    if (prevScrollDir != scrollDir) {
         console.log("change dir");
         // document.documentElement.style.setProperty('--scrollSnapAlign', "none");
-        document.documentElement.style.setProperty('--scrollSnapAlign', "none");
-       
-        setTimeout(setPrevScrollDir(scrollDir), 10);
-        }
+        document.documentElement.style.setProperty("--scrollSnapAlign", "none");
 
-       
-    // } 
+        setTimeout(setPrevScrollDir(scrollDir), 10);
+    }
+
+    // }
 
     // if(self.direction == 1 && scrollDir != 1) {
     //     console.log("forward");
@@ -129,24 +151,24 @@ function handleScrollSnapping(scrollDir) {
     //         }
     //       }, 50);
 
-       
-       
-
     // }
-
 }
 
 function setPrevScrollDir(dir) {
-    if(prevScrollDir != dir){
+    if (prevScrollDir != dir) {
         console.warn(`setting prev ${dir}`, prevScrollDir);
         prevScrollDir = dir;
 
-        if(dir -1) {
-            
-            document.documentElement.style.setProperty('--scrollSnapAlign', "end");
+        if (dir - 1) {
+            document.documentElement.style.setProperty(
+                "--scrollSnapAlign",
+                "end"
+            );
         } else {
-            document.documentElement.style.setProperty('--scrollSnapAlign', "start");
-
+            document.documentElement.style.setProperty(
+                "--scrollSnapAlign",
+                "start"
+            );
         }
     }
 }
