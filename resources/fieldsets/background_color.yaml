@@ -1,4 +1,4 @@
-title: Colors
+title: 'Background Color'
 fields:
   -
     handle: color
@@ -17,10 +17,10 @@ fields:
       visibility: visible
       hide_display: false
       options:
-        light: Light
-        yellow: Yellow
-        green: Green
-        red: Red
-        purple: Purple
+        bg-light: Light
+        bg-yellow: Yellow
+        bg-green: Green
+        bg-red: Red
+        bg-purple: Purple
       default: bg-light
       width: 33

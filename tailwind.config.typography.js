@@ -22,7 +22,13 @@ module.exports = {
           fontWeight: '700',
         }],
 
-        'head-accordion': ['clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 0.5208)), 1.875rem)', {
+        'head-accordion': ['clamp(1.875rem, calc(1.875rem + ((1vw - 0.3rem) * 1.6667)), 3.125rem)', {
+          lineHeight: '105%',
+          letterSpacing: '0.02em',
+          fontWeight: '700',
+        }],
+        
+        'subhead-accordion': ['clamp(1.25rem, calc(1.25rem + ((1vw - 0.3rem) * 0.8333)), 1.875rem)', {
           lineHeight: '110%',
           letterSpacing: '0.15em',
           fontWeight: '500',

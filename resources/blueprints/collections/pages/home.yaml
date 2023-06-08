@@ -35,7 +35,7 @@ tabs:
               visibility: visible
               hide_display: false
       -
-        display: 'Ideation Section'
+        display: 'FAQ Section'
         fields:
           -
             import: section_title

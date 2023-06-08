@@ -14,8 +14,6 @@ fields:
       hide_display: false
       width: 66
   -
-    import: colors
-  -
     handle: description
     field:
       antlers: false

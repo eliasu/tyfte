@@ -14,4 +14,4 @@ fields:
       visibility: visible
       hide_display: false
   -
-    import: colors
+    import: background_color

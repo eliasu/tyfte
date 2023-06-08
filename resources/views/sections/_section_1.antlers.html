@@ -4,17 +4,18 @@
 #}}
 
 <!-- sections/section_1.antlers.html -->
-{{ partial:layout/section cssid="section1" data-section="data-section" class="h-[600vh]" }}
+{{ partial:layout/section class="lg:pt-frame-3" }}
 
     {{# main content grid #}}
-    <div id="section1Content" data-content="1" class="sticky top-0 grid items-center w-full h-screen grid-cols-1 gap-8 lg:grid lg:grid-cols-2 p-frame">
+    <div class="relative grid items-start w-full grid-cols-1 gap-24 lg:gap-8 lg:grid lg:grid-cols-2 p-frame">
         
-        {{# headline wrapper #}}
-        <div class="flex flex-col gap-4">
+        {{# sticky header wrapper #}}
+        <div class="flex flex-col gap-4 lg:sticky lg:-translate-y-1/2 lg:top-1/2">
+        
             {{# tag wrapper #}}
             {{ partial:components/tags }}
                 {{ s1_tags }}
-                    {{ partial:components/tag class="{{ color | ensure_left('bg-') }}" text="{{ title }}" url="/" }}
+                    {{ partial:components/tag class="{{ color }}" text="{{ title }}" url="/" }}
                 {{ /s1_tags }}
             {{ /partial:components/tags }}
             
@@ -23,60 +24,79 @@
                 {{ s1_title }}
             </h2>
 
-            {{# progress bar wrapper #}}
-            <div data-type="pagination" class="flex flex-col w-1/4 gap-2">
-                {{# prograss bar #}}
-                <div class="relative">
-                    <div data-type="progress" class="h-0.5 bg-light w-full absolute origin-left"></div>
-                    <div class="h-0.5 bg-light/20 w-full"></div>
+            {{# Crowd Pleaser #}}
+            <div id="crowdpleaser" class="flex-col self-start hidden uppercase translate-y-2 pointer-events-auto sm:flex right-frame bottom-frame text-small-1">
+                
+                <div id="cp_headline" class="flex items-center w-full h-6 duration-500 motion-safe:transition">Crowd Pleaser</div>
+                
+                <div id="cp_slider_1" class="flex items-center justify-between w-full h-6 gap-4 duration-500 motion-safe:transition group">
+                    <label id="cp_slider_1_label" for="cp_slider_1_input" class="block motion-safe:transition text-small-1 group-hover:text-yellow">Colors</label>
+                    <input id="cp_slider_1_input" type="range" min="1" max="5" value="3">
                 </div>
-
-                <div class="text-small-1">1 – 2</div>
+                
+                <div id="cp_slider_2" class="flex items-center justify-between w-full h-6 gap-4 font-mono duration-500 motion-safe:transition group">
+                    <label id="cp_slider_2_label" for="cp_slider_2_input" class="block motion-safe:transition text-small-1 group-hover:text-yellow">Pattern</label>
+                    <input id="cp_slider_2_input" type="range" value="50">
+                </div>
             </div>
-
         </div>
 
-        {{# accrodion #}}
-        <div class="relative flex flex-col shrink" x-data="{selected:0}">
+        {{# all accordion groups wrapper #}}
+        <div class="relative flex flex-col gap-frame-3 lg:gap-24" x-data="{selected:0}">
             
-            {{# loop through every accordion item #}}
-            {{ s1_accordion }}			
-                
-                {{# button/accordion header #}}
-                <button 
-                    type="button" 
-                    id="accordion-header-{{index}}"
-                    @click="selected = {{index}}"    
-                    :aria-expanded="selected == {{ index }} ? 'true' : 'false'"
-                    aria-controls="accordion-panel-{{index}}"     
-                    class="group text-left relative flex flex-col overflow-hidden {{ color | ensure_left('text-') }} px-4 py-frame-1/2 gap-frame-1/4 {{ color | ensure_left('bg-') }} bg-opacity-0 hover:bg-opacity-5 transition">
-                    {{# class="text-left relative flex flex-col overflow-hidden {{ color | ensure_left('text-') }} border-y-1 border-light/20 px-4 py-frame-1/2 gap-frame-1/4 {{ color | ensure_left('bg-') }} bg-opacity-0 hover:bg-opacity-5 transition"> #}}
-    
-                    {{# wrapper title and icon #}}
-                    <div class="relative flex items-center gap-frame-1/4">
+            {{# set variable for total items (there is no total in the md file) #}}
+            {{ index_items = 0 }}
+
+            {{# loop through every accordion group #}}
+            {{ s1_accordion_groups }}			
+
+                {{# accordion group wrapper #}}
+                <div class="relative flex flex-col last-of-type:">
+                    
+                    {{# Headline #}}
+                    <h2 data-type="headline" class="text-head-accordion mb-8 {{ color }}">{{ title }}</h2>
+
+                    {{# loop all accordion items #}}
+                    {{ accordion }}
                         
-                        {{# title #}}
-                        <h2 class="uppercase transition origin-left text-head-accordion" 
-                            :class="selected == {{ index }} ? 'scale-50' : ''">
-                            {{ title }}
-                        </h2>
-    
-                        {{# icon #}}
-                        <div x-show="selected !== {{ index }}" x-transition data-icon="arrup" class="h-[1.25em] group-hover:rotate-90 aspect-square bg-current"></div>
-                    </div>
-    
-                    {{# accordion content #}}
-                    <div class="relative transition-all duration-500" 
-                        :class="selected == {{ index }} ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0 -mt-frame-1/4'"
-                        :aria-hidden="selected == {{ index }} ? 'false' : 'true'" 
-                        aria-labelledby="accordion-header-{{index}}"
-                        id="accordion-panel-{{index}}" >
-                        
-                        <p class="h-full text-lead-1 max-w-none">{{ description }}</p>
-                    </div>
-    
-                </button>
-            {{ /s1_accordion }}
+                        {{# single accordion item #}}
+                        <button
+                            type="button" 
+                            data-type="accordion-item"
+                            @click="selected = {{ index_items }}"    
+                            :aria-expanded="selected == {{  index_items  }} ? 'true' : 'false'"
+                            aria-controls="accordion-panel-{{ index_items }}"     
+                            class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group py-frame lg:py-frame-1/2 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color }} ">
+            
+                            {{# wrapper title and icon #}}
+                            <div class="relative flex items-center justify-between w-full lg:w-auto gap-frame-1/4">
+                                
+                                {{# title #}}
+                                <h4 class="uppercase transition origin-left text-subhead-accordion" 
+                                    :class="selected == {{ index_items }} ? 'scale-75 md:scale-50' : ''">
+                                    {{ title }}
+                                </h4>
+            
+                                {{# icon #}}
+                                <div x-show="selected !== {{ index_items }}" x-transition data-icon="arrup" class="h-[1.25em] group-hover:rotate-90 aspect-square bg-current"></div>
+                            </div>
+            
+                            {{# accordion content #}}
+                            <div class="relative transition-all duration-500" 
+                                :class="selected == {{ index_items }} ? 'opacity-100 max-h-112' : 'opacity-0 max-h-0 -mt-frame-1/4'"
+                                :aria-hidden="selected == {{  index_items  }} ? 'false' : 'true'" 
+                                aria-labelledby="accordion-header-{{ index_items }}"
+                                id="accordion-panel-{{ index_items }}">
+                                
+                                <p class="h-full text-lead-1 max-w-none">{{ description }}</p>
+                            </div>
+            
+                        </button>
+
+                        {{ index_items += 1 }}
+                    {{ /accordion }}
+                </div>
+            {{ /s1_accordion_groups }}
         </div>
     </div>
 

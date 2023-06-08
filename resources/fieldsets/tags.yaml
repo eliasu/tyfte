@@ -3,25 +3,16 @@ fields:
   -
     handle: tags
     field:
-      collapse: true
-      previews: true
-      fullscreen: true
-      sets:
-        new_set_group:
-          display: 'New Set Group'
-          instructions: null
-          icon: null
-          sets:
-            tags:
-              display: Tags
-              instructions: null
-              icon: null
-              fields:
-                -
-                  import: tag
-      type: replicator
+      fields:
+        -
+          import: tag
+      mode: table
+      add_row: 'Add Tag'
+      reorderable: true
+      fullscreen: false
+      type: grid
       display: Tags
-      icon: replicator
+      icon: grid
       listable: hidden
       instructions_position: above
       visibility: visible

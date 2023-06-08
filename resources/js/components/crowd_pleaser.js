@@ -1,6 +1,7 @@
 /**
  * crowd pleaser component
- * import with "import initCrowdPleaser from './components/crowd_pleaser';"
+ * import with "import { CrowdPleaser } from './crowd_pleaser'"
+ * initialize it with: "new S1FX()"
 **/
 
 import { gsap } from "gsap";

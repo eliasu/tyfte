@@ -1,0 +1,26 @@
+title: 'Text Color'
+fields:
+  -
+    handle: color
+    field:
+      taggable: false
+      push_tags: false
+      multiple: false
+      clearable: false
+      searchable: false
+      cast_booleans: false
+      type: select
+      display: Color
+      icon: select
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      options:
+        text-light: Light
+        text-yellow: Yellow
+        text-green: Green
+        text-red: Red
+        text-purple: Purple
+      default: text-light
+      width: 33

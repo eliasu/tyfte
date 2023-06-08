@@ -67,6 +67,7 @@ module.exports = {
         'screen-s': '100svh',
         '15': '3.75rem',
         '30': '7.5rem',
+        '112': '28rem',
         'frame': 'var(--frame)',
         'frame-2': 'calc(var(--frame)*2)',
         'frame-3': 'calc(var(--frame)*3)',
