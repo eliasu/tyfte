@@ -27,6 +27,79 @@ export default function initScroller() {
     //     lenis.raf(time * 1000);
     // });
 
+    initSectionTweens();
+    /** for skewing */
+    initImgSkew();
+    initTextifyAnimate();
+
+  
+   
+
+
+
+
+}
+
+
+function initTextifyAnimate() {
+    gsap.utils.toArray("[data-textify]").forEach(function (elem, index) {
+        // console.log(elem);
+
+
+        ScrollTrigger.create({
+            scroller: "main",
+            trigger: elem,
+            markers: true,
+            start: "top center",
+            end: "bottom top",
+            scrub: 1,
+            onEnter: (i, el) => {
+                // console.log(`onEnter ${index}`);
+                window.texti.animations[index].animateIn();
+            },
+            onLeave: (i, el) => {
+                // console.log(`leaving ${index}`);
+                window.texti.animations[index].animateOut();
+            },
+            onLeaveBack: (i, el) => {
+                // console.log(`leaving ${index}`);
+                window.texti.animations[index].animateOut();
+            },
+            onEnterBack: (i, el) => {
+                window.texti.animations[index].animateIn();
+                // console.log(`onEnterBack ${index}`);
+            },
+        });
+    });
+}
+
+function initImgSkew() {
+    let proxy = { skew: 0 }, skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
+        clamp = gsap.utils.clamp(-20, 20); // don't let the skew go beyond 20 degrees.
+
+    const skewTest = ScrollTrigger.create({
+        scroller: "main",
+        onUpdate: (self) => {
+            let skew = clamp(self.getVelocity() / -300);
+            // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+            if (Math.abs(skew) > Math.abs(proxy.skew)) {
+                proxy.skew = skew;
+                gsap.to(proxy, {
+                    skew: 0,
+                    duration: 0.8,
+                    ease: "power3",
+                    overwrite: true,
+                    onUpdate: () => { skewSetter(proxy.skew); },
+                });
+            }
+        },
+    });
+
+    // make the right edge "stick" to the scroll bar. force3D: true improves performance
+    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
+}
+
+function initSectionTweens() {
     const sectionTweens = [];
     sectionTweens.push(
         gsap.to("#bg-container", {
@@ -47,10 +120,12 @@ export default function initScroller() {
         })
     );
 
-    console.log(sectionTweens);
+    // console.log(sectionTweens);
+
+
 
     gsap.utils.toArray("section.section-dummy").forEach(function (elem, index) {
-        console.log(elem);
+        // console.log(elem);
         const correspondingSectionTween = sectionTweens[index];
         // if (!correspondingSectionTween) return;
         // let scrollDir = 0;
@@ -60,7 +135,7 @@ export default function initScroller() {
             animation: correspondingSectionTween,
             scroller: "main",
             trigger: elem,
-            markers: true,
+            // markers: true,
             start: "top top",
             end: "bottom top",
             scrub: 1,
@@ -94,30 +169,7 @@ export default function initScroller() {
         });
     });
 
-    let proxy = { skew: 0 },
-        skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
-        clamp = gsap.utils.clamp(-20, 20); // don't let the skew go beyond 20 degrees.
 
-    const skewTest = ScrollTrigger.create({
-        scroller: "main",
-        onUpdate: (self) => {
-            let skew = clamp(self.getVelocity() / -300);
-            // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
-            if (Math.abs(skew) > Math.abs(proxy.skew)) {
-                proxy.skew = skew;
-                gsap.to(proxy, {
-                    skew: 0,
-                    duration: 0.8,
-                    ease: "power3",
-                    overwrite: true,
-                    onUpdate: () => {skewSetter(proxy.skew)},
-                });
-            }
-        },
-    });
-
-    // make the right edge "stick" to the scroll bar. force3D: true improves performance
-    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
 }
 
 function refreshStartValues(tweens, index) {

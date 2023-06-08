@@ -30,8 +30,8 @@ export default function textifyStart() {
   // });
 
   const textObj = new Textify({
-    duration: 1000,
-    stagger: 100,
+    duration: 500,
+    stagger: 40,
     easing: "elasticInOut",
     reveal: true,
     threshold: 0.1,

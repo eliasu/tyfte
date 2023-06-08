@@ -102,7 +102,9 @@
         border: 1px dashed green;
         min-height: 100vh;
         /* scroll-snap-type: y mandatory; */
-        /* display: flex; */
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10%;
         /* scroll-snap-align: start; */
         scroll-snap-align: var(--scrollSnapAlign);
 
