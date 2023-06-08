@@ -8,13 +8,12 @@ import FOG from 'vanta/dist/vanta.fog.min'
 export class S1FX {
 
     constructor() {
-        this.resizeTimeout = null;
         this.s1fx = null;
         this.init()
     }
 
     init() {
-        const s1fxConst = VANTA.FOG({
+        this.s1fx = VANTA.FOG({
             el: "#section-fx",
             mouseControls: true,
             touchControls: true,
@@ -30,14 +29,7 @@ export class S1FX {
             zoom: 0.60
         })
 
-        this.s1fx = s1fxConst;
-        
-        window.addEventListener('resize', () => {
-            this.resizeTimeout = setTimeout(function() {
-                s1fxConst.resize()
-                // console.log(s1fxConst)
-            }, 400);
-        });
+        window.addEventListener('resize', this.s1fx.resize );
     }
 
     changeParam1(num) {
@@ -94,7 +86,10 @@ export class S1FX {
     }
 
     destroy() {
-        this.s1fx.destroy();
+        if (this.s1fx) {
+            this.s1fx.destroy()
+            this.s1fx = null
+        }
     }
 
     // helper functions

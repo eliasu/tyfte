@@ -27,6 +27,17 @@ export default function initScroller() {
     // get fx wrapper 
     let fxWrapper = document.getElementById("section-fx");
 
+    // get hero video
+    let heroVideo = document.getElementById("hero-video")
+
+    // fx change timeline
+    let fxChange = gsap.timeline({
+        defaults: {
+            duration: .5,
+            ease: "circ",
+        }
+    });
+
     // initialize first FX on load: setFX(effectToStart, effectToEnd)
     setFx(0,99)
 
@@ -34,93 +45,119 @@ export default function initScroller() {
     // TODO
 
     // create scroll triggers for sections
-    gsap.utils.toArray("[data-section]").forEach(function(elem) {
+    // gsap.utils.toArray("[data-section]").forEach(function(elem) {
         
-        ScrollTrigger.create({
-            trigger: elem,
+    //     ScrollTrigger.create({
+    //         trigger: elem,
+    //         markers: true,
+    //         onEnter: (i,el) => { console.log(`onEnter Section: ${getSectionNum(i)}`) }, 
+    //         onEnterBack: (i,el) => { console.log(`onEnterBack Section: ${getSectionNum(i)}`) }, 
+    //         // onLeave: (i,el) => { console.log(`onLeave Section: ${getSectionNum(i)}`) }, 
+    //         // onLeaveBack: (i,el) => { console.log(`onLeaveBack Section: ${getSectionNum(i)}`) }, 
+    //     });
+    // });
+
+
+
+    let heroSectionTL = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#sectionHero",
+            start: "50 top ",
+            end: "bottom top",
             markers: true,
-            onEnter: (i,el) => { console.log(`onEnter Section: ${getSectionNum(i)}`) }, 
-            onEnterBack: (i,el) => { console.log(`onEnterBack Section: ${getSectionNum(i)}`) }, 
-            // onLeave: (i,el) => { console.log(`onLeave Section: ${getSectionNum(i)}`) }, 
-            // onLeaveBack: (i,el) => { console.log(`onLeaveBack Section: ${getSectionNum(i)}`) }, 
-        });
+            // scrub: 1,
+            toggleActions: "play pause resume reverse",
+            // onEnterBack: () => setFx(0,1),
+            // onLeave: () => setFx(1,0),
+            ease: "circ",
+        }
     });
 
-    // create scroll triggers for headline
-    gsap.to("[data-type='headline']", {
-        scrollTrigger: {
-            trigger: "[data-type='headline']",
-            // toggleActions: "restart pause reverse pause",
-            start: "top center",
-            // end: "top 100px",
-            markers: true,
-            scrub: true,
-            pin: true,
-            pinSpacing: false,
-        },
-        autoAlpha: 1,
+    heroSectionTL.addLabel("step1")
+
+    heroSectionTL.to("#heroContentWrapper", {
+        opacity: 0,
+        y: "-100%",
+    } ,"step1" )
+    
+    heroSectionTL.to("#heroScrollCta", {
+        opacity: 0,
+        y: "20%",
+    } ,"step1" )
+    
+    heroSectionTL.to("[data-videooverlay]", {
+        opacity: 0,
+    } ,"step1")
+
+
+
+
+    gsap.set("#section1Content", {
+        opacity: 0,
     })
 
-    let tl = gsap.timeline
-
-    // const headlineObj = new Textify({
-    //     selector: "[data-type='headline']",
-    //     duration: 1000,
-    //     stagger: 100,
-    //     fade: true,
-    //     once: false,
-    //   });
-
-    const textObj = new Textify({
-        selector: "[data-type='text']",
-        duration: 1000,
-        stagger: 100,
-        fade: true,
-        once: false,
+    let section1TL = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#section1",
+            start: "top 95%",
+            end: "100%",
+            markers: true,
+            toggleActions: "play pause resume reset",
+            // scrub: 1,
+            onEnter: () => setFx(1,0),
+            onLeaveBack: () => setFx(0,1),
+        }
     });
-      
+
+    // section1TL.to("#section1Content", {
+    //     opacity: 1,
+    // })
+
+    let section1BU = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#section1Content",
+            start: "top top",
+            end: "bottom top",
+            markers: true,
+            toggleActions: "play pause resume reverse",
+        }
+    });
+
+    section1BU.to("#section1Content", {
+        opacity: 1,
+    })
+
+
+
+
+
+    
+    let pBar = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#section1",
+            start: "top top",
+            end: "100%",
+            scrub: 1,
+        }
+    });
+
+    pBar.from("[data-type='progress']", {
+        scaleX: 0,
+    })
+
+    
+
+
 
     function getSectionNum(elem) {
         return elem.trigger.querySelector("[data-content]").dataset.content
     }
 
-    // setup scrollTrigger
-    // let scrollTimeline = gsap.timeline({
-    //     // yes, we can add it to an entire timeline!
-    //     scrollTrigger: {
-    //       trigger: "main",
-    //     //   pin: true,   // pin the trigger element while active
-    //     //   start: "top top", // when the top of the trigger hits the top of the viewport
-    //     //   end: "+=500", // end after scrolling 500px beyond the start
-    //       scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-    //     //   snap: {
-    //     //     snapTo: "labels", // snap to the closest label in the timeline
-    //     //     duration: {min: 0.2, max: 3}, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-    //     //     delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-    //     //     ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
-    //     //   }
-    //     }
-    //   });
-    
-    // add animations and labels to the timeline
-    // scrollTimeline.addLabel("start")
-    //   .from(".box p", {scale: 0.3, rotation:45, autoAlpha: 0})
-    //   .addLabel("color")
-    //   .from(".box", {backgroundColor: "#28a92b"})
-    //   .addLabel("spin")
-    //   .to(".box", {rotation: 360})
-    //   .addLabel("end");
 
     function setFx(sectionIndex, sectionIndexPrev) {
         console.log(`setFX: Activate section${sectionIndex} and deactivate section${sectionIndexPrev}`)
-
-        let fxChange = gsap.timeline({ 
-            defaults: {
-                duration: 1,
-                ease: "circ" 
-          },
-        });
-
+        // startFx(sectionIndex)
+        // endFx(sectionIndexPrev)
         fxChange
             .to(fxWrapper, {
                 opacity: 0,
@@ -138,11 +175,9 @@ export default function initScroller() {
     function startFx(sectionIndex) {
         switch (sectionIndex) {
             case 0:
-                document.getElementById("hero-video").play();
-                document.querySelector("[data-videooverlay]").style.opacity = 1;
-                
-                // s1fx = new S1FX();
+                s1fx = new S1FX();
                 crowdPleaser.setSliders(s1fx, "Colors", 1, 5, 3, "Pattern", 1, 100, 50)
+                heroVideo.play();
             break;
             case 1:
                 s2fx = new S2FX();
@@ -161,9 +196,8 @@ export default function initScroller() {
     function endFx(sectionIndex) {
         switch (sectionIndex) {
             case 0:
-                document.getElementById("hero-video").pause();
-                document.querySelector("[data-videooverlay]").style.opacity = 0;
                 s1fx.destroy();
+                heroVideo.pause();
             break;
             case 1:
                 s2fx.destroy();

@@ -25,8 +25,10 @@ module.exports = {
     './vendor/studio1902/**/*.blade.php',
     './vendor/studio1902/**/*.html',
     './vendor/studio1902/**/*.js',
-    
     './config/statamic/bard_texstyle.php',
   ],
-  safelist: []
+  safelist: [
+    {pattern: /bg-./},
+    {pattern: /text-./},
+  ]
 }

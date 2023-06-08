@@ -4,30 +4,30 @@
 #}}
 
 <!-- sections/section_1.antlers.html -->
-{{ partial:layout/section }}
+{{ partial:layout/section cssid="section1" data-section="data-section" class="h-[600vh]" }}
 
     {{# main content grid #}}
-    <div data-content="1" class="grid items-center w-full h-full min-h-screen grid-cols-1 gap-8 lg:grid lg:grid-cols-2 p-frame">
+    <div id="section1Content" data-content="1" class="sticky top-0 grid items-center w-full h-screen grid-cols-1 gap-8 lg:grid lg:grid-cols-2 p-frame">
         
         {{# headline wrapper #}}
-        <div data-type="headline" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4">
             {{# tag wrapper #}}
             {{ partial:components/tags }}
-                {{ partial:components/tag text="Webflow" url="/" }}
-                {{ partial:components/tag text="Statamic" url="/" }}
-                {{ partial:components/tag text="Hibedibu" url="/" }}
+                {{ s1_tags }}
+                    {{ partial:components/tag class="{{ color | ensure_left('bg-') }}" text="{{ title }}" url="/" }}
+                {{ /s1_tags }}
             {{ /partial:components/tags }}
             
             {{# Headline #}}
-            <h2 class="w-[12ch] mb-8 text-head-1">
-                Value Proposition and Brand
+            <h2 data-type="headline" class="w-[12ch] mb-8 text-head-1">
+                {{ s1_title }}
             </h2>
 
             {{# progress bar wrapper #}}
-            <div class="flex flex-col w-1/4 gap-2">
+            <div data-type="pagination" class="flex flex-col w-1/4 gap-2">
                 {{# prograss bar #}}
                 <div class="relative">
-                    <div class="h-0.5 bg-light w-1/2 absolute"></div>
+                    <div data-type="progress" class="h-0.5 bg-light w-full absolute origin-left"></div>
                     <div class="h-0.5 bg-light/20 w-full"></div>
                 </div>
 
@@ -36,10 +36,48 @@
 
         </div>
 
-        {{# textblock #}}
-        <p data-type="text" class="text-lead-1">
-            When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.
-        </p>
+        {{# accrodion #}}
+        <div class="relative flex flex-col shrink" x-data="{selected:0}">
+            
+            {{# loop through every accordion item #}}
+            {{ s1_accordion }}			
+                
+                {{# button/accordion header #}}
+                <button 
+                    type="button" 
+                    id="accordion-header-{{index}}"
+                    @click="selected = {{index}}"    
+                    :aria-expanded="selected == {{ index }} ? 'true' : 'false'"
+                    aria-controls="accordion-panel-{{index}}"     
+                    class="group text-left relative flex flex-col overflow-hidden {{ color | ensure_left('text-') }} px-4 py-frame-1/2 gap-frame-1/4 {{ color | ensure_left('bg-') }} bg-opacity-0 hover:bg-opacity-5 transition">
+                    {{# class="text-left relative flex flex-col overflow-hidden {{ color | ensure_left('text-') }} border-y-1 border-light/20 px-4 py-frame-1/2 gap-frame-1/4 {{ color | ensure_left('bg-') }} bg-opacity-0 hover:bg-opacity-5 transition"> #}}
+    
+                    {{# wrapper title and icon #}}
+                    <div class="relative flex items-center gap-frame-1/4">
+                        
+                        {{# title #}}
+                        <h2 class="uppercase transition origin-left text-head-accordion" 
+                            :class="selected == {{ index }} ? 'scale-50' : ''">
+                            {{ title }}
+                        </h2>
+    
+                        {{# icon #}}
+                        <div x-show="selected !== {{ index }}" x-transition data-icon="arrup" class="h-[1.25em] group-hover:rotate-90 aspect-square bg-current"></div>
+                    </div>
+    
+                    {{# accordion content #}}
+                    <div class="relative transition-all duration-500" 
+                        :class="selected == {{ index }} ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0 -mt-frame-1/4'"
+                        :aria-hidden="selected == {{ index }} ? 'false' : 'true'" 
+                        aria-labelledby="accordion-header-{{index}}"
+                        id="accordion-panel-{{index}}" >
+                        
+                        <p class="h-full text-lead-1 max-w-none">{{ description }}</p>
+                    </div>
+    
+                </button>
+            {{ /s1_accordion }}
+        </div>
     </div>
 
 {{ /partial:layout/section }}

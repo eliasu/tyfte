@@ -70,11 +70,15 @@ module.exports = {
         'frame': 'var(--frame)',
         'frame-2': 'calc(var(--frame)*2)',
         'frame-3': 'calc(var(--frame)*3)',
-        'frame-0.5': 'calc(var(--frame)/2)',
+        'frame-1/2': 'calc(var(--frame)/2)',
+        'frame-1/3': 'calc(var(--frame)/3)',
+        'frame-1/4': 'calc(var(--frame)/4)',
+        'frame-1/5': 'calc(var(--frame)/5)',
       },
       borderWidth: {
         'frame': 'var(--frame)',
-        'frame-0.5': 'calc(var(--frame)/2)',
+        'frame-1/2': 'calc(var(--frame)/2)',
+        '1': '1px',
       },
       boxShadow: {
         'big': '30px 54px 124px 0px #00000040',
@@ -91,6 +95,9 @@ module.exports = {
       },
       transitionTimingFunction: {
         'bouncy': 'cubic-bezier(.47,1.64,.41,.8)',
+      },
+      backgroundImage: {
+        'grain': "url('/resources/images/grain_bg.jpg')",
       }
     },
   },

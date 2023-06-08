@@ -4,13 +4,13 @@
 #}}
 
 <!-- sections/section_0.antlers.html -->
-{{ partial:layout/section }}
+{{ partial:layout/section  class="h-[100vh]" }}
 
     {{# main content grid #}}
-    <div data-content="0" class="grid items-center w-full grid-cols-1 gap-8 h-screen-d lg:grid lg:grid-cols-2 p-frame">
+    <div id="sectionHero" class="sticky top-0 grid items-center w-full grid-cols-1 gap-8 h-screen-d lg:grid lg:grid-cols-2 p-frame">
 
         {{# claim with tags #}}
-        <div class="relative z-10 flex flex-col self-end gap-4 sm:w-3/4 lg:w-auto lg:self-center">
+        <div id="heroContentWrapper" class="relative z-10 flex flex-col self-end gap-4 sm:w-3/4 lg:w-auto lg:self-center">
             
             {{# tag wrapper #}}
             {{ partial:components/tags class="hidden xs:flex" }}
@@ -29,22 +29,36 @@
         </div>
 
         {{# container scroll instructions #}}
-        <div class="relative flex items-end self-end justify-end sm:self-start lg:self-end lg:-top-frame-3"> 
+        <div id="heroScrollCta" class="relative flex flex-col justify-end w-1/2 h-full -bottom-frame"> 
 
             {{# scroll instructions #}}
-            <div class="relative flex flex-col items-start gap-4">
+            <div class="flex flex-col items-start gap-4">
                 <div>
-                    <div class="flex items-center w-[50vw] gap-2 sm:w-auto sm:mb-2">
+                    <div class="flex items-center gap-2 sm:w-auto sm:mb-2">
                         <p class="mb-0 font-bold">Scroll</p>
-                        {{# line #}}
-                        <div data-line class="absolute -left-frame-0.5 top-0 bottom-0 w-0.5"></div>
                     </div>
                     <p class="max-w-[20ch] hidden sm:block">or click here to see some of our projects.</p>
                 </div>
                 {{ partial:components/button class="hidden sm:flex" label="work" icon="arrup" }}
             </div>
+
+            <div data-line class="w-0.5 h-64 mt-8"></div>
+        
         </div>
+
+        {{# <div data-videooverlay class="absolute inset-0 z-behind mix-blend-lighten">
+            <video data-dashjs-player
+                id="hero-video"
+                class="object-cover w-full h-full opacity-50" 
+                width="100%" height="100%" 
+                muted playsinline loop 
+                src="{{video}}">
+            </video>
+        </div> #}}
+
     </div>
+
+    
 
 {{ /partial:layout/section }}
 <!-- End: sections/section_0.antlers.html -->

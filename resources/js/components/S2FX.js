@@ -130,6 +130,7 @@ export class S2FX {
     changeParam1(num) {
         document.querySelectorAll("[data-fxgradient]").forEach(element => {
             element.style.background = `conic-gradient(from var(--angle) at 50% 50%, #8E63E2 0deg, rgba(193, 117, 253, 0) ${num}deg)`;
+            // element.style.background = `conic-gradient(from var(--angle) at 50% 50%, #4D4D4D 0deg, rgba(77, 77, 77, 0) ${num}deg)`;
         });
 
         console.log(num)

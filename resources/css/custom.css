@@ -79,6 +79,7 @@
    [data-fxgradient] {
       @apply transition-all;
       background: conic-gradient(from var(--angle) at 50% 50%, #8E63E2 0deg, rgba(193, 117, 253, 0) 360deg);
+      /* background: conic-gradient(from var(--angle) at 50% 50%, #4D4D4D 0deg, rgba(77, 77, 77, 0) 360deg); */
    }
 
    [data-fxgradient-a0] {--angle: 0deg; }
@@ -117,7 +118,7 @@
 
    /* button animation (the rainbow effect on the icons & the border line animation */
    /* rainbow effect on icon */
-   button:hover > [data-icon] {
+   button:hover > [data-icon], button:hover > div > [data-icon] {
       @apply scale-125;
       animation: colorchange linear 1500ms infinite;
       animation-play-state: running;
@@ -142,6 +143,17 @@
    [data-icon="hearth"] { mask-image: url(/resources/svg/hearth.svg); }
    [data-icon="close"] { mask-image: url(/resources/svg/close.svg); }
 
+   /* [data-icon-loop] {
+      @apply scale-125;
+      animation: colorPulse alternate 1000ms infinite;
+      animation-play-state: running;
+      background-image: conic-gradient(
+         #0ACF83,
+         #FFC32A,
+         #0ACF83
+      );
+   } */
+
    /* this class get added if pressed on the love button */
    .loveEmphasis {
       @apply scale-[2.5] px-4;
@@ -151,11 +163,6 @@
          #FFC32A,
          #0ACF83
       );
-   }
-
-   #sectionGrain {
-      background-image: url(/resources/images/grain_bg.jpg);
-      @apply mix-blend-multiply opacity-10;
    }
 
    svg {
@@ -177,6 +184,10 @@
 
    @keyframes colorchange {
       to { filter: hue-rotate(1turn); }
+   }
+
+   @keyframes colorPulse {
+      to { filter: hue-rotate(1turn); transform: scale(1.5); }
    }
 
    @keyframes strokeanimation {

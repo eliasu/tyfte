@@ -15,7 +15,7 @@
     {{# open Nav #}}
     <div id="mobileNav" 
     class="absolute inset-0 flex flex-col items-center justify-center gap-0 text-center transition-all duration-500 sm:items-start border-dark p-frame bg-light/70"
-    :class="navOpen ? 'border-frame sm:border-frame-0.5 opacity-100 pointer-events-auto' : 'border-0 opacity-0 pointer-events-none'"
+    :class="navOpen ? 'border-frame sm:border-frame-1/2 opacity-100 pointer-events-auto' : 'border-0 opacity-0 pointer-events-none'"
     :aria-label="navOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
     :aria-expanded="navOpen"
     >
@@ -26,7 +26,7 @@
         <a x-show="navOpen" x-transition:enter.delay.900ms href="/" class="relative cursor-pointer hover:text-dark-neutral after:hover:bg-dark text-navlink text-dark">our work</a>
 
         {{# button rapper #}}
-        <div class="absolute inset-0 sm:left-auto z-30 flex flex-col items-center sm:items-end justify-between p-frame sm:p-frame-0.5">
+        <div class="absolute inset-0 sm:left-auto z-30 flex flex-col items-center sm:items-end justify-between p-frame sm:p-frame-1/2">
             {{ partial:components/button class="text-dark hover:text-light" label="close" icon="close" }}
                 x-show="navOpen"
                 x-transition:enter.delay.500ms

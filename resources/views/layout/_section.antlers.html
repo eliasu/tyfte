@@ -4,7 +4,7 @@
 #}}
 
 <!-- /layout/_section.antlers.html -->
-<section data-section class="relative flex w-full">
+<section {{ data-section }} {{ cssid ? "id='{cssid}'" : "" }} class="relative flex w-full {{ class }}">
     {{ slot }}
 </section>
 <!-- End: /layout/_section.antlers.html -->
