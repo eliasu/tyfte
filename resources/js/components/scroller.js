@@ -8,6 +8,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
 window.Lenis = Lenis;
 
+let prevScrollDir = 0;
+
 // import { S1FX } from './S1FX';
 // import { S2FX } from './S2FX';
 
@@ -25,75 +27,146 @@ export default function initScroller() {
     //     lenis.raf(time * 1000);
     // });
 
-    const ani1 = gsap.to('#bg-container', {
-        backgroundColor: "red",
-        immediateRender: true,
-        // onComplete() {
-        //     console.log("complete");
-        // },
-        // onComplete: (self) => {
-        //     console.log("complete", self);
-        // },
-    // , overwrite:true
-} );
-    const ani2 = gsap.to('#bg-container', {backgroundColor: "green", overwrite:false,
-    immediateRender: true} );
-    const ani3 = gsap.to('#bg-container', {backgroundColor: "blue", overwrite:false,
-    immediateRender: true} );
+    const sectionTweens = [];
+    sectionTweens.push(
+        gsap.to("#bg-container", {
+            backgroundColor: "red",
+        })
+    );
 
-    const aniArray = [ani1,ani2,ani3];
+    sectionTweens.push(
+        gsap.to("#bg-container", {
+            backgroundColor: "green",
+        })
+    );
 
-    gsap.utils.toArray("section.section-dummy").forEach(function (elem, index, arr) {
+    sectionTweens.push(
+        gsap.to("#bg-container", {
+            backgroundColor: "blue",
+        })
+    );
+
+    gsap.utils.toArray("section.section-dummy").forEach(function (elem, index) {
         console.log(elem);
+        // let scrollDir = 0;
 
         ScrollTrigger.create({
             // trigger: "#s1",
-            animation: aniArray[index],
+            animation: sectionTweens[index],
             scroller: "main",
             trigger: elem,
             markers: true,
             start: "top top",
             end: "bottom top",
-            // toggleClass: "active",
-            // pin: true,
             scrub: 1,
             onUpdate: (self) => {
-                if(self.progress >= 1) {
-                    console.log(self);
-                    // gsap.set
-                    // gsap.set(self, {x: 100, y: 50, opacity: 0});
-                    console.log("done", index);
-                    console.log(aniArray[index+1].vars);
-                    console.log("resetting");
-                    aniArray[index+1].invalidate();
-                    // aniArray[index+1].restart();
-                    console.log(aniArray[index+1].vars);
-                }
                 // console.log(
                 //     index,
                 //     "progress:",
                 //     self.progress.toFixed(3),
                 //     "direction:",
                 //     self.direction,
-                //     // "velocity",
-                //     // self.getVelocity()
+                //     "velocity",
+                //     self.getVelocity()
                 // );
+                handleScrollSnapping(self.direction);
             },
-           
+
             onEnter: (i, el) => {
-                console.log(`onEnter ${index}`);
+                // console.log(`onEnter ${index}`);
             },
             onLeave: (i, el) => {
-                console.log(`leaving ${index}`);
+                // console.log(`leaving ${index}`);
+                // console.log(index);
+                refreshStartValues(sectionTweens, index + 1);
             },
             onLeaveBack: (i, el) => {
-                console.log(`leaving ${index}`);
+                // console.log(`leaving ${index}`);
             },
             onEnterBack: (i, el) => {
-                console.log(`onEnterBack ${index}`);
+                // console.log(`onEnterBack ${index}`);
             },
         });
     });
-
-    
 }
+
+function refreshStartValues(tweens, index) {
+    if (tweens[index]) tweens[index].invalidate();
+}
+
+function handleScrollSnapping(scrollDir) {
+
+    console.log(scrollDir, prevScrollDir);
+
+    if(prevScrollDir != scrollDir) {
+        console.log("change dir");
+        // document.documentElement.style.setProperty('--scrollSnapAlign', "none");
+        document.documentElement.style.setProperty('--scrollSnapAlign', "none");
+       
+        setTimeout(setPrevScrollDir(scrollDir), 10);
+        }
+
+       
+    // } 
+
+    // if(self.direction == 1 && scrollDir != 1) {
+    //     console.log("forward");
+    //     document.documentElement.style.setProperty('--scrollSnapAlign', "none");
+
+    //     setTimeout(function() {
+    //         // Code, der erst nach 2 Sekunden ausgeführt wird
+    //         // console.log("aftertimeout");
+    //         if(self.direction == 1 && scrollDir != 1){
+    //             console.warn("setting");
+    //             scrollDir = 1;
+    //             document.documentElement.style.setProperty('--scrollSnapAlign', "start");
+    //         }
+    //       }, 50);
+
+       
+       
+
+    // }
+
+}
+
+function setPrevScrollDir(dir) {
+    if(prevScrollDir != dir){
+        console.warn(`setting prev ${dir}`, prevScrollDir);
+        prevScrollDir = dir;
+
+        if(dir -1) {
+            
+            document.documentElement.style.setProperty('--scrollSnapAlign', "end");
+        } else {
+            document.documentElement.style.setProperty('--scrollSnapAlign', "start");
+
+        }
+    }
+}
+
+window.changeBG = function (val) {
+    switch (val) {
+        case 1:
+            gsap.to("#bg-container", {
+                backgroundColor: "yellow",
+            });
+
+            break;
+        case 2:
+            gsap.to("#bg-container", {
+                backgroundColor: "purple",
+            });
+
+            break;
+        case 3:
+            gsap.to("#bg-container", {
+                backgroundColor: "black",
+            });
+
+            break;
+
+        default:
+            break;
+    }
+};

@@ -103,7 +103,9 @@
         min-height: 100vh;
         /* scroll-snap-type: y mandatory; */
         /* display: flex; */
-        scroll-snap-align: start;
+        /* scroll-snap-align: start; */
+        scroll-snap-align: var(--scrollSnapAlign);
+
         align-items: center;
     }
 }
@@ -373,5 +375,6 @@
         --a5: 225deg;
         --a6: 270deg;
         --a7: 315deg;
+        --scrollSnapAlign: start;
     }
 }
