@@ -5,12 +5,15 @@ import focus from '@alpinejs/focus'
 import 'focus-visible'
 // import MediaPlayer from 'dashjs';
 
+import {init as alpineInit} from './components/alpine_code';
+alpineInit();
+
 import scroller from './components/scroller';
 
 
 import startTextify from './components/textify';
-startTextify();
-scroller();
+// startTextify();
+// scroller();
 
 
 
