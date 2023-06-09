@@ -1,6 +1,6 @@
 /**
  * accordion component
- * import with "import initAccordion from './components/accordion';"
+ * import with "import { Accordion } from './components/accordion';"
 **/
 import Animations from '../c-textify/src/index';
 
@@ -20,7 +20,7 @@ export class Accordion {
             threshold: 0.2,
             once: false, 
             noObserver: noObserver,
-            selector: selector,
+            selector: [data-type="accordion-item"],
         });
     }
 
@@ -34,7 +34,8 @@ export class Accordion {
 }
 
 
-window.tfx = new Accordion('[data-type="accordion-item"]', true)
-window.tfx2 = new Accordion('[data-type="headline-obs"]' )
+// window.tfx = new Accordion('[data-type="accordion-item"]', true)
+// window.tfx2 = new Accordion('[data-type="headline-obs"]' )
+// window.tfx3 = new Accordion('[data-type="tag"]', false, 3000)
 
-window.tfx3 = new Accordion('[data-type="tag"]', false, 3000)
+// tfx.show(2)

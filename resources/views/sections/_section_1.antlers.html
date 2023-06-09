@@ -43,17 +43,7 @@
 
         {{# all accordion groups wrapper #}}
         <div class="relative flex flex-col gap-frame-3 lg:gap-24" 
-        x-data="
-        {
-            selected: 0,
-            show: function(index) {
-                window.tfx.hide(this.selected);
-                this.selected = index;
-                window.tfx.show(index);
-            },
-        }"
-        x-init="show(0)"
-        >
+            x-data="{selected:0}">
             
             {{# set variable for total items (there is no total in the md file) #}}
             {{ index_items = 0 }}
@@ -62,10 +52,10 @@
             {{ s1_accordion_groups }}			
 
                 {{# accordion group wrapper #}}
-                <div class="relative flex flex-col last-of-type:">
+                <div class="relative flex flex-col">
                     
                     {{# Headline #}}
-                    <h2 data-type="headline-obs" class="text-head-accordion mb-8 {{ color }}">{{ title }}</h2>
+                    <h2 class="text-head-accordion mb-8 {{ color }}">{{ title }}</h2>
 
                     {{# loop all accordion items #}}
                     {{ accordion }}
@@ -74,10 +64,12 @@
                         <button
                             type="button" 
                             data-type="accordion-item"
-                            @click="show( {{ index_items }} )"    
-                            :aria-expanded="selected == {{  index_items  }} ? 'true' : 'false'"
+                            @click="selected = {{ index_items }}"
+                            :aria-expanded="selected == {{ index_items }} ? 'true' : 'false'"
                             aria-controls="accordion-panel-{{ index_items }}"     
-                            class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group py-frame lg:py-frame-1/2 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color }} ">
+                            class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group py-frame lg:py-frame-1/2 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color }} "
+                            :class="selected == {{ index_items }} ? 'lg:-translate-x-frame-1/2' : ''"
+                        >
             
                             {{# wrapper title and icon #}}
                             <div class="relative flex items-center justify-between w-full lg:w-auto gap-frame-1/4">
@@ -85,18 +77,18 @@
                                 {{# title #}}
                                 <h4 class="font-mono transition origin-left text-subhead-accordion" 
                                     :class="selected == {{ index_items }} ? 'scale-75 md:scale-50' : ''"
-                                    data-type="headline-obs">
+                                    data-type="headline">
                                     {{ title }}
                                 </h4>
             
                                 {{# icon #}}
-                                <div x-show="selected !== {{ index_items }}" x-transition data-icon="arrup" class="h-[1.25em] group-hover:rotate-90 aspect-square bg-current"></div>
+                                <div x-transition x-show="selected !== {{ index_items }}" data-icon="arrup" class="h-[1.25em] group-hover:rotate-90 aspect-square bg-current"></div>
                             </div>
             
                             {{# accordion content #}}
                             <div class="relative transition-all duration-500 max-w-prose" 
                                 :class="selected == {{ index_items }} ? 'opacity-100 max-h-112' : 'opacity-0 max-h-0 -mt-frame-1/4'"
-                                :aria-hidden="selected == {{  index_items  }} ? 'false' : 'true'" 
+                                :aria-hidden="selected == {{ index_items }} ? 'false' : 'true'" 
                                 aria-labelledby="accordion-header-{{ index_items }}"
                                 id="accordion-panel-{{ index_items }}">
                                 

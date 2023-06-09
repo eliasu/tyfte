@@ -10,7 +10,11 @@ import initTyfteLogo from './components/tyfte_logo';
 import initDotgrid from './components/dotgrid';
 import initScroller from './components/scroller';
 import initLoveCounter from './components/love_counter';
-import { Accordion } from './components/accordion';
+
+// Alpine x-data extends
+import * as alpine from './components/alpine_data';
+
+
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
@@ -24,15 +28,17 @@ window.getToken = async () => {
         })
 }
 
-// create sitewide controller for functions etc.
-const controller = {}
-window.controller = controller
+// create sitewide Object.
+window.vla = {}
 
 // Call Alpine.
 window.Alpine = Alpine
 Alpine.plugin(collapse)
 Alpine.plugin(persist)
 Alpine.plugin(focus)
+
+Alpine.data('textFx', alpine.textFx) 
+
 Alpine.start()
 
 // if DOMContent has loaded

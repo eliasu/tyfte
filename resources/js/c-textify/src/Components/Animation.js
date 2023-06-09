@@ -8,7 +8,7 @@ import { isBrowser } from "../utils";
 
 export default class Animation {
     constructor({ element, elements, noObserver}) {
-        console.log("-----------------custom SCR WOOOOOOW build");
+        // console.log("-----------------custom SCR WOOOOOOW build");
         const { animationDelay, animationTarget } = element.dataset;
 
         this.delay = animationDelay;
