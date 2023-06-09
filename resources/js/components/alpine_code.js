@@ -1,3 +1,5 @@
+import { someVanillaFunc } from "./vanilla_code";
+
 export const alpine1 = () => ({
   open: false,
 
@@ -12,7 +14,9 @@ export const alpine2 = () => ({
 
   my_method() {
       console.log("do someting");
-  }
+  },
+
+  vanilla: someVanillaFunc
 })
 
 
