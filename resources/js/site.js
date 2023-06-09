@@ -5,25 +5,41 @@ import focus from '@alpinejs/focus'
 import 'focus-visible'
 // import MediaPlayer from 'dashjs';
 
-import {initScroller} from './components/scroller';
+// import {initScroller} from './components/scroller';
 
 
-import {textifyStart} from './components/textify';
-textifyStart();
-initScroller();
+// import {textifyStart} from './components/textify';
+// textifyStart();
+// initScroller();
 
-window.state = {};
+// window.state = {};
 
-debugger
-import {init, myvar, setit} from './components/test1';
-import {init as init2} from './components/test2';
+// debugger
+// import * as vanilla from './components/vanilla_code';
+import {myClass, someVanillaFunc, setModuleVar} from './components/vanilla_code';
+import * as scroller from './components/scroller_code';
+import * as textify from './components/textify_code';
+import { alpine1, alpine2 } from './components/alpine_code';
 
-init();
-init2();
-// myvar = 44;
-// init2();
-setit();
-console.log(window.state);
+
+const class_instance = new myClass();
+class_instance.setval("updated value from site.js");
+someVanillaFunc();
+scroller.init();
+textify.init();
+setModuleVar("set from site.js");
+someVanillaFunc();
+scroller.mystate();
+textify.mystate();
+textify.DoSomething();
+scroller.mystate();
+textify.mystate();
+
+
+
+// Alpine.data('my_property_name', alpine1) 
+// Alpine.data('dropdown', alpine1) 
+// Alpine.start()
 
 
 
@@ -47,9 +63,3 @@ Alpine.plugin(persist)
 Alpine.plugin(focus)
 Alpine.start()
 
-
-
-
-function check() {
-    console.log("test");
-}
