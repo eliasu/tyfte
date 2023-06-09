@@ -39,7 +39,8 @@ textify.mystate();
 
 // Alpine.data('my_property_name', alpine1) 
 // Alpine.data('dropdown', alpine1) 
-// Alpine.start()
+Alpine.data('dropdown', alpine1) 
+Alpine.data('test', alpine2) 
 
 
 
