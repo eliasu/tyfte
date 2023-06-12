@@ -4,54 +4,18 @@
 
 {{# scroll container #}} {{# {{ partial:pages/multistep}} #}}
 
-<div x-data="{ openedIndex: 1 }" class="flex flex-col p-4">
-    <div
-        @click="openedIndex == 1 ? openedIndex = -1 : openedIndex = 1"
-        class="flex items-center justify-between p-4 bg-gray-200 border"
-    >
-        <p>Container 1</p>
-        <span
-            :class="openedIndex == 1 ? 'fa-chevron-down' : 'fa-chevron-up'"
-            class="fas"
-        ></span>
-    </div>
-    <div
-        x-show.transition.in.duration.800ms="openedIndex == 1"
-        class="p-4 border"
-    >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius
-        vel
-    </div>
-    <div
-        @click="openedIndex == 2 ? openedIndex = -1 : openedIndex = 2"
-        class="flex items-center justify-between p-4 bg-gray-200 border"
-    >
-        <p>Container 2</p>
-        <span
-            :class="openedIndex == 2 ? 'fa-chevron-down' : 'fa-chevron-up'"
-            class="fas"
-        ></span>
-    </div>
-    <div
-        x-show.transition.in.duration.800ms="openedIndex == 2"
-        class="p-4 border"
-    >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius
-        vel
-    </div>
-</div>
 
 <div x-data="outer" class="">
-    <div x-data="test" @click="handleClick()" :class="open() ? 'red' : 'not-true'">
+    <div  x-data="inner" @click="handleClick()" :class="open() ? 'red' : 'not-true'">
         <h2>title</h2>
-        <p>
+        <p id="ani-1">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
             excepturi inventore illum 
         </p>
     </div>
-    <div x-data="test" @click="handleClick()" :class="open() ? 'red' : 'not-true'">
+    <div  x-data="inner" @click="handleClick()" :class="open() ? 'red' : 'not-true'">
         <h2>title</h2>
-        <p>
+        <p id="ani-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
             excepturi inventore illum 
         </p>

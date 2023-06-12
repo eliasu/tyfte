@@ -5,9 +5,9 @@ import focus from '@alpinejs/focus'
 import 'focus-visible'
 // import MediaPlayer from 'dashjs';
 
-import {test, outer } from './components/alpine_code';
+import {inner, outer } from './components/alpine_code';
 
-Alpine.data('test', test) 
+Alpine.data('inner', inner) 
 Alpine.data('outer', outer) 
 
 
