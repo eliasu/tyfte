@@ -5,6 +5,10 @@
         scroll-behavior: smooth;
     }
 
+    .red {
+        background-color: red;
+    }
+
     @font-face {
         font-family: "Space Grotesk";
         src: url("/public/fonts/SpaceGrotesk-Medium.woff2") format("woff2"),

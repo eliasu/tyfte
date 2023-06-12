@@ -42,14 +42,14 @@
 </div>
 
 <div x-data="outer" class="">
-    <div x-data="test" @click="toggle(), mytest(), handleClick()" class="">
+    <div x-data="test" @click="handleClick()" :class="open() ? 'red' : 'not-true'">
         <h2>title</h2>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
             excepturi inventore illum 
         </p>
     </div>
-    <div x-data="test" @click="handleClick()" class="">
+    <div x-data="test" @click="handleClick()" :class="open() ? 'red' : 'not-true'">
         <h2>title</h2>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum

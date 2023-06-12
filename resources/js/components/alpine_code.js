@@ -26,7 +26,13 @@ export const texti = () => ({
 });
 
 export const test = () => ({
-  open: false,
+  wert : "a",
+  // open: true,
+  open() {
+    console.log(this.$el, this.$data.openEl);
+    return this.$el == this.$data.openEl ? true : false
+    // return false
+  },
   // init() {
   //   console.log("initializing");
   //   console.log(this.$el);
@@ -42,12 +48,7 @@ export const test = () => ({
     // console.log(mytest());
     // console.log(open);
   },
-  // handleClick(data) {
   handleClick() {
-
-    // If you want to access magic methods or properties from a component object, you can do so using the this context:
-
-
     console.log("handle");
     console.log(this);
     this.$data.openEl = this.$el;
