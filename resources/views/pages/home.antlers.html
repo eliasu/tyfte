@@ -1,70 +1,61 @@
-{{#
-    @name Home
-    @desc The home template with an outer wrapper
-#}}
+{{# @name Home @desc The home template with an outer wrapper #}}
 
 <!-- pages/home.antlers.html -->
 
-{{# scroll container #}}
+{{# scroll container #}} {{# {{ partial:pages/multistep}} #}}
 
-
- {{# {{ partial:pages/multistep}} #}}
-
- <script>
-    function sayHello(data) {
-        console.log(data.name);
-        console.log(data.test);
-        console.log(data.mega);
-        console.log(data);
-        //alert(greeting + ' ' + name + '!')
-    }
-</script>
-
- <div x-data="{ greeting: 'Hello', test : () =>{ 'hello' }, mega(){ 'mega'}}">
-    <div x-data="{ name: 'Caleb' }">
-        <button @click="sayHello($data)">Say Hello</button>
+<div x-data="{ openedIndex: 1 }" class="flex flex-col p-4">
+    <div
+        @click="openedIndex == 1 ? openedIndex = -1 : openedIndex = 1"
+        class="flex items-center justify-between p-4 bg-gray-200 border"
+    >
+        <p>Container 1</p>
+        <span
+            :class="openedIndex == 1 ? 'fa-chevron-down' : 'fa-chevron-up'"
+            class="fas"
+        ></span>
+    </div>
+    <div
+        x-show.transition.in.duration.800ms="openedIndex == 1"
+        class="p-4 border"
+    >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius
+        vel
+    </div>
+    <div
+        @click="openedIndex == 2 ? openedIndex = -1 : openedIndex = 2"
+        class="flex items-center justify-between p-4 bg-gray-200 border"
+    >
+        <p>Container 2</p>
+        <span
+            :class="openedIndex == 2 ? 'fa-chevron-down' : 'fa-chevron-up'"
+            class="fas"
+        ></span>
+    </div>
+    <div
+        x-show.transition.in.duration.800ms="openedIndex == 2"
+        class="p-4 border"
+    >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius
+        vel
     </div>
 </div>
 
-
-<div x-data="{ openedIndex: 1 }" class="flex flex-col p-4">
-    <div @click="openedIndex == 1 ? openedIndex = -1 : openedIndex = 1" class="flex items-center justify-between p-4 bg-gray-200 border">
-      <p>Container 1</p>
-      <span :class="openedIndex == 1 ? 'fa-chevron-down' : 'fa-chevron-up'" class="fas"></span>
-    </div>
-    <div x-show.transition.in.duration.800ms="openedIndex == 1" class="p-4 border">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius vel magna lacinia mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque ligula neque, imperdiet nec est laoreet, pulvinar commodo odio. Vivamus eget eleifend libero. Fusce dolor nibh, porta eu gravida ut, maximus non erat.
-    </div>
-    <div @click="openedIndex == 2 ? openedIndex = -1 : openedIndex = 2" class="flex items-center justify-between p-4 bg-gray-200 border">
-      <p>Container 2</p>
-      <span :class="openedIndex == 2 ? 'fa-chevron-down' : 'fa-chevron-up'" class="fas"></span>
-    </div>
-      <div x-show.transition.in.duration.800ms="openedIndex == 2" class="p-4 border">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius vel magna lacinia mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque ligula neque, imperdiet nec est laoreet, pulvinar commodo odio. Vivamus eget eleifend libero. Fusce dolor nibh, porta eu gravida ut, maximus non erat.
-    </div>
-    <div @click="openedIndex == 3 ? openedIndex = -1 : openedIndex = 3" class="flex items-center justify-between p-4 bg-gray-200 border">
-      <p>Container 3</p>
-      <span :class="openedIndex == 3 ? 'fa-chevron-down' : 'fa-chevron-up'" class="fas"></span>
-    </div>
-      <div x-show.transition.in.duration.800ms="openedIndex == 3" class="p-4 border">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius vel magna lacinia mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque ligula neque, imperdiet nec est laoreet, pulvinar commodo odio. Vivamus eget eleifend libero. Fusce dolor nibh, porta eu gravida ut, maximus non erat.
-    </div>
-    <a href="https://davidgrzyb.com/accordion-with-alpine-js-tailwind" class="mt-12 underline">How to build an accordion with Alpine.js</a>
-  </div>
-
- <div x-data="outer" class="">
-    <div x-data="test" @click="toggle(), mytest(), handleClick($data)" class="">
+<div x-data="outer" class="">
+    <div x-data="test" @click="toggle(), mytest(), handleClick()" class="">
         <h2>title</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum excepturi inventore illum veritatis quae. Eius sunt optio maxime molestias ipsum, ut rem. Laudantium perspiciatis velit illum molestiae, reiciendis commodi molestias.</p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+            excepturi inventore illum 
+        </p>
     </div>
-    <div x-data="test" @click="toggle()" class="">
+    <div x-data="test" @click="handleClick()" class="">
         <h2>title</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum excepturi inventore illum veritatis quae. Eius sunt optio maxime molestias ipsum, ut rem. Laudantium perspiciatis velit illum molestiae, reiciendis commodi molestias.</p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+            excepturi inventore illum 
+        </p>
     </div>
-    <div class="">
-        <h2>title</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum excepturi inventore illum veritatis quae. Eius sunt optio maxime molestias ipsum, ut rem. Laudantium perspiciatis velit illum molestiae, reiciendis commodi molestias.</p>
-    </div>
- </div>
+</div>
 
 <!-- End: pages/home.antlers.html -->
