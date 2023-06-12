@@ -2,10 +2,10 @@
 
 <!-- pages/home.antlers.html -->
 
-{{# scroll container #}} {{# {{ partial:pages/multistep}} #}}
 
 
-<div x-data="outer" class="">
+
+<div x-data="{selected: ''}" class="">
     <div  x-data="inner" @click="handleClick()" :class="open ? 'red' : 'not-true'">
         <h2>title</h2>
         <p id="ani-1">
