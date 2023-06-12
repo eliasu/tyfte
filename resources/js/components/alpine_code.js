@@ -5,17 +5,34 @@ import * as ani from "./textify";
 export const inner = () => ({
   textifyAni: '',
   open() {
-    // console.log(this.$el, this.$data.openEl);
     const isSelectedInParent = (this.$el == this.$data.openEl);
+    return isSelectedInParent;
+  },
+  init() {
+    const allAnimations = [...ani.ani1.animations, ...ani.ani2.animations];
+    const aniTarget = this.$el.querySelector('p');
+
+    console.log("init");
+    console.log(allAnimations);
+    
+    console.log(this.$el);
+    console.log(aniTarget);
+    // allAnimations.forEach(el => {
+    //   console.log(el.element);
+      
+    // });
+    const matchingAni = allAnimations.find(el => el.element == aniTarget);
+    this.textifyAni = matchingAni; 
+
+    console.log("matchin",matchingAni);
 
     
-
-    return isSelectedInParent;
   },
 
   handleClick() {
     console.log("handle");
     this.$data.openEl = this.$el;
+    this.open ? this.textifyAni.animateIn() : this.textifyAni.animateOut();
     // console.log(data.mytest());
     // data.mytest();
   }
