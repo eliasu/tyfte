@@ -4,13 +4,15 @@ import * as ani from "./textify";
 
 export const inner = () => ({
   textifyAni: '',
-  open() {
+  get open() {
     const isSelectedInParent = (this.$el == this.$data.openEl);
     return isSelectedInParent;
   },
   init() {
     const allAnimations = [...ani.ani1.animations, ...ani.ani2.animations];
     const aniTarget = this.$el.querySelector('p');
+
+    this.$watch('open', value => this.open ? this.textifyAni.animateIn() : this.textifyAni.animateOut());
 
     console.log("init");
     console.log(allAnimations);
@@ -32,7 +34,19 @@ export const inner = () => ({
   handleClick() {
     console.log("handle");
     this.$data.openEl = this.$el;
-    this.open ? this.textifyAni.animateIn() : this.textifyAni.animateOut();
+
+    console.log(this.textifyAni);
+
+    // if (this.open) {
+    //   console.log("open true");
+    //   this.textifyAni.animateIn();
+    // } else {
+    //   console.log("open false");
+    //   this.textifyAni.animateOut();
+    // }
+    // this.$nextTick(() => { this.open ? this.textifyAni.animateIn() : this.textifyAni.animateOut(); });
+
+    
     // console.log(data.mytest());
     // data.mytest();
   }

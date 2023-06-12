@@ -6,7 +6,7 @@
 
 
 <div x-data="outer" class="">
-    <div  x-data="inner" @click="handleClick()" :class="open() ? 'red' : 'not-true'">
+    <div  x-data="inner" @click="handleClick()" :class="open ? 'red' : 'not-true'">
         <h2>title</h2>
         <p id="ani-1">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
@@ -17,7 +17,7 @@
             excepturi inventore illum 
         </p>
     </div>
-    <div  x-data="inner" @click="handleClick()" :class="open() ? 'red' : 'not-true'">
+    <div  x-data="inner" @click="handleClick()" :class="open ? 'red' : 'not-true'">
         <h2>title</h2>
         <p id="ani-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
