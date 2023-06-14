@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 export let sectionScrollTween = [];
 
 export function initScroller() {
-    initSectionTweens();
+    // initSectionTweens();
     initInfoSection();
     /** for skewing */
     // initImgSkew();
@@ -138,16 +138,19 @@ function initInfoSection() {
      */
 
     let st = ScrollTrigger.create({
-        // trigger: "[data-test]",
-        trigger: "[data-section-1]",
+        trigger: "#info-title",
+        // trigger: "[data-section-1]",
         pin: "[data-test]",
         scroller: "main",
         start: "top center",
-        end: "bottom bottom",
+        // end: "bottom bottom",
+        end: "bottom center",
         // end: "+=500",
         markers: true,
+        // anticipatePin: true
         // pinSpacing: false,
         // pinReparent: true,
+        pinReparent: true
         // scrub: 1
         // pinType: 'fixed',
       });
