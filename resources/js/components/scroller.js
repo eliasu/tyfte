@@ -7,6 +7,7 @@ export let sectionScrollTween = [];
 
 export function initScroller() {
     initSectionTweens();
+    initInfoSection();
     /** for skewing */
     // initImgSkew();
     // initTextifyAnimate();
@@ -74,19 +75,23 @@ function initImgSkew() {
 
 function initSectionTweens() {
     // set combined scroll container to size of sections
-    const sections = gsap.utils.toArray("section[data-srollTrigger]");
+    const sections = gsap.utils.toArray("section[data-scrollTrigger]");
     sectionScrollTween = [...Array(sections.length)];
     console.log(`We have ### ${sections.length} ### Sections`);
 
     const tweens = new Array(sections.length);
 
+    // first section tween
     tweens[0] = gsap.to("#background", {
         backgroundColor: "rgb(63 31 64)",
     });
+
+    // 3. section tween
     tweens[2] = gsap.to("#background", {
         backgroundColor: "rgb(11 11 41)",
     });
 
+    // create scrolltrigger for each section
     sections.forEach(function (elem, index) {
         ScrollTrigger.create({
             animation: tweens[index],
@@ -96,25 +101,12 @@ function initSectionTweens() {
             start: "top top",
             end: "bottom top",
             scrub: 1,
-            onUpdate: (self) => {
-                // console.log(
-                //     index,
-                //     "progress:",
-                //     self.progress.toFixed(3),
-                //     "direction:",
-                //     self.direction,
-                //     "velocity",
-                //     self.getVelocity()
-                // );
-                // handleScrollSnapping(self.direction);
-            },
-
+           
             onEnter: (i, el) => {
                 // console.log(`onEnter ${index}`);
             },
             onLeave: (i, el) => {
                 // console.log(`leaving ${index}`);
-                // console.log(index);
 
                 //  recalculating last tween state as start for next
                 if (tweens[index + 1]) tweens[index + 1].invalidate();
@@ -138,77 +130,27 @@ function initSectionTweens() {
     }));
 }
 
-// function handleScrollSnapping(scrollDir) {
-//     console.log(scrollDir, prevScrollDir);
+function initInfoSection() {
+    /**
+     *  - pin headline
+     *  - change headline based on scroll
+     * 
+     */
 
-//     if (prevScrollDir != scrollDir) {
-//         console.log("change dir");
-//         // document.documentElement.style.setProperty('--scrollSnapAlign', "none");
-//         document.documentElement.style.setProperty("--scrollSnapAlign", "none");
+    let st = ScrollTrigger.create({
+        // trigger: "[data-test]",
+        trigger: "[data-section-1]",
+        pin: "[data-test]",
+        scroller: "main",
+        start: "top center",
+        end: "bottom bottom",
+        // end: "+=500",
+        markers: true,
+        // pinSpacing: false,
+        // pinReparent: true,
+        // scrub: 1
+        // pinType: 'fixed',
+      });
 
-//         setTimeout(setPrevScrollDir(scrollDir), 10);
-//     }
-
-//     // }
-
-//     // if(self.direction == 1 && scrollDir != 1) {
-//     //     console.log("forward");
-//     //     document.documentElement.style.setProperty('--scrollSnapAlign', "none");
-
-//     //     setTimeout(function() {
-//     //         // Code, der erst nach 2 Sekunden ausgeführt wird
-//     //         // console.log("aftertimeout");
-//     //         if(self.direction == 1 && scrollDir != 1){
-//     //             console.warn("setting");
-//     //             scrollDir = 1;
-//     //             document.documentElement.style.setProperty('--scrollSnapAlign', "start");
-//     //         }
-//     //       }, 50);
-
-//     // }
-// }
-
-// function setPrevScrollDir(dir) {
-//     if (prevScrollDir != dir) {
-//         console.warn(`setting prev ${dir}`, prevScrollDir);
-//         prevScrollDir = dir;
-
-//         if (dir - 1) {
-//             document.documentElement.style.setProperty(
-//                 "--scrollSnapAlign",
-//                 "end"
-//             );
-//         } else {
-//             document.documentElement.style.setProperty(
-//                 "--scrollSnapAlign",
-//                 "start"
-//             );
-//         }
-//     }
-// }
-
-window.changeBG = function (val) {
-    switch (val) {
-        case 1:
-            gsap.to("#bg-container", {
-                backgroundColor: "yellow",
-            });
-
-            break;
-        case 2:
-            gsap.to("#bg-container", {
-                backgroundColor: "purple",
-            });
-
-            break;
-        case 3:
-            gsap.to("#bg-container", {
-                backgroundColor: "black",
-            });
-
-            break;
-
-        default:
-            break;
-    }
-};
+      console.log(st);
+}

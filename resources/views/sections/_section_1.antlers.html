@@ -4,13 +4,15 @@
 #}}
 
 <!-- sections/section_1.antlers.html -->
-{{ partial:layout/section class="lg:pt-frame-3" }}
+{{ partial:layout/section class="lg:pt-frame-3" attr="data-section-1" }}
+
+    <div class="w-20 h-20 bg-red" data-test ></div>
 
     {{# main content grid #}}
     <div class="relative grid items-start w-full grid-cols-1 gap-24 lg:gap-8 lg:grid lg:grid-cols-2 p-frame">
         
         {{# sticky header wrapper #}}
-        <div class="flex flex-col gap-4 lg:-translate-y-1/2 lg:top-1/2">
+        <div id="info-title" class="flex flex-col gap-4 lg:-translate-y-1/2 lg:top-1/2">
         
             {{# tag wrapper #}}
             {{ partial:components/tags }}
