@@ -1,35 +1,20 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { CrowdPleaser } from "./crowd_pleaser";
-// import Lenis from "@studio-freight/lenis";
-// window.Lenis = Lenis;
 gsap.registerPlugin(ScrollTrigger);
 
-export 
+export let sectionScrollTween = [];
 
 export function initScroller() {
-    // const lenis = new Lenis({
-    //     duration: 1.1,
-    //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    // });
-
-    // lenis.on("scroll", ScrollTrigger.update);
-
-    // gsap.ticker.add((time) => {
-    //     lenis.raf(time * 1000);
-    // });
-
     initSectionTweens();
     /** for skewing */
     // initImgSkew();
     // initTextifyAnimate();
 }
 
-
 function initTextifyAnimate() {
     gsap.utils.toArray("[data-textify]").forEach(function (elem, index) {
         // console.log(elem);
-
 
         ScrollTrigger.create({
             scroller: "main",
@@ -59,7 +44,8 @@ function initTextifyAnimate() {
 }
 
 function initImgSkew() {
-    let proxy = { skew: 0 }, skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
+    let proxy = { skew: 0 },
+        skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
         clamp = gsap.utils.clamp(-20, 20); // don't let the skew go beyond 20 degrees.
 
     const skewTest = ScrollTrigger.create({
@@ -74,7 +60,9 @@ function initImgSkew() {
                     duration: 0.8,
                     ease: "power3",
                     overwrite: true,
-                    onUpdate: () => { skewSetter(proxy.skew); },
+                    onUpdate: () => {
+                        skewSetter(proxy.skew);
+                    },
                 });
             }
         },
@@ -85,24 +73,26 @@ function initImgSkew() {
 }
 
 function initSectionTweens() {
+    // set combined scroll container to size of sections
+    const sections = gsap.utils.toArray("section[data-srollTrigger]");
+    sectionScrollTween = [...Array(sections.length)];
+    console.log(`We have ### ${sections.length} ### Sections`);
 
-    const sections = gsap.utils.toArray('section[data-srollTrigger]');
     const tweens = new Array(sections.length);
 
-    tweens[0] =  gsap.to("#background", {
+    tweens[0] = gsap.to("#background", {
         backgroundColor: "rgb(63 31 64)",
     });
-    tweens[2] =  gsap.to("#background", {
+    tweens[2] = gsap.to("#background", {
         backgroundColor: "rgb(11 11 41)",
     });
 
     sections.forEach(function (elem, index) {
-      
         ScrollTrigger.create({
             animation: tweens[index],
             scroller: "main", //necessary for native scroll snapping
             trigger: elem,
-            markers: true,
+            // markers: true,
             start: "top top",
             end: "bottom top",
             scrub: 1,
@@ -125,7 +115,9 @@ function initSectionTweens() {
             onLeave: (i, el) => {
                 // console.log(`leaving ${index}`);
                 // console.log(index);
-                refreshStartValues(tweens, index + 1);
+
+                //  recalculating last tween state as start for next
+                if (tweens[index + 1]) tweens[index + 1].invalidate();
             },
             onLeaveBack: (i, el) => {
                 // console.log(`leaving ${index}`);
@@ -136,11 +128,14 @@ function initSectionTweens() {
         });
     });
 
-
-}
-
-function refreshStartValues(tweens, index) {
-    if (tweens[index]) tweens[index].invalidate();
+    // parsing the data for easier access
+    sectionScrollTween = sectionScrollTween.map((el, index) => ({
+        section: sections[index],
+        tween: tweens[index],
+        get progress() {
+            this.tween.ScrollTrigger.progress;
+        },
+    }));
 }
 
 // function handleScrollSnapping(scrollDir) {
@@ -217,4 +212,3 @@ window.changeBG = function (val) {
             break;
     }
 };
-
