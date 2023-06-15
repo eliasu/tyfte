@@ -3,7 +3,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { CrowdPleaser } from "./crowd_pleaser";
 gsap.registerPlugin(ScrollTrigger);
 
-export let sectionScrollTween = [];
+export const scrollerState = {};
+let sectionScrollTween = [];
 export const infoSectionScrollState = {};
 console.log(infoSectionScrollState);
 
@@ -130,6 +131,8 @@ function initSectionTweens() {
             this.tween.ScrollTrigger.progress;
         },
     }));
+
+    scrollerState.sectionScrollTweens = sectionScrollTween;
 }
 
 function initInfoSection() {
