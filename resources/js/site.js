@@ -54,5 +54,5 @@ document.addEventListener('readystatechange', (event) => {
 	initTyfteLogo();
 	initDotgrid();
 	initLoveCounter();
-	initScroller();
+	// initScroller();
 });

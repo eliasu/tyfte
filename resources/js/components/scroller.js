@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 export let sectionScrollTween = [];
 
 export function initScroller() {
-    // initSectionTweens();
+    initSectionTweens();
     initInfoSection();
     /** for skewing */
     // initImgSkew();
