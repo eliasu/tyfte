@@ -137,23 +137,44 @@ function initInfoSection() {
      * 
      */
 
-    let st = ScrollTrigger.create({
-        trigger: "#info-title",
-        // trigger: "[data-section-1]",
-        pin: "[data-test]",
-        scroller: "main",
-        start: "top center",
-        // end: "bottom bottom",
-        end: "bottom center",
-        // end: "+=500",
-        markers: true,
-        // anticipatePin: true
-        // pinSpacing: false,
-        // pinReparent: true,
-        pinReparent: true
-        // scrub: 1
-        // pinType: 'fixed',
-      });
+    const infoTitle = document.querySelector('#info-title h2');
 
-      console.log(st);
+    // handle all updates and animations
+    const updateStickyElem = (value) => {
+        infoTitle.innerHTML = value;
+    }
+
+    gsap.utils.toArray("#info-accordion [data-section]").forEach(function (elem, index) {
+        // console.log(elem);
+        console.log(elem);
+        console.log(infoTitle);
+
+        ScrollTrigger.create({
+            scroller: "main",
+            trigger: elem,
+            markers: true,
+            start: "top center",
+            end: "bottom center",
+            // scrub: 1,
+            onEnter: (i, el) => {
+                // console.log(`onEnter ${index}`);
+                updateStickyElem(elem.dataset.section);
+            },
+            onEnterBack: (i, el) => {
+                // console.log(`onEnterBack ${index}`);
+                updateStickyElem(elem.dataset.section);
+            },
+            onLeave: (i, el) => {
+                // console.log(`leaving ${index}`);
+            },
+            onLeaveBack: (i, el) => {
+                // console.log(`leaving ${index}`);
+            },
+          
+        });
+    });
+
+   
+
+
 }
