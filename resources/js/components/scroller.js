@@ -11,10 +11,10 @@ export const scrollerState = {
         get currentProgress() {
 
         },
-        get section(index) {
+        get section() {
 
         },
-        get tween(index) {
+        get tween() {
 
         }
     },
@@ -27,13 +27,13 @@ export const scrollerState = {
 
 let sectionScrollTween = [];
 export const infoSectionScrollState = {
-    get sectionTween(index) {
+    get sectionTween() {
 
     }
 };
 
 
-console.log(infoSectionScrollState);
+console.log("halllifsdjfil",infoSectionScrollState);
 
 export function initScroller() {
     initSectionTweens();

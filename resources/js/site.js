@@ -8,8 +8,10 @@ import MediaPlayer from 'dashjs';
 import initPreloader from './components/preloader';
 import initTyfteLogo from './components/tyfte_logo';
 import initDotgrid from './components/dotgrid';
-import {initScroller} from './components/scroller';
+// import {initScroller} from './components/scroller';
+import './components/scroller_sections';
 import initLoveCounter from './components/love_counter';
+
 
 // Alpine x-data extends
 import * as alpine from './components/alpine_data';
@@ -17,7 +19,8 @@ import * as alpine from './components/alpine_data';
 // create sitewide Object.
 window.vla = {}
 
-initScroller();
+// initScroller();
+
 
 
 
