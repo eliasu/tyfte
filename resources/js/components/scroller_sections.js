@@ -20,11 +20,10 @@ export const scrollerState = {
     },
     infoSection: {
         get currentTopic() {
-
+            
         }
     }
 };
-
 let sectionScrollTween = [];
 export const infoSectionScrollState = {
     get sectionTween(index) {
