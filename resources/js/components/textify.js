@@ -22,19 +22,19 @@ export const accordion_no_obs = new Textify({
    noObserver: true,
 });
 
-export const infoTitleAnim = new Textify({
-   selector: '#info-title',
-   duration: 800,
-   stagger: 40,
-   rotation: 20,
-   scale:  .3,
-   easing: "elasticInOut",
-   transformOrigin: "left top",
-   reveal: true,
-   threshold: 0.1,
-   once: true,
+// export const infoTitleAnim = new Textify({
+//    selector: '#info-title',
+//    duration: 800,
+//    stagger: 40,
+//    rotation: 20,
+//    scale:  .3,
+//    easing: "elasticInOut",
+//    transformOrigin: "left top",
+//    reveal: true,
+//    threshold: 0.1,
+//    once: true,
    
-   noObserver: false,
-});
+//    noObserver: false,
+// });
 
 

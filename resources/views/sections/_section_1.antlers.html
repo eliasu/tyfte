@@ -2,23 +2,44 @@
 pages/home.antlers.html #}}
 
 <!-- sections/section_1.antlers.html -->
-{{ partial:layout/section class="lg:pt-frame-3" attr="data-section-1" }} 
+{{ partial:layout/section class="lg:pt-[50vh]" attr="data-section-1" }} 
     
     {{# main content grid #}}
     <div class="relative grid items-start w-full grid-cols-1 gap-24 lg:gap-8 lg:grid lg:grid-cols-2 p-frame">
         
         {{# sticky header wrapper #}}
-        <div class="sticky -mb-[25vh] flex flex-col gap-4 lg:-translate-y-1/2 lg:top-1/2">
+        <div class="sticky -mb-[25vh] flex flex-col gap-10 lg:-translate-y-1/2 lg:top-1/2">
             
-            {{# tag wrapper #}} 
-            {{ partial:components/tags }} 
-                {{ s1_tags }} 
-                    {{ partial:components/tag class="{{ color }}" text="{{ title }}" url="/" }}
-                {{ /s1_tags }} 
-            {{ /partial:components/tags }} {{# Headline #}}
-            
-            <h2 id="info-title" class="w-[12ch] mb-8 text-head-1">{{ s1_title }}</h2>
+            <div class="relative h-60">
+                
+                {{# headline with tags wrapper #}}
+                <div data-infoheader="init" class="absolute flex flex-col gap-10">
+                    <h2 class="w-[12ch] text-head-1">{{ s1_title }}</h2>
+                    
+                    {{# tag wrapper #}} 
+                    {{ partial:components/tags class="max-w-sm mb-8" }} 
+                        {{ s1_tags }} 
+                            {{ partial:components/tag class="{{ color }}" text="{{ title }}" url="/" }}
+                        {{ /s1_tags }} 
+                    {{ /partial:components/tags }} {{# Headline #}}
+                </div>
+                
+                {{ s1_accordion_groups }}
+                    {{# headline with tags wrapper #}}
+                    <div data-infoheader="{{index}}" class="absolute flex flex-col gap-10 opacity-0">
+                        <h2 class="w-[12ch] text-head-1">{{ headline }}</h2>
+                        
+                        {{# tag wrapper #}} 
+                        {{ partial:components/tags class="max-w-sm mb-8" }} 
+                            {{ tags }} 
+                                {{ partial:components/tag class="{{ color }}" text="{{ title }}" url="/" }}
+                            {{ /tags }} 
+                        {{ /partial:components/tags }} {{# Headline #}}
+                    </div>
 
+                {{ /s1_accordion_groups }}
+            </div>
+            
             {{# Crowd Pleaser #}}
             <div id="crowdpleaser" class="flex-col self-start hidden uppercase translate-y-2 pointer-events-auto sm:flex right-frame bottom-frame text-small-1">
                 <div id="cp_headline" class="flex items-center w-full h-6 duration-500 motion-safe:transition">
@@ -42,16 +63,16 @@ pages/home.antlers.html #}}
         </div>
 
         {{# all accordion groups wrapper #}}
-        <div class="relative flex flex-col gap-frame-3 lg:gap-24" x-data="{selected: ''}">
+        <div id="info-accordion" class="relative flex flex-col gap-frame-3 lg:gap-60 pt-[50vh]" x-data="{selected: ''}">
 
             {{# loop through every accordion group #}}
-            {{ s1_accordion_groups }}			
+            {{ s1_accordion_groups }}
 
                 {{# accordion group wrapper #}}
                 <div class="relative flex flex-col">
                     
                     {{# Headline #}}
-                    <h2 class="text-head-accordion mb-8 {{ color }}">{{ title }}</h2>
+                    <h2 class="text-head-accordion pl-frame lg:pl-6 mb-8 {{ color }}">{{ title }}</h2>
 
                     {{# loop all accordion items #}}
                     {{ accordion }}
@@ -59,13 +80,12 @@ pages/home.antlers.html #}}
                         {{# single accordion item #}}
                         <button
                             type="button" 
-                            class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group py-frame lg:py-frame-1/2 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color }} "
+                            class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group p-frame lg:p-6 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color }} {{ color | remove_left('text') | ensure_left('bg') }}"
                             x-data="accordion_states" 
                             @click="handleClick()" 
                             :class="open ? 'lg:-translate-x-frame-1/2' : ''"
                             :aria-expanded="open ? 'true' : 'false'"
                             aria-controls="accordion-panel-{{ index }}"
-                            data-headline="{{ headline }}"
                         >
             
                             {{# wrapper title and icon #}}
