@@ -5,13 +5,13 @@ gsap.registerPlugin(ScrollTrigger);
 let tweens;
 let sections;
 
-console.log('initializing scroller sections');
+console.log("initializing scroller sections");
 initSectionTweens();
 
 export const scrollerState = {
-        getSection(index) => sections[index],
-        getTween(index) => tweens[index],
-        getProgress(index) => tweens[index].ScrollTrigger.progress
+    getSection: (index) => sections[index],
+    getTween: (index) => tweens[index],
+    getProgress: (index) => tweens[index].ScrollTrigger.progress,
 };
 
 function initSectionTweens() {
@@ -40,7 +40,7 @@ function initSectionTweens() {
             start: "top top",
             end: "bottom top",
             scrub: 1,
-           
+
             onEnter: (i, el) => {
                 // console.log(`onEnter ${index}`);
             },

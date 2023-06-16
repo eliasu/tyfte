@@ -8,21 +8,16 @@ import MediaPlayer from 'dashjs';
 import initPreloader from './components/preloader';
 import initTyfteLogo from './components/tyfte_logo';
 import initDotgrid from './components/dotgrid';
-// import {initScroller} from './components/scroller';
-import './components/scroller_sections';
 import initLoveCounter from './components/love_counter';
 
+import './components/scroller_sections';
+import './components/scroller_info';
 
 // Alpine x-data extends
 import * as alpine from './components/alpine_data';
 
 // create sitewide Object.
 window.vla = {}
-
-// initScroller();
-
-
-
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
@@ -57,5 +52,4 @@ document.addEventListener('readystatechange', (event) => {
 	initTyfteLogo();
 	initDotgrid();
 	initLoveCounter();
-	// initScroller();
 });

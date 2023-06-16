@@ -2,17 +2,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-let sectionTweens;
-let sections;
+const infoTitle = document.querySelector('#info-title h2');
+let currentEl;
 
-
-
-
+console.log('initializing scroller info');
+initInfoSection();
 
 function initInfoSection() {
    
-    const infoTitle = document.querySelector('#info-title h2');
-
     // handle all updates and animations
     const updateStickyElem = (value) => {
         infoTitle.innerHTML = value;
@@ -20,8 +17,7 @@ function initInfoSection() {
 
     // handle update for export state
     const updateInfoSectionScrollState = (el) => {
-        infoSectionScrollState.activeEl = el;
-        infoSectionScrollState.title = el.dataset.section;
+        currentEl = el;
     }
 
     gsap.utils.toArray("#info-accordion [data-section]").forEach(function (elem, index) {
