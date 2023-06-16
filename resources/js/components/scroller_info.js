@@ -8,10 +8,10 @@ let currentEl;
 console.log('initializing scroller info');
 initInfoSection();
 
-let tl = gsap.timeline({
+let tlInfoHeader = gsap.timeline({
     defaults: { // children inherit these defaults
         duration: .2,
-        ease: "power4" 
+        ease: "power4",
   },
 });
 
@@ -23,9 +23,9 @@ function initInfoSection() {
         if(currentHeaderActive == header) return
         
         // Build down and build up for info header
-        tl.to("[data-infoheader]", {opacity: 0, x: -50})
-        tl.to(`[data-infoheader="${header}"]`, {opacity: 1, x: 0})
-        tl.from(`[data-infoheader="${header}"] [data-type='tag']`, {opacity: 0, scale: .6, stagger: 0.1})
+        tlInfoHeader.to("[data-infoheader]", {opacity: 0, x: -50,})
+        tlInfoHeader.to(`[data-infoheader="${header}"]`, {opacity: 1, x: 0})
+        tlInfoHeader.from(`[data-infoheader="${header}"] [data-type='tag']`, {opacity: 0, scale: .6, stagger: 0.1})
 
         
 
@@ -37,9 +37,9 @@ function initInfoSection() {
     const resetStickyElem = () => {
         
         // Build down and build up for info header
-        tl.to("[data-infoheader]", {opacity: 0, x: -50})
-        tl.to(`[data-infoheader="init"]`, {opacity: 1, x: 0})
-        tl.from(`[data-infoheader="init"] [data-type='tag']`, {opacity: 0, scale: .6, stagger: 0.1})
+        tlInfoHeader.to("[data-infoheader]", {opacity: 0, x: -50})
+        tlInfoHeader.to(`[data-infoheader="init"]`, {opacity: 1, x: 0})
+        tlInfoHeader.from(`[data-infoheader="init"] [data-type='tag']`, {opacity: 0, scale: .6, stagger: 0.1})
 
         // set flag for double animation (onEnter & onEnterBack)
         currentHeaderActive = null
