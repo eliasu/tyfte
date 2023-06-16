@@ -15,7 +15,7 @@ import './components/scroller_info';
 import './components/swiper';
 
 // Alpine x-data extends
-import * as alpine from './components/alpine_data';
+// import * as alpine from './components/alpine_data';
 
 // create sitewide Object.
 window.vla = {}
@@ -38,7 +38,7 @@ Alpine.plugin(collapse)
 Alpine.plugin(persist)
 Alpine.plugin(focus)
 
-Alpine.data('accordion_states', alpine.accordion_states) 
+// Alpine.data('accordion_states', alpine.accordion_states) 
 
 Alpine.start()
 
@@ -52,5 +52,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
 document.addEventListener('readystatechange', (event) => {
 	initTyfteLogo();
 	initDotgrid();
-	initLoveCounter();
+	// initLoveCounter();
 });
