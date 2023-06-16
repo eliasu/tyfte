@@ -28,8 +28,7 @@
      el: '.swiper-scrollbar',
    },
 
-   slidesPerView: 1,
-      spaceBetween: 30,
+
       centeredSlides: true,
   }
  );
