@@ -37,7 +37,7 @@ Alpine.plugin(collapse)
 Alpine.plugin(persist)
 Alpine.plugin(focus)
 
-Alpine.data('textFx', alpine.textFx) 
+Alpine.data('accordion_states', alpine.accordion_states) 
 
 Alpine.start()
 

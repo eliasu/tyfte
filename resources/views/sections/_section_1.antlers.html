@@ -2,134 +2,101 @@
 pages/home.antlers.html #}}
 
 <!-- sections/section_1.antlers.html -->
-{{ partial:layout/section class="lg:pt-frame-3" attr="data-section-1"
-}} {{# main content grid #}}
-<div
-    class="relative grid items-start w-full grid-cols-1 gap-24 lg:gap-8 lg:grid lg:grid-cols-2 p-frame"
->
-    {{# sticky header wrapper #}}
-    <div
-        id="info-title"
-        class="sticky -mb-[25vh] flex flex-col gap-4 lg:-translate-y-1/2 lg:top-1/2"
-    >
-        {{# tag wrapper #}} {{ partial:components/tags }} {{ s1_tags }} {{
-        partial:components/tag class="{{ color }}" text="{{ title }}" url="/" }}
-        {{ /s1_tags }} {{ /partial:components/tags }} {{# Headline #}}
-        <h2 data-type="headline-obs" class="w-[12ch] mb-8 text-head-1">
-            {{ s1_title }}
-        </h2>
+{{ partial:layout/section class="lg:pt-frame-3" attr="data-section-1" }} 
+    
+    {{# main content grid #}}
+    <div class="relative grid items-start w-full grid-cols-1 gap-24 lg:gap-8 lg:grid lg:grid-cols-2 p-frame">
+        
+        {{# sticky header wrapper #}}
+        <div class="sticky -mb-[25vh] flex flex-col gap-4 lg:-translate-y-1/2 lg:top-1/2">
+            
+            {{# tag wrapper #}} 
+            {{ partial:components/tags }} 
+                {{ s1_tags }} 
+                    {{ partial:components/tag class="{{ color }}" text="{{ title }}" url="/" }}
+                {{ /s1_tags }} 
+            {{ /partial:components/tags }} {{# Headline #}}
+            
+            <h2 id="info-title" class="w-[12ch] mb-8 text-head-1">{{ s1_title }}</h2>
 
-        {{# Crowd Pleaser #}}
-        <div
-            id="crowdpleaser"
-            class="flex-col self-start hidden uppercase translate-y-2 pointer-events-auto sm:flex right-frame bottom-frame text-small-1"
-        >
-            <div
-                id="cp_headline"
-                class="flex items-center w-full h-6 duration-500 motion-safe:transition"
-            >
-                Crowd Pleaser
-            </div>
+            {{# Crowd Pleaser #}}
+            <div id="crowdpleaser" class="flex-col self-start hidden uppercase translate-y-2 pointer-events-auto sm:flex right-frame bottom-frame text-small-1">
+                <div id="cp_headline" class="flex items-center w-full h-6 duration-500 motion-safe:transition">
+                    Crowd Pleaser
+                </div>
 
-            <div
-                id="cp_slider_1"
-                class="flex items-center justify-between w-full h-6 gap-4 duration-500 motion-safe:transition group"
-            >
-                <label
-                    id="cp_slider_1_label"
-                    for="cp_slider_1_input"
-                    class="block motion-safe:transition text-small-1 group-hover:text-yellow"
-                    >Colors</label
-                >
-                <input
-                    id="cp_slider_1_input"
-                    type="range"
-                    min="1"
-                    max="5"
-                    value="3"
-                />
-            </div>
+                <div id="cp_slider_1" class="flex items-center justify-between w-full h-6 gap-4 duration-500 motion-safe:transition group">
+                    <label id="cp_slider_1_label" for="cp_slider_1_input" class="block motion-safe:transition text-small-1 group-hover:text-yellow">
+                        Colors
+                    </label>
+                    <input id="cp_slider_1_input" type="range" min="1" max="5" value="3"/>
+                </div>
 
-            <div
-                id="cp_slider_2"
-                class="flex items-center justify-between w-full h-6 gap-4 font-mono duration-500 motion-safe:transition group"
-            >
-                <label
-                    id="cp_slider_2_label"
-                    for="cp_slider_2_input"
-                    class="block motion-safe:transition text-small-1 group-hover:text-yellow"
-                    >Pattern</label
-                >
-                <input id="cp_slider_2_input" type="range" value="50" />
+                <div id="cp_slider_2" class="flex items-center justify-between w-full h-6 gap-4 font-mono duration-500 motion-safe:transition group" >
+                    <label id="cp_slider_2_label" for="cp_slider_2_input" class="block motion-safe:transition text-small-1 group-hover:text-yellow">
+                        Pattern
+                    </label>
+                    <input id="cp_slider_2_input" type="range" value="50" />
+                </div>
             </div>
         </div>
-    </div>
 
-    <ul id="info-accordion" class="">
-        <li data-section="Idiate">
-            <h2>ideate</h2>
-            <ul>
-                <li class="mb-20">
-                    <p class="text-lead-1">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Voluptas debitis itaque maxime fugit eveniet
-                        adipisci odio quia porro aliquam, amet delectus? Dolor
-                        ipsam facilis consequuntur quidem velit, eligendi ex
-                        fuga?
-                    </p>
-                </li>
-                <li class="mb-20">
-                    <h2>header</h2>
-                    <p class="text-lead-1">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Voluptas debitis itaque maxime fugit eveniet
-                        adipisci odio quia porro aliquam, amet delectus? Dolor
-                        ipsam facilis consequuntur quidem velit, eligendi ex
-                        fuga?
-                    </p>
-                </li>
-            </ul>
-        </li>
-        <li data-section="something else">
-            <h2>header</h2>
-            <ul>
-                <li class="mb-20">
-                    <p class="text-lead-1">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Voluptas debitis itaque maxime fugit eveniet
-                        adipisci odio quia porro aliquam, amet delectus? Dolor
-                        ipsam facilis consequuntur quidem velit, eligendi ex
-                        fuga?
-                    </p>
-                </li>
-            </ul>
-        </li>
-        <li data-section="wow super">
-            <h2>header</h2>
-            <ul>
-                <li class="mb-20">
-                    <p class="text-lead-1">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Voluptas debitis itaque maxime fugit eveniet
-                        adipisci odio quia porro aliquam, amet delectus? Dolor
-                        ipsam facilis consequuntur quidem velit, eligendi ex
-                        fuga?
-                    </p>
-                </li>
-                <li class="mb-20">
-                    <h2>header</h2>
-                    <p class="text-lead-1">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Voluptas debitis itaque maxime fugit eveniet
-                        adipisci odio quia porro aliquam, amet delectus? Dolor
-                        ipsam facilis consequuntur quidem velit, eligendi ex
-                        fuga?
-                    </p>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div>
+        {{# all accordion groups wrapper #}}
+        <div class="relative flex flex-col gap-frame-3 lg:gap-24" x-data="{selected: ''}">
+
+            {{# loop through every accordion group #}}
+            {{ s1_accordion_groups }}			
+
+                {{# accordion group wrapper #}}
+                <div class="relative flex flex-col">
+                    
+                    {{# Headline #}}
+                    <h2 class="text-head-accordion mb-8 {{ color }}">{{ title }}</h2>
+
+                    {{# loop all accordion items #}}
+                    {{ accordion }}
+                        
+                        {{# single accordion item #}}
+                        <button
+                            type="button" 
+                            class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group py-frame lg:py-frame-1/2 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color }} "
+                            x-data="accordion_states" 
+                            @click="handleClick()" 
+                            :class="open ? 'lg:-translate-x-frame-1/2' : ''"
+                            :aria-expanded="open ? 'true' : 'false'"
+                            aria-controls="accordion-panel-{{ index }}"
+                            data-headline="{{ headline }}"
+                        >
+            
+                            {{# wrapper title and icon #}}
+                            <div class="relative flex items-center justify-between w-full lg:w-auto gap-frame-1/4">
+                                
+                                {{# title #}}
+                                <h4 class="font-mono transition origin-left text-subhead-accordion" 
+                                    :class="open ? 'scale-75 md:scale-50' : ''">
+                                    {{ title }}
+                                </h4>
+            
+                                {{# icon #}}
+                                <div :class="open ? 'rotate-90' : ''" data-icon="arrup" class="h-[1.25em] duration-150 group-hover:rotate-90 aspect-square bg-current"></div>
+                            </div>
+            
+                            {{# accordion content #}}
+                            <div class="relative transition-all duration-500 max-w-prose" 
+                                :class="open ? 'opacity-100 max-h-112' : 'opacity-0 max-h-0 -mt-frame-1/4'"
+                                :aria-hidden="open ? 'false' : 'true'" 
+                                aria-labelledby="accordion-header-{{ index }}"
+                                id="accordion-panel-{{ index }}"
+                            >
+                                
+                                <p data-type="accordion_no_obs" class="h-full text-lead-1 max-w-none">{{ description }}</p>
+                            </div>
+                        </button>
+                    {{ /accordion }}
+                </div>
+            {{ /s1_accordion_groups }}
+        </div>
+    </div>
 
 {{ /partial:layout/section }}
 <!-- End: sections/section_1.antlers.html -->
