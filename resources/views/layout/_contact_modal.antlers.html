@@ -1,0 +1,47 @@
+{{#
+    @name contact modal
+    @desc The sites contact modal rendered on each page.
+#}}
+
+<!-- /layout/_contact_modal.antlers.html -->
+<form x-data="{contactOpen: true, step: 1}" x-show="contactOpen" @submit.prevent="console.log('Submitted Form!!!')" class="fixed inset-0 flex flex-col items-center justify-center gap-10 z-100 bg-light/80">
+    
+    {{# loop through all form slides #}}
+    {{ contact_form:form_slides }}
+        {{# single form slide  #}}
+        <div class="flex flex-col w-1/2 gap-10 p-20 bg-red/50" x-cloak x-show="step === {{ index + 1 }}">
+            
+            {{# optional slide headline #}}
+            <h2 class="text-dark">{{ headline }}</h2>
+            
+            {{# optional slide description #}}
+            <p class="text-dark">{{ description }}</p>
+
+            {{# loop through all form elements #}}
+            {{ form_elements }}
+                {{ partial:form/{type} }}
+            {{ /form_elements }}
+        </div>
+    {{ /contact_form:form_slides }}
+
+    <div class="flex gap-4">
+        {{ partial:components/button class="" label="back" }}
+            x-show="step != 1"
+            x-cloak
+            @click.prevent="step--"
+        {{ /partial:components/button }}
+
+        {{ partial:components/button class="" label="next" }}
+            x-show="step != {{ contact_form:form_slides | count }}"
+            x-cloak
+            @click.prevent="step++"
+        {{ /partial:components/button }}
+        
+        {{ partial:components/button class="" label="Submit" }}
+            x-show="step === {{ contact_form:form_slides | count }}"
+            x-cloak
+            type="submit"
+        {{ /partial:components/button }}
+    </div>
+</form>
+<!-- End: /layout/_contact_modal.antlers.html -->
