@@ -8,6 +8,35 @@
 {{# scroll container #}}
 <main id="scroll-container" class="relative z-10 w-full h-screen overflow-scroll">
 
+    {{# form modal wrapper #}}
+    <form action="/action_page.php" class="fixed inset-0 flex flex-col items-center justify-center gap-10 z-100 bg-light/80">
+        
+        {{# loop through all form slides #}}
+        {{ contact_form:form_slides }}
+            {{# single form slide  #}}
+            <div class="flex flex-col gap-10 p-20 w-1/2 bg-red/50 {{ first ? 'flex' : 'hidden' }}">
+                
+                {{# optional slide headline #}}
+                <h2 class="text-dark">{{ headline }}</h2>
+                
+                {{# optional slide description #}}
+                <p class="text-dark">{{ description }}</p>
+
+                {{# loop through all form elements #}}
+                {{ form_elements }}
+                    {{ partial:form/{type} }}
+                {{ /form_elements }}
+            </div>
+        {{ /contact_form:form_slides }}
+
+        {{ partial:components/button class="" label="next step" }}
+            x-show="slide == 'sad' ? 'double' : 'sdsd' "
+        {{ /partial:components/button }}
+        
+        {{ partial:components/button class="" label="Submit" }}
+
+    </form>
+
     {{ partial:sections/section_0 }}
     {{ partial:sections/section_1 }}
 
@@ -17,3 +46,9 @@
     
 </main>
 <!-- End: pages/home.antlers.html -->
+
+form builder
+    add slide
+        add form item
+            headline
+            select item type

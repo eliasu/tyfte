@@ -1,0 +1,42 @@
+{{#
+    @name select
+    @desc form element for form builder
+#}}
+
+<!-- /form/_select.antlers.html -->
+{{ if select_type == 'checkbox' }}
+    
+    {{# checkbox wrapper #}}
+    <div class="flex flex-col gap-4">
+        {{ items }}
+            <div class="flex gap-2">
+                <input type="checkbox" id="{{ title }}" name="{{ title }}" value="{{ title }}">
+                <label for="{{ title }}">{{ title }}</label>
+            </div>    
+        {{ /items }}
+    </div>
+
+{{ elseif select_type == 'radio' }}
+    
+    {{# radio wrapper #}}
+    <div class="flex flex-col gap-4">
+        {{ items }}
+            <div class="flex gap-2">
+                <input type="radio" id="{{ title }}" name="{{ headline }}" value="{{ title }}">
+                <label for="{{ title }}">{{ title }}</label>
+            </div>    
+        {{ /items }}
+    </div>
+
+{{ elseif select_type == 'dropdown' }}
+    <select name="{{ headline }}" id="{{ id }}" class="text-dark">
+        {{ items }}
+            <option value="{{ title | lower }}">{{ title }}</option>
+        {{ /items }}
+    </select>
+    <label class="hidden" for="{{ id }}">{{ headline }}</label>
+{{ /if }}
+
+
+
+<!-- End: /form/_select.antlers.html -->

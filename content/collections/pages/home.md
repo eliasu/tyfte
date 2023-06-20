@@ -45,30 +45,37 @@ s1_accordion_groups:
         id: lina3dly
         title: Statamic
         color: yellow
+        type: tags
       -
         id: lina4egj
         title: Webflow
         color: yellow
+        type: tags
       -
         id: lina4ew6
         title: Astro
         color: yellow
+        type: tags
       -
         id: liymdgn5
         title: Concept
         color: yellow
+        type: tags
       -
         id: liymdhjo
         title: Strategy
         color: yellow
+        type: tags
       -
         id: liymdhxp
         title: 'Kickoff Workshop'
         color: yellow
+        type: tags
       -
         id: liymdil5
         title: 'brand values'
         color: yellow
+        type: tags
     accordion:
       -
         id: lina4d7n
@@ -99,22 +106,27 @@ s1_accordion_groups:
         id: linb9lfa
         title: 'Content Model'
         color: green
+        type: tags
       -
         id: linb9m8x
         title: 'Information Architecture'
         color: green
+        type: tags
       -
         id: liymcfs8
         title: technology
         color: green
+        type: tags
       -
         id: liymcg9f
         title: 'project management'
         color: green
+        type: tags
       -
         id: liymcgpn
         title: Statamic
         color: green
+        type: tags
     accordion:
       -
         id: linbadok
@@ -144,30 +156,37 @@ s1_accordion_groups:
         id: linh9afu
         title: Figma
         color: purple
+        type: tags
       -
         id: linh9dvk
         title: 'Adobe Suite'
         color: purple
+        type: tags
       -
         id: liymbhnr
         title: 'Web Design'
         color: purple
+        type: tags
       -
         id: liymbi6h
         title: UI
         color: purple
+        type: tags
       -
         id: liymbioc
         title: UX
         color: purple
+        type: tags
       -
         id: liymbjb6
         title: 'Motion Design'
         color: purple
+        type: tags
       -
         id: liymbzw0
         title: 'Micro Interactions'
         color: purple
+        type: tags
     accordion:
       -
         id: linh9nql
@@ -191,26 +210,32 @@ s1_accordion_groups:
         id: liyma9y9
         title: Development
         color: red
+        type: tags
       -
         id: liymaoid
         title: Code
         color: red
+        type: tags
       -
         id: liymari7
         title: GSAP
         color: red
+        type: tags
       -
         id: liymax2s
         title: Webflow
         color: red
+        type: tags
       -
         id: liymayjm
         title: Modular
         color: red
+        type: tags
       -
         id: liymayw4
         title: Domain
         color: red
+        type: tags
     accordion:
       -
         id: liymewbi

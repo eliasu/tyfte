@@ -1,0 +1,137 @@
+title: 'Form Element'
+fields:
+  -
+    handle: form_elements
+    field:
+      collapse: true
+      previews: true
+      fullscreen: true
+      sets:
+        form_elements:
+          display: 'Form Elements'
+          instructions: null
+          icon: null
+          sets:
+            slider:
+              display: Slider
+              instructions: 'Add a slider'
+              icon: null
+              fields:
+                -
+                  handle: description
+                  field:
+                    input_type: text
+                    placeholder: 'optional: description'
+                    antlers: false
+                    type: text
+                    display: Description
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: from_value
+                  field:
+                    type: integer
+                    display: 'From Value'
+                    icon: integer
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: to_value
+                  field:
+                    type: integer
+                    display: 'To Value'
+                    icon: integer
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: steps
+                  field:
+                    type: integer
+                    display: Steps
+                    icon: integer
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+            select:
+              display: Select
+              instructions: 'Add a checkbox, radiobutton or dropdown'
+              icon: null
+              fields:
+                -
+                  handle: select_type
+                  field:
+                    options:
+                      checkbox: Checkbox
+                      dropdown: Drowpdown
+                      radio: Radio
+                    inline: false
+                    cast_booleans: false
+                    type: radio
+                    display: 'Select Type'
+                    icon: radio
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    width: 33
+                -
+                  handle: items
+                  field:
+                    fields:
+                      -
+                        handle: title
+                        field:
+                          input_type: text
+                          antlers: false
+                          type: text
+                          display: Title
+                          icon: text
+                          listable: hidden
+                          instructions_position: above
+                          visibility: visible
+                          hide_display: false
+                    mode: table
+                    add_row: 'Add Checkbox'
+                    reorderable: true
+                    fullscreen: false
+                    type: grid
+                    display: Items
+                    icon: grid
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+            text:
+              display: Text
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: text
+                  field:
+                    antlers: false
+                    type: textarea
+                    display: text
+                    icon: textarea
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+      type: replicator
+      display: 'Form Elements'
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false

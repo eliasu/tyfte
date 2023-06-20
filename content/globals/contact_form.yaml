@@ -1,0 +1,75 @@
+title: 'Contact Form'
+data:
+  form_slides:
+    -
+      id: lj4c7ipj
+      form_elements:
+        -
+          id: lj4c7k6d
+          from_value: 3
+          type: slider
+          enabled: true
+          to_value: 500
+          steps: 500
+      type: new_form_slide
+      enabled: true
+      headline: 'Headline fort Slide 1'
+      description: 'Here is a description on the first Slide'
+    -
+      id: lj4cb1p6
+      type: new_form_slide
+      enabled: true
+      headline: 'Headline fort Slide 2'
+      description: 'Here is a description on the second slide'
+      form_elements:
+        -
+          id: lj4db36f
+          select_type: checkbox
+          items:
+            -
+              id: lj4db43q
+              title: 'Abcs dsf'
+            -
+              id: lj4db66d
+              title: 'asgd gsadfg adfg'
+            -
+              id: lj4db7lw
+              title: 'dsfgsfg dsfgsdg sdf'
+          type: select
+          enabled: true
+        -
+          id: lj4e7o2a
+          select_type: radio
+          items:
+            -
+              id: lj4e7pfy
+              title: asd
+            -
+              id: lj4e7qbs
+              title: dfdf
+          type: select
+          enabled: true
+        -
+          id: lj4enmi8
+          select_type: dropdown
+          items:
+            -
+              id: lj4enoxf
+              title: sad
+            -
+              id: lj4enq70
+              title: asdasdsadas
+          type: select
+          enabled: true
+    -
+      id: lj4dfy3j
+      headline: 'Headline foer Text'
+      description: asdasdasda
+      form_elements:
+        -
+          id: lj4dgaao
+          text: 'Hier kommt ein kleiner Text. Hin Das ist eichtig wirklich!'
+          type: text
+          enabled: true
+      type: new_form_slide
+      enabled: true
