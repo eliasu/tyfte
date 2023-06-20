@@ -18,7 +18,7 @@ fields:
             hide_display: false
             width: 66
         -
-          import: text_color
+          import: color
         -
           handle: headline
           field:
