@@ -38,6 +38,7 @@ Alpine.plugin(persist)
 Alpine.plugin(focus)
 
 Alpine.data('accordion_states', alpine.accordion_states) 
+Alpine.data('xbody', alpine.xbody) 
 
 Alpine.start()
 

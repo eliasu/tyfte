@@ -36,18 +36,18 @@
             {{ partial:components/button class="text-red hover:text-light" label="start project" icon="arrup" }}
                 x-show="navOpen"
                 x-transition:enter.delay.500ms
-                @click.prevent="navOpen = false"
             {{ /partial:components/button }}
         </div>
     </div>
 
     {{# burger menu & cta 2 #}}
     <div class="absolute flex gap-8 pointer-events-auto top-frame right-frame">
-            
+        
         {{# start project button #}}
         {{ partial:components/button class="hidden lg:flex" label="start project" icon="arrup" }}
             x-show="!navOpen"
             x-transition:enter.delay.1000ms
+            @click.prevent="formOpen = true"
         {{ /partial:components/button }}
 
         {{# burger button #}}

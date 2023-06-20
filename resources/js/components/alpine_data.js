@@ -39,3 +39,8 @@ export const accordion_states = () => ({
 	},
 });
 
+export const xbody = () => ({
+	formStep: 1,
+	formOpen: false,
+});
+
