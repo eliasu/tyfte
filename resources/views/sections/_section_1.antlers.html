@@ -10,34 +10,46 @@ pages/home.antlers.html #}}
         {{# sticky header wrapper #}}
         <div class="sticky -mb-[25vh] flex flex-col gap-10 lg:-translate-y-1/2 lg:top-1/2">
             
-            <div class="relative h-60">
+            <div class="relative flex items-end h-80">
                 
-                {{# headline with tags wrapper #}}
+                {{# initial headline with tags wrapper #}}
                 <div data-infoheader="init" class="absolute flex flex-col gap-10">
                     <h2 class="w-[12ch] text-head-1">{{ s1_title }}</h2>
                     
                     {{# tag wrapper #}} 
-                    {{ partial:components/tags class="max-w-sm mb-8" }} 
+                    {{ partial:components/tags class="max-w-sm" }} 
                         {{ s1_tags }} 
-                            {{ partial:components/tag class="{{ color }}" text="{{ title }}" url="/" }}
+                            {{ partial:components/tag class="{{ color | ensure_left('bg-') }}" text="{{ title }}" url="/" }}
                         {{ /s1_tags }} 
                     {{ /partial:components/tags }} {{# Headline #}}
                 </div>
-                
+
+                {{# accordion group headlines with tags wrapper #}}
                 {{ s1_accordion_groups }}
-                    {{# headline with tags wrapper #}}
                     <div data-infoheader="{{index}}" class="absolute flex flex-col gap-10 opacity-0">
                         <h2 class="w-[12ch] text-head-1">{{ headline }}</h2>
                         
                         {{# tag wrapper #}} 
-                        {{ partial:components/tags class="max-w-sm mb-8" }} 
+                        {{ partial:components/tags class="max-w-sm" }} 
                             {{ tags }} 
-                                {{ partial:components/tag class="{{ color }}" text="{{ title }}" url="/" }}
+                                {{ partial:components/tag class="{{ color | ensure_left('bg-') }}" text="{{ title }}" url="/" }}
                             {{ /tags }} 
-                        {{ /partial:components/tags }} {{# Headline #}}
+                        {{ /partial:components/tags }}
                     </div>
 
                 {{ /s1_accordion_groups }}
+            </div>
+
+            {{# progress bar wrapper #}}
+            <div data-type="pagination" class="flex flex-col w-1/4 gap-2">
+                    
+                {{# prograss bar #}}
+                <div class="relative">
+                    <div id="accordion-progress" class="h-0.5 bg-light w-full absolute origin-left"></div>
+                    <div class="h-0.5 bg-light/20 w-full"></div>
+                </div>
+
+                <div class="text-small-1">1 – 2</div>
             </div>
             
             {{# Crowd Pleaser #}}
@@ -69,10 +81,10 @@ pages/home.antlers.html #}}
             {{ s1_accordion_groups }}
 
                 {{# accordion group wrapper #}}
-                <div class="relative flex flex-col">
+                <div class="relative flex flex-col {{ color | ensure_left('text-') }}">
                     
                     {{# Headline #}}
-                    <h2 class="text-head-accordion pl-frame lg:pl-6 mb-8 {{ color }}">{{ title }}</h2>
+                    <h2 class="mb-8 text-head-accordion pl-frame lg:pl-6 ">{{ title }}</h2>
 
                     {{# loop all accordion items #}}
                     {{ accordion }}
@@ -80,7 +92,7 @@ pages/home.antlers.html #}}
                         {{# single accordion item #}}
                         <button
                             type="button" 
-                            class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group p-frame lg:p-6 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color }} {{ color | remove_left('text') | ensure_left('bg') }}"
+                            class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group p-frame lg:p-6 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color | ensure_left('bg-') }}"
                             x-data="accordion_states" 
                             @click="handleClick()" 
                             :class="open ? 'lg:-translate-x-frame-1/2' : ''"
@@ -103,7 +115,7 @@ pages/home.antlers.html #}}
             
                             {{# accordion content #}}
                             <div class="relative transition-all duration-500 max-w-prose" 
-                                :class="open ? 'opacity-100 max-h-112' : 'opacity-0 max-h-0 -mt-frame-1/4'"
+                                :class="open ? 'opacity-100 max-h-200' : 'opacity-0 max-h-0 -mt-frame-1/4'"
                                 :aria-hidden="open ? 'false' : 'true'" 
                                 aria-labelledby="accordion-header-{{ index }}"
                                 id="accordion-panel-{{ index }}"

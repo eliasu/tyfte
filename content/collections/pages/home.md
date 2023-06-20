@@ -10,65 +10,65 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1686928973
+updated_at: 1687265053
 s1_title: 'We plan everything you need'
 s1_tags:
   -
     id: likesgbe
     title: ideation
-    color: bg-yellow
+    color: yellow
     type: tags
     enabled: true
   -
     id: likeskex
     title: plan
-    color: bg-green
+    color: green
     type: tags
     enabled: true
   -
     id: likesry7
     title: design
-    color: bg-purple
+    color: purple
     type: tags
     enabled: true
   -
     id: liym9dst
     title: implementation
-    color: bg-red
+    color: red
 s1_accordion_groups:
   -
     id: lina3a6u
     title: ideation
-    color: text-yellow
+    color: yellow
     tags:
       -
         id: lina3dly
         title: Statamic
-        color: bg-yellow
+        color: yellow
       -
         id: lina4egj
         title: Webflow
-        color: bg-yellow
+        color: yellow
       -
         id: lina4ew6
         title: Astro
-        color: bg-yellow
+        color: yellow
       -
         id: liymdgn5
         title: Concept
-        color: bg-yellow
+        color: yellow
       -
         id: liymdhjo
         title: Strategy
-        color: bg-yellow
+        color: yellow
       -
         id: liymdhxp
         title: 'Kickoff Workshop'
-        color: bg-yellow
+        color: yellow
       -
         id: liymdil5
         title: 'brand values'
-        color: bg-yellow
+        color: yellow
     accordion:
       -
         id: lina4d7n
@@ -92,29 +92,29 @@ s1_accordion_groups:
   -
     id: linb9bg9
     title: plan
-    color: text-green
+    color: green
     headline: 'How we plan our stuff'
     tags:
       -
         id: linb9lfa
         title: 'Content Model'
-        color: bg-green
+        color: green
       -
         id: linb9m8x
         title: 'Information Architecture'
-        color: bg-green
+        color: green
       -
         id: liymcfs8
         title: technology
-        color: bg-green
+        color: green
       -
         id: liymcg9f
         title: 'project management'
-        color: bg-green
+        color: green
       -
         id: liymcgpn
         title: Statamic
-        color: bg-green
+        color: green
     accordion:
       -
         id: linbadok
@@ -137,37 +137,37 @@ s1_accordion_groups:
   -
     id: linh8t2v
     title: design
-    color: text-purple
+    color: purple
     headline: 'Shes got the look'
     tags:
       -
         id: linh9afu
         title: Figma
-        color: bg-purple
+        color: purple
       -
         id: linh9dvk
         title: 'Adobe Suite'
-        color: bg-purple
+        color: purple
       -
         id: liymbhnr
         title: 'Web Design'
-        color: bg-purple
+        color: purple
       -
         id: liymbi6h
         title: UI
-        color: bg-purple
+        color: purple
       -
         id: liymbioc
         title: UX
-        color: bg-purple
+        color: purple
       -
         id: liymbjb6
         title: 'Motion Design'
-        color: bg-purple
+        color: purple
       -
         id: liymbzw0
         title: 'Micro Interactions'
-        color: bg-purple
+        color: purple
     accordion:
       -
         id: linh9nql
@@ -184,33 +184,33 @@ s1_accordion_groups:
   -
     id: liym9whv
     title: Implementation
-    color: text-red
+    color: red
     headline: 'The build and maintennace'
     tags:
       -
         id: liyma9y9
         title: Development
-        color: bg-red
+        color: red
       -
         id: liymaoid
         title: Code
-        color: bg-red
+        color: red
       -
         id: liymari7
         title: GSAP
-        color: bg-red
+        color: red
       -
         id: liymax2s
         title: Webflow
-        color: bg-red
+        color: red
       -
         id: liymayjm
         title: Modular
-        color: bg-red
+        color: red
       -
         id: liymayw4
         title: Domain
-        color: bg-red
+        color: red
     accordion:
       -
         id: liymewbi
