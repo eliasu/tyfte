@@ -73,3 +73,9 @@ data:
           enabled: true
       type: new_form_slide
       enabled: true
+    -
+      id: lj4k27b2
+      headline: 'Das ist das Ende'
+      description: 'Vielen Dank für deine Geduld. Hier werden Eier mit Köpfen gemacht!'
+      type: new_form_slide
+      enabled: true
