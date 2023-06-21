@@ -7,7 +7,8 @@ import Swiper from "swiper/bundle";
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1.3,
     loop: true,
-    spaceBetween: 30,
+    spaceBetween: 500,
+    speed: 1000,
     centeredSlides: true,
     pagination: {
         el: ".swiper-pagination",
@@ -28,10 +29,14 @@ var swiper = new Swiper(".mySwiper", {
     creativeEffect: {
         prev: {
             shadow: true,
-            translate: [0, 0, -400],
+            translate: ["-180%", 100, -400],
+            scale: .8,
+            // translate: [0, 0, -400],
         },
         next: {
-            translate: ["100%", 0, 0],
+            translate: ["110%", -100, 0],
+            scale: .8,
         },
+        perspective: true,
     },
 });

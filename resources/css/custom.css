@@ -111,10 +111,63 @@ width:100%;
  
  .swiper-slide img {
    display: block;
+  
    /* width: 100%; */
+   width:auto;
    height: 60%;
    object-fit: cover;
  }
+ .swiper-slide div {
+   background: #fff;
+   height: 60%;
+    width: 100%;
+ }
+
+ .swiper-slide * {
+   transform: skew(360deg, 353deg);
+    margin: 50px;
+    animation-name: slighly-shapeshift;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+    /* transition-timing-function: ease-in-out; */
+    /* transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1); */
+    /* animation-timing-function: steps(4, jump-start); */
+   }
+
+ /* The animation code */
+@keyframes slighly-shapeshift {
+   0%   {transform: skew(360deg, 353deg);}
+   25%  {transform: skew(361deg, 354deg);}
+   50%  {transform: skew(361deg, 355deg);}
+   100% {transform: skew(360deg, 353deg);}
+ }
+
+
+ /* the default style of each slide */
+.swiper-slide {
+   /* animation-timing-function: steps(4, jump-start); */
+}
+
+/* the active slide */
+.swiper-slide-active {
+   /* animation-timing-function: steps(4, jump-start); */
+}
+
+/* the slide just next to the active slide */
+.swiper-slide-next {}
+
+/* the slide before the active slide */
+.swiper-slide-prev {}
+
+/* same classes but for the duplicate slides, when in loop mode */
+
+.swiper-slide-duplicate-active {}
+.swiper-slide-duplicate-next {}
+.swiper-slide-duplicate-prev {}
+
+
 
  /*SWIPER END*/
 
