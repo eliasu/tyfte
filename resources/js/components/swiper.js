@@ -27,7 +27,7 @@ var swiper = new Swiper(".mySwiper", {
         el: ".swiper-scrollbar",
     },
 
-    virtualTranslate: true,
+    // virtualTranslate: true,
 
     effect: "myCustomTransition",
     on: {
@@ -36,26 +36,47 @@ var swiper = new Swiper(".mySwiper", {
         // that.progress(swiper, progress);
         // console.log("progress", progress);
       },
-      setTransition(swiper, transition) {
-        if (this.params.effect !== "myCustomTransition") return;
-        // that.setTransition(swiper, transition);
-        console.log("transition", transition);
-      },
+      // setTransition(swiper, transition) {
+      //   if (this.params.effect !== "myCustomTransition") return;
+      //   // that.setTransition(swiper, transition);
+      //   console.log("transition", transition);
+      // },
       setTranslate(swiper, translate) {
         if (this.params.effect !== "myCustomTransition") return;
         // that.setTranslate(swiper, translate);
         console.log("translate", translate);
-        // console.log(swiper.wrapperEl);
-        gsap.to(swiper.wrapperEl, {
-          x: translate
-        });
+        console.log(swiper);
+        console.log("progress loop", swiper.progressLoop);
+        console.log("active index", swiper.activeIndex);
+        console.log("data");
+        console.log("previous index", swiper.previousIndex);
+        console.log("real index", swiper.realIndex);
+        console.log("pre translate", swiper.previousTranslate);
+
+        // gsap.to(swiper.wrapperEl, {
+        //   x: translate
+        // });
+
+        // gsap.fromTo(swiper.wrapperEl, {
+        //   x: swiper.previousTranslate
+        // }, {
+        //   x: translate
+        // }
+        // )
+       
         // test(swiper);
       },
-      activeIndexChange(swiper) {
-        console.log("active");
-        console.log(swiper.activeIndex);
-       
+
+      transitionEnd(swiper) {
+        console.log("active index", swiper.activeIndex);
+        console.log("real index", swiper.realIndex);
+
       }
+      // activeIndexChange(swiper) {
+      //   console.log("---------active");
+      //   console.log("active index", swiper.activeIndex);
+       
+      // }
     }
 
     // effect: "creative",
