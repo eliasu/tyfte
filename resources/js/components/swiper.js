@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1.3,
-    loop: true,
+    // loop: true,
     spaceBetween: 500,
     speed: 1000,
     centeredSlides: true,
@@ -27,7 +27,7 @@ var swiper = new Swiper(".mySwiper", {
         el: ".swiper-scrollbar",
     },
 
-    // virtualTranslate: true,
+    virtualTranslate: true,
 
     effect: "myCustomTransition",
     on: {
@@ -43,19 +43,16 @@ var swiper = new Swiper(".mySwiper", {
       // },
       setTranslate(swiper, translate) {
         if (this.params.effect !== "myCustomTransition") return;
-        // that.setTranslate(swiper, translate);
-        console.log("translate", translate);
-        console.log(swiper);
-        console.log("progress loop", swiper.progressLoop);
-        console.log("active index", swiper.activeIndex);
-        console.log("data");
-        console.log("previous index", swiper.previousIndex);
-        console.log("real index", swiper.realIndex);
-        console.log("pre translate", swiper.previousTranslate);
 
-        // gsap.to(swiper.wrapperEl, {
-        //   x: translate
-        // });
+        
+        // that.setTranslate(swiper, translate);
+        
+        // console.log("pre translate", swiper.previousTranslate);
+        console.log("translate", translate);
+
+        gsap.to(swiper.wrapperEl, {
+          x: translate
+        });
 
         // gsap.fromTo(swiper.wrapperEl, {
         //   x: swiper.previousTranslate
@@ -70,6 +67,8 @@ var swiper = new Swiper(".mySwiper", {
       transitionEnd(swiper) {
         console.log("active index", swiper.activeIndex);
         console.log("real index", swiper.realIndex);
+        console.log("current trans", swiper.getTranslate());
+        // console.log("pre translate end", swiper.previousTranslate);
 
       }
       // activeIndexChange(swiper) {
