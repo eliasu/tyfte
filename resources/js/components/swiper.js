@@ -6,6 +6,8 @@ import { gsap } from "gsap";
 // import styles bundle
 // import 'swiper/css/bundle';
 
+let testani;
+
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1.3,
     // loop: true,
@@ -34,7 +36,7 @@ var swiper = new Swiper(".mySwiper", {
       progress(swiper, progress) {
         if (this.params.effect !== "myCustomTransition") return;
         // that.progress(swiper, progress);
-        // console.log("progress", progress);
+        console.log("progress", progress);
       },
       // setTransition(swiper, transition) {
       //   if (this.params.effect !== "myCustomTransition") return;
@@ -50,9 +52,15 @@ var swiper = new Swiper(".mySwiper", {
         // console.log("pre translate", swiper.previousTranslate);
         console.log("translate", translate);
 
-        gsap.to(swiper.wrapperEl, {
-          x: translate
+        testani = gsap.to(swiper.wrapperEl, {
+          x: translate,
+          // ease: "power4.out",
+          ease: "steps(12)",
+          // ease: "bounce.out",
+          duration: 1,
         });
+
+        console.log(testani);
 
         // gsap.fromTo(swiper.wrapperEl, {
         //   x: swiper.previousTranslate
@@ -68,6 +76,7 @@ var swiper = new Swiper(".mySwiper", {
         console.log("active index", swiper.activeIndex);
         console.log("real index", swiper.realIndex);
         console.log("current trans", swiper.getTranslate());
+        // testani.kill();
         // console.log("pre translate end", swiper.previousTranslate);
 
       }
