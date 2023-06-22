@@ -7,8 +7,20 @@
             {{ collection:work}}
               <div class="swiper-slide">
                   slide {{index}} 
-                  {{ video }}
-                    <video src="{{url}}"></video>
+                    {{ video }}
+                    <div data-videooverlay class="absolute inset-0 z-behind ">
+                      <video data-dashjs-player
+                          id="hero-video"
+                          class="object-cover w-full h-full" 
+                          width="100%" height="100%" 
+                          muted playsinline loop 
+                          src="{{url}}">
+                      </video>
+                  </div>
+
+
+
+                    {{# <video src="{{url}}"></video> #}}
                   {{ /video }}
               </div>
             {{ /collection:work}}
