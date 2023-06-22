@@ -27,17 +27,19 @@ var swiper = new Swiper(".mySwiper", {
     },
 
     // And if we need scrollbar
-    scrollbar: {
-        el: ".swiper-scrollbar",
-    },
+    // scrollbar: {
+    //     el: ".swiper-scrollbar",
+    // },
     effect: "creative",
     creativeEffect: {
         prev: {
             // shadow: true,
             translate: ["-180%", 0, -400],
+            opacity: .4,
         },
         next: {
             translate: ["100%", "-20%", 0],
+            opacity: .4,
         },
     },
 
