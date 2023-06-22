@@ -96,6 +96,11 @@
         height: 100%;
     }
 
+    .swiper-wrapper {
+      /* transition-duration: 2266.5475179658893ms; */
+      transition-timing-function: cubic-bezier(0.34, 0.96, 0.03, 1);
+    }
+
     .swiper-slide {
         text-align: center;
         font-size: 18px;
@@ -173,7 +178,9 @@
 
     /* the active slide */
     .swiper-slide-active {
-        animation-timing-function: steps(4, jump-start);
+        /* animation-timing-function: steps(4, jump-start); */
+        transition-timing-function: cubic-bezier(0.34, 0.96, 0.03, 1);
+        transition-duration: 1800ms;
     }
 
     /* the slide just next to the active slide */
