@@ -1,40 +1,26 @@
-   <section class="h-screen snap-start">
-     <!-- Swiper -->
-     <div class="w-full h-full swiper text-red mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          slide 1
-          <img src="https://picsum.photos/600/300" alt="">
+{{ wrk = { collection:work } }} {{ vids = wrk | pluck:video }}
+
+<section class="h-screen snap-start">
+    <!-- Swiper -->
+    <div class="w-full h-full swiper text-red mySwiper">
+        <div class="swiper-wrapper">
+            {{ collection:work}}
+              <div class="swiper-slide">
+                  slide {{index}} 
+                  {{ video }}
+                    <video src="{{url}}"></video>
+                  {{ /video }}
+              </div>
+            {{ /collection:work}}
         </div>
-        <div class="swiper-slide">
-          slide 2
-          <img src="https://picsum.photos/600/300" alt="">
-        </div>
-        <div class="swiper-slide">
-          slide 3
-          <img src="https://picsum.photos/200/300" alt="">
-        </div>
-         <div class="swiper-slide">
-          <div class="">Slide 4</div>
-        </div>{{#
-        <div class="swiper-slide">
-          slide 5
-          <img src="https://picsum.photos/800/300" alt="">
-        </div>
-        <div class="swiper-slide">
-          <div class="">Slide 6</div>
-        </div>
-        <div class="swiper-slide">
-          <div class="">Slide 7</div>
-        </div> #}}
-     
-      </div>
-      <div class="swiper-pagination"></div>
-       <!-- If we need navigation buttons -->
-       <div class="swiper-button-prev"></div>
-       <div class="swiper-button-next"></div>
-     
-       <!-- If we need scrollbar -->
-       {{# <div class="swiper-scrollbar"></div> #}}
-       </div>
-   </section>
+        <div class="swiper-pagination"></div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        {{#
+        <div class="swiper-scrollbar"></div>
+        #}}
+    </div>
+</section>
