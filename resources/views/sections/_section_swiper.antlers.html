@@ -1,4 +1,3 @@
-{{ wrk = { collection:work } }} {{ vids = wrk | pluck:video }}
 
 <section class="h-screen snap-start">
     <!-- Swiper -->
@@ -6,21 +5,17 @@
         <div class="swiper-wrapper">
             {{ collection:work}}
               <div class="swiper-slide">
-                  slide {{index}} 
+                  {{# slide {{index}}  #}}
                     {{ video }}
-                    <div data-videooverlay class="absolute inset-0 z-behind ">
-                      <video data-dashjs-player
-                          id="hero-video"
-                          class="object-cover w-full h-full" 
-                          width="100%" height="100%" 
-                          muted playsinline loop 
-                          src="{{url}}">
-                      </video>
-                  </div>
-
-
-
-                    {{# <video src="{{url}}"></video> #}}
+                      <div class="">
+                        <video data-dashjs-player
+                            id="hero-video"
+                            class="object-cover w-full h-full" 
+                            width="100%" height="100%" 
+                            muted playsinline loop autoplay
+                            src="{{url}}">
+                        </video>
+                    </div>
                   {{ /video }}
               </div>
             {{ /collection:work}}

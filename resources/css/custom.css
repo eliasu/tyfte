@@ -81,8 +81,6 @@
         height: 100%;
         margin-left: auto;
         margin-right: auto;
-        background-color: white;
-        border: 2px solid red;
     }
 
     img {
@@ -119,10 +117,17 @@
         height: 60%;
         object-fit: cover;
     }
+
+    .swiper-slide video {
+        box-shadow: 12px 56px 116px -21px rgba(0,0,0,0.75);
+        margin-top: -2%;
+    }
     .swiper-slide div {
-        background: #fff;
-        height: 60%;
+        /* background: #fff; */
+        height: 70%;
         width: 100%;
+       
+ 
     }
 
     .swiper-slide * {
