@@ -1,4 +1,5 @@
 @import "vendor";
+@import "custom_swiper";
 @import "tailwindcss/base";
 @import "custom";
 @import "tailwindcss/components";

@@ -10,9 +10,9 @@ import { gsap } from "gsap";
 let testani;
 
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1.6,
+    slidesPerView: 1.8,
     loop: true,
-    // spaceBetween: 500,
+    spaceBetween: 60,
     // speed: 2260,
     speed: 1260,
     centeredSlides: true,
@@ -30,18 +30,18 @@ var swiper = new Swiper(".mySwiper", {
     // scrollbar: {
     //     el: ".swiper-scrollbar",
     // },
-    effect: "creative",
-    creativeEffect: {
-        prev: {
-            // shadow: true,
-            translate: ["-180%", 0, -400],
-            opacity: .4,
-        },
-        next: {
-            translate: ["100%", "-20%", 0],
-            opacity: .4,
-        },
-    },
+    // effect: "creative",
+    // creativeEffect: {
+    //     prev: {
+    //         // shadow: true,
+    //         translate: ["-180%", 0, -400],
+    //         opacity: .7,
+    //     },
+    //     next: {
+    //         translate: ["100%", "-20%", 0],
+    //         opacity: .7,
+    //     },
+    // },
 
     
 });
