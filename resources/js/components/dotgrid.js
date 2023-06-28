@@ -64,7 +64,6 @@ function addParallaxBackground() {
     // listen for the scroll event
     window.addEventListener('scroll', () => {
         
-        // affect all elements with the class "bg-grid"
         elements.forEach(element => {
             // calculate the position of the element relative to the top of the page
             const elementPosition = container.getBoundingClientRect().top;

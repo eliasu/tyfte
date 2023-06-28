@@ -44,12 +44,12 @@ Alpine.start()
 // if DOMContent has loaded
 window.addEventListener("DOMContentLoaded", (event) => {
 	console.log("Welcome to tyfte.de")
-	initPreloader();
+	// initPreloader();
  });
 
 // if document is interactive
 document.addEventListener('readystatechange', (event) => {
 	initTyfteLogo();
 	initDotgrid();
-	initLoveCounter();
+	// initLoveCounter();
 });

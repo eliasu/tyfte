@@ -7,20 +7,20 @@ import Animations from '../c-textify/src/index';
 
 const { Textify } = Animations;
 
-export const accordion_no_obs = new Textify({
-   selector: '[data-type="accordion_no_obs"]',
-   duration: 800,
-   stagger: 40,
-   rotation: 20,
-   scale:  .3,
-   easing: "elasticInOut",
-   transformOrigin: "left top",
-   reveal: true,
-   threshold: 0.1,
-   once: false,
+// export const accordion_no_obs = new Textify({
+//    selector: '[data-type="accordion_no_obs"]',
+//    duration: 800,
+//    stagger: 40,
+//    rotation: 20,
+//    scale:  .3,
+//    easing: "elasticInOut",
+//    transformOrigin: "left top",
+//    reveal: true,
+//    threshold: 0.1,
+//    once: false,
    
-   noObserver: true,
-});
+//    noObserver: true,
+// });
 
 // export const infoTitleAnim = new Textify({
 //    selector: '#info-title',

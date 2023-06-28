@@ -6,14 +6,96 @@
 <!-- pages/home.antlers.html -->
 
 {{# scroll container #}}
-<main id="scroll-container" class="relative z-10 w-full h-screen overflow-scroll">
+<main id="scroll-container" class="relative">
+    
+    {{# hero section #}}
+    <div data-trigger="hero" class="relative w-screen h-[200vh]">
+        
+        {{# header with headline and tags #}}
+        <div data-trigger="hero-content" class="absolute top-0 z-10 flex flex-col justify-end p-20 h-screen-d">
+            <h1 class="w-1/2">Studio for Artisan digital Design from Berlin with</h1>
+            <p class="w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum laborum, architecto delectus ullam omnis recusandae, sed a doloremque aut unde cupiditate animi odio, facilis odit maxime nostrum nesciunt numquam eveniet?</p>
+        </div>
 
-    {{ partial:sections/section_0 }}
-    {{ partial:sections/section_1 }}
+        {{# sticky container #}}
+        <div class="sticky top-0 left-0 w-screen h-screen-d">
+            
+            {{# cta wrapper #}}
+            <div data-trigger="hero-cta" class="absolute p-8 right-20 bottom-20 bg-yellow w-80 h-60">
+                <p class="text-dark">Hier stehen lauter wichtige sachen</p>
+            </div>
+            
+            {{# bg #}}
+            <div data-trigger="hero-bg" class="absolute top-0 left-0 right-0 h-screen z-behind bg-gradient-to-t from-purple to-red"></div>
+        </div>
+    </div>
+    
+    {{# info section #}}
+    <div data-trigger="info-section" class="relative w-screen">
 
-    {{ partial:sections/section_2 }}
-    {{ partial:sections/section_2 }}
+        <div class="absolute top-0 bottom-0 w-1/2 ">
+            <div class="sticky top-0 flex flex-col justify-end h-screen gap-20 p-20">
+                <h1 class="">Studio for Artisan digital Design from Berlin with</h1>
 
+                {{# prograss bar #}}
+                <div class="relative w-1/2">
+                    <div class="absolute font-mono top-2"><span data-trigger="pb-infocount">1</span> / 4</div>
+                    <div data-trigger="pb-info" class="h-0.5 bg-light w-full scale-x-0 absolute origin-left"></div>
+                    <div class="h-0.5 bg-light/20 w-full"></div>
+                </div>
+
+                <div class="absolute z-behind -top-[20vh] h-[140vh]">
+                    <img class="w-[200%] max-w-none relative -left-2/3 h-full" src="http://tyfte.test/images/test_bg2.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        
+        {{# right side #}}
+        <div data-trigger="info-accwrap" class="relative">
+            {{ loop times="4" }}
+                <div data-trigger="info" class="relative left-1/2 w-1/2 h-[200vh] p-4 z-10">
+                    <div class="sticky flex flex-col justify-end w-full h-screen p-20 top-4">
+                        <div class="w-full h-2/3 bg-green">Hier kommen die ganzen Accordions hin</div>
+                    </div>
+                </div>
+            {{ /loop}}
+        </div>
+    </div>
+    
+    {{# work section #}}
+    <div data-trigger="work" class="relative w-screen h-[300vh]">
+        
+        {{# bg #}}
+        <div class="absolute inset-0">
+            <img class="sticky top-0 object-cover w-full h-screen opacity-50 mix-blend-lighten" src="http://tyfte.test/images/mockuptest.jpg" alt="">
+        </div>
+
+        {{# ui elements #}}
+        <div class="absolute inset-0 top-80">
+            <div class="sticky top-0 z-10 flex flex-col justify-end w-screen h-screen">
+            
+                <div class="relative z-10 p-20 border-1 border-red">
+                    <h1 class="relative">Das ist ne headline</h1>
+                    <p class="relative">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum laborum, architecto delectus ullam omnis recusandae, sed a doloremque aut unde cupiditate animi odio, facilis odit maxime nostrum nesciunt numquam eveniet?</p>
+            
+                    {{# progress bar #}}
+                    <div class="relative w-1/2">
+                        <div data-trigger="pb-work" class="h-0.5 bg-light w-full scale-x-0 absolute origin-left"></div>
+                        <div class="h-0.5 bg-light/20 w-full"></div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    
+    {{# contact section with footer #}}
+    <div class="flex items-end w-screen h-screen p-20 bg-green">
+        <h1>content</h1>
+    </div>
     
 </main>
 <!-- End: pages/home.antlers.html -->
+
+

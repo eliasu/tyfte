@@ -1,12 +1,14 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 
 let currentHeaderActive;
 let currentEl;
 
 console.log('initializing scroller info');
-initInfoSection();
+// initInfoSection();
+initBars();
 
 let tlInfoHeader = gsap.timeline({
     defaults: { // children inherit these defaults
@@ -14,6 +16,136 @@ let tlInfoHeader = gsap.timeline({
         ease: "power4",
   },
 });
+ 
+function initBars(){
+
+    // progress bar info section
+    gsap.utils.toArray("[data-trigger='info']").forEach(function (elem, index) {
+        
+        // progress bar info section
+        gsap.to('[data-trigger="pb-info"]', {
+            scrollTrigger: {
+                trigger: elem, // selector or element
+                start: "top top",  // [trigger] [scroller] positions
+                end: "bottom bottom", // [trigger] [scroller] positions
+                scrub: 1, // or time (in seconds) to catch up
+                markers: true, // only during development!
+                onEnter: (i, el) => {
+                    console.log(`onEnter ${index}`);
+                    gsap.set("[data-trigger='pb-info']", {scaleX: 0})
+                    document.querySelector("[data-trigger='pb-infocount']").innerHTML = `${index+1}`
+                },
+                onEnterBack: (i, el) => {
+                    console.log(`onEnter ${index}`);
+                    gsap.set("[data-trigger='pb-info']", {scaleX: 0})
+                    document.querySelector("[data-trigger='pb-infocount']").innerHTML = `${index+1}`
+                },
+            },
+            scaleX: 1,
+        });
+
+        // accordion groups
+        gsap.to(elem, {
+            scrollTrigger: {
+                trigger: elem, // selector or element
+                start: "bottom bottom",  // [trigger] [scroller] positions
+                end: "bottom 50%", // [trigger] [scroller] positions
+                scrub: 1, // or time (in seconds) to catch up
+                markers: true, // only during development!
+            },
+            autoAlpha: 0,
+        });
+    });
+
+    // initial fade in accordion
+    gsap.from('[data-trigger="info"]', {
+        scrollTrigger: {
+            trigger: '[data-trigger="info-accwrap"]', // selector or element
+            start: "top top",  // [trigger] [scroller] positions
+            end: "bottom bottom", // [trigger] [scroller] positions
+            // scrub: 1, // or time (in seconds) to catch up
+            markers: true, // only during development!
+            toggleActions: "play pause resume reverse",
+            // other actions: complete reverse none
+        },
+        
+        y: '50',
+        autoAlpha: 0,
+        duration: .7,
+        ease: "expo.out",
+    });
+
+    // progress bar work section
+    gsap.to('[data-trigger="pb-work"]', {
+        scrollTrigger: {
+            trigger: '[data-trigger="work"]', // selector or element
+            start: "top top",  // [trigger] [scroller] positions
+            end: "bottom bottom", // [trigger] [scroller] positions
+            scrub: 1, // or time (in seconds) to catch up
+            markers: true, // only during development!
+        },
+        
+        scaleX: 1,
+    });
+
+    // progress bar work section
+    gsap.to('[data-trigger="hero-content"]', {
+        scrollTrigger: {
+            trigger: '[data-trigger="hero"]', // selector or element
+            start: "30% top",  // [trigger] [scroller] positions
+            end: "bottom bottom", // [trigger] [scroller] positions
+            scrub: 1, // or time (in seconds) to catch up
+            markers: true, // only during development!
+        },
+        
+        autoAlpha: 0,
+    });
+
+    // hero background
+    gsap.to('[data-trigger="hero-bg"]', {
+        scrollTrigger: {
+            trigger: '[data-trigger="hero"]', // selector or element
+            start: "40% top",  // [trigger] [scroller] positions
+            end: "bottom bottom", // [trigger] [scroller] positions
+            scrub: .3, // or time (in seconds) to catch up
+            markers: true, // only during development!
+        },
+        
+        autoAlpha: 0,
+    });
+
+    // hero cta wrapper
+    gsap.to('[data-trigger="hero-cta"]', {
+        scrollTrigger: {
+            trigger: '[data-trigger="hero"]', // selector or element
+            start: "50% top",  // [trigger] [scroller] positions
+            end: "bottom bottom", // [trigger] [scroller] positions
+            scrub: .7, // or time (in seconds) to catch up
+            markers: true, // only during development!
+        },
+        
+        scale: 1.2,
+        autoAlpha: 0,
+    });
+
+    // fade out info section
+    gsap.to('[data-trigger="info-section"]', {
+        scrollTrigger: {
+            trigger: '[data-trigger="work"]', // selector or element
+            start: "top bottom",  // [trigger] [scroller] positions
+            end: "top 5%", // [trigger] [scroller] positions
+            scrub: .7, // or time (in seconds) to catch up
+            markers: true, // only during development!
+        },
+        
+        y: -150,
+        autoAlpha: 0,
+    });
+}
+
+
+
+
 
 function initInfoSection() {
    

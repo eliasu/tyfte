@@ -6,7 +6,7 @@ let tweens;
 let sections;
 
 console.log("initializing scroller sections");
-initSectionTweens();
+// initSectionTweens();
 
 export const scrollerState = {
     getSection: (index) => sections[index],
