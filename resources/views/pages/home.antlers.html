@@ -9,24 +9,52 @@
 <main id="scroll-container" class="relative">
     
     {{# hero section #}}
-    <div data-trigger="hero" class="relative w-screen h-[200vh]">
+    <div data-trigger="hero" class="relative w-screen max-lg:pt-[50vh] h-screen-2">
         
         {{# header with headline and tags #}}
-        <div data-trigger="hero-content" class="absolute top-0 z-10 flex flex-col justify-end p-20 h-screen-d">
-            <h1 class="w-1/2">Studio for Artisan digital Design from Berlin with</h1>
-            <p class="w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum laborum, architecto delectus ullam omnis recusandae, sed a doloremque aut unde cupiditate animi odio, facilis odit maxime nostrum nesciunt numquam eveniet?</p>
+        <div data-trigger="hero-content" class="absolute top-0 z-10 flex flex-col justify-end h-screen gap-4 p-frame">
+            {{# tag wrapper #}}
+            {{ partial:components/tags class="flex" }}
+                {{ partial:components/tag text="The yellow from the egg" url="/" class="bg-green" }}
+                {{ partial:components/tag text="The last team you need" url="/" class="bg-green" }}
+            {{ /partial:components/tags }}
+            
+            {{# Headline #}}
+            <h1 class="text-left">
+                Studio for artisan<br class="max-md:hidden">
+                <span class="font-mono text-green">digital design</span> from<br class="max-md:hidden">
+                Berlin with {{ partial:components/button cssid="love" class="relative inline-flex top-[-.2em] text-green hover:text-light" label="love" icon="hearth" big="true" }}
+            </h1>
         </div>
 
         {{# sticky container #}}
-        <div class="sticky top-0 left-0 w-screen h-screen-d">
+        <div class="sticky top-0 left-0 w-screen h-screen">
             
             {{# cta wrapper #}}
-            <div data-trigger="hero-cta" class="absolute p-8 right-20 bottom-20 bg-yellow w-80 h-60">
-                <p class="text-dark">Hier stehen lauter wichtige sachen</p>
+            <div data-trigger="hero-cta" class="absolute z-10 grid gap-3 p-8 selection:bg-green grid-cols-min justify-items-start right-frame bottom-frame bg-yellow text-dark">
+                <p class="mb-0">Want to see <span class="font-bold">some work</span> of us?</p>
+                {{ partial:components/button class="mb-4 text-dark hover:text-purple" type="underline" label="Our Work" icon="arrdown" }}
+                
+                <p class="mb-0">Or <span class="font-bold">get in touch</span> with us, and start a new project!</p>
+                {{ partial:components/button class="text-yellow hover:text-yellow-dark" type="solid" label="Start Project" icon="hearth-filled" }}
             </div>
             
-            {{# bg #}}
-            <div data-trigger="hero-bg" class="absolute top-0 left-0 right-0 h-screen z-behind bg-gradient-to-t from-purple to-red"></div>
+        </div>
+        
+        {{# bg video and gradient animation #}}
+        <div data-trigger="hero-bgwrap" class="fixed top-0 w-full h-screen z-behind mix-blend-lighten after:bg-hero-grad after:w-full after:h-screen after:absolute after:z-20 after:inset-0">
+            
+            {{# video wrapper #}}
+            <video data-dashjs-player
+                id="hero-video"
+                class="absolute z-10 object-cover w-full h-full mix-blend-lighten"
+                width="100%" height="100%"
+                muted playsinline loop autoplay
+                src="{{video}}">
+            </video>
+            
+            {{# gradient animation #}}
+            <div data-trigger="hero-bg" class="absolute inset-0 w-full h-full"></div>
         </div>
     </div>
     
@@ -54,8 +82,8 @@
         {{# right side #}}
         <div data-trigger="info-accwrap" class="relative">
             {{ loop times="4" }}
-                <div data-trigger="info" class="relative left-1/2 w-1/2 h-[200vh] p-4 z-10">
-                    <div class="sticky flex flex-col justify-end w-full h-screen p-20 top-4">
+                <div data-trigger="info" class="relative z-10 w-1/2 p-4 left-1/2 h-screen-2">
+                    <div class="sticky top-0 flex flex-col justify-end w-full h-screen p-20">
                         <div class="w-full h-2/3 bg-green">Hier kommen die ganzen Accordions hin</div>
                     </div>
                 </div>
@@ -64,7 +92,7 @@
     </div>
     
     {{# work section #}}
-    <div data-trigger="work" class="relative w-screen h-[300vh]">
+    <div data-trigger="work" class="relative w-screen h-screen-3">
         
         {{# bg #}}
         <div class="absolute inset-0">

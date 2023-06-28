@@ -60,14 +60,6 @@
       display: none;
     }
 
-   
-
-   [data-videooverlay] {
-      background-image: linear-gradient(to right, transparent 50%, black 90%);
-      /* background-image: url(/resources/images/overlay.jpg); */
-      @apply absolute inset-0 bg-cover mix-blend-multiply opacity-80;
-   }
-
    [data-dotgrid] {
       @apply transition-all ease-out duration-[1s];
    }
@@ -118,7 +110,7 @@
 
    /* button animation (the rainbow effect on the icons & the border line animation */
    /* rainbow effect on icon */
-   button:hover > [data-icon], button:hover > div > [data-icon] {
+   button:hover > [data-icon] {
       @apply scale-125;
       animation: colorchange linear 1500ms infinite;
       animation-play-state: running;
@@ -141,18 +133,47 @@
    [data-icon="arrup"] { mask-image: url(/resources/svg/arrup.svg); }
    [data-icon="arrdown"] { mask-image: url(/resources/svg/arrdown.svg); }
    [data-icon="hearth"] { mask-image: url(/resources/svg/hearth.svg); }
+   [data-icon="hearth-filled"] { mask-image: url(/resources/svg/hearth-filled.svg); }
    [data-icon="close"] { mask-image: url(/resources/svg/close.svg); }
 
-   /* [data-icon-loop] {
-      @apply scale-125;
-      animation: colorPulse alternate 1000ms infinite;
-      animation-play-state: running;
-      background-image: conic-gradient(
-         #0ACF83,
-         #FFC32A,
-         #0ACF83
-      );
-   } */
+   svg {
+      /* for outline svg */
+      overflow: visible;
+   }
+   
+   [data-btntype="lined"] > .btn-bg {
+      animation: stoke-out .3s cubic-bezier(0, 0, 0, 1) forwards;
+   }
+
+   [data-btntype="lined"]:hover > .btn-bg {
+      animation: stoke-in 1.3s cubic-bezier(0, 0, 0, 1) forwards;
+   }
+
+   @keyframes stoke-in {
+      from {
+         stroke-dasharray: 10 10;
+         stroke-dashoffset: 0;
+      }
+      to {
+         stroke-dasharray: 1.5 10;
+         stroke-dashoffset: -7;
+      }
+   }
+   
+   @keyframes stoke-out {
+      from {
+         stroke-dasharray: 1.5 10;
+         stroke-dashoffset: -7;
+      }
+      to {
+         stroke-dasharray: 10 10;
+         stroke-dashoffset: 0;
+      }
+   }
+
+   @keyframes colorchange {
+      to { filter: hue-rotate(1turn); }
+   }
 
    /* this class get added if pressed on the love button */
    .loveEmphasis {
@@ -165,72 +186,6 @@
       );
    }
 
-   svg {
-      /* for outline svg */
-      overflow: visible;
-   }
-
-   /* button border line animation */
-   svg.btn-bg {
-      stroke-dasharray: 500%,1000%;
-      stroke-dashoffset: 0%;
-      animation: resetanimation;
-   }
-   svg.btn-bg:hover {
-      animation: strokeanimation 1.3s cubic-bezier(0, 0, 0, 1) forwards;
-   }
-    
-   @keyframes resetanimation {}
-
-   @keyframes colorchange {
-      to { filter: hue-rotate(1turn); }
-   }
-
-   @keyframes colorPulse {
-      to { filter: hue-rotate(1turn); transform: scale(1.5); }
-   }
-
-   @keyframes strokeanimation {
-      55% {
-         stroke-dasharray: 50%,1000%;
-      }
-      100% {
-         stroke-dashoffset: -210%;
-         stroke-dasharray: 50%,1000%;
-      }
-   }
-
-
-   /* scrolling instruction line animation to the right */
-   [data-line] {
-      background-image: linear-gradient(0deg, theme(colors.light.DEFAULT) 50%, theme(colors.light.soft) 50%);
-      background-size: 100% 200%;
-      background-position: 0 100%;
-      animation: scrolldown 2.2s cubic-bezier(0.76, 0, 0.3, 1) forwards infinite;
-   }
-
-   @keyframes scrolldown {
-      0%{
-         background-position: 0 100%;
-      }
-      75% {
-         background-position: 0 0;
-      }
-      100%{
-         background-position: 0 -100%;
-      }
-   }
-
-   
-
-   /* crowd pleaser stylings */
-   input[type="range"] {
-      @apply bg-light appearance-none h-0.5 rounded-full motion-safe:transition cursor-pointer w-28 group-hover:bg-yellow;
-   }
-    
-   input[type="range"]::-webkit-slider-thumb {
-      @apply motion-safe:transition appearance-none h-3 w-3 rounded-full cursor-pointer border-2 border-light border-solid bg-dark group-hover:border-yellow group-hover:scale-125 delay-75;
-   }
 
    /* bg dot grid */
    #dotgrid {

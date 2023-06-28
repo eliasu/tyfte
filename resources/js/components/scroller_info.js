@@ -23,48 +23,49 @@ function initST(){
     gsap.utils.toArray("[data-trigger='info']").forEach(function (elem, index) {
         
         // progress bar info section
-        gsap.to('[data-trigger="pb-info"]', {
-            scrollTrigger: {
-                trigger: elem, // selector or element
-                start: "top top",  // [trigger] [scroller] positions
-                end: "bottom bottom", // [trigger] [scroller] positions
-                scrub: 1, // or time (in seconds) to catch up
-                markers: true, // only during development!
-                onEnter: (i, el) => {
-                    console.log(`onEnter ${index}`);
-                    gsap.set("[data-trigger='pb-info']", {scaleX: 0})
-                    document.querySelector("[data-trigger='pb-infocount']").innerHTML = `${index+1}`
+        gsap.fromTo('[data-trigger="pb-info"]', {
+                scaleX: 0,
+            },{
+                scrollTrigger: {
+                    trigger: elem, // selector or element
+                    start: "top top",  // [trigger] [scroller] positions
+                    end: "bottom 75%", // [trigger] [scroller] positions
+                    scrub: 1, // or time (in seconds) to catch up
+                    // markers: true, // only during development!
+                    onEnter: (i, el) => {
+                        console.log(`onEnter ${index}`);
+                        document.querySelector("[data-trigger='pb-infocount']").innerHTML = `${index+1}`
+                    },
+                    onEnterBack: (i, el) => {
+                        console.log(`onEnter ${index}`);
+                        document.querySelector("[data-trigger='pb-infocount']").innerHTML = `${index+1}`
+                    },
                 },
-                onEnterBack: (i, el) => {
-                    console.log(`onEnter ${index}`);
-                    gsap.set("[data-trigger='pb-info']", {scaleX: 0})
-                    document.querySelector("[data-trigger='pb-infocount']").innerHTML = `${index+1}`
-                },
-            },
-            scaleX: 1,
-        });
+                scaleX: 1, 
+            }
+        );
 
         // accordion groups
         gsap.to(elem, {
             scrollTrigger: {
                 trigger: elem, // selector or element
                 start: "bottom bottom",  // [trigger] [scroller] positions
-                end: "bottom 50%", // [trigger] [scroller] positions
+                end: "bottom 75%", // [trigger] [scroller] positions
                 scrub: 1, // or time (in seconds) to catch up
-                markers: true, // only during development!
+                // markers: true, // only during development!
             },
             autoAlpha: 0,
         });
     });
 
-    // initial fade in accordion
+    // initial fade in first accordion
     gsap.from('[data-trigger="info"]', {
         scrollTrigger: {
             trigger: '[data-trigger="info-accwrap"]', // selector or element
             start: "top top",  // [trigger] [scroller] positions
             end: "bottom bottom", // [trigger] [scroller] positions
             // scrub: 1, // or time (in seconds) to catch up
-            markers: true, // only during development!
+            // markers: true, // only during development!
             toggleActions: "play pause resume reverse",
             // other actions: complete reverse none
         },
@@ -82,7 +83,7 @@ function initST(){
             start: "top top",  // [trigger] [scroller] positions
             end: "bottom bottom", // [trigger] [scroller] positions
             scrub: 1, // or time (in seconds) to catch up
-            markers: true, // only during development!
+            // markers: true, // only during development!
         },
         
         scaleX: 1,
@@ -95,18 +96,18 @@ function initST(){
             start: "30% top",  // [trigger] [scroller] positions
             end: "bottom bottom", // [trigger] [scroller] positions
             scrub: 1, // or time (in seconds) to catch up
-            markers: true, // only during development!
+            // markers: true, // only during development!
         },
         
         autoAlpha: 0,
     });
 
     // hero background
-    gsap.to('[data-trigger="hero-bg"]', {
+    gsap.to('[data-trigger="hero-bgwrap"]', {
         scrollTrigger: {
             trigger: '[data-trigger="hero"]', // selector or element
             start: "40% top",  // [trigger] [scroller] positions
-            end: "bottom bottom", // [trigger] [scroller] positions
+            end: "bottom -50vh", // [trigger] [scroller] positions
             scrub: .3, // or time (in seconds) to catch up
             markers: true, // only during development!
         },
@@ -121,7 +122,7 @@ function initST(){
             start: "50% top",  // [trigger] [scroller] positions
             end: "bottom bottom", // [trigger] [scroller] positions
             scrub: .7, // or time (in seconds) to catch up
-            markers: true, // only during development!
+            // markers: true, // only during development!
         },
         
         scale: 1.2,
@@ -135,7 +136,7 @@ function initST(){
             start: "top bottom",  // [trigger] [scroller] positions
             end: "top 5%", // [trigger] [scroller] positions
             scrub: .7, // or time (in seconds) to catch up
-            markers: true, // only during development!
+            // markers: true, // only during development!
         },
         
         y: -150,

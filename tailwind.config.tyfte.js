@@ -22,6 +22,7 @@ module.exports = {
     colors: {
       current: 'currentColor',
       transparent: 'transparent',
+      inherit: 'inherit',
       
       light: {
         DEFAULT: '#fff',
@@ -61,10 +62,21 @@ module.exports = {
       screens: {
         'xs': '480px',
       },
-      spacing: {
+      height: {
+        'screen-1': '100vh',
+        'screen-2': '200vh',
+        'screen-3': '300vh',
+        'screen-4': '400vh',
+        'screen-5': '500vh',
+        'screen-6': '600vh',
+        'screen-7': '700vh',
+        'screen-8': '800vh',
+        'screen-10': '1000vh',
         'screen-d': '100dvh',
         'screen-l': '100lvh',
         'screen-s': '100svh', 
+      },
+      spacing: {
         '15': '3.75rem',
         '30': '7.5rem',
         '112': '28rem',
@@ -100,7 +112,12 @@ module.exports = {
       },
       backgroundImage: {
         'grain': "url('/resources/images/grain_bg.jpg')",
-      }
+        'hero-grad' : "linear-gradient(185deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 100%)",
+      },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        'min': 'min-content',
+      },
     },
   },
 }

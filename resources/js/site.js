@@ -4,6 +4,7 @@ import persist from '@alpinejs/persist'
 import focus from '@alpinejs/focus'
 import 'focus-visible'
 import MediaPlayer from 'dashjs';
+import './components/S3FX';
 
 import initPreloader from './components/preloader';
 import initTyfteLogo from './components/tyfte_logo';
