@@ -1,5 +1,5 @@
 ---
-id: 4b7c6311-1918-48c4-96f1-00f5064457c4
+id: 5cdd6ecf-9b27-4877-aa49-e86b20916f12
 blueprint: home
 title: Home
 video: 'work videos/Hero/tyfte_work_hero.mpd'
@@ -10,224 +10,210 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1687265053
-s1_title: 'We plan everything you need'
-s1_tags:
+updated_at: 1687995892
+info_sections:
   -
-    id: likesgbe
-    title: ideation
-    color: yellow
-    type: tags
-    enabled: true
-  -
-    id: likeskex
-    title: plan
+    id: ljgd1u7d
+    title: Ideation
     color: green
-    type: tags
-    enabled: true
-  -
-    id: likesry7
-    title: design
-    color: purple
-    type: tags
-    enabled: true
-  -
-    id: liym9dst
-    title: implementation
-    color: red
-s1_accordion_groups:
-  -
-    id: lina3a6u
-    title: ideation
-    color: yellow
+    headline: 'Learn our way of creating for the web.'
     tags:
       -
-        id: lina3dly
+        id: ljgd3oqh
         title: Statamic
-        color: yellow
+        color: green
       -
-        id: lina4egj
+        id: ljgd3t3i
         title: Webflow
-        color: yellow
+        color: green
       -
-        id: lina4ew6
+        id: ljgd3xfr
         title: Astro
-        color: yellow
+        color: green
       -
-        id: liymdgn5
-        title: Concept
-        color: yellow
+        id: ljgd42gp
+        title: Figma
+        color: green
       -
-        id: liymdhjo
-        title: Strategy
-        color: yellow
+        id: ljgd44kv
+        title: 'Zwei Worte'
+        color: green
       -
-        id: liymdhxp
-        title: 'Kickoff Workshop'
-        color: yellow
+        id: ljgd47qm
+        title: 'Und nochwas'
+        color: green
+    accordion_items:
       -
-        id: liymdil5
-        title: 'brand values'
-        color: yellow
-    accordion:
-      -
-        id: lina4d7n
-        title: 'Value proposition and Brand'
-        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
-        type: accordion_item
-        enabled: true
-      -
-        id: lina4fx2
+        id: ljgd2nix
         title: 'From start to end'
         description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
-        type: accordion_item
+        type: new_accordion_item
         enabled: true
       -
-        id: lina4grz
+        id: ljgd35nb
         title: 'The what and how'
-        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
-        type: accordion_item
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with te sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
+        type: new_accordion_item
         enabled: true
-    headline: 'How we put your ideas and ours together.'
+      -
+        id: ljgd3brq
+        title: 'Value proposition and Brand'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of peopl also help you in this challenging process sort you out.'
+        type: new_accordion_item
+        enabled: true
+    type: new_section
+    enabled: true
   -
-    id: linb9bg9
-    title: plan
-    color: green
-    headline: 'How we plan our stuff'
+    id: ljgd4rgn
+    title: Design
+    color: yellow
+    headline: 'Content & Information Architecture'
     tags:
       -
-        id: linb9lfa
-        title: 'Content Model'
-        color: green
-      -
-        id: linb9m8x
-        title: 'Information Architecture'
-        color: green
-      -
-        id: liymcfs8
-        title: technology
-        color: green
-      -
-        id: liymcg9f
-        title: 'project management'
-        color: green
-      -
-        id: liymcgpn
+        id: ljgd3oqh
         title: Statamic
         color: green
-    accordion:
       -
-        id: linbadok
-        title: 'the route we’ll go'
-        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
-        type: accordion_item
-        enabled: true
-      -
-        id: linbaneg
-        title: 'Content & Information Architecture'
-        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
-        type: accordion_item
-        enabled: true
-      -
-        id: linbax8j
-        title: 'Project management'
-        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
-        type: accordion_item
-        enabled: true
-  -
-    id: linh8t2v
-    title: design
-    color: purple
-    headline: 'Shes got the look'
-    tags:
-      -
-        id: linh9afu
-        title: Figma
-        color: purple
-      -
-        id: linh9dvk
-        title: 'Adobe Suite'
-        color: purple
-      -
-        id: liymbhnr
-        title: 'Web Design'
-        color: purple
-      -
-        id: liymbi6h
-        title: UI
-        color: purple
-      -
-        id: liymbioc
-        title: UX
-        color: purple
-      -
-        id: liymbjb6
-        title: 'Motion Design'
-        color: purple
-      -
-        id: liymbzw0
-        title: 'Micro Interactions'
-        color: purple
-    accordion:
-      -
-        id: linh9nql
-        title: 'Design – the (look &) feel'
-        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
-        type: accordion_item
-        enabled: true
-      -
-        id: linh9wvc
-        title: 'Interaction & Motion Design'
-        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
-        type: accordion_item
-        enabled: true
-  -
-    id: liym9whv
-    title: Implementation
-    color: red
-    headline: 'The build and maintennace'
-    tags:
-      -
-        id: liyma9y9
-        title: Development
-        color: red
-      -
-        id: liymaoid
-        title: Code
-        color: red
-      -
-        id: liymari7
-        title: GSAP
-        color: red
-      -
-        id: liymax2s
+        id: ljgd3t3i
         title: Webflow
-        color: red
+        color: green
       -
-        id: liymayjm
-        title: Modular
-        color: red
+        id: ljgd3xfr
+        title: Astro
+        color: green
       -
-        id: liymayw4
-        title: Domain
-        color: red
-    accordion:
+        id: ljgd42gp
+        title: Figma
+        color: green
       -
-        id: liymewbi
-        title: 'The build and maintennace'
-        description: "From there we’ll leverage the chosen modern technology to build your project.\LOur modular approach ensures that extending your project with newly features is easily done.\LThe backend will be tailored to your needs, so you enjoy working with your product.\LHosting, Email, Server – we take care of this too."
-        type: accordion_item
+        id: ljgd44kv
+        title: 'Zwei Worte'
+        color: green
+      -
+        id: ljgd47qm
+        title: 'Und nochwas'
+        color: green
+    accordion_items:
+      -
+        id: ljgd2nix
+        title: 'From start to end'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
+        type: new_accordion_item
         enabled: true
       -
-        id: liymeyo6
-        title: 'Tech Stack'
-        description: "We wisely choose the appropriate tech for you needs. As a hammer seem appropriate for nails, it’s not the best choice for screws.\LBasically it’s a balancing and prioritization act. For some projects you may want to go with a CMS and Hosting Service like webflow, rather on the budget side, for others trying to cramp all that functionality into webflow would be counterproductive. You would rather spend that time to build something more custom in a CMS like Statamic with lots a flexibility opening up to completely different possiblities. It’s your choice but we give you our advice."
-        type: accordion_item
+        id: ljgd35nb
+        title: 'The what and how'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with te sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
+        type: new_accordion_item
         enabled: true
       -
-        id: liymezfp
-        title: 'Extensibility Code & Hosting'
-        description: "We use modern standards like laravel, and typescript when implementing you project. Features and functionality is structured into modules. This makes it easier to read and also easier to extend, if you need a new features. This is our modular approach. \LThe codebase is checked in to git. We have multiple deploying strategies.\LWe can take car of you DNS records and domains taking every step that you live site is running smoothly at your desired URL."
-        type: accordion_item
+        id: ljgd3brq
+        title: 'Value proposition and Brand'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of peopl also help you in this challenging process sort you out.'
+        type: new_accordion_item
         enabled: true
+    type: new_section
+    enabled: true
+  -
+    id: ljgd5mcs
+    title: Ideation
+    color: purple
+    headline: 'Learn our way of creating for the web.'
+    tags:
+      -
+        id: ljgd3oqh
+        title: Statamic
+        color: green
+      -
+        id: ljgd3t3i
+        title: Webflow
+        color: green
+      -
+        id: ljgd3xfr
+        title: Astro
+        color: green
+      -
+        id: ljgd42gp
+        title: Figma
+        color: green
+      -
+        id: ljgd44kv
+        title: 'Zwei Worte'
+        color: green
+      -
+        id: ljgd47qm
+        title: 'Und nochwas'
+        color: green
+    accordion_items:
+      -
+        id: ljgd2nix
+        title: 'From start to end'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
+        type: new_accordion_item
+        enabled: true
+      -
+        id: ljgd35nb
+        title: 'The what and how'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with te sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
+        type: new_accordion_item
+        enabled: true
+      -
+        id: ljgd3brq
+        title: 'Value proposition and Brand'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of peopl also help you in this challenging process sort you out.'
+        type: new_accordion_item
+        enabled: true
+    type: new_section
+    enabled: true
+  -
+    id: ljgd5vhz
+    title: Design
+    color: red
+    headline: 'Content & Information Architecture'
+    tags:
+      -
+        id: ljgd3oqh
+        title: Statamic
+        color: green
+      -
+        id: ljgd3t3i
+        title: Webflow
+        color: green
+      -
+        id: ljgd3xfr
+        title: Astro
+        color: green
+      -
+        id: ljgd42gp
+        title: Figma
+        color: green
+      -
+        id: ljgd44kv
+        title: 'Zwei Worte'
+        color: green
+      -
+        id: ljgd47qm
+        title: 'Und nochwas'
+        color: green
+    accordion_items:
+      -
+        id: ljgd2nix
+        title: 'From start to end'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with. A Brand website sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
+        type: new_accordion_item
+        enabled: true
+      -
+        id: ljgd35nb
+        title: 'The what and how'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of people are struggeling with te sometimes works like a prism on the brand identity and values. We can also help you in this challenging process sort you out.'
+        type: new_accordion_item
+        enabled: true
+      -
+        id: ljgd3brq
+        title: 'Value proposition and Brand'
+        description: 'When you find yourselfs struggeling to vision your brand to the internet, we can reassure you that this is a process that a lot of peopl also help you in this challenging process sort you out.'
+        type: new_accordion_item
+        enabled: true
+    type: new_section
+    enabled: true
 ---

@@ -107,7 +107,7 @@ function initST(){
         scrollTrigger: {
             trigger: '[data-trigger="hero"]', // selector or element
             start: "40% top",  // [trigger] [scroller] positions
-            end: "bottom -50vh", // [trigger] [scroller] positions
+            end: "bottom 500", // [trigger] [scroller] positions
             scrub: .3, // or time (in seconds) to catch up
             markers: true, // only during development!
         },

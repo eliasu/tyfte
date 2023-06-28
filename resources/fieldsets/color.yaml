@@ -22,5 +22,5 @@ fields:
         green: Green
         red: Red
         purple: Purple
-      default: text-light
+      default: light
       width: 33

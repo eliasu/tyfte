@@ -38,11 +38,31 @@ tabs:
         display: 'FAQ Section'
         fields:
           -
-            import: section_title
-            prefix: s1_
-          -
-            import: accordion
-            prefix: s1_
+            handle: info_sections
+            field:
+              collapse: true
+              previews: true
+              fullscreen: true
+              sets:
+                new_section:
+                  display: 'New Section'
+                  instructions: null
+                  icon: null
+                  sets:
+                    new_section:
+                      display: 'New Section'
+                      instructions: null
+                      icon: null
+                      fields:
+                        -
+                          import: info_section
+              type: replicator
+              display: 'Info Sections'
+              icon: replicator
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
   seo:
     display: SEO
     sections:

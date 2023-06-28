@@ -1,0 +1,57 @@
+title: 'Info Section'
+fields:
+  -
+    handle: title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Title
+      icon: text
+      width: 66
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    import: color
+  -
+    handle: headline
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Headline
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    import: tags
+  -
+    handle: accordion_items
+    field:
+      collapse: true
+      previews: true
+      fullscreen: true
+      sets:
+        new_accordion_item:
+          display: 'New Accordion Item'
+          instructions: null
+          icon: null
+          sets:
+            new_accordion_item:
+              display: 'New Accordion Item'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: accordion_item
+      type: replicator
+      display: 'Accordion Items'
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
