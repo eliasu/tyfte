@@ -8,7 +8,7 @@ let currentEl;
 
 console.log('initializing scroller info');
 // initInfoSection();
-initBars();
+initST();
 
 let tlInfoHeader = gsap.timeline({
     defaults: { // children inherit these defaults
@@ -17,7 +17,7 @@ let tlInfoHeader = gsap.timeline({
   },
 });
  
-function initBars(){
+function initST(){
 
     // progress bar info section
     gsap.utils.toArray("[data-trigger='info']").forEach(function (elem, index) {
