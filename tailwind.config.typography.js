@@ -22,7 +22,7 @@ module.exports = {
           fontWeight: '700',
         }],
 
-        'head-accordion': ['clamp(1.875rem, calc(1.875rem + ((1vw - 0.3rem) * 1.6667)), 3.125rem)', {
+        'head-accordion': ['clamp(1.6rem, calc(1.875rem + ((1vw - 0.3rem) * 1.6667)), 2rem)', {
           lineHeight: '105%',
           letterSpacing: '0.02em',
           fontWeight: '700',

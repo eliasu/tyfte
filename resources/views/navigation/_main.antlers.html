@@ -45,10 +45,10 @@
     <div class="absolute flex gap-8 pointer-events-auto top-frame right-frame">
             
         {{# start project button #}}
-        {{ partial:components/button class="hidden lg:flex" label="start project" icon="arrup" }}
+        {{# {{ partial:components/button class="hidden lg:flex" label="start project" icon="arrup" }}
             x-show="!navOpen"
             x-transition:enter.delay.1000ms
-        {{ /partial:components/button }}
+        {{ /partial:components/button }} #}}
 
         {{# burger button #}}
         <button id="burger" class="relative min-h-[1.5rem] flex flex-col justify-between cursor-pointer group"
