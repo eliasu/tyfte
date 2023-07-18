@@ -1,0 +1,159 @@
+{{#
+    @name Info Accordions
+    @desc info section
+#}}
+
+{{# info section #}}
+<div data-trigger="info-section" class="relative w-screen">
+
+  {{# title, progressbar, tags wrapper #}}
+  <div class="absolute top-0 bottom-0 z-10 w-1/3">
+      
+      {{# sticky wrapper #}}
+      <div class="sticky top-0 flex flex-col justify-end h-screen gap-4 p-frame">
+          
+          {{# loop through the first info sections #}}
+          {{ info_sections[0] }}
+              
+              {{# title #}}
+              <h2 class="text-head-1 text-green">{{ title }}</h2>
+
+              {{# progress bar #}}
+              <div class="relative w-1/2 mb-8">
+                  <div class="absolute font-mono top-2"><span data-trigger="pb-infocount">1</span> / 4</div>
+                  <div data-trigger="pb-info" class="h-0.5 bg-light w-full scale-x-0 absolute origin-left"></div>
+                  <div class="h-0.5 bg-light/20 w-full"></div>
+              </div>
+
+              {{# tags #}}
+              {{ partial:components/tags class="max-w-sm" }} 
+                  {{ tags }} 
+                      {{ partial:components/tag class="{{ color | ensure_left('bg-') }}" text="{{ title }}" url="/" }}
+                  {{ /tags }} 
+              {{ /partial:components/tags }} {{# Headline #}}
+          {{ /info_sections[0] }}
+
+          {{# TODO: hier kommt der Effekt dann hin #}}
+          <div class="absolute z-behind -top-[20vh] h-[140vh]">
+              <img class="w-[200%] max-w-none relative -left-2/3 h-full" src="http://tyfte.test/images/test_bg2.png" alt="">
+          </div>
+      </div>
+  </div>
+
+
+  {{# all accordion groups wrapper #}}
+  <div id="info-accordion" class="relative flex flex-col gap-frame-3 lg:gap-60 pt-[50vh]" x-data="{selected: ''}">
+
+      {{# loop through every accordion group #}}
+      {{ s1_accordion_groups }}
+
+          {{# accordion group wrapper #}}
+          <div class="relative flex flex-col {{ color | ensure_left('text-') }}">
+              
+              {{# Headline #}}
+              <h2 class="mb-8 text-head-accordion pl-frame lg:pl-6 ">{{ title }}</h2>
+
+              {{# loop all accordion items #}}
+              {{ accordion }}
+                  
+                  {{# single accordion item #}}
+                  <button
+                      type="button" 
+                      class="relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-b-2 lg:border-none group p-frame lg:p-6 gap-frame-1/4 hover:bg-opacity-5 last-of-type:border-none {{ color | ensure_left('bg-') }}"
+                      x-data="accordion_states" 
+                      @click="handleClick()" 
+                      :class="open ? 'lg:-translate-x-frame-1/2' : ''"
+                      :aria-expanded="open ? 'true' : 'false'"
+                      aria-controls="accordion-panel-{{ index }}"
+                  >
+      
+                      {{# wrapper title and icon #}}
+                      <div class="relative flex items-center justify-between w-full lg:w-auto gap-frame-1/4">
+                          
+                          {{# title #}}
+                          <h4 class="font-mono transition origin-left text-subhead-accordion" 
+                              :class="open ? 'scale-75 md:scale-50' : ''">
+                              {{ title }}
+                          </h4>
+      
+                          {{# icon #}}
+                          <div :class="open ? 'rotate-90' : ''" data-icon="arrup" class="h-[1.25em] duration-150 group-hover:rotate-90 aspect-square bg-current"></div>
+                      </div>
+      
+                      {{# accordion content #}}
+                      <div class="relative transition-all duration-500 max-w-prose" 
+                          :class="open ? 'opacity-100 max-h-200' : 'opacity-0 max-h-0 -mt-frame-1/4'"
+                          :aria-hidden="open ? 'false' : 'true'" 
+                          aria-labelledby="accordion-header-{{ index }}"
+                          id="accordion-panel-{{ index }}"
+                      >
+                          
+                          <p data-type="accordion_no_obs" class="h-full text-lead-1 max-w-none">{{ description }}</p>
+                      </div>
+                  </button>
+              {{ /accordion }}
+          </div>
+      {{ /s1_accordion_groups }}
+  </div>
+  
+  {{# all info sections #}}
+  <div data-trigger="info-accwrap" x-data="{selected: ''}" class="relative">
+      
+      {{# loop through all info sections #}}
+      {{ info_sections }}
+          
+          {{# single info section wrapper #}}
+          <div data-trigger="info" class="relative z-10 w-2/3 left-1/3 h-screen-2">
+              
+              {{# sticky wrapper #}}
+              <div class="sticky top-0 flex flex-col justify-between w-full h-screen pl-0 p-frame">
+                  
+                   {{# headline current info section #}}
+                   <h2 class="font-normal md:w-2/3 text-head-accordion mb-frame">{{ headline }}</h2>
+                      
+                  {{# accordion group wrapper #}}
+                  <div class="relative flex flex-col text-light">
+                      {{ accordion_items }}
+                          {{# single accordion item #}}
+                          <button
+                              type="button" 
+                              class="max-w-prose lg:max-w-[80ch] relative flex flex-col overflow-hidden text-left transition bg-opacity-0 border-y-2 group hover:bg-opacity-5 py-6 px-1 -mb-[2px] {{ color | ensure_left('bg-') }}"
+                              x-data="accordion_states" 
+                              @click="handleClick()" 
+                              :aria-expanded="open ? 'true' : 'false'"
+                              aria-controls="accordion-panel-{{ index }}"
+                          >
+              
+                              {{# wrapper title and icon #}}
+                              <div class="relative flex items-center justify-between w-full gap-frame-1/4">
+                                  
+                                  {{# title #}}
+                                  <h4 class="font-mono font-bold transition origin-left text-subhead-accordion" 
+                                      :class="open ? 'scale-75 md:scale-50' : ''">
+                                      {{ title }}
+                                  </h4>
+              
+                                  {{# icon #}}
+                                  <div :class="open ? 'rotate-90' : ''" data-icon="arrup" class="h-[1.25em] duration-150 group-hover:rotate-90 aspect-square bg-current"></div>
+                              </div>
+                              
+               
+                              {{# accordion content #}}
+                              <div class="relative transition-all duration-1000" 
+                                  :class="open ? 'opacity-100 max-h-200 {{ color | ensure_left('text-') }}' : 'opacity-0 max-h-0'"
+                                  :aria-hidden="open ? 'false' : 'true'" 
+                                  aria-labelledby="accordion-header-{{ index }}"
+                                  id="accordion-panel-{{ index }}"
+                              >
+                                  
+                                  <p data-type="accordion_no_obs" class="h-full text-lead-1 max-w-none">{{ description }}</p>
+                              </div>
+                          </button>
+
+                      {{ /accordion_items }}
+                  </div>
+              </div>
+          </div>
+      {{ /info_sections }}
+  </div>
+</div>

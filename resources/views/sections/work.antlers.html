@@ -1,0 +1,32 @@
+{{#
+    @name Work slider
+    @desc Showcase videos work
+#}} 
+ 
+ 
+{{# work section #}}
+<div data-trigger="work" class="relative w-screen h-screen-3">
+        
+  {{# bg #}}
+  <div class="absolute inset-0">
+      <img class="sticky top-0 object-cover w-full h-screen opacity-50 mix-blend-lighten" src="http://tyfte.test/images/mockuptest.jpg" alt="">
+  </div>
+
+  {{# ui elements #}}
+  <div class="absolute inset-0 top-80">
+      <div class="sticky top-0 z-10 flex flex-col justify-end w-screen h-screen">
+      
+          <div class="relative z-10 p-frame border-1 border-red">
+              <h1 class="relative">Das ist ne headline</h1>
+              <p class="relative">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum laborum, architecto delectus ullam omnis recusandae, sed a doloremque aut unde cupiditate animi odio, facilis odit maxime nostrum nesciunt numquam eveniet?</p>
+      
+              {{# progress bar #}}
+              <div class="relative w-1/2">
+                  <div data-trigger="pb-work" class="h-0.5 bg-light w-full scale-x-0 absolute origin-left"></div>
+                  <div class="h-0.5 bg-light/20 w-full"></div>
+              </div>
+          </div>
+      
+      </div>
+  </div>
+</div>

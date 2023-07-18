@@ -1,0 +1,48 @@
+{{# hero section #}}
+<div data-trigger="hero" class="relative w-screen max-lg:pt-[50vh] h-screen-2">
+        
+  {{# header with headline and tags #}}
+  <div data-trigger="hero-content" class="absolute top-0 z-10 flex flex-col justify-end h-screen gap-4 p-frame">
+      {{# tag wrapper #}}
+      {{ partial:components/tags class="flex" }}
+          {{ partial:components/tag text="The yellow from the egg" url="/" class="bg-green" }}
+          {{ partial:components/tag text="The last team you need" url="/" class="bg-green" }}
+      {{ /partial:components/tags }}
+      
+      {{# Headline #}}
+      <h1 class="text-left">
+          Studio for artisan<br class="max-md:hidden">
+          <span class="font-mono text-green">digital design</span> from<br class="max-md:hidden">
+          Berlin with {{ partial:components/button cssid="love" class="relative inline-flex top-[-.2em] text-green hover:text-light" label="love" icon="hearth" big="true" }}
+      </h1>
+  </div>
+
+  {{# sticky container #}}
+  <div class="sticky top-0 left-0 w-screen h-screen">
+      
+      {{# cta wrapper #}}
+      <div data-trigger="hero-cta" class="absolute z-10 grid gap-3 p-8 selection:bg-green grid-cols-min justify-items-start right-frame bottom-frame bg-yellow text-dark">
+          <p class="mb-0">Want to see <span class="font-bold">some work</span> of us?</p>
+          {{ partial:components/button class="mb-4 text-dark hover:text-purple" type="underline" label="Our Work" icon="arrdown" }}
+          
+          <p class="mb-0">Or <span class="font-bold">get in touch</span> with us, and start a new project!</p>
+          {{ partial:components/button class="text-yellow hover:text-yellow-dark" type="solid" label="Start Project" icon="hearth-filled" }}
+      </div>
+  </div>
+  
+  {{# bg video and gradient animation #}}
+  <div data-trigger="hero-bgwrap" class="fixed top-0 w-full h-screen z-behind mix-blend-lighten after:bg-hero-grad after:w-full after:h-screen after:absolute after:z-20 after:inset-0">
+      
+      {{# video wrapper #}}
+      <video data-dashjs-player
+          id="hero-video"
+          class="absolute z-10 object-cover w-full h-full mix-blend-lighten"
+          width="100%" height="100%"
+          muted playsinline loop autoplay
+          src="{{video}}">
+      </video>
+      
+      {{# gradient animation #}}
+      <div data-trigger="hero-bg" class="absolute inset-0 w-full h-full"></div>
+  </div>
+</div>
