@@ -14,6 +14,7 @@ import './components/swiper';
 
 import './components/scroller_sections';
 import './components/scroller_info';
+import './components/swiper';
 
 // Alpine x-data extends
 import * as alpine from './components/alpine_data';
