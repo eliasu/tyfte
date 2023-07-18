@@ -13,6 +13,7 @@ import initLoveCounter from './components/love_counter';
 
 import './components/scroller_sections';
 import './components/scroller_info';
+import './components/swiper';
 
 // Alpine x-data extends
 import * as alpine from './components/alpine_data';

@@ -1,63 +1,8 @@
 /* If you don't want to use the JS in CSS syntax from `tailwind.config.site.js` you can add your own custom CSS here. Use different layers to make sure your CSS either get's purged or not: https://tailwindcss.com/docs/functions-and-directives#layer. CSS in the base layer won't get purged. */
 
 @layer base {
-   html {
-      scroll-behavior: smooth;
-   }
-
-   @font-face {
-      font-family: 'Space Grotesk';
-      src: url('/public/fonts/SpaceGrotesk-Medium.woff2') format('woff2'),
-         url('/public/fonts/SpaceGrotesk-Medium.woff') format('woff');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-}
-
-   @font-face {
-         font-family: 'Space Grotesk';
-         src: url('/public/fonts/SpaceGrotesk-Regular.woff2') format('woff2'),
-            url('/public/fonts/SpaceGrotesk-Regular.woff') format('woff');
-         font-weight: normal;
-         font-style: normal;
-         font-display: swap;
-   }
-
-   @font-face {
-         font-family: 'Space Grotesk';
-         src: url('/public/fonts/SpaceGrotesk-Bold.woff2') format('woff2'),
-            url('/public/fonts/SpaceGrotesk-Bold.woff') format('woff');
-         font-weight: bold;
-         font-style: normal;
-         font-display: swap;
-   }
-
-   @font-face {
-      font-family: 'Space Mono';
-      src: url('/public/fonts/SpaceMono-Regular.woff2') format('woff2'),
-         url('/public/fonts/SpaceMono-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-   }
-
-   @font-face {
-      font-family: 'Space Mono';
-      src: url('/public/fonts/SpaceMono-Bold.woff2') format('woff2'),
-         url('/public/fonts/SpaceMono-Bold.woff') format('woff');
-      font-weight: bold;
-      font-style: normal;
-      font-display: swap;
-   }
-
-   /* give all interactive elements a focus-visible style */
-   a, button, input {
-      @apply focus:outline-none focus-visible:ring focus-visible:ring-yellow/75 motion-safe:transition;
-   }
-   
-   /* Hide scrollbar */
-   body::-webkit-scrollbar {
-      display: none;
+    html {
+        scroll-behavior: smooth;
     }
 
    [data-dotgrid] {
@@ -67,46 +12,63 @@
 }
 
 @layer components {
-   /* fx 2 conic gradients */
-   [data-fxgradient] {
-      @apply transition-all;
-      background: conic-gradient(from var(--angle) at 50% 50%, #8E63E2 0deg, rgba(193, 117, 253, 0) 360deg);
-      /* background: conic-gradient(from var(--angle) at 50% 50%, #4D4D4D 0deg, rgba(77, 77, 77, 0) 360deg); */
-   }
-
-   [data-fxgradient-a0] {--angle: 0deg; }
-   [data-fxgradient-a1] {--angle: 45deg;}
-   [data-fxgradient-a2] {--angle: 90deg;}
-   [data-fxgradient-a3] {--angle: 135deg;}
-   [data-fxgradient-a4] {--angle: 180deg;}
-   [data-fxgradient-a5] {--angle: 225deg;}
-   [data-fxgradient-a6] {--angle: 270deg;}
-   [data-fxgradient-a7] {--angle: 315deg;}
    
-   /* preloader styles */
-   #preloader-lottie {
-      animation: pulse 2s infinite;
-   }
-   
-   @keyframes pulse {
-      0% {transform: scale(1); }
-      50% {transform: scale(0.95);}
-      100% {transform: scale(1);}
-   }
+    /* fx 2 conic gradients */
+    [data-fxgradient] {
+        @apply transition-all;
+        background: conic-gradient(
+            from var(--angle) at 50% 50%,
+            #8e63e2 0deg,
+            rgba(193, 117, 253, 0) 360deg
+        );
+        /* background: conic-gradient(from var(--angle) at 50% 50%, #4D4D4D 0deg, rgba(77, 77, 77, 0) 360deg); */
+    }
 
-   #preloader.fin {
-      @apply opacity-0 scale-[2];
-   }
+    [data-fxgradient-a0] {
+        --angle: 0deg;
+    }
+    [data-fxgradient-a1] {
+        --angle: 45deg;
+    }
+    [data-fxgradient-a2] {
+        --angle: 90deg;
+    }
+    [data-fxgradient-a3] {
+        --angle: 135deg;
+    }
+    [data-fxgradient-a4] {
+        --angle: 180deg;
+    }
+    [data-fxgradient-a5] {
+        --angle: 225deg;
+    }
+    [data-fxgradient-a6] {
+        --angle: 270deg;
+    }
+    [data-fxgradient-a7] {
+        --angle: 315deg;
+    }
 
-   #mobileNav > a::after {
-      @apply transition duration-500 translate-x-12 block absolute bottom-[.1em] -left-[.1em] w-[calc(100%+.2em)] z-0 mix-blend-multiply h-[.2em];
-      content: "";  
-   }
+    /* preloader styles */
+    #preloader-lottie {
+        animation: pulse 2s infinite;
+    }
 
-   #mobileNav > a:hover::after {
-      @apply translate-x-0 translate-y-0;
-   }
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(0.95);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
 
+    #preloader.fin {
+        @apply opacity-0 scale-[2];
+    }
 
    /* button animation (the rainbow effect on the icons & the border line animation */
    /* rainbow effect on icon */
@@ -175,86 +137,101 @@
       to { filter: hue-rotate(1turn); }
    }
 
-   /* this class get added if pressed on the love button */
-   .loveEmphasis {
-      @apply scale-[2.5] px-4;
-      animation: colorchange linear 1500ms infinite;
-      background-image: conic-gradient(
-         #0ACF83,
-         #FFC32A,
-         #0ACF83
-      );
-   }
+    /* this class get added if pressed on the love button */
+    .loveEmphasis {
+        @apply scale-[2.5] px-4;
+        animation: colorchange linear 1500ms infinite;
+        background-image: conic-gradient(#0acf83, #ffc32a, #0acf83);
+    }
 
 
-   /* bg dot grid */
-   #dotgrid {
-      background-size: calc(var(--frame)*2) calc(var(--frame)*2);
-      background-position: calc(var(--frame)*2 - calc(var(--frame)*2*2) )  calc(var(--frame)*2 - calc(var(--frame)*2*2) );
-      background-image: radial-gradient(circle, theme('colors.light.soft') 1px, rgba(0, 0, 0, 0) 1px);
-   
-   }
-   @media (min-width: 480px) { 
-      #dotgrid {
-         background-size: var(--frame) var(--frame);
-         background-position: calc(var(--frame) - calc(var(--frame)/2) ) calc(var(--frame) - calc(var(--frame)/2) ) ;
-      }
-   }
-   
-   @media (min-width: 1024px) { 
-      #dotgrid {
-         background-size: calc(var(--frame)/2) calc(var(--frame)/2);
-         background-position: calc(var(--frame)/2 - calc(var(--frame)/2/2) )  calc(var(--frame)/2 - calc(var(--frame)/2/2) );
-      }
-   }
+    /* bg dot grid */
+    #dotgrid {
+        background-size: calc(var(--frame) * 2) calc(var(--frame) * 2);
+        background-position: calc(var(--frame) * 2 - calc(var(--frame) * 2 * 2))
+            calc(var(--frame) * 2 - calc(var(--frame) * 2 * 2));
+        background-image: radial-gradient(
+            circle,
+            theme("colors.light.soft") 1px,
+            rgba(0, 0, 0, 0) 1px
+        );
+    }
+    @media (min-width: 480px) {
+        #dotgrid {
+            background-size: var(--frame) var(--frame);
+            background-position: calc(var(--frame) - calc(var(--frame) / 2))
+                calc(var(--frame) - calc(var(--frame) / 2));
+        }
+    }
 
-   #dotgridBig {
-      background-size: calc(var(--frame)*2) calc(var(--frame)*2);
-      background-position: calc(var(--frame)*2 - calc(var(--frame)*2*2) )  calc(var(--frame)*2 - calc(var(--frame)*2*2) );
-      background-image: radial-gradient(circle, rgba(255,255,255,.35) 1px, rgba(0, 0, 0, 0) 2.5px);
-      mask-image: radial-gradient(circle at var(--bgx) var(--bgy), rgba(0,0,0,1) 0px, rgba(0, 0, 0, 0) var(--bgsize));
-   } 
+    @media (min-width: 1024px) {
+        #dotgrid {
+            background-size: calc(var(--frame) / 2) calc(var(--frame) / 2);
+            background-position: calc(
+                    var(--frame) / 2 - calc(var(--frame) / 2 / 2)
+                )
+                calc(var(--frame) / 2 - calc(var(--frame) / 2 / 2));
+        }
+    }
 
-   @media (min-width: 480px) { 
-      #dotgridBig {
-         background-size: var(--frame) var(--frame);
-         background-position: calc(var(--frame) - calc(var(--frame)/2) ) calc(var(--frame) - calc(var(--frame)/2) ) ;
-      } 
-   }
-   
-   @media (min-width: 1024px) { 
-      #dotgridBig {
-         background-size: calc(var(--frame)/2) calc(var(--frame)/2);
-         background-position: calc( var(--frame)/2 - calc(var(--frame)/2/2) )  calc( var(--frame)/2 - calc(var(--frame)/2/2) );
-      }
-   }
+    #dotgridBig {
+        background-size: calc(var(--frame) * 2) calc(var(--frame) * 2);
+        background-position: calc(var(--frame) * 2 - calc(var(--frame) * 2 * 2))
+            calc(var(--frame) * 2 - calc(var(--frame) * 2 * 2));
+        background-image: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.35) 1px,
+            rgba(0, 0, 0, 0) 2.5px
+        );
+        mask-image: radial-gradient(
+            circle at var(--bgx) var(--bgy),
+            rgba(0, 0, 0, 1) 0px,
+            rgba(0, 0, 0, 0) var(--bgsize)
+        );
+    }
 
+    @media (min-width: 480px) {
+        #dotgridBig {
+            background-size: var(--frame) var(--frame);
+            background-position: calc(var(--frame) - calc(var(--frame) / 2))
+                calc(var(--frame) - calc(var(--frame) / 2));
+        }
+    }
 
+    @media (min-width: 1024px) {
+        #dotgridBig {
+            background-size: calc(var(--frame) / 2) calc(var(--frame) / 2);
+            background-position: calc(
+                    var(--frame) / 2 - calc(var(--frame) / 2 / 2)
+                )
+                calc(var(--frame) / 2 - calc(var(--frame) / 2 / 2));
+        }
+    }
 
-   /* home link to egg */
-   path.eggMask.eggYellow { 
-      filter: drop-shadow(10px 8px 15px rgba(0, 0, 0, 0.5)) drop-shadow(-3px -3px 5px rgba(230, 206, 133, 0.18));
-   }
-
+    /* home link to egg */
+    path.eggMask.eggYellow {
+        filter: drop-shadow(10px 8px 15px rgba(0, 0, 0, 0.5))
+            drop-shadow(-3px -3px 5px rgba(230, 206, 133, 0.18));
+    }
 }
 
 @layer utilities {
-   :root {
-      --mask-size: 8rem;
-      --frame: clamp(1rem, calc(1rem + ((1vw - 0.3rem) * 5.3333)), 5rem);
-      --bgx: 0px;
-      --bgy: 0px;
-      --bgsize: 400px;
-      
-      /* angles for FX2 */
-      --angle: 0deg;
-      --a0: 0deg;
-      --a1: 45deg;
-      --a2: 90deg;
-      --a3: 135deg;
-      --a4: 180deg;
-      --a5: 225deg;
-      --a6: 270deg;
-      --a7: 315deg;
+    :root {
+        --mask-size: 8rem;
+        --frame: clamp(1rem, calc(1rem + ((1vw - 0.3rem) * 5.3333)), 5rem);
+        --bgx: 0px;
+        --bgy: 0px;
+        --bgsize: 400px;
+
+        /* angles for FX2 */
+        --angle: 0deg;
+        --a0: 0deg;
+        --a1: 45deg;
+        --a2: 90deg;
+        --a3: 135deg;
+        --a4: 180deg;
+        --a5: 225deg;
+        --a6: 270deg;
+        --a7: 315deg;
     }
 }

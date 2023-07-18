@@ -1,0 +1,32 @@
+
+<section class="h-screen snap-start">
+    <!-- Swiper -->
+    <div class="w-full h-full swiper text-red mySwiper">
+        <div class="swiper-wrapper">
+            {{ collection:work}}
+              <div class="swiper-slide">
+                  {{# slide {{index}}  #}}
+                    {{ video }}
+                      <div class="perspective">
+                        <video data-dashjs-player
+                            class="object-cover w-full h-full" 
+                            width="100%" height="100%" 
+                            muted playsinline loop
+                            src="{{url}}">
+                        </video>
+                    </div>
+                  {{ /video }}
+              </div>
+            {{ /collection:work}}
+        </div>
+        <div class="swiper-pagination"></div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        {{#
+        <div class="swiper-scrollbar"></div>
+        #}}
+    </div>
+</section>
