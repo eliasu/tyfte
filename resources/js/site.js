@@ -10,6 +10,7 @@ import initPreloader from './components/preloader';
 import initTyfteLogo from './components/tyfte_logo';
 import initDotgrid from './components/dotgrid';
 import initLoveCounter from './components/love_counter';
+import './components/swiper';
 
 import './components/scroller_sections';
 import './components/scroller_info';
