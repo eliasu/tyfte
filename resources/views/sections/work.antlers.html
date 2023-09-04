@@ -5,11 +5,12 @@
  
  
 {{# work section #}}
-<div data-trigger="work" class="relative w-screen h-screen-3 bg-dark">
+<div data-trigger="work" class="relative w-screen h-screen-3 bg-dark snap-start">
         
-  <section class="h-screen snap-start">
+  <section class="sticky top-0 h-screen">
+   
     <!-- Swiper -->
-    <div class="w-full h-full swiper text-red mySwiper">
+    <div class="w-full h-full swiper mySwiper">
         <div class="swiper-wrapper">
             {{ collection:work}}
             {{ worktitle = title }}
@@ -24,7 +25,7 @@
                             src="{{url}}">
                         </video>
                         {{# title & animation mask #}}
-                        <div class="absolute inset-0 bottom-0 z-50 bg-clip-text mix-blend-screen [-webkit-text-fill-color:_transparent] items-end flex p-10"
+                        <div class="absolute inset-0 bottom-0 z-50 bg-clip-text mix-blend-screen [-webkit-text-fill-color:_transparent] items-end flex p-frame"
                         style="
                         background-image: radial-gradient(
                             111.8% 116.18% at 73.68% 92.39%,
@@ -44,6 +45,7 @@
                 </article>
             {{ /collection:work}}
         </div>
+
         <div class="swiper-pagination"></div>
         <!-- If we need navigation buttons -->
         <button class="ml-4 rounded-full swiper-button-prev">
@@ -53,10 +55,6 @@
             next
         </button>
 
-        <!-- If we need scrollbar -->
-        {{#
-        <div class="swiper-scrollbar"></div>
-        #}}
     </div>
 </section>
   
