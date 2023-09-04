@@ -24,17 +24,18 @@
                             src="{{url}}">
                         </video>
                         {{# title & animation mask #}}
-                        <div class="absolute inset-0 bottom-0 z-50">
+                        <div class="absolute inset-0 bottom-0 z-50 bg-clip-text mix-blend-screen [-webkit-text-fill-color:_transparent] items-end flex p-10"
+                        style="
+                        background-image: radial-gradient(
+                            111.8% 116.18% at 73.68% 92.39%,
+                            rgb(123, 43, 43) 0%,
+                            rgb(89, 56, 158) 100%
+                        );">
 
-                            <h2 class="text-[10rem] uppercase text-left text-[black]">
+                            <h2 class="text-[10rem] uppercase text-left ">
                                 {{worktitle}}
-                                 {{# gradient animation #}}
                             </h2>
                            
-                            <div data-trigger="hero-bg" class="absolute inset-0 w-full h-full bg-clip-text">
-                            </div>
-
-
                         </div>
                     </div>
                   {{ /video }}
