@@ -10,13 +10,15 @@ import { gsap } from "gsap";
 let testani;
 
 const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1.8,
+    slidesPerView: 1,
     loop: true,
-    spaceBetween: 60,
+    // spaceBetween: 60,
+
     // speed: 2260,
     speed: 1260,
     watchSlidesProgress: true,
     centeredSlides: true,
+    effect: "fade",
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -55,9 +57,9 @@ const swiper = new Swiper(".mySwiper", {
 
 
 swiper.on('slideChange', function () {
-  console.log('slide changed');
-  // console.log(swiper);
-  updateVideoStates();
+  // console.log('slide changed');
+  // // console.log(swiper);
+  // updateVideoStates();
 });
 
 function updateVideoStates() {
