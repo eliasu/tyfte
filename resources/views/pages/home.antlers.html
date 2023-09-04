@@ -1,19 +1,48 @@
-{{#
-    @name Home
-    @desc The home template with an outer wrapper
-#}}
+{{# @name Home @desc The home template with an outer wrapper #}}
 
 <!-- pages/home.antlers.html -->
 
 {{# scroll container #}}
 <main id="scroll-container" class="relative">
+    {{# {{ partial:sections/hero}} {{ partial:sections/info}} {{
+    partial:sections/work}} {{ partial:sections/contact}} #}}
 
-    {{ partial:sections/hero}}
-    {{ partial:sections/info}}
-    {{ partial:sections/work}}
-    {{ partial:sections/contact}}
-       
+    <div class="">
+        <div
+            style="
+                transition-timing-function: linear;
+                background-image: radial-gradient(
+                    111.8% 116.18% at 73.68% 92.39%,
+                    rgb(123, 43, 43) 0%,
+                    rgb(89, 56, 158) 100%
+                );"
+                class="bg-clip-text [-webkit-text-fill-color:_transparent]"
+        >
+        <h2 class="text-9xl">hallo</h2>
+    </div>
+    </div>
+    
+
+
+    <div class="container bg-transparent">
+        <div class="gradient-container">
+          <p class="gradient-background bg-gradient-to-r from-green via-yellow to-purple-dark  text-[black] text-9xl bg-clip-text [-webkit-text-fill-color:_transparent]">CSS Text Animation!</p>
+        </div>
+    </div>
+
+   
+
+    <div class="gradient-background bg-gradient-to-r from-green via-yellow to-purple-dark text-9xl bg-clip-text [-webkit-text-fill-color:_transparent]">
+        <h2 class="text-9xl">CSS Text Animation!</h2>
+    </div>
+
+    <div class="">
+        <div class="bg-gradient-to-r from-green via-yellow to-purple-dark text-9xl bg-clip-text [-webkit-text-fill-color:_transparent]">
+            <h2 class="text-9xl">CSS Text Animation!</h2>
+        </div>
+    </div>
+
+
+    
 </main>
 <!-- End: pages/home.antlers.html -->
-
-
