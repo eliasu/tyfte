@@ -1,0 +1,11 @@
+{{#
+    @name slider
+    @desc form element for form builder
+#}}
+
+<!-- /form/_slider.antlers.html -->
+<div id="{{ id | ensure_left('slider-') }}" class="">
+    <label class="hidden" for="{{ id }}">{{ headline }}</label>
+    <input id="{{ id }}" type="range" min="{{ from_value }}" max="{{ to_value }}" value="{{ steps }}"/>
+</div>
+<!-- End: /form/_slider.antlers.html -->

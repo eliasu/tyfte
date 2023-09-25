@@ -7,35 +7,35 @@ tabs:
           -
             handle: name
             field:
-              display: Name
+              input_type: text
+              antlers: false
               type: text
-              validate: required
-              localizable: true
-              width: 50
+              display: Name
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
           -
             handle: email
             field:
-              display: 'Email address'
+              input_type: text
+              antlers: false
               type: text
-              validate: required|email
-              localizable: true
-              width: 50
-          -
-            handle: message_body
-            field:
-              display: Message
-              type: textarea
-              validate: required
-              localizable: true
-          -
-            handle: consent
-            field:
-              inline_label: 'I agree that my submitted data is being collected and stored.'
-              default: false
-              display: Consent
-              type: toggle
-              icon: toggle
+              display: eMail
+              icon: text
               listable: hidden
               instructions_position: above
-              validate:
-                - accepted
+              visibility: visible
+              hide_display: false
+          -
+            handle: infos
+            field:
+              antlers: false
+              type: textarea
+              display: Infos
+              icon: textarea
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
