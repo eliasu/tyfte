@@ -63,7 +63,6 @@
    [data-dotgrid] {
       @apply transition-all ease-out duration-[1s];
    }
-    
 }
 
 @layer components {
@@ -234,6 +233,14 @@
    /* home link to egg */
    path.eggMask.eggYellow { 
       filter: drop-shadow(10px 8px 15px rgba(0, 0, 0, 0.5)) drop-shadow(-3px -3px 5px rgba(230, 206, 133, 0.18));
+   }
+
+   #next::after, #prev::after {
+      display: none;
+   }
+
+   .swiper-button-disabled {
+      @apply opacity-20 pointer-events-none scale-50
    }
 
 }

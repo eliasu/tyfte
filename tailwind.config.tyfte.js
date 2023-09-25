@@ -106,9 +106,11 @@ module.exports = {
       zIndex: {
         'behind': '-1',
         '100': '100',
+        '900': '900',
       },
       transitionTimingFunction: {
         'bouncy': 'cubic-bezier(.47,1.64,.41,.8)',
+        'slider': 'cubic-bezier(0.710, 0.075, 0.340, 0.835)',
       },
       backgroundImage: {
         'grain': "url('/resources/images/grain_bg.jpg')",
@@ -117,6 +119,16 @@ module.exports = {
       gridTemplateColumns: {
         // Simple 16 column grid
         'min': 'min-content',
+      },
+      maxWidth: {
+        '1/2': '50%',
+        '1/3': '33%',
+        '1/4': '25%',
+        'screen-1/2': '50vw',
+        'screen-1/3': '33vw',
+        'screen-2/3': '66vw',
+        'screen-1/4': '25vw',
+        'screen-3/4': '75vw',
       },
     },
   },

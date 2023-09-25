@@ -1,0 +1,77 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: website_address
+            field:
+              type: link
+              display: 'Website Address'
+              icon: link
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: project_video
+            field:
+              max_files: 1
+              mode: list
+              container: files
+              folder: videos
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Project Video'
+              icon: assets
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: color_field
+            field:
+              swatches:
+                - '#E46A62'
+                - '#0ACF83'
+                - '#FFC32A'
+                - '#C175FD'
+              allow_any: true
+              type: color
+              display: 'Color Field'
+              icon: color
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - projects
+              max_items: 1
+              listable: false
+              localizable: true
+title: Project

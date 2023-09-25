@@ -2,7 +2,7 @@
 id: 5cdd6ecf-9b27-4877-aa49-e86b20916f12
 blueprint: home
 title: Home
-video: 'work videos/Hero/tyfte_work_hero.mpd'
+video: videos/hero/tyfte_work_hero.mpd
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1687995892
+updated_at: 1695590814
 info_sections:
   -
     id: ljgd1u7d
@@ -216,4 +216,7 @@ info_sections:
         enabled: true
     type: new_section
     enabled: true
+teaser: 'Inmitten des kreativen Berlin schmieden wir digitale Kunstwerke, die nicht nur beeindrucken, sondern auch begeistern. Unsere Mission: Mit Liebe zum Detail und einer Prise Kreativität gestalten wir einzigartige Websites. Jedes Projekt ist für uns eine neue Leinwand, auf der wir Ihre Vision zum Leben erwecken. Unser Berliner Studio ist die Heimat cooler Webkreationen, die Ihre Marke optimal präsentieren und Nutzer in ihren Bann ziehen.'
+follower_video:
+  - followervideo.mp4
 ---

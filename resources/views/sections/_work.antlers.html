@@ -1,0 +1,62 @@
+{{#
+    @name Section work
+    @desc a section wrapped in the main element from pages/work.antlers.html
+#}}
+
+
+<!-- sections/work.antlers.html -->
+{{ partial:layout/section class="w-full h-screen-d my-frame-3" }}
+    <div id="swiper" class="relative w-full h-full swiper">
+        
+        {{# swiper wraper #}}
+        <div class="delay-500 swiper-wrapper">
+
+            {{# projects collection #}}
+            {{ collection:projects }}
+                <div data-swipercolor="{{ color_field }}" class="flex items-center justify-center swiper-slide">
+                    
+                    {{# title #}}
+                    <div class="absolute pointer-events-none left-frame bottom-frame z-100 title-wrap mix-blend-soft-light">
+                        <h2 class="w-1/2 text-swiper-big">{{ title }}</h2>
+                    </div>
+
+                    {{# if there is a website link display it #}}
+                    {{ if website_address }}
+                        {{# project link #}}
+                        <div class="absolute flex items-center gap-2 transition translate-y-1/2 title-link group text-dark hover:text-light bottom-frame-1/2 left-frame">
+                            <a href="{{website_address}}" class="relative transition cursor-pointer group-hover:text-light text-lead-1 text-dark">{{ website_address }}</a>
+                            <div data-icon="arrup" class="h-[1em] aspect-square bg-current group-hover:text-light transition"></div>
+                        </div>
+                    {{ /if }}
+                    
+                    {{# video wrapper #}}
+                    <div class="absolute videowrap inset-x-frame inset-y-frame">
+                        {{# video wrapper #}}
+                        <video data-dashjs-player
+                            id="{{ title }}-video"
+                            class="object-cover w-full h-full"
+                            width="100%" height="100%"
+                            muted playsinline loop
+                            src="{{ project_video }}">
+                        </video>
+                    </div> 
+                </div>
+            {{ /collection:projects }}
+        </div>
+
+        
+        
+        {{# pagination wrapper #}}
+        <div class="absolute translate-y-1/2 w-96 right-frame bottom-frame-1/2 z-100 text-dark">
+            {{# where pagination gets rendered in #}}
+            <div class="cursor-pointer swiper-pagination" style="position:initial"></div>
+        </div>
+
+
+        {{# navigation buttons #}}
+        <div class="absolute transition rotate-180 -translate-x-1/2 cursor-pointer top-1/2 z-900 w-frame-1/2 h-frame-1/2 left-frame-1/2 swiper-button-disabled" id="prev"></div>
+        <div class="absolute transition translate-x-1/2 cursor-pointer top-1/2 z-900 w-frame-1/2 h-frame-1/2 right-frame-1/2" id="next"></div>
+
+    </div> 
+{{ /partial:layout/section }}
+<!-- End: sections/work.antlers.html -->

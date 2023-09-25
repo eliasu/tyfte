@@ -8,8 +8,12 @@ import lottie from 'lottie-web';
 export default function initPreloader() { 
     console.log("** init preloader from /components/background.js **")
     
+    // check if preloader exists
+    let preloader = document.getElementById('preloader-lottie');
+    if(!preloader) console.log("**** preloader disabled!"); return;
+
     const animation = lottie.loadAnimation({
-        container: document.getElementById('preloader-lottie'), // Specify the container element
+        container: preloader, // Specify the container element
         renderer: 'svg',
         loop: false,
         autoplay: true,
@@ -19,6 +23,7 @@ export default function initPreloader() {
     // fadeout the pre´loader and start the video
     animation.onComplete = function() {
         document.getElementById("hero-video").play();
+        document.getElementById("hero-bg-video").play();
         document.getElementById('preloader').classList.add("fin");
       }
 }

@@ -19,7 +19,7 @@ function addBackgroundFollower() {
 
     // If the device supports touch input replace mouse follower with random animation
     if (isTouchDevice) {
-        console.log("set background.js to touch device")
+        console.log("set dotgrid.js to touch device")
 
         function moving () {
             gsap.to(dotgridBig, {
@@ -37,7 +37,7 @@ function addBackgroundFollower() {
 
     // If the device doesn't support touch input, add an event listener for the "mousemove" event
     else {
-        console.log("set background.js to desktop")
+        console.log("set dotgrid.js to desktop")
 
         // Mouse follower
         window.addEventListener('mousemove', (e) => {
@@ -59,7 +59,7 @@ function addBackgroundFollower() {
 
 function addParallaxBackground() {
     const elements = document.querySelectorAll('[data-dotgrid]')
-    const container = document.querySelector('#scroll-container')
+    const container = document.querySelector('main')
     
     // listen for the scroll event
     window.addEventListener('scroll', () => {
