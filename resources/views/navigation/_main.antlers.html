@@ -19,7 +19,7 @@
     <span class="relative inline-block font-bold text-transparent transition-all bg-clip-text bg-light" id="loveCount">{{ love_counter:count }}</span> loves
 </div>
 
-<nav x-data="{ slideOverOpen: false }" class="relative z-50 w-auto h-auto">
+<nav x-data="{ slideOverOpen: true }" class="relative z-50 w-auto h-auto">
 
     {{# burger button #}}
     <button id="burger" class="absolute z-100 pointer-events-auto top-frame right-frame min-h-[1.5rem] flex flex-col justify-between cursor-pointer group"
@@ -71,6 +71,9 @@
                                 </div>
                                 
                                 <div class="flex flex-col gap-16">
+                                    
+                                    {{ partial:form/contact_form }}
+                                    
                                     {{# nav links #}}
                                     <div class="relative flex flex-col w-full">
                                         <a x-show="slideOverOpen" x-transition:enter.delay.500ms href="/" class="relative cursor-pointer text-head-1 text-dark">idea</a>

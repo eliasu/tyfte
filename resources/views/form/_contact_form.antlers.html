@@ -1,30 +1,23 @@
 {{#
-    @name contact modal
+    @name contact form
     @desc The sites contact modal rendered on each page.
 #}}
 
-<!-- /layout/_contact_modal.antlers.html -->
+<!-- /layout/_contact_form.antlers.html -->
 
 {{# from outer wrapper #}}
 <form 
-    id="contact-from" class="fixed inset-0 z-50 block transition-all duration-500 pointer-events-none mix-blend-lighten"
-    :class="formOpen ? 'backdrop-blur-md' : ''"
+    id="contact-from" class="block"
     aria-label="contact form" 
-    x-trap.inert.noscroll="formOpen"
-    x-cloak
-    @keyup.escape="formOpen = false"
     @submit.prevent="console.log('Submitted Form!!!')">
 
     {{# form inner wrapper #}}
-    <div class="absolute inset-0 flex flex-col items-center justify-center gap-0 transition-all duration-500 border-dark p-frame bg-light/70"
-        :class="formOpen ? 'border-frame sm:border-frame-1/2 opacity-100 pointer-events-auto' : 'border-0 opacity-0 pointer-events-none'"
-        :aria-label="formOpen ? '{{ trans:strings.form_close }}' : '{{ trans:strings.form_open }}'"
-        :aria-expanded="formOpen">
+    <div class="">
     
         {{# loop through all form slides #}}
         {{ contact_form:form_slides }}
             {{# single form slide  #}}
-            <div x-transition.duration.500ms class="absolute flex flex-col w-1/2 gap-10 p-20 bg-red/50" x-cloak x-show="formStep === {{ index + 1 }}">
+            <div x-transition.duration.500ms class="flex flex-col w-1/2 gap-10 p-20 bg-red/50" x-cloak x-show="formStep === {{ index + 1 }}">
                 
                 {{# optional slide headline #}}
                 <h2 class="text-dark">{{ headline }}</h2>
@@ -40,7 +33,7 @@
         {{ /contact_form:form_slides }}
 
         {{# form buttons #}}
-        <div class="absolute flex flex-col items-center gap-4 bottom-frame">
+        <div class="flex flex-col items-center gap-4 bottom-frame">
             
             {{# submit #}}
             {{ partial:components/button class="text-dark hover:text-purple mb-frame-1/2" label="Let's go" big="true" icon="arrup"}}
@@ -65,9 +58,8 @@
         </div>
 
         {{# close button wrapper #}}
-        <div class="absolute top-0 right-0 p-frame sm:p-frame-1/2">
+        <div class="top-0 right-0 p-frame sm:p-frame-1/2">
             {{ partial:components/button class="text-dark hover:text-light" label="close" icon="close" }}
-                x-show="formOpen"
                 x-transition:enter.delay.500ms
                 @click.prevent="formOpen = false"
             {{ /partial:components/button }}
@@ -75,4 +67,4 @@
 
     </div>
 </form>
-<!-- End: /layout/_contact_modal.antlers.html -->
+<!-- End: /layout/_contact_form.antlers.html -->
