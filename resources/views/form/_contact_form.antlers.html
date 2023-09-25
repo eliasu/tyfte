@@ -12,12 +12,12 @@
     @submit.prevent="console.log('Submitted Form!!!')">
 
     {{# form inner wrapper #}}
-    <div class="">
+    <div class="relative flex w-full h-full">
     
         {{# loop through all form slides #}}
         {{ contact_form:form_slides }}
             {{# single form slide  #}}
-            <div x-transition.duration.500ms class="flex flex-col w-1/2 gap-10 p-20 bg-red/50" x-cloak x-show="formStep === {{ index + 1 }}">
+            <div x-transition.duration.500ms class="absolute inset-0 flex flex-col w-full h-full gap-10" x-cloak x-show="formStep === {{ index + 1 }}">
                 
                 {{# optional slide headline #}}
                 <h2 class="text-dark">{{ headline }}</h2>
@@ -56,15 +56,6 @@
                 {{ /partial:components/button }}
             </div>
         </div>
-
-        {{# close button wrapper #}}
-        <div class="top-0 right-0 p-frame sm:p-frame-1/2">
-            {{ partial:components/button class="text-dark hover:text-light" label="close" icon="close" }}
-                x-transition:enter.delay.500ms
-                @click.prevent="formOpen = false"
-            {{ /partial:components/button }}
-        </div>
-
     </div>
 </form>
 <!-- End: /layout/_contact_form.antlers.html -->

@@ -19,6 +19,7 @@
         {{ big ? 'text-buttonbig' : 'text-button' }}
         {{ type == 'solid' ? 'bg-dark hover:bg-dark-neutral' : '' }}
         {{ type == 'underline' ? 'text-buttonunderline px-1 before:border-b-2 before:absolute before:bottom-0 before:w-full hover:before:scale-x-50 before:duration-500 before:transition rounded-none' : 'px-2.5' }}
+        {{ type == 'backbutton' ? 'text-buttonunderline px-1 before:transition rounded-none' : 'px-2.5' }}
         {{ class }}">
 
         {{# button text #}}
