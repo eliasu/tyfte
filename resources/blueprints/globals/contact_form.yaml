@@ -5,4 +5,17 @@ tabs:
       -
         fields:
           -
+            handle: thank_you_message
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Thank you message'
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
             import: form_builder

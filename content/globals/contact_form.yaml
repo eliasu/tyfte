@@ -1,81 +1,89 @@
 title: 'Contact Form'
 data:
+  thank_you_message: 'Thank you for your Request. We will reach out to you soon. x'
   form_slides:
     -
-      id: lj4c7ipj
+      id: ln1n15oi
+      headline: 'Whats your name?'
+      description: 'Whats your name and how can we reach you?'
       form_elements:
         -
-          id: lj4c7k6d
-          from_value: 3
-          type: slider
+          id: ln1n1e7g
+          input_type: Line
+          set_placeholder: 'Enter your Name'
+          type: input
           enabled: true
-          to_value: 500
-          steps: 500
+        -
+          id: ln1n1yi0
+          input_type: Line
+          set_placeholder: 'Enter eMail or Phone'
+          type: input
+          enabled: true
       type: new_form_slide
       enabled: true
-      headline: 'Headline fort Slide 1'
-      description: 'Can you tell us how much you plan to spend? This gives us a good starting point for our calculation.'
     -
-      id: lj4cb1p6
-      type: new_form_slide
-      enabled: true
-      headline: 'Headline fort Slide 2'
-      description: 'Can you tell us how much you plan to spend? This gives us a good starting point for our calculation.'
+      id: ln1n2hca
+      headline: 'What are you planning to do?'
+      description: 'Give us a little insight in you project.'
       form_elements:
         -
-          id: lj4db36f
+          id: ln1n2zvn
           select_type: checkbox
           items:
             -
-              id: lj4db43q
-              title: 'Abcs dsf'
+              id: ln1n33z0
+              title: 'New Website'
             -
-              id: lj4db66d
-              title: 'asgd gsadfg adfg'
+              id: ln1n34xb
+              title: 'Website Redesign'
             -
-              id: lj4db7lw
-              title: 'dsfgsfg dsfgsdg sdf'
+              id: ln1n35ex
+              title: Concept
+            -
+              id: ln1n35t9
+              title: Webdesign
+            -
+              id: ln1n366o
+              title: Consulting
           type: select
           enabled: true
         -
-          id: lj4e7o2a
-          select_type: radio
-          items:
-            -
-              id: lj4e7pfy
-              title: asd
-            -
-              id: lj4e7qbs
-              title: dfdf
-          type: select
-          enabled: true
-        -
-          id: lj4enmi8
-          select_type: dropdown
-          items:
-            -
-              id: lj4enoxf
-              title: sad
-            -
-              id: lj4enq70
-              title: asdasdsadas
-          type: select
-          enabled: true
-    -
-      id: lj4dfy3j
-      headline: 'Hier kommt ein Schritt'
-      description: 'Can you tell us how much you plan to spend? This gives us a good starting point for our calculation.'
-      form_elements:
-        -
-          id: lj4dgaao
-          text: 'Hier kommt ein kleiner Text. Hin Das ist eichtig wirklich!'
-          type: text
+          id: ln1n4sv1
+          input_type: Area
+          set_placeholder: 'Anything else to specify?'
+          type: input
           enabled: true
       type: new_form_slide
       enabled: true
     -
-      id: lj4k27b2
-      headline: 'Das ist das Ende'
-      description: 'Vielen Dank für deine Geduld. Hier werden Eier mit Köpfen gemacht!'
+      id: ln1n54mm
+      headline: Budget
+      description: 'Whats you planned budget? We need this to get an idea of the effort we can put into your product.'
+      form_elements:
+        -
+          id: ln1n5s6t
+          from_value: 1
+          to_value: 50
+          start_value: 5
+          steps: 1
+          suffix: K
+          type: slider
+          enabled: true
+      type: new_form_slide
+      enabled: true
+    -
+      id: ln1n67ei
+      headline: Deadline
+      description: 'Whats the time schedule you would like to stick to?'
+      form_elements:
+        -
+          id: ln1n7gb9
+          from_value: 1
+          to_value: 24
+          start_value: 3
+          steps: 1
+          suffix: Months
+          type: slider
+          enabled: true
       type: new_form_slide
       enabled: true

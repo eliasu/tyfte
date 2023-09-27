@@ -4,8 +4,20 @@
 #}}
 
 <!-- /form/_slider.antlers.html -->
-<div id="{{ id | ensure_left('slider-') }}" class="">
-    <label class="hidden" for="{{ id }}">{{ headline }}</label>
-    <input class="w-1/2" id="{{ id }}" type="range" min="{{ from_value }}" max="{{ to_value }}" value="{{ steps }}"/>
+{{# x-data with a map function  #}}
+<div x-data="{  slider_value: {{ start_value }}, 
+                map(value, fromLow, fromHigh, toLow, toHigh) {return  Math.round( ( (value - fromLow) / (fromHigh - fromLow) * (toHigh - toLow) + toLow ) * 100) / 100;}, }" 
+    id="{{ id | ensure_left('slider-') }}" 
+    class="relative w-full sm:w-1/2 group motion-safe:transition">
+    
+    <label class="hidden" for="{{ id }}">{{ description }}</label>
+    <div class="relative text-center transition origin-bottom -translate-x-1/2 bottom-1 text-small-2 text-dark group-hover:opacity-100 group-hover:text-yellow group-hover:scale-125" x-text="slider_value + ' {{ suffix }}'"
+    x-bind:style="  'left: calc(' + 
+                    map( slider_value , {{from_value}}, {{to_value}}, 0, 100 ) + '% + ' + 
+                    map( map( slider_value , {{from_value}}, {{to_value}}, 0, 100 ), 0, 100, 0.75, -0.75 ) + 'rem' +
+                    ')'"
+    ></div>
+    <input x-model="slider_value" class="w-full bg-dark appearance-none h-0.5 rounded-full motion-safe:transition cursor-pointer group-hover:bg-yellow" id="{{ id }}" type="range" min="{{ from_value }}" max="{{ to_value }}" value="{{ start_value }}" step="{{ steps }}"/>
 </div>
 <!-- End: /form/_slider.antlers.html -->
+

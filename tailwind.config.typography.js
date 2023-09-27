@@ -16,6 +16,12 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
+        'input': ['clamp(0.875rem, 2.5113636363636362rem + -2.556818181818182vw, 1.2rem)', {
+          letterSpacing: '0.02em',
+          lineHeight: '105%',
+          fontWeight: '700',
+        }],
+
         'swiper-big': ['calc(6.5rem + ((1vw - 0.48rem) * 9.7222))', {
           letterSpacing: '0.02em',
           lineHeight: '105%',
@@ -54,6 +60,11 @@ module.exports = {
 
         'lead-2': ['clamp(1.125rem, calc(1.125rem + ((1vw - 0.48rem) * 0.1736)), 1.25rem)', {
           lineHeight: '105%',
+        }],
+
+        'small-2': ['0.75rem', {
+          lineHeight: '100%',
+          letterSpacing: '0em',
         }],
 
         'small-1': ['0.625rem', {

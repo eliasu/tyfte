@@ -30,13 +30,14 @@ fields:
                     instructions_position: above
                     visibility: visible
                     hide_display: false
+                    replicator_preview: true
                 -
                   handle: from_value
                   field:
                     type: integer
                     display: 'From Value'
                     icon: integer
-                    width: 33
+                    width: 50
                     listable: hidden
                     instructions_position: above
                     visibility: visible
@@ -47,10 +48,22 @@ fields:
                     type: integer
                     display: 'To Value'
                     icon: integer
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: start_value
+                  field:
+                    type: integer
+                    display: 'Start Value'
+                    icon: integer
                     width: 33
                     listable: hidden
                     instructions_position: above
                     visibility: visible
+                    replicator_preview: true
                     hide_display: false
                 -
                   handle: steps
@@ -63,6 +76,20 @@ fields:
                     instructions_position: above
                     visibility: visible
                     hide_display: false
+                -
+                  handle: suffix
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: Suffix
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                    width: 33
             select:
               display: Select
               instructions: 'Add a checkbox, radiobutton or dropdown'
@@ -128,6 +155,40 @@ fields:
                     instructions_position: above
                     visibility: visible
                     hide_display: false
+            input:
+              display: Input
+              instructions: 'Set a textbox or a tetarea'
+              icon: form-text-field
+              fields:
+                -
+                  handle: input_type
+                  field:
+                    options:
+                      Line: line
+                      Area: area
+                    inline: false
+                    cast_booleans: false
+                    type: radio
+                    display: 'Input Type'
+                    icon: radio
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                -
+                  handle: set_placeholder
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: 'Set Placeholder'
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
       type: replicator
       display: 'Form Elements'
       icon: replicator
@@ -135,3 +196,4 @@ fields:
       instructions_position: above
       visibility: visible
       hide_display: false
+      replicator_preview: true

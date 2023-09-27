@@ -10,7 +10,7 @@
     {{ svg:tyfte_logo class="w-full h-full" aria-hidden="true" }}
     {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[27px] lg:-top-[23px] pointer-events-none" aria-hidden="true" }}
 </a>
-<div class="fixed inset-0 pointer-events-none mix-blend-color-burn z-900">
+<div class="fixed inset-0 z-50 pointer-events-none mix-blend-color-burn">
     <div id="mouseFollower" class="absolute overflow-hidden -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 w-96 h-96 bg-purple-dark"></div>
 </div>
 
@@ -19,7 +19,7 @@
     <span class="relative inline-block font-bold text-transparent transition-all bg-clip-text bg-light" id="loveCount">{{ love_counter:count }}</span> loves
 </div>
 
-<nav x-data="{ slideOverOpen: true, formStep: 1 }" class="relative z-50 w-auto h-auto">
+<nav x-data="{ formStep: 1, complete: false, }" class="relative z-50 w-auto h-auto">
 
     {{# burger button #}}
     <button id="burger" class="absolute z-100 pointer-events-auto top-frame right-frame min-h-[1.5rem] flex flex-col justify-between cursor-pointer group"
@@ -51,26 +51,25 @@
                             x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" 
                             x-transition:leave-start="translate-x-0" 
                             x-transition:leave-end="translate-x-full" 
-                            class="w-screen max-w-full md:max-w-screen-3/4 lg:max-w-screen-2/3 xl:max-w-screen-1/2">
+                            class="w-screen max-w-full md:max-w-screen-3/4 lg:max-w-screen-sm xl:max-w-screen-sm">
                             
                             {{# wrapper navigation elements  #}}
-                            <div class="flex flex-col justify-between w-full h-full overflow-hidden shadow-lg p-frame-1/2 bg-red">
+                            <div class="flex flex-col justify-between w-full h-full overflow-hidden shadow-lg p-frame-1/2 bg-light">
                                 
                                 {{# headline and close button #}}
                                 <div class="flex items-center justify-end w-full xs:justify-between">
                                     {{# headline #}}
                                     <p  class="hidden mb-0 xs:block text-lead-2 text-dark" 
-                                        x-show="slideOverOpen" x-transition:enter.delay.500ms
                                         id="slide-over-title">
                                         the yellow from the egg
                                     </p>
                                     
-                                    {{ partial:components/button class="text-dark hover:text-red" label="close" icon="close" }}
-                                        x-show="slideOverOpen" x-transition:enter.delay.600ms
+                                    {{ partial:components/button class="duration-700 text-dark hover:text-red" label="close" icon="close" }}
                                         @click="slideOverOpen = false"
                                     {{ /partial:components/button }}
                                 </div>
-                                    
+                                
+                                {{# survey form #}}
                                 <form 
                                     id="contact-from" class="flex flex-col items-start justify-between h-full"
                                     aria-label="contact form" 
@@ -82,13 +81,23 @@
                                         {{# loop through all form slides #}}
                                         {{ contact_form:form_slides }}
                                             {{# single form slide  #}}
-                                            <div x-transition.duration.500ms class="absolute inset-0 flex flex-col justify-center w-full h-full gap-10" x-cloak x-show="formStep === {{ index + 1 }}">
+                                            <div
+                                                x-transition:enter="duration-700"
+                                                x-transition:enter-start="opacity-0 translate-x-1/2"
+                                                x-transition:enter-end="opacity-100 translate-x-0"
+                                                x-transition:leave="duration-400"
+                                                x-transition:leave-start="opacity-100 translate-x-0"
+                                                x-transition:leave-end="opacity-0 -translate-x-4"
+                                                 x-cloak x-show="formStep === {{ index + 1 }} && !complete"
+                                                 class="absolute inset-0 flex flex-col justify-center w-full h-full gap-6 transition ease-slider sm:gap-8">
                                                 
-                                                {{# optional slide headline #}}
-                                                <h2 class="text-dark text-lead-2">{{ headline }}</h2>
-                                                
-                                                {{# optional slide description #}}
-                                                <p class="text-dark text-lead-1">{{ description }}</p>
+                                                <div>
+                                                    {{# optional slide headline #}}
+                                                    <h2 class="mb-4 text-dark text-lead-2">{{ headline }}</h2>
+                                                    
+                                                    {{# optional slide description #}}
+                                                    <p class="text-dark text-lead-1">{{ description }}</p>
+                                                </div>
 
                                                 {{# loop through all form elements #}}
                                                 {{ form_elements }}
@@ -96,31 +105,50 @@
                                                 {{ /form_elements }}
                                             </div>
                                         {{ /contact_form:form_slides }}
+
+                                        {{# complete Message #}}
+                                        <div 
+                                            x-transition:enter="duration-700"
+                                            x-transition:enter-start="opacity-0 translate-x-1/2"
+                                            x-transition:enter-end="opacity-100 translate-x-0"
+                                            x-transition:leave="duration-400"
+                                            x-transition:leave-start="opacity-100 translate-x-0"
+                                            x-transition:leave-end="opacity-0 -translate-x-4"
+                                            x-cloak x-show="complete" class="absolute inset-0 flex flex-col justify-center w-full h-full gap-6 sm:gap-8">
+                                            {{# optional slide headline #}}
+                                            <h2 class="text-dark text-lead-2">Thank you</h2>
+                                            {{# optional slide description #}}
+                                            <p class="text-dark text-lead-1">{{ contact_form:thank_you_message }}</p>
+                                        </div>
                                     </div>
                                     
                                     {{# form buttons #}}
-                                    <div class="flex flex-col items-center gap-4 bottom-frame">
-                                            
-                                        {{# submit #}}
-                                        {{ partial:components/button class="text-dark hover:text-purple mb-frame-1/2" label="Let's go" big="true" icon="arrup"}}
-                                            x-show="formStep === {{ contact_form:form_slides | count }}"
-                                            type="submit"
-                                            x-transition:enter.delay.500ms
-                                        {{ /partial:components/button }}
+                                    <div class="relative flex justify-between w-full">
 
-                                        <div class="flex gap-4">
+                                        <div class="relative flex justify-between w-full gap-4 sm:justify-start">
                                             {{# back #}}
                                             {{ partial:components/button class="text-dark hover:text-red" type="backbutton" label="back" }}
-                                                :class="formStep != 1 ? '' : 'opacity-30 pointer-events-none' "
+                                                :class="{'opacity-30 pointer-events-none': formStep <= 1,
+                                                        'opacity-0 pointer-events-none': complete }"
                                                 @click.prevent="formStep--"
                                             {{ /partial:components/button }}
 
                                             {{# next #}}
                                             {{ partial:components/button class="text-dark hover:text-green" label="next" }}
-                                                :class="formStep != {{ contact_form:form_slides | count }} ? '' : 'opacity-30 pointer-events-none' "
+                                                :class="{'opacity-30 pointer-events-none': formStep > {{ contact_form:form_slides | count }},
+                                                        'opacity-0 pointer-events-none transition-none': formStep == {{ contact_form:form_slides | count }}  }"
+                                                x-show="!complete"
                                                 @click.prevent="formStep++"
                                             {{ /partial:components/button }}
                                         </div>
+
+                                        {{# submit #}}
+                                        {{ partial:components/button class="absolute right-0 text-dark hover:text-purple" label="Submit" icon="arrup"}}
+                                            x-show="formStep === {{ contact_form:form_slides | count }} && !complete"
+                                            @click.prevent="complete = true"
+                                            type="submit"
+                                            x-transition:enter.delay.500ms
+                                        {{ /partial:components/button }}
                                     </div>
                                 </form>
                                 

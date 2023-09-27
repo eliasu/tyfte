@@ -51,8 +51,8 @@
    }
 
    /* give all interactive elements a focus-visible style */
-   a, button, input {
-      @apply focus:outline-none focus-visible:ring focus-visible:ring-yellow/75 motion-safe:transition;
+   a, button, input, select, textarea {
+      @apply focus:!ring-yellow focus:border-dark focus:outline-none focus-visible:ring focus-visible:ring-yellow/75 motion-safe:transition;
    }
    
    /* Hide scrollbar */
@@ -228,6 +228,11 @@
       }
    }
 
+
+   /* crowd pleaser stylings */
+   input[type="range"]::-webkit-slider-thumb {
+      @apply bg-light motion-safe:transition appearance-none h-6 w-6 rounded-full cursor-pointer border-2 border-dark border-solid group-hover:border-yellow group-hover:scale-125;
+   }
 
 
    /* home link to egg */
