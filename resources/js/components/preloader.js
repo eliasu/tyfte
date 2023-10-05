@@ -6,11 +6,14 @@ import lottie from 'lottie-web';
 
 
 export default function initPreloader() { 
-    console.log("** init preloader from /components/background.js **")
+    console.log("** init preloader from /components/hero.js **")
     
     // check if preloader exists
     let preloader = document.getElementById('preloader-lottie');
-    if(!preloader) console.log("**** preloader disabled!"); return;
+    if(!preloader) {
+        console.log("**** preloader disabled!"); 
+        return;
+    }
 
     const animation = lottie.loadAnimation({
         container: preloader, // Specify the container element

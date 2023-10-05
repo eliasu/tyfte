@@ -117,8 +117,11 @@ module.exports = {
         'hero-grad' : "linear-gradient(185deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 100%)",
       },
       gridTemplateColumns: {
-        // Simple 16 column grid
         'min': 'min-content',
+        'hero': '1fr auto',
+      },
+      gridTemplateRows: {
+        'hero': 'calc(100dvh - var(--frame) * 2)',
       },
       maxWidth: {
         '1/2': '50%',

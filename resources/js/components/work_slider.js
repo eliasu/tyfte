@@ -20,10 +20,14 @@ gsap.registerPlugin(ScrollTrigger)
 
 import lottie from 'lottie-web';
 
+let fashionSlider;
+
 export default function initWorkSlider() { 
     console.log("** init work slider from /components/work_slider.js **")
 
     let bgColors = new Array();
+
+    const swiper = document.getElementById('swiper');
 
     let slideTransitionMs = 900
     // let easeCurve = 'cubic-bezier(.5,0,0,1)'
@@ -31,9 +35,16 @@ export default function initWorkSlider() {
     // time/delay
     let timeVideoWrap = [.5, 0] 
     let timeTitle = [.4, .2] 
-    let timeLink = [.6, .2] 
+    let timeLink = [.4, .2] 
     // video size
-    let sizeVideoWrap = [.8, 1] 
+    let sizeVideoWrap = [.8, 1]
+
+    // Options for the Intersection Observer
+    const options = {
+        root: null, // Use the viewport as the root
+        rootMargin: '0px', // No margin
+        threshold: 0, // Trigger when at least 50% of the video is in view
+    };
 
     // create a scrolltrigger for the swiper element
     let tl = gsap.timeline({
@@ -42,22 +53,8 @@ export default function initWorkSlider() {
             start: "top bottom", // when the top of the trigger hits the top of the viewport
             end: "bottom top", // end after scrolling 500px beyond the start
             scrub: 2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-            // markers: true,
-            onEnter: startVideo,
-            onLeave: pauseVideo,
-            onEnterBack: startVideo,
-            onLeaveBack: pauseVideo,
         }
     });   
-
-    function startVideo() {
-        // console.log(fashionSlider.slides[fashionSlider.activeIndex].querySelector("video"))
-        fashionSlider.slides[fashionSlider.activeIndex].querySelector("video").play()
-    }
-    
-    function pauseVideo() {
-        fashionSlider.slides[fashionSlider.activeIndex].querySelector("video").pause()
-    }
     
     // animate the bg video tint in and out
     tl.from("#hero-bg-video-tint", {autoAlpha: 0})
@@ -65,11 +62,11 @@ export default function initWorkSlider() {
       .to("#hero-bg-video-tint", {autoAlpha: 0})
 
     // create the projects slider
-    const fashionSlider = new Swiper('.swiper', {
+    fashionSlider = new Swiper('.swiper', {
         modules: [Navigation, Pagination, Parallax, Keyboard],
         parallax: true,
         speed: slideTransitionMs,
-        allowTouchMove: false,
+        allowTouchMove: true,
         loop: false,
         slidesPerView: 1,
         keyboard: {
@@ -101,7 +98,7 @@ export default function initWorkSlider() {
                     scale: sizeVideoWrap[0],
                     autoAlpha: .7,
                     onComplete: function(current) {
-                        fashionSlider.slides[fashionSlider.activeIndex].querySelector("video").play()
+                        playVideo(fashionSlider.slides[fashionSlider.activeIndex].querySelector("video"))
                     },
                 })
                 
@@ -119,12 +116,19 @@ export default function initWorkSlider() {
                     scale: 1,
                 });
                 
-                gsap.to(e.slides[e.activeIndex].querySelector(".title-link"), {
+                gsap.to(e.slides[e.previousIndex].querySelector(".title-link"), {
                         duration: timeLink[0],
                         ease: easeCurve,
                         translateX:"1rem",
                         autoAlpha: 0,
                 });
+
+                gsap.to(e.slides[e.activeIndex].querySelector(".title-link"), {
+                    duration: timeLink[0],
+                    ease: easeCurve,
+                    translateX:"1rem",
+                    autoAlpha: 0,
+            });
 
                 gsap.to("#hero-bg-video-tint", {
                     duration: 1,
@@ -218,6 +222,15 @@ export default function initWorkSlider() {
 
     // create Callbacks for navigation buttons
     initNavigationButtons();
+
+    // create observers for slider to play if slider is in view and window is active
+
+    // Create an Intersection Observer with the callback function and options
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+    // Start observing the video element
+    observer.observe(swiper);
+
 }
 
 // helper functions
@@ -286,4 +299,36 @@ function renderCustomBulletPoints (swiper, current, total) {
                         <p class="text-small-1 mb-0">${current}</p><p class="text-small-1 mb-0"> / </p><p class="text-small-1 mb-0">${total}</p>
                     </div>`
     return outputHtml;
+}
+
+// helper function to prevent video to be played if there is no valid source
+function playVideo(videoElem) {
+    // Check if the video element has its meta data loaded
+    if (videoElem.readyState >= videoElem.HAVE_METADATA) {
+        // Play the video
+        videoElem.play();
+    } else {
+        // The source is not ready yet, so wait for it to be loaded
+        videoElem.addEventListener('loadedmetadata', () => {
+            // console.log(`***source for ${videoElem} loaded. Now playing …`)
+            videoElem.play();
+        });
+    }
+}
+
+// Callback function to handle intersections
+function handleIntersection(entries, observer) {
+    entries.forEach((entry) => {
+        // console.log(entry.target)
+        if (entry.isIntersecting) {
+            // Video is in view, so play it if the window is active
+            if (document.visibilityState === 'visible') {
+                playVideo(fashionSlider.slides[fashionSlider.activeIndex].querySelector("video"))
+
+            }
+        } else {
+            // Video is out of view, so pause it
+            fashionSlider.slides[fashionSlider.activeIndex].querySelector("video").pause()
+        }
+    });
 }

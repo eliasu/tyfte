@@ -3,7 +3,6 @@ import collapse from '@alpinejs/collapse'
 import persist from '@alpinejs/persist'
 import focus from '@alpinejs/focus'
 import 'focus-visible'
-import MediaPlayer from 'dashjs';
 
 import initPreloader from './components/preloader';
 import initTyfteLogo from './components/tyfte_logo';
@@ -11,6 +10,10 @@ import initDotgrid from './components/dotgrid';
 import initLoveCounter from './components/love_counter';
 import initWorkSlider from './components/work_slider';
 import initMouse from './components/mouse';
+import initHero from './components/hero';
+import initHandleVisibility from './components/handleVisibility';
+
+import MediaPlayer from 'dashjs';
 
 // create sitewide Object.
 window.vla = {}
@@ -38,13 +41,15 @@ Alpine.start()
 window.addEventListener("DOMContentLoaded", (event) => {
 	console.log("Welcome to tyfte.de")
 	initPreloader();
-    initWorkSlider();
  });
 
 // if document is interactive
 document.addEventListener('readystatechange', (event) => {
 	initTyfteLogo();
 	initDotgrid();
-	// initLoveCounter();
+	initLoveCounter();
     initMouse();
+    initHero();
+    initWorkSlider();
+    initHandleVisibility();
 });

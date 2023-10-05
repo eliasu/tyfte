@@ -19,10 +19,10 @@ module.exports = {
         'input': ['clamp(0.875rem, 2.5113636363636362rem + -2.556818181818182vw, 1.2rem)', {
           letterSpacing: '0.02em',
           lineHeight: '105%',
-          fontWeight: '700',
+          fontWeight: '500',
         }],
 
-        'swiper-big': ['calc(6.5rem + ((1vw - 0.48rem) * 9.7222))', {
+        'swiper-big': ['calc(5.5rem + ((1vw - 0.48rem) * 9.7222))', {
           letterSpacing: '0.02em',
           lineHeight: '105%',
           fontWeight: '700',
