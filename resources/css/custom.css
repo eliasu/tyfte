@@ -244,6 +244,13 @@
       display: none;
    }
 
+   /* media query for touch devices */
+   @media (pointer: coarse) {
+      #next {display: none;}
+      #prev {display: none;}
+      #mouseFollower {display: none;}
+   }
+
    .swiper-button-disabled {
       @apply opacity-20 pointer-events-none scale-50
    }
