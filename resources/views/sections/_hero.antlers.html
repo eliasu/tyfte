@@ -27,7 +27,7 @@
         <div data-trigger="hero-cta" class="z-10 hidden w-64 sm:block text-dark">
             <p class="mb-4">Start you project right away and fill out or 5 minute survey.</p>
             {{ partial:components/button class="text-dark hover:text-green" type="underline" label="start survey" icon="arrdown" }}
-                @click.prevent="slideOverOpen = true"
+                @click.prevent="slideOverOpen = true, formOpen= true"
             {{ /partial:components/button }}
         </div>
         
