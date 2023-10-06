@@ -141,14 +141,14 @@
    }
    
    [data-btntype="lined"] > .btn-bg {
-      animation: stoke-out .3s cubic-bezier(0, 0, 0, 1) forwards;
+      animation: stroke-out .3s cubic-bezier(0, 0, 0, 1) forwards;
    }
 
    [data-btntype="lined"]:hover > .btn-bg {
-      animation: stoke-in 1.3s cubic-bezier(0, 0, 0, 1) forwards;
+      animation: stroke-in 1.3s cubic-bezier(0, 0, 0, 1) forwards;
    }
 
-   @keyframes stoke-in {
+   @keyframes stroke-in {
       from {
          stroke-dasharray: 10 10;
          stroke-dashoffset: 0;
@@ -159,7 +159,7 @@
       }
    }
    
-   @keyframes stoke-out {
+   @keyframes stroke-out {
       from {
          stroke-dasharray: 1.5 10;
          stroke-dashoffset: -7;

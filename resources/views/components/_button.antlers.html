@@ -10,7 +10,7 @@
 
 <!-- /components/_button.antlers.html -->
 {{ if label }}
-    <button
+    <{{ as or 'button' }}
         {{ cssid ?= "id='{cssid}'" }}
         {{ slot }}
         {{ partial:snippets/button_attributes }}
@@ -20,7 +20,7 @@
         {{ type == 'solid' ? 'bg-dark hover:bg-dark-neutral' : '' }}
         {{ type == 'underline' ? 'text-buttonunderline px-0.5 before:border-b-2 before:absolute before:bottom-0 before:inset-x-0 hover:before:scale-x-50 before:duration-500 before:transition rounded-none' : 'px-2.5' }}
         {{ type == 'backbutton' ? 'text-buttonunderline px-0.5 rounded-none' : '' }}
-        {{ type != 'text-buttonbig' && type != 'solid' && type != 'underline' && type != 'backbutton' ? 'px-2.5' : 'lala' }}
+        {{ type != 'text-buttonbig' && type != 'solid' && type != 'underline' && type != 'backbutton' ? 'px-2.5' : '' }}
         {{ class }}">
 
         {{# button text #}}
@@ -33,6 +33,6 @@
         
         {{# svg outline for lined button #}}
         {{ !type ?= {{ svg:bg class="absolute inset-0 w-full h-full transition duration-500 pointer-events-none btn-bg" aria-hidden="true" }} }}
-    </button>
+    </{{ as or 'button' }}>
 {{ /if }}
 <!-- End: /components/_button.antlers.html -->
