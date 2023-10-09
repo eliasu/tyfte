@@ -24,11 +24,8 @@
                 </button>
                 
                 {{# inner accordion #}}
-                <div x-show="activeAccordion==id" x-collapse x-cloak>
-                    <div class="">
-                        {{ text }}
-                    </div>
-                
+                <div x-show="activeAccordion==id" x-collapse x-cloak class="text-lead-1 max-w-none">
+                    {{ text }}
                 </div>
             </div>
         {{ /collection:faqs }}
