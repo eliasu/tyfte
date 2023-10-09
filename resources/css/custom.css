@@ -58,7 +58,7 @@
    /* Hide scrollbar */
    body::-webkit-scrollbar {
       display: none;
-    }
+   }
 
    [data-dotgrid] {
       @apply transition-all ease-out duration-[1s];
@@ -66,22 +66,6 @@
 }
 
 @layer components {
-   /* fx 2 conic gradients */
-   [data-fxgradient] {
-      @apply transition-all;
-      background: conic-gradient(from var(--angle) at 50% 50%, #8E63E2 0deg, rgba(193, 117, 253, 0) 360deg);
-      /* background: conic-gradient(from var(--angle) at 50% 50%, #4D4D4D 0deg, rgba(77, 77, 77, 0) 360deg); */
-   }
-
-   [data-fxgradient-a0] {--angle: 0deg; }
-   [data-fxgradient-a1] {--angle: 45deg;}
-   [data-fxgradient-a2] {--angle: 90deg;}
-   [data-fxgradient-a3] {--angle: 135deg;}
-   [data-fxgradient-a4] {--angle: 180deg;}
-   [data-fxgradient-a5] {--angle: 225deg;}
-   [data-fxgradient-a6] {--angle: 270deg;}
-   [data-fxgradient-a7] {--angle: 315deg;}
-   
    /* preloader styles */
    #preloader-lottie {
       animation: pulse 2s infinite;
@@ -95,15 +79,6 @@
 
    #preloader.fin {
       @apply opacity-0 scale-[2];
-   }
-
-   #mobileNav > a::after {
-      @apply transition duration-500 translate-x-12 block absolute bottom-[.1em] -left-[.1em] w-[calc(100%+.2em)] z-0 mix-blend-multiply h-[.2em];
-      content: "";  
-   }
-
-   #mobileNav > a:hover::after {
-      @apply translate-x-0 translate-y-0;
    }
 
 
@@ -134,6 +109,7 @@
    [data-icon="hearth"] { mask-image: url(/resources/svg/hearth.svg); }
    [data-icon="hearth-filled"] { mask-image: url(/resources/svg/hearth-filled.svg); }
    [data-icon="close"] { mask-image: url(/resources/svg/close.svg); }
+   [data-icon="email"] { mask-image: url(/resources/svg/email.svg); }
 
    svg {
       /* for outline svg */
@@ -240,17 +216,6 @@
       filter: drop-shadow(10px 8px 15px rgba(0, 0, 0, 0.5)) drop-shadow(-3px -3px 5px rgba(230, 206, 133, 0.18));
    }
 
-   #next::after, #prev::after {
-      display: none;
-   }
-
-   /* media query for touch devices */
-   @media (pointer: coarse) {
-      #next {display: none;}
-      #prev {display: none;}
-      #mouseFollower {display: none;}
-   }
-
    .swiper-button-disabled {
       @apply opacity-20 pointer-events-none scale-50
    }
@@ -264,16 +229,5 @@
       --bgx: 0px;
       --bgy: 0px;
       --bgsize: 400px;
-      
-      /* angles for FX2 */
-      --angle: 0deg;
-      --a0: 0deg;
-      --a1: 45deg;
-      --a2: 90deg;
-      --a3: 135deg;
-      --a4: 180deg;
-      --a5: 225deg;
-      --a6: 270deg;
-      --a7: 315deg;
-    }
+   }
 }

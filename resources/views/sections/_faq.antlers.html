@@ -1,0 +1,38 @@
+{{#
+    @name Section faq
+    @desc a section wrapped in the main element from pages/faq.antlers.html
+#}}
+
+<!-- sections/faq.antlers.html -->
+{{ partial:layout/section  class="flex-col items-start justify-center min-h-screen gap-8 px-frame py-frame-5 sm:p-frame-3" }}
+    {{# acordion wrapper #}}
+    <div x-data="{ 
+        activeAccordion: '', 
+        setActiveAccordion(id) { 
+            this.activeAccordion = (this.activeAccordion == id) ? '' : id 
+        } 
+    }" class="relative w-full mx-auto max-w-[48ch] overflow-hidden divide-y-2 text-red mix-blend-color-burn divide-red text-lead-0 border-y-2 border-purdivide-red"
+    >
+
+        {{ collection:faqs sort="order" }}
+            <div @click="setActiveAccordion(id)" x-data="{ id: $id('accordion') }" class="relative p-4 transition-all cursor-pointer hover:bg-red/5 group" :class="{ '': activeAccordion==id }">
+                
+                {{# botton/headline accordion #}}
+                <button class="flex items-center justify-between w-full gap-4 text-left origin-left select-none xs:gap-8 text-lead-1 max-w-none">
+                    <span class="transition origin-left" :class="{ 'scale-75': activeAccordion==id }">{{ title }}</span>
+                    <span class="transition" :class="{ '-rotate-90': activeAccordion==id }">{{ svg src="arrdown" class="" aria-hidden="true" }}</span>
+                </button>
+                
+                {{# inner accordion #}}
+                <div x-show="activeAccordion==id" x-collapse x-cloak>
+                    <div class="">
+                        {{ text }}
+                    </div>
+                
+                </div>
+            </div>
+        {{ /collection:faqs }}
+
+    </div>
+{{ /partial:layout/section }}
+<!-- End: sections/faq.antlers.html -->

@@ -39,3 +39,4 @@ tabs:
               instructions_position: above
               visibility: visible
               hide_display: false
+              replicator_preview: true

@@ -37,7 +37,7 @@ export default function initWorkSlider() {
     let timeTitle = [.4, .2] 
     let timeLink = [.4, .2] 
     // video size
-    let sizeVideoWrap = [.8, 1]
+    let sizeVideoWrap = [.87, 1]
 
     // Options for the Intersection Observer
     const options = {

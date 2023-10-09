@@ -1,6 +1,6 @@
 title: 'Contact Form'
 data:
-  thank_you_message: 'Thank you for your Request. We will reach out to you soon. x'
+  thank_you_message: 'Thank you for your Request. We will reach out to you soon.'
   form_slides:
     -
       id: ln1n15oi

@@ -4,8 +4,25 @@
 #}}
 
 <!-- sections/contact.antlers.html -->
-{{ partial:layout/section class="flex flex-col justify-center min-h-screen py-32 p-frame sm:p-frame-3" }}
-    <h2 class="text-lead-0 max-w-[42ch] text-purple mix-blend-color-burn">{{ teaser }}</h2>
-    {{ partial:layout/footer }}
+{{ partial:layout/section class="flex flex-col justify-center min-h-screen p-frame-3" }}
+    {{# 2 column grid contact #}}
+    <div id="contactSection" class="relative grid sm:grid-cols-2">
+        
+        {{# buttons and CTAs #}}
+        <div class="flex flex-col items-center sm:items-start xl:max-w-[44ch] 2xl:max-w-[64ch] col-start-2 gap-4 mix-blend-color-burn">
+            <h1 class="mb-12 text-head-1 text-purple">Drop us a line or fill out our survey.</h1>
+            
+            {{# survey  #}}
+            {{ partial:components/button class="text-purple hover:text-dark" label="start survey" icon="arrup" }}
+            @click.prevent="slideOverOpen = true, formOpen = true, formStep = 1"
+            {{ /partial:components/button }}
+            
+            {{# write an email  #}}
+            {{ partial:components/button class="text-purple hover:text-dark" as="a" link_type="email" email="hello@tyfte.de" label="write mail" icon="email" }}
+
+        </div>
+        {{# style element #}}
+        {{ svg src="abstract" class="absolute top-0 left-0 -translate-x-1/2 pointer-events-none mix-blend-soft-light" aria-hidden="true" }}
+    </div>
 {{ /partial:layout/section }}
 <!-- End: sections/contact.antlers.html -->

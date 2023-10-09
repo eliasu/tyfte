@@ -14,9 +14,13 @@ import initHero from './components/hero';
 import initHandleVisibility from './components/handleVisibility';
 
 import MediaPlayer from 'dashjs';
+// import gsap from "gsap";
+// import Textify from "textify.js";
 
 // create sitewide Object.
 window.vla = {}
+
+// new Textify({}, gsap); 
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {

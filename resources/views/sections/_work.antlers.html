@@ -6,7 +6,7 @@
 
 <!-- sections/work.antlers.html -->
 {{ partial:layout/section class="w-full h-screen-d" }}
-    
+
     <!-- swiper Outer Wrapper -->
     <div id="swiper" class="relative w-full h-full swiper">
         
@@ -19,7 +19,6 @@
                 
                 <!-- single slide -->
                 <div data-swipercolor="{{ color_field }}" class="swiper-slide p-frame">
-                    
                     {{# video wrapper #}}
                     <div class="w-full h-[calc(100%-var(--frame)*4)] sm:h-[calc(100%-var(--frame)*2)] mb-frame sm:mb-0 md:h-[calc(100%-var(--frame)*1)] lg:h-[calc(100%-var(--frame)*.5)] xl:h-full videowrap">
                         
@@ -34,7 +33,7 @@
                     </div> 
                     
                     {{# title #}}
-                    <div class="absolute pointer-events-none left-frame bottom-frame-3 sm:bottom-frame z-100 title-wrap mix-blend-soft-light">
+                    <div class="absolute pointer-events-none left-frame bottom-frame-6 sm:bottom-frame-4 md:bottom-frame-2 lg:bottom-frame-1.5 xl:bottom-frame z-100 title-wrap mix-blend-soft-light">
                         <h2 class="w-1/2 text-swiper-big">{{ title }}</h2>
                     </div>
 
@@ -62,8 +61,8 @@
 
         <!-- navigation -->
         {{# navigation buttons #}}
-        <div class="absolute hidden transition rotate-180 -translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 left-frame-1/2 swiper-button-disabled" id="prev"></div>
-        <div class="absolute hidden transition translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 right-frame-1/2" id="next"></div>
+        <div class="absolute hidden transition rotate-180 -translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 left-frame-1/2 swiper-button-disabled touch:hidden after:hidden" id="prev"></div>
+        <div class="absolute hidden transition translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 right-frame-1/2 touch:hidden after:hidden" id="next"></div>
 
     </div> 
 {{ /partial:layout/section }}
