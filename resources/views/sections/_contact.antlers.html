@@ -4,9 +4,9 @@
 #}}
 
 <!-- sections/contact.antlers.html -->
-{{ partial:layout/section class="flex flex-col justify-center min-h-screen p-frame-3" }}
+{{ partial:layout/section anchor="contact" class="flex flex-col justify-center min-h-screen p-frame-3" }}
     {{# 2 column grid contact #}}
-    <div id="contactSection" class="relative grid sm:grid-cols-2">
+    <div class="relative grid sm:grid-cols-2">
         
         {{# buttons and CTAs #}}
         <div class="flex flex-col items-center sm:items-start xl:max-w-[44ch] 2xl:max-w-[64ch] col-start-2 gap-4 mix-blend-color-burn">
@@ -14,7 +14,7 @@
             
             {{# survey  #}}
             {{ partial:components/button class="text-purple hover:text-dark" label="start survey" icon="arrup" }}
-            @click.prevent="slideOverOpen = true, formOpen = true, formStep = 1"
+                @click.prevent="slideOverOpen = true, formOpen = true, formStep = 1"
             {{ /partial:components/button }}
             
             {{# write an email  #}}

@@ -46,7 +46,7 @@ module.exports = {
           fontWeight: '500',
         }],
 
-        'lead-0': ['clamp(1.875rem, calc(1.875rem + ((1vw - 0.48rem) * 0.5208)), 2rem)', {
+        'lead-0': ['clamp(1.75rem, 1.6rem + 0.75vw, 2.5rem)', {
           lineHeight: '150%',
           letterSpacing: '0.015em',
           fontWeight: '500',

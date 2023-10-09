@@ -6,6 +6,21 @@
 <!-- sections/info.antlers.html -->
 {{ partial:layout/section class="flex-col justify-center min-h-screen gap-6 py-32 items-left p-frame sm:p-frame-3" }}
     {{# <p class="opacity-75 text-lead-2 text-light">Unsere Selbstverständnis</p> #}}
-    <h2 class="text-lead-0 max-w-[42ch] text-purple mix-blend-color-burn">{{ teaser }}</h2>
+    <h2 class="text-lead-0 max-w-[42ch] text-purple mix-blend-color-burn">
+        Inmitten des kreativen
+        
+        {{ partial:components/button as="a" class="inline-flex text-purple hover:text-green" label="Berlin" }}
+                @click.prevent="slideOverOpen = true, formOpen = true, formStep = 1"
+        {{ /partial:components/button }}
+        
+        schmieden wir digitale Kunstwerke, die nicht nur beeindrucken, sondern auch begeistern. Unsere Mission: Mit Liebe zum Detail und einer Prise 
+        
+        {{ partial:components/button as="a" class="inline-flex text-purple hover:text-green" label="Kreativität" }}
+                @click.prevent="slideOverOpen = true, formOpen = true, formStep = 1"
+        {{ /partial:components/button }}
+        
+        gestalten wir einzigartige Websites. Jedes Projekt ist für uns eine neue Leinwand, auf der wir Ihre Vision zum Leben erwecken. Unser Berliner Studio ist die Heimat cooler Webkreationen, die Ihre Marke optimal präsentieren und Nutzer in ihren Bann ziehen.
+        </h2>
+        {{# {{ teaser }} #}}
 {{ /partial:layout/section }}
 <!-- End: sections/info.antlers.html -->
