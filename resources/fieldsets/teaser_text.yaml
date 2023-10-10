@@ -1,0 +1,44 @@
+title: 'Teaser Text'
+fields:
+  -
+    handle: teaser
+    field:
+      smart_typography: false
+      save_html: false
+      inline: false
+      toolbar_mode: fixed
+      reading_time: false
+      word_count: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      remove_empty_nodes: false
+      antlers: false
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      sets:
+        tooltips:
+          display: Tooltips
+          instructions: null
+          icon: alert-warning-exclamation-mark
+          sets:
+            tooltip:
+              display: Tooltip
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: tooltip
+      always_show_set_button: false
+      collapse: true
+      previews: true
+      type: bard
+      display: Teaser
+      icon: bard
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false

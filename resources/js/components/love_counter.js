@@ -23,6 +23,10 @@ export default function initLoveCounter() {
     }
 
     
+    if(!loveBtn) {
+        console.log("**** love button disabled!"); 
+        return;
+    }
 
     loveBtn.addEventListener("click", function() {
         

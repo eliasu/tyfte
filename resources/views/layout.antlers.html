@@ -11,6 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         {{ vite src="resources/css/site.css|resources/js/site.js" }}
+        {{ yield:scripts }}
         {{ partial:statamic-peak-seo::snippets/seo }}
         {{ partial:statamic-peak-browser-appearance::snippets/browser_appearance }}
         {{ partial:statamic-peak-tools::snippets/live_preview }}
@@ -22,7 +23,7 @@
         {{ partial:statamic-peak-tools::components/toolbar }}
         {{ yield:seo_body }}
 
-        {{# {{ partial:layout/preloader }} #}}
+        {{ partial:layout/preloader }}
         {{ partial:navigation/main }}
         {{ template_content }}
         {{ partial:layout/background }}

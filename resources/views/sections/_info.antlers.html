@@ -5,22 +5,71 @@
 
 <!-- sections/info.antlers.html -->
 {{ partial:layout/section class="flex-col justify-center min-h-screen gap-6 py-32 items-left p-frame sm:p-frame-3" }}
-    {{# <p class="opacity-75 text-lead-2 text-light">Unsere Selbstverständnis</p> #}}
-    <h2 class="text-lead-0 max-w-[42ch] text-purple mix-blend-color-burn">
-        Inmitten des kreativen
-        
-        {{ partial:components/button as="a" class="inline-flex text-purple hover:text-green" label="Berlin" }}
-                @click.prevent="slideOverOpen = true, formOpen = true, formStep = 1"
-        {{ /partial:components/button }}
-        
-        schmieden wir digitale Kunstwerke, die nicht nur beeindrucken, sondern auch begeistern. Unsere Mission: Mit Liebe zum Detail und einer Prise 
-        
-        {{ partial:components/button as="a" class="inline-flex text-purple hover:text-green" label="Kreativität" }}
-                @click.prevent="slideOverOpen = true, formOpen = true, formStep = 1"
-        {{ /partial:components/button }}
-        
-        gestalten wir einzigartige Websites. Jedes Projekt ist für uns eine neue Leinwand, auf der wir Ihre Vision zum Leben erwecken. Unser Berliner Studio ist die Heimat cooler Webkreationen, die Ihre Marke optimal präsentieren und Nutzer in ihren Bann ziehen.
-        </h2>
-        {{# {{ teaser }} #}}
+   
+   {{# wrapper for teaser text with modal #}}
+   <div  x-data="{ modalOpen: false, headline:'headline x-data', text:'text …'  }"
+         @keydown.escape.window="modalOpen = false"
+         class="relative w-auto h-auto">
+
+      {{# teaser h2 info text #}}
+      <h2 class="text-lead-0 max-w-[42ch] text-purple mix-blend-color-burn">
+         
+         {{# get the teaser data #}}
+         {{ teaser }}
+
+            {{# if its text #}}
+            {{ if type == "text" }}
+               
+               {{# strip the p tag, because its wrapped in a h2 #}}
+               {{ text | strip_tags }} 
+            
+            {{# if its a tooltip button set #}}
+            {{ elseif type == "tooltip" }}
+               
+               {{# add the buttons for the modal #}}
+               {{ partial:components/button type='' as="a" class="inline-flex text-purple hover:text-green" label="{headline}" }}
+                  @click.prevent="modalOpen=true, headline='{{headline}}', text='{{text}}' "
+               {{ /partial:components/button }}
+            {{ /if }}
+         {{ /teaser }}
+      </h2>
+
+      {{# modal #}}
+      <template x-teleport="body">
+         
+         {{# fixed modal container #}}
+         <div x-show="modalOpen" class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen p-frame" x-cloak>
+            
+            {{# modal background #}}
+            <div x-show="modalOpen"
+               x-transition:enter="ease-out duration-300"
+               x-transition:enter-start="opacity-0"
+               x-transition:enter-end="opacity-100"
+               x-transition:leave="ease-in duration-300"
+               x-transition:leave-start="opacity-100"
+               x-transition:leave-end="opacity-0"
+               @click="modalOpen=false" class="absolute inset-0 w-full h-full bg-opacity-50 bg-dark backdrop-blur-sm"></div>
+            
+            {{# modal #}}
+            <div x-show="modalOpen"
+               x-trap.inert.noscroll="modalOpen"
+               x-transition:enter="ease-out duration-300"
+               x-transition:enter-start="opacity-0 scale-90"
+               x-transition:enter-end="opacity-100 scale-100"
+               x-transition:leave="ease-in duration-200"
+               x-transition:leave-start="opacity-100 scale-100"
+               x-transition:leave-end="opacity-0 scale-90"
+               class="relative w-full p-8 rounded bg-light/90 sm:max-w-lg">
+               <div class="flex items-center justify-between">
+                  <div x-text="headline" class="font-bold text-lead-1 text-dark">sdf</div>
+                  {{ partial:components/button class="duration-700 text-dark hover:text-red" label="close" icon="close" }}
+                     @click="modalOpen=false"
+                  {{ /partial:components/button }}
+               </div>
+               <p class="mt-8 mb-0 text-modal text-dark" x-text="text">This is placeholder text. Replace it with your own content.</p>
+            </div>
+         </div>
+      </template>
+   </div>
 {{ /partial:layout/section }}
 <!-- End: sections/info.antlers.html -->

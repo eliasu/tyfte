@@ -20,4 +20,31 @@ export default function initMouse() {
             ease: 'sine.out'
         })
     })
+
+    const shrinkLinks = document.querySelectorAll('[data-mouse-shrink]');
+        shrinkLinks.forEach(link => {
+            link.addEventListener('mouseenter', shrinkMouseFollower );
+            link.addEventListener('mouseleave', resetMouseFollower );
+    });
+
+    function shrinkMouseFollower() {
+        gsap.to("#mouseFollower", {
+            scale: .2,
+            duration: .5,
+            ease: 'cubic-bezier(.34,.11,.43,.99)',
+            // borderWidth: "10px", // Animate the border width
+            backgroundColor: "rgb(228 106 98)",
+        })
+    }
+    
+    function resetMouseFollower() {
+        gsap.to("#mouseFollower", {
+            scale: 1,
+            duration: .5,
+            ease: 'cubic-bezier(.34,.11,.43,.99)',
+            // borderWidth: "0px", // Animate the border width
+            backgroundColor: 'rgb(142 99 226)',
+        })
+    }
+
 }

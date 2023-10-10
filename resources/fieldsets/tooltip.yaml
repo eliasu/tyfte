@@ -1,0 +1,27 @@
+title: Tooltip
+fields:
+  -
+    handle: headline
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: headline
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: text
+    field:
+      antlers: false
+      type: textarea
+      display: text
+      icon: textarea
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false

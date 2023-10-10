@@ -26,17 +26,13 @@ export default function initWorkSlider() {
     console.log("** init work slider from /components/work_slider.js **")
 
     let bgColors = new Array();
-
     const swiper = document.getElementById('swiper');
 
     let slideTransitionMs = 900
-    // let easeCurve = 'cubic-bezier(.5,0,0,1)'
     let easeCurve = 'cubic-bezier(.34,.11,.43,.99)'
-    // time/delay
     let timeVideoWrap = [.5, 0] 
     let timeTitle = [.4, .2] 
     let timeLink = [.4, .2] 
-    // video size
     let sizeVideoWrap = [.87, 1]
 
     // Options for the Intersection Observer
@@ -173,7 +169,7 @@ export default function initWorkSlider() {
 
                 document.querySelectorAll(".title-link").forEach(function (elem, index) {
                     
-                    elem.addEventListener('mouseover', el => {
+                    elem.addEventListener('mouseenter', el => {
 
                         gsap.to(".videowrap", {
                             duration: timeVideoWrap[0],
@@ -190,7 +186,7 @@ export default function initWorkSlider() {
                         })
                     });
 
-                    elem.addEventListener('mouseout', el => {
+                    elem.addEventListener('mouseleave', el => {
                         
                         gsap.to(elem.previousElementSibling, {
                             duration: timeTitle[0],

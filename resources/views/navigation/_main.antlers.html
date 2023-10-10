@@ -11,7 +11,7 @@
     {{ svg:tyfte_logo_main id="logoBigger" class="absolute -left-5 -top-[27px] lg:-top-[23px] pointer-events-none" aria-hidden="true" }}
 </a>
 <div class="fixed inset-0 z-50 pointer-events-none mix-blend-color-burn">
-    <div id="mouseFollower" class="absolute overflow-hidden -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 touch:hidden w-96 h-96 bg-purple-dark"></div>
+    <div id="mouseFollower" class="absolute overflow-hidden -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 border-purple-dark touch:hidden w-96 h-96 bg-purple-dark"></div>
 </div>
 
 {{# Thank you message right top #}}
@@ -22,7 +22,7 @@
 <nav x-data="{ complete: false, }" class="relative z-50 w-auto h-auto">
 
     {{# burger button #}}
-    <button id="burger" class="absolute z-100 pointer-events-auto top-frame right-frame min-h-[1.5rem] flex flex-col justify-between cursor-pointer group"
+    <button data-mouse-shrink id="burger" class="absolute z-100 pointer-events-auto top-frame right-frame min-h-[1.5rem] flex flex-col justify-between cursor-pointer group"
             @click="slideOverOpen = true; formOpen = false, formStep = 1, complete = false"
             :aria-label="slideOverOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
             :aria-expanded="slideOverOpen">
@@ -81,8 +81,8 @@
                                     x-cloak 
                                     >
                                     <div class="flex flex-col gap-frame-1/2 md:gap-2">
-                                        <a href="#work" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Work</a>
-                                        <a href="#faq" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Questions</a>
+                                        <a href="/#work" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Work</a>
+                                        <a href="/#faq" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Questions</a>
                                         <a href="#contact" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Contact</a>
                                     </div>
                                     

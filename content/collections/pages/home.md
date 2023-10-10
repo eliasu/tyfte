@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1695590814
+updated_at: 1696951145
 info_sections:
   -
     id: ljgd1u7d
@@ -216,7 +216,51 @@ info_sections:
         enabled: true
     type: new_section
     enabled: true
-teaser: 'Inmitten des kreativen Berlin schmieden wir digitale Kunstwerke, die nicht nur beeindrucken, sondern auch begeistern. Unsere Mission: Mit Liebe zum Detail und einer Prise Kreativität gestalten wir einzigartige Websites. Jedes Projekt ist für uns eine neue Leinwand, auf der wir Ihre Vision zum Leben erwecken. Unser Berliner Studio ist die Heimat cooler Webkreationen, die Ihre Marke optimal präsentieren und Nutzer in ihren Bann ziehen.'
+teaser:
+  -
+    type: paragraph
+    attrs:
+      class: null
+    content:
+      -
+        type: text
+        text: 'Inmitten des kreativen'
+  -
+    type: set
+    attrs:
+      id: lnkecs75
+      values:
+        type: tooltip
+        headline: Berlin
+        text: 'turient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
+  -
+    type: paragraph
+    attrs:
+      class: null
+    content:
+      -
+        type: text
+        text: 'schmieden wir digitale Kunstwerke, die nicht nur beeindrucken, sondern auch begeistern. Unsere Mission: Mit Liebe zum Detail und einer Prise Kreativität gestalten wir einzigartige Websites. Jedes Projekt ist für uns eine neue Leinwand, auf der wir Ihre  '
+  -
+    type: set
+    attrs:
+      id: lnkeujd7
+      values:
+        type: tooltip
+        headline: Vision
+        text: 'Unser Vision ist es, geilen Scheiss zu machen!'
+  -
+    type: paragraph
+    attrs:
+      class: null
+    content:
+      -
+        type: text
+        text: 'zum Leben erwecken. Unser Berliner Studio ist die Heimat cooler Webkreationen, die Ihre Marke optimal präsentieren und Nutzer in ihren Bann ziehen.'
+  -
+    type: paragraph
+    attrs:
+      class: null
 follower_video:
   - followervideo.mp4
 ---

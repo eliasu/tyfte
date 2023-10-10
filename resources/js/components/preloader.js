@@ -25,9 +25,11 @@ export default function initPreloader() {
 
     // fadeout the pre´loader and start the video
     animation.onComplete = function() {
-        document.getElementById("hero-video").play();
-        document.getElementById("hero-bg-video").play();
         document.getElementById('preloader').classList.add("fin");
+        document.getElementById("hero-bg-video").play();
+        
+        let heroVideo = document.getElementById("hero-video");
+        if(heroVideo) heroVideo.play();
       }
 }
 

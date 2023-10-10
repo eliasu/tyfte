@@ -73,6 +73,12 @@ module.exports = {
           fontWeight: '700',
         }],
 
+        'modal': ['clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem);', {
+          lineHeight: '150%',
+          letterSpacing: '0.015em',
+          fontWeight: '500',
+        }],
+
         'tag': ['0.75rem', {
           lineHeight: '100%',
           letterSpacing: '0.095em',
@@ -118,7 +124,7 @@ module.exports = {
         },
         
         '.prose p': {
-          marginBottom: 'theme(spacing.8)',
+          marginBottom: 'theme(spacing.2)',
         },
         
         '.text-lead-1': {
@@ -141,23 +147,43 @@ module.exports = {
         },
 
         '.prose h1': {
-          marginBottom: 'theme(spacing.8)',
+          marginBottom: 'theme(spacing.16)',
         },
         
         h2: {
-          fontSize: 'clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 0.5208)), 1.875rem)',
+          fontSize: 'clamp(1.75rem, 1.6rem + 0.75vw, 2.5rem)',
+          lineHeight: '150%',
           letterSpacing: '0.015em',
-          lineHeight: '95%',
-          fontWeight: '700',
+          fontWeight: '500',
+        },
+
+        '.prose h2': {
+          marginBottom: 'theme(spacing.8)',
+          marginTop: 'theme(spacing.8)',
         },
         
         h3: {
+          fontSize: 'clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 0.5208)), 1.875rem)',
+          lineHeight: '150%',
+          letterSpacing: '0.015em',
+          fontWeight: '500',
+        },
+
+        '.prose h3': {
+          marginBottom: 'theme(spacing.8)',
+          marginTop: 'theme(spacing.8)',
+        },
+
+        h4: {
           fontSize: 'clamp(1.125rem, calc(1.125rem + ((1vw - 0.48rem) * 0.1736)), 1.25rem)',
-          letterSpacing: '0.095em',
-          lineHeight: '130%',
-          fontWeight: '700',
-          fontFamily: theme('fontFamily.mono'),
-          color: theme("colors.yellow.DEFAULT"),
+          lineHeight: '150%',
+          letterSpacing: '0.015em',
+          fontWeight: '500',
+        },
+
+        '.prose h4': {
+          marginBottom: 'theme(spacing.4)',
+          marginTop: 'theme(spacing.4)',
         },
 
         // '@screen lg': {

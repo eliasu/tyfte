@@ -4,9 +4,9 @@
 #}}
 
 <!-- sections/contact.antlers.html -->
-{{ partial:layout/section anchor="contact" class="flex flex-col justify-center min-h-screen p-frame-3" }}
+{{ partial:layout/section anchor="contact" class="relative flex flex-col items-center justify-center min-h-screen overflow-hidden p-frame-3" }}
     {{# 2 column grid contact #}}
-    <div class="relative grid sm:grid-cols-2">
+    <div class="grid sm:grid-cols-2 max-xs:mb-32">
         
         {{# buttons and CTAs #}}
         <div class="flex flex-col items-center sm:items-start xl:max-w-[44ch] 2xl:max-w-[64ch] col-start-2 gap-4 mix-blend-color-burn">
@@ -22,7 +22,10 @@
 
         </div>
         {{# style element #}}
-        {{ svg src="abstract" class="absolute top-0 left-0 -translate-x-1/2 pointer-events-none mix-blend-soft-light" aria-hidden="true" }}
+        {{# {{ svg id="contactBg" src="abstract" class="absolute top-0 left-0 -translate-x-1/2 pointer-events-none mix-blend-soft-light" aria-hidden="true" }} #}}
+        <img id="contactBg" src="/images/abstract-bg.png" class="absolute left-0 pointer-events-none top-1/4 -translate-x-1/4 mix-blend-soft-light" aria-hidden="true" alt="">
     </div>
+    
+    {{ partial:layout/footer }}
 {{ /partial:layout/section }}
 <!-- End: sections/contact.antlers.html -->

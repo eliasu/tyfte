@@ -5,10 +5,12 @@
 
 
 <!-- sections/work.antlers.html -->
-{{ partial:layout/section anchor="work" class="w-full h-screen-d" }}
+{{ partial:layout/section anchor="work" class="flex flex-col w-full gap-frame py-frame" }}
+
+    <h2 class="w-full text-center text-head-1 text-purple mix-blend-color-burn">What we do</h2>
 
     <!-- swiper Outer Wrapper -->
-    <div id="swiper" class="relative w-full h-full swiper">
+    <div id="swiper" class="relative w-full swiper h-screen-d">
         
         <!-- swiper Wrapper -->
         {{# swiper wrapper #}}
@@ -41,7 +43,7 @@
                     {{ if website_address }}
                         {{# project link #}}
                         <div class="relative flex items-center gap-2 pb-1 leading-none cursor-pointer sm:top-frame-1/3 md:top-frame-1/2 lg:top-frame-1/4 xl:top-0 w-fit h-frame title-link group text-dark hover:text-light">
-                            <a href="{{website_address}}" class="relative transition duration-300 group-hover:text-light text-lead-1 text-dark">{{ website_address }}</a>
+                            <a data-mouse-shrink href="{{website_address}}" class="relative transition duration-300 group-hover:text-light text-lead-1 text-dark">{{ website_address }}</a>
                             <div data-icon="arrup" class="h-[1em] aspect-square bg-current group-hover:text-light transition duration-300"></div>
                         </div>
                     {{ /if }}
@@ -61,8 +63,8 @@
 
         <!-- navigation -->
         {{# navigation buttons #}}
-        <div class="absolute hidden transition rotate-180 -translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 left-frame-1/2 swiper-button-disabled touch:hidden after:hidden" id="prev"></div>
-        <div class="absolute hidden transition translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 right-frame-1/2 touch:hidden after:hidden" id="next"></div>
+        <div data-mouse-shrink class="absolute hidden transition rotate-180 -translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 left-frame-1/2 swiper-button-disabled touch:hidden after:hidden" id="prev"></div>
+        <div data-mouse-shrink class="absolute hidden transition translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 right-frame-1/2 touch:hidden after:hidden" id="next"></div>
 
     </div> 
 {{ /partial:layout/section }}

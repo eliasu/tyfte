@@ -4,8 +4,8 @@
 #}}
 
 <!-- sections/hero.antlers.html -->
-{{ partial:layout/section  class="" }}
-    <div data-trigger="hero" class="relative grid items-end w-screen gap-frame-3 sm:gap-4 grid-rows-hero sm:grid-cols-hero p-frame sm:h-screen-d">
+{{ partial:layout/section }}
+    <div class="relative grid items-end w-screen gap-frame-3 sm:gap-4 grid-rows-hero sm:grid-cols-hero p-frame sm:h-screen-d">
             
         {{# header with headline and tags #}}
         <div class="z-10 flex flex-col justify-end gap-4">
@@ -19,12 +19,14 @@
             <h1 class="text-left text-dark">
                 Studio for artisan<br class="max-md:hidden">
                 <span class="font-mono text-yellow">digital design</span> from<br class="max-md:hidden">
-                Berlin with {{ partial:components/button cssid="love" class="relative inline-flex top-[-.2em] text-yellow hover:text-light" label="love" icon="hearth" big="true" }}
+                Berlin with 
+                {{# love counter button #}}
+                {{ partial:components/button cssid="love" class="relative inline-flex top-[-.2em] text-yellow hover:text-light" label="love" icon="hearth" big="true" }}
             </h1>
         </div>
 
         {{# cta wrapper #}}
-        <div data-trigger="hero-cta" class="z-10 hidden w-64 sm:block text-dark">
+        <div class="z-10 hidden w-64 sm:block text-dark">
             <p class="mb-4">Start you project right away and fill out or 5 minute survey.</p>
             {{ partial:components/button class="text-dark hover:text-green" type="underline" label="start survey" icon="arrdown" }}
                 @click.prevent="slideOverOpen = true, formOpen= true"
@@ -32,7 +34,7 @@
         </div>
         
         {{# bg video and gradient animation #}}
-        <div data-trigger="hero-bgwrap" class="absolute top-0 w-full h-full z-behind mix-blend-lighten">
+        <div class="absolute top-0 w-full h-full z-behind mix-blend-lighten">
             
             {{# video wrapper #}}
             <video data-dashjs-player

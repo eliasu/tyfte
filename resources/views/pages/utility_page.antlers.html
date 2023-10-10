@@ -2,18 +2,19 @@
     @name Home
     @desc The home template with an outer wrapper
 #}}
+{{#
+    @name Home
+    @desc The home template with an outer wrapper
+#}}
 
 {{ section:scripts }}
-    {{ vite src="resources/js/home.js" }}
+    {{ vite src="resources/js/utility_page.js" }}
 {{ /section:scripts }}
+
 
 <!-- pages/home.antlers.html -->
 <main class="relative overflow-hidden">
-    {{ partial:sections/hero }}
-    {{ partial:sections/info }}
-    {{ partial:sections/work }}
-    {{ partial:sections/faq }}
-    {{ partial:sections/contact }}
+    {{ partial:sections/utility }}
 </main>
 <!-- End: pages/home.antlers.html -->
 
