@@ -16,7 +16,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        'input': ['clamp(0.875rem, 2.5113636363636362rem + -2.556818181818182vw, 1.2rem)', {
+        'input': ['1.2rem', {
           letterSpacing: '0.02em',
           lineHeight: '105%',
           fontWeight: '500',
