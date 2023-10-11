@@ -9,10 +9,10 @@ tabs:
             field:
               antlers: false
               type: textarea
-              display: Infos
+              display: infos
               icon: textarea
               listable: hidden
               instructions_position: above
               visibility: visible
-              hide_display: false
               replicator_preview: true
+              hide_display: false

@@ -10,7 +10,7 @@
     <div class="flex flex-col gap-4">
         {{ items }}
             <div class="flex items-center gap-3">
-                <input class="w-10 h-10 border-2 sm:w-6 sm:h-6 border-dark text-dark" type="checkbox" id="{{ title }}" name="{{ title }}" value="{{ title }}">
+                <input class="w-10 h-10 border-2 sm:w-6 sm:h-6 border-dark text-dark" type="checkbox" id="{{ title }}" name="{{ description }}" value="{{ title }}">
                 <label class="text-dark text-input" for="{{ title }}">{{ title }}</label>
             </div>    
         {{ /items }}
@@ -22,14 +22,14 @@
     <div class="flex flex-col gap-3">
         {{ items }}
             <div class="flex items-center gap-3">
-                <input class="w-10 h-10 border-2 sm:w-6 sm:h-6 border-dark text-dark" type="radio" id="{{ title }}" name="{{ headline }}" value="{{ title }}">
+                <input class="w-10 h-10 border-2 sm:w-6 sm:h-6 border-dark text-dark" type="radio" id="{{ title }}" name="{{ description }}" value="{{ title }}">
                 <label class="text-dark text-input" for="{{ title }}">{{ title }}</label>
             </div>    
         {{ /items }}
     </div>
 
 {{ elseif select_type == 'dropdown' }}
-    <select name="{{ headline }}" id="{{ id }}" class="border-2 text-dark border-dark text-input">
+    <select name="{{ description }}" id="{{ id }}" class="border-2 text-dark border-dark text-input">
         {{ items }}
             <option class="text-input" value="{{ title | lower }}">{{ title }}</option>
         {{ /items }}

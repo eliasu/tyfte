@@ -21,7 +21,6 @@ fields:
                   handle: description
                   field:
                     input_type: text
-                    placeholder: 'optional: description'
                     antlers: false
                     type: text
                     display: Description
@@ -113,6 +112,20 @@ fields:
                     hide_display: false
                     width: 33
                 -
+                  handle: description
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: Description
+                    icon: text
+                    width: 66
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                -
                   handle: items
                   field:
                     fields:
@@ -145,6 +158,19 @@ fields:
               icon: null
               fields:
                 -
+                  handle: description
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: Description
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                -
                   handle: text
                   field:
                     antlers: false
@@ -171,6 +197,21 @@ fields:
                     type: radio
                     display: 'Input Type'
                     icon: radio
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                    width: 33
+                -
+                  handle: description
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: Description
+                    icon: text
+                    width: 66
                     listable: hidden
                     instructions_position: above
                     visibility: visible

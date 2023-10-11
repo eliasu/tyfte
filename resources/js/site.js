@@ -5,10 +5,11 @@ import focus from '@alpinejs/focus'
 import 'focus-visible'
 
 import initPreloader from './components/preloader';
-import initTyfteLogo from './components/tyfte_logo';
+import initTyfteLogo from './components/tyfteLogo';
 import initDotgrid from './components/dotgrid';
 import initMouse from './components/mouse';
 import initHandleVisibility from './components/handleVisibility';
+import initSurveyForm from './components/surveyForm';
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
@@ -32,6 +33,7 @@ Alpine.start()
 // if DOMContent has loaded
 window.addEventListener("DOMContentLoaded", (event) => {
 	initPreloader();
+    initSurveyForm();
  });
 
 // if document is interactive

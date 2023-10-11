@@ -30,6 +30,7 @@ export default function initLoveCounter() {
 
     loveBtn.addEventListener("click", function() {
         
+        // use axios for posting the form and define a route in routes/web.php 
         axios.post('update-number')
         .then(function(response) {
             emphasize(response);            

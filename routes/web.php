@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NumberController;
+use Illuminate\Http\Request;
+use Statamic\Facades\Form;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +21,6 @@ use App\Http\Controllers\NumberController;
 // ]);
 
 // In your web.php routes file
-// Route::post('/update-number', 'NumberController@update');
+
+// calls a update function in app/Http/Controllers/NumberController.php
 Route::post('update-number', [NumberController::class, 'update']);

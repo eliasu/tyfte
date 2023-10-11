@@ -13,12 +13,14 @@ data:
           set_placeholder: 'Enter your Name'
           type: input
           enabled: true
+          description: Name
         -
           id: ln1n1yi0
           input_type: Line
           set_placeholder: 'Enter eMail or Phone'
           type: input
           enabled: true
+          description: 'Contact Info'
       type: new_form_slide
       enabled: true
     -
@@ -47,12 +49,14 @@ data:
               title: Consulting
           type: select
           enabled: true
+          description: Topics
         -
           id: ln1n4sv1
           input_type: Area
           set_placeholder: 'Anything else to specify?'
           type: input
           enabled: true
+          description: 'Extra Infos'
       type: new_form_slide
       enabled: true
     -
@@ -69,6 +73,7 @@ data:
           suffix: K
           type: slider
           enabled: true
+          description: Budget
       type: new_form_slide
       enabled: true
     -
@@ -85,5 +90,6 @@ data:
           suffix: Months
           type: slider
           enabled: true
+          description: Deadline
       type: new_form_slide
       enabled: true

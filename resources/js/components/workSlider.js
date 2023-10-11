@@ -1,6 +1,6 @@
 /**
  * work slider component
- * import with "import { workSlider } from './work_slider'"
+ * import with "import { workSlider } from './workSlider'"
 **/
 
 // import Swiper JS
@@ -23,7 +23,7 @@ import lottie from 'lottie-web';
 let fashionSlider;
 
 export default function initWorkSlider() { 
-    console.log("** init work slider from /components/work_slider.js **")
+    console.log("** init work slider from /components/workSlider.js **")
 
     let bgColors = new Array();
     const swiper = document.getElementById('swiper');

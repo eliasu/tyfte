@@ -17,7 +17,7 @@
                     map( map( slider_value , {{from_value}}, {{to_value}}, 0, 100 ), 0, 100, 0.75, -0.75 ) + 'rem' +
                     ')'"
     ></div>
-    <input x-model="slider_value" class="w-full bg-dark appearance-none h-0.5 rounded-full motion-safe:transition cursor-pointer group-hover:bg-yellow" id="{{ id }}" type="range" min="{{ from_value }}" max="{{ to_value }}" value="{{ start_value }}" step="{{ steps }}"/>
+    <input x-model="slider_value" class="w-full bg-dark appearance-none h-0.5 rounded-full motion-safe:transition cursor-pointer group-hover:bg-yellow" id="{{ id }}" name="{{ description }}" type="range" min="{{ from_value }}" max="{{ to_value }}" value="{{ start_value }}" step="{{ steps }}"/>
 </div>
 <!-- End: /form/_slider.antlers.html -->
 

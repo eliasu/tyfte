@@ -5,8 +5,8 @@
 
 <!-- /form/_input.antlers.html -->
 {{ if input_type == 'Line' }}
-    <input type='text' class="relative border-0 border-b-2 border-dark text-dark text-input focus:border-yellow focus:!ring-0" placeholder="{{set_placeholder}}"></input>
+    <input name="{{ description }}" type='text' class="relative border-0 border-b-2 border-dark text-dark text-input focus:border-yellow focus:!ring-0" placeholder="{{set_placeholder}}"></input>
 {{ else }}
-    <textarea class="border-2 border-dark text-dark text-input focus:border-yellow focus:!ring-0" placeholder="{{set_placeholder}}"></textarea>
+    <textarea name="{{ description }}" class="border-2 border-dark text-dark text-input focus:border-yellow focus:!ring-0" placeholder="{{set_placeholder}}"></textarea>
 {{ /if }}
 <!-- End: /form/_input.antlers.html -->

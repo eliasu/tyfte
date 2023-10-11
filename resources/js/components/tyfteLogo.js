@@ -1,11 +1,11 @@
 /**
  * tyfte logo component
- * import with "import initCrowdPleaser from './components/tyfte_logo';"
+ * import with "import initCrowdPleaser from './components/tyfteLogo';"
 **/
 import { gsap } from "gsap";
 
 export default function initTfyteLogo() { 
-    console.log("** init tyfte logo from /components/tyfte_logo.js **")
+    console.log("** init tyfte logo from /components/tyfteLogo.js **")
     addBgMask();
 }
 
@@ -19,7 +19,7 @@ function addBgMask() {
 
     // If the device supports touch input replace mouse follower with random animation
     if (isTouchDevice) {
-        console.log("set tyfte_logo.js to touch device")
+        console.log("set tyfteLogo.js to touch device")
 
         // set initial state of the hover egg
         gsap.set('.eggMask', {
@@ -30,7 +30,7 @@ function addBgMask() {
 
     // If the device doesn't support touch input, add an event listener for the "mousemove" event
     else {
-        console.log("set tyfte_logo.js to desktop")
+        console.log("set tyfteLogo.js to desktop")
 
         // set initial state of the hover egg
         gsap.set('.eggMask', {

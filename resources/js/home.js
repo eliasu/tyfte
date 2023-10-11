@@ -1,5 +1,5 @@
 import initLoveCounter from './components/love_counter';
-import initWorkSlider from './components/work_slider';
+import initWorkSlider from './components/workSlider';
 import initHero from './components/hero';
 import initContact from './components/contact';
 

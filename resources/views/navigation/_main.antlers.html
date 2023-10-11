@@ -100,9 +100,9 @@
                                 </div>
 
                                 {{# survey form #}}
-                                <form 
-                                    id="contact-from" 
-                                    class="flex flex-col items-start justify-between h-full"
+                                {{ form:contact class="flex flex-col items-start justify-between h-full" 
+                                    x-show="formOpen"
+                                    id="contact-form" 
                                     aria-label="contact form"
                                     x-show="formOpen"
                                     x-transition:enter="delay-500 duration-700"
@@ -112,9 +112,11 @@
                                     x-transition:leave-start="opacity-100 translate-x-0"
                                     x-transition:leave-end="opacity-0 -translate-x-4"
                                     x-cloak 
-                                    @submit.prevent="console.log('Submitted Form!!!')">
+                                    @submit="console.log('Submitted Form!!!')" 
+                                }}
+                              
+                                    <input type="text" class="hidden" name="{{ honeypot ?? 'honeypot' }}">
                                     
-
                                     {{# form inner wrapper #}}
                                     <div class="relative w-full h-full">
                                     
@@ -166,33 +168,40 @@
                                     {{# form buttons #}}
                                     <div class="relative flex justify-between w-full">
 
+                                        {{# wrapper next/back buttons #}}
                                         <div class="relative flex justify-between w-full gap-4 sm:justify-start">
-                                            {{# back #}}
+                                            
+                                            {{# back button #}}
                                             {{ partial:components/button class="text-dark hover:text-red" type="backbutton" label="back" }}
+                                                
+                                                {{# disable back button on step 1 / hide it on thank you message  #}}
                                                 :class="{'opacity-30 pointer-events-none': formStep <= 1,
                                                         'opacity-0 pointer-events-none': complete }"
                                                 @click.prevent="formStep--"
                                             {{ /partial:components/button }}
 
-                                            {{# next #}}
+                                            {{# next button #}}
                                             {{ partial:components/button class="text-dark hover:text-green" label="next" }}
-                                                :class="{'opacity-30 pointer-events-none': formStep > {{ contact_form:form_slides | count }},
-                                                        'opacity-0 pointer-events-none transition-none': formStep == {{ contact_form:form_slides | count }}  }"
-                                                x-show="!complete"
+                                                
+                                                {{# hide next button on last step and thank you message  #}}
+                                                :class="{'opacity-0 pointer-events-none': formStep >= {{ contact_form:form_slides | count }} }"
                                                 @click.prevent="formStep++"
                                             {{ /partial:components/button }}
                                         </div>
 
-                                        {{# submit #}}
+                                        {{# submit button #}}
                                         {{ partial:components/button class="absolute right-0 text-dark hover:text-purple" label="Submit" icon="arrup"}}
+                                            
+                                            {{# show submit button only on last step and if its not completed yet #}}
                                             x-show="formStep === {{ contact_form:form_slides | count }} && !complete"
-                                            @click.prevent="complete = true"
+                                            @click="complete = true"
                                             type="submit"
                                             x-transition:enter.delay.500ms
                                         {{ /partial:components/button }}
+
+                               
                                     </div>
-                                </form>
-                                
+                                {{ /form:contact }}
                             </div>
                         </div>
                     </div>
