@@ -32,11 +32,17 @@ export default function initSurveyForm() {
         let formFields = form.querySelectorAll('input, select, textarea, [type="range"]');
         formFields.forEach(function (field) {
             
-            // exclude token and honeypot field
+            // do not add token and honeypot fields
             if (field.name !== '_token' && field.name !== 'honeypot') {
                 
-                // Prefix the value with the name of the field
-                formDataString += field.name + ': ' + field.value + '\n';
+                // Check if the field is an input or textarea and has a value
+                if ((field.tagName === 'INPUT' || field.tagName === 'TEXTAREA') && field.value.trim() !== '') {
+                    formDataString += field.name + ': ' + field.value + '\n';
+                }
+                // Check if the field is a checkbox and is checked
+                else if (field.tagName === 'INPUT' && field.type === 'checkbox' && !field.checked) {
+                    formDataString += field.name + ': ' + field.value + '\n';
+                }
             }
         });
         

@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1697147483
+updated_at: 1697148151
 info_sections:
   -
     id: ljgd1u7d
@@ -224,7 +224,23 @@ teaser:
     content:
       -
         type: text
-        text: 'We are your partners throughout the entire journey, from '
+        text: "We're crafting exceptional "
+  -
+    type: set
+    attrs:
+      id: lnnq4vut
+      values:
+        type: tooltip
+        headline: 'Online experiences'
+        text: "We're experts in crafting a wide range of online experiences. Whether it's a sleek, minimalist website, a complex and feature-rich platform, captivating animations, or interactive user interfaces, you name it, and we'll bring your digital vision to life. No project is too small or too big; we're here to make your online presence stand out."
+  -
+    type: paragraph
+    attrs:
+      class: null
+    content:
+      -
+        type: text
+        text: "that resonate with your brand's unique essence. We are your partners throughout the entire journey, from "
   -
     type: set
     attrs:
@@ -240,7 +256,7 @@ teaser:
     content:
       -
         type: text
-        text: "to completion, crafting exceptional online experiences that resonate with your brand's unique essence. Our goal is to seamlessly translate your brand identity into a captivating visual language that reflects your unique vision. But we don't stop at "
+        text: "to completion. Our goal is to seamlessly translate your brand identity into a captivating visual language that reflects your unique vision. But we don't stop at "
   -
     type: set
     attrs:
