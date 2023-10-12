@@ -28,7 +28,7 @@
                
                {{# add the buttons for the modal #}}
                {{ partial:components/button type='' as="a" class="inline-flex text-purple hover:text-green" label="{headline}" }}
-                  @click.prevent="modalOpen=true, headline='{{headline}}', text='{{text}}' "
+                  @click.prevent="modalOpen=true, headline='{{headline}}', text=`{{text}}` "
                {{ /partial:components/button }}
             {{ /if }}
          {{ /teaser }}

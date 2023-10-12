@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1696951145
+updated_at: 1697147483
 info_sections:
   -
     id: ljgd1u7d
@@ -224,15 +224,15 @@ teaser:
     content:
       -
         type: text
-        text: 'Inmitten des kreativen'
+        text: 'We are your partners throughout the entire journey, from '
   -
     type: set
     attrs:
-      id: lnkecs75
+      id: lnnpm6ix
       values:
         type: tooltip
-        headline: Berlin
-        text: 'turient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
+        headline: Concept
+        text: "From the initial stages of research and client workshops to understand your unique needs, to creating concepts, content models, wireframes, prototypes, and moodboards, we've got you covered."
   -
     type: paragraph
     attrs:
@@ -240,15 +240,15 @@ teaser:
     content:
       -
         type: text
-        text: 'schmieden wir digitale Kunstwerke, die nicht nur beeindrucken, sondern auch begeistern. Unsere Mission: Mit Liebe zum Detail und einer Prise Kreativität gestalten wir einzigartige Websites. Jedes Projekt ist für uns eine neue Leinwand, auf der wir Ihre  '
+        text: "to completion, crafting exceptional online experiences that resonate with your brand's unique essence. Our goal is to seamlessly translate your brand identity into a captivating visual language that reflects your unique vision. But we don't stop at "
   -
     type: set
     attrs:
-      id: lnkeujd7
+      id: lnnm8lwu
       values:
         type: tooltip
-        headline: Vision
-        text: 'Unser Vision ist es, geilen Scheiss zu machen!'
+        headline: Design
+        text: "Be it web design, screen design, or UI design: We commit to pixel perfection. Whether you're looking to embrace the latest design trends or opt for a timeless, classic style, we can craft a visual language that aligns with your vision, whether it's based on existing designs or a brand-new creation."
   -
     type: paragraph
     attrs:
@@ -256,11 +256,23 @@ teaser:
     content:
       -
         type: text
-        text: 'zum Leben erwecken. Unser Berliner Studio ist die Heimat cooler Webkreationen, die Ihre Marke optimal präsentieren und Nutzer in ihren Bann ziehen.'
+        text: ". We're also your technical problem-solvers, handling all the  "
+  -
+    type: set
+    attrs:
+      id: lnnpkqse
+      values:
+        type: tooltip
+        headline: Behind-the-scenes
+        text: "Our web development process is carried out with meticulous care. We employ a variety of technical approaches tailored to your project's specific requirements. Our code is not just functional; it's also clean and comprehensible, ensuring that other developers can easily understand and work with it."
   -
     type: paragraph
     attrs:
       class: null
+    content:
+      -
+        type: text
+        text: 'subtleties. We can also handle hosting, basic server settings, and set up your emails, making sure your website runs smoothly post-launch.'
 follower_video:
   - followervideo.mp4
 ---
