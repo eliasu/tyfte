@@ -40,7 +40,7 @@ export default function initSurveyForm() {
                     formDataString += field.name + ': ' + field.value + '\n';
                 }
                 // Check if the field is a checkbox and is checked
-                else if (field.tagName === 'INPUT' && field.type === 'checkbox' && !field.checked) {
+                else if (field.tagName === 'INPUT' && field.type === 'checkbox' && field.checked) {
                     formDataString += field.name + ': ' + field.value + '\n';
                 }
             }
