@@ -3,93 +3,143 @@ data:
   thank_you_message: 'Thank you for your Request. We will reach out to you soon.'
   form_slides:
     -
-      id: ln1n15oi
-      headline: 'Whats your name?'
-      description: 'Whats your name and how can we reach you?'
-      form_elements:
-        -
-          id: ln1n1e7g
-          input_type: Line
-          set_placeholder: 'Enter your Name'
-          type: input
-          enabled: true
-          description: Name
-        -
-          id: ln1n1yi0
-          input_type: Line
-          set_placeholder: 'Enter eMail or Phone'
-          type: input
-          enabled: true
-          description: 'Contact Info'
-      type: new_form_slide
+      id: lnofbjxa
+      headline: Hello
+      description: 'Let us know you Name and give us something to contact you.'
+      type: form_slide
       enabled: true
-    -
-      id: ln1n2hca
-      headline: 'What are you planning to do?'
-      description: 'Give us a little insight in you project.'
       form_elements:
         -
-          id: ln1n2zvn
+          id: lnofdk62
+          input_type: Line
+          description: Name
+          set_placeholder: 'You Name'
+          type: input
+          enabled: true
+        -
+          id: lnofdvsl
+          input_type: Line
+          description: Contact
+          set_placeholder: 'eMail or Phone'
+          type: input
+          enabled: true
+    -
+      id: lnofe5h6
+      headline: 'What do you need?'
+      description: 'Please check those boxes which fit you project.'
+      form_elements:
+        -
+          id: lnoffbn5
           select_type: checkbox
+          description: Topic
           items:
             -
-              id: ln1n33z0
-              title: 'New Website'
+              id: lnoffgz8
+              title: Redesign
             -
-              id: ln1n34xb
-              title: 'Website Redesign'
+              id: lnoffl5q
+              title: Website
             -
-              id: ln1n35ex
-              title: Concept
+              id: lnoffmsi
+              title: App
             -
-              id: ln1n35t9
-              title: Webdesign
+              id: lnoffo9a
+              title: Workshops
             -
-              id: ln1n366o
+              id: lnoffqv9
               title: Consulting
+            -
+              id: lnofg1ma
+              title: Design
           type: select
           enabled: true
-          description: Topics
-        -
-          id: ln1n4sv1
-          input_type: Area
-          set_placeholder: 'Anything else to specify?'
-          type: input
-          enabled: true
-          description: 'Extra Infos'
-      type: new_form_slide
+      type: form_slide
       enabled: true
     -
-      id: ln1n54mm
-      headline: Budget
-      description: 'Whats you planned budget? We need this to get an idea of the effort we can put into your product.'
+      id: lnofg8f6
+      headline: 'Tell us about you project?'
+      description: 'Give us some insights about your product. What do you need the website for?'
       form_elements:
         -
-          id: ln1n5s6t
-          from_value: 1
+          id: lnofgmld
+          input_type: Area
+          description: About
+          set_placeholder: 'My projects is about …'
+          type: input
+          enabled: true
+      type: form_slide
+      enabled: true
+    -
+      id: lnofhj97
+      headline: 'Whats important?'
+      description: 'What do you like more?'
+      form_elements:
+        -
+          id: lnofhrcv
+          select_type: radio
+          description: Radio
+          items:
+            -
+              id: lnofjdaw
+              title: Apples
+            -
+              id: lnofjn35
+              title: Bananas
+            -
+              id: lnofjpqz
+              title: Pasta
+            -
+              id: lnofjtcn
+              title: Pizza
+          type: select
+          enabled: true
+      type: form_slide
+      enabled: true
+    -
+      id: lnofjwgm
+      headline: Budget
+      description: 'Give us an idea about how much money you want to spend.'
+      form_elements:
+        -
+          id: lnofk00w
+          description: Budget
+          from_value: 3
           to_value: 50
           start_value: 5
           steps: 1
           suffix: K
           type: slider
           enabled: true
-          description: Budget
-      type: new_form_slide
+      type: form_slide
       enabled: true
     -
-      id: ln1n67ei
+      id: lnofkr04
       headline: Deadline
-      description: 'Whats the time schedule you would like to stick to?'
+      description: 'When should your project be finished?'
       form_elements:
         -
-          id: ln1n7gb9
+          id: lnofku7v
+          description: Deadline
           from_value: 1
-          to_value: 24
-          start_value: 3
+          to_value: 12
+          start_value: 4
           steps: 1
           suffix: Months
           type: slider
           enabled: true
-          description: Deadline
-      type: new_form_slide
+      type: form_slide
+      enabled: true
+    -
+      id: lnoflogp
+      headline: 'Anything else?'
+      description: 'Do you have any other questions or things you want to tell us?'
+      form_elements:
+        -
+          id: lnoflrux
+          input_type: Area
+          description: 'Anything else'
+          set_placeholder: 'I wanted to say …'
+          type: input
+          enabled: true
+      type: form_slide
       enabled: true

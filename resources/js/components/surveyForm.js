@@ -34,14 +34,25 @@ export default function initSurveyForm() {
             
             // do not add token and honeypot fields
             if (field.name !== '_token' && field.name !== 'honeypot') {
-                
-                // Check if the field is an input or textarea and has a value
-                if ((field.tagName === 'INPUT' || field.tagName === 'TEXTAREA') && field.value.trim() !== '') {
+
+                // Check if the field is a checkbox or radio buttons and is checked
+                if ( (field.type === 'checkbox' || field.type === 'radio')  && field.checked) {
                     formDataString += field.name + ': ' + field.value + '\n';
                 }
-                // Check if the field is a checkbox and is checked
-                else if (field.tagName === 'INPUT' && field.type === 'checkbox' && field.checked) {
+
+                // Check if the field is an input or textarea and has a value
+                else if ((field.type === 'text' || field.type === 'textarea') && field.value.trim() !== '') {
                     formDataString += field.name + ': ' + field.value + '\n';
+                }
+                
+                // Check if the field is a range slider 
+                else if (field.type === 'range') {
+                    formDataString += field.name + ': ' + field.value + '\n';
+                }
+
+                // Check if the field is a select and what is selected
+                else if (field.type === 'select-one') {
+                    formDataString += field.name + ': ' + field.selectedOptions[0].label + '\n';
                 }
             }
         });

@@ -3,7 +3,7 @@ fields:
   -
     handle: form_slides
     field:
-      collapse: false
+      collapse: true
       previews: true
       fullscreen: true
       sets:
@@ -12,10 +12,10 @@ fields:
           instructions: null
           icon: null
           sets:
-            new_form_slide:
-              display: 'New Form Slide'
+            form_slide:
+              display: 'Form Slide'
               instructions: null
-              icon: null
+              icon: layout-flip-right
               fields:
                 -
                   handle: headline
@@ -52,3 +52,4 @@ fields:
       instructions_position: above
       visibility: visible
       hide_display: false
+      replicator_preview: true

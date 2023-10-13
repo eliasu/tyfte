@@ -14,8 +14,8 @@ fields:
           sets:
             slider:
               display: Slider
-              instructions: 'Add a slider'
-              icon: null
+              instructions: 'add slider'
+              icon: setting-slider-vertical
               fields:
                 -
                   handle: description
@@ -30,6 +30,8 @@ fields:
                     visibility: visible
                     hide_display: false
                     replicator_preview: true
+                    validate:
+                      - required
                 -
                   handle: from_value
                   field:
@@ -91,8 +93,8 @@ fields:
                     width: 33
             select:
               display: Select
-              instructions: 'Add a checkbox, radiobutton or dropdown'
-              icon: null
+              instructions: 'checkbox, radio or dropdown'
+              icon: form-drop-down-menu
               fields:
                 -
                   handle: select_type
@@ -125,6 +127,8 @@ fields:
                     visibility: visible
                     replicator_preview: true
                     hide_display: false
+                    validate:
+                      - required
                 -
                   handle: items
                   field:
@@ -142,7 +146,7 @@ fields:
                           visibility: visible
                           hide_display: false
                     mode: table
-                    add_row: 'Add Checkbox'
+                    add_row: 'Add Option'
                     reorderable: true
                     fullscreen: false
                     type: grid
@@ -152,10 +156,11 @@ fields:
                     instructions_position: above
                     visibility: visible
                     hide_display: false
+                    replicator_preview: true
             text:
               display: Text
-              instructions: null
-              icon: null
+              instructions: 'display text'
+              icon: text-formatting-all-caps
               fields:
                 -
                   handle: description
@@ -170,6 +175,8 @@ fields:
                     visibility: visible
                     replicator_preview: true
                     hide_display: false
+                    validate:
+                      - required
                 -
                   handle: text
                   field:
@@ -183,8 +190,8 @@ fields:
                     hide_display: false
             input:
               display: Input
-              instructions: 'Set a textbox or a tetarea'
-              icon: form-text-field
+              instructions: 'input text or textarea'
+              icon: text-formatting-type-cursor
               fields:
                 -
                   handle: input_type
@@ -217,6 +224,8 @@ fields:
                     visibility: visible
                     replicator_preview: true
                     hide_display: false
+                    validate:
+                      - required
                 -
                   handle: set_placeholder
                   field:
