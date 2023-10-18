@@ -3,7 +3,7 @@ name: 🖥️ Dev Deploy Website to All-Inkl 0.1
 on:
   push:
     branches:
-      - main
+      - feature/elias-new-structure
 
 jobs:
   Deploy-AllInkl:
