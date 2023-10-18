@@ -21,6 +21,8 @@ jobs:
 
     - name: 📦 Install Composer dependencies
       uses: php-actions/composer@v6
+      with:
+        command: composer update
 
     - name: 🔨 Build
       run: |
