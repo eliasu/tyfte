@@ -24,7 +24,7 @@ jobs:
     
     - name: 🔨 Build
       run: |
-        npm run build
+        npm run production
     
     - name: 📦 Install Composer dependencies
       uses: php-actions/composer@v6
