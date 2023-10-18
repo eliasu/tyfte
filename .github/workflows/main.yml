@@ -18,4 +18,4 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         password: ${{ secrets.REMOTE_PASSWORD }}
         port: ${{ secrets.REMOTE_PORT }}
-        script: whoami
+        script: "cd /www/htdocs/w01abbc7/tyfte.command-g.de && npm i"
