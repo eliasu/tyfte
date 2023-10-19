@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1697755043
+updated_at: 1697755099
 info_sections:
   -
     id: ljgd1u7d
@@ -289,5 +289,5 @@ teaser:
       -
         type: text
         text: 'subtleties. We can also handle hosting, basic server settings, and set up your emails, making sure your website runs smoothly post-launch.'
-background_video: videos/bg3/tyfte_hero_bg3.mpd
+background_video: videos/bg5/tyfte_hero_bg5.mpd
 ---
