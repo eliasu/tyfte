@@ -34,24 +34,30 @@ tabs:
               instructions_position: above
               visibility: visible
               hide_display: false
+              width: 50
           -
-            import: teaser_text
-          -
-            handle: follower_video
+            handle: background_video
             field:
               mode: list
               container: files
               restrict: false
-              allow_uploads: true
+              allow_uploads: false
               show_filename: true
               show_set_alt: true
               type: assets
-              display: 'Follower Video'
+              display: 'Background Video'
               icon: assets
               listable: hidden
               instructions_position: above
               visibility: visible
               hide_display: false
+              width: 50
+              replicator_preview: true
+              max_files: 1
+              min_files: 1
+              folder: videos
+          -
+            import: teaser_text
   seo:
     display: SEO
     sections:

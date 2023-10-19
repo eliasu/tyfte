@@ -12,7 +12,7 @@
          class="relative w-auto h-auto">
 
       {{# teaser h2 info text #}}
-      <h2 class="text-lead-0 max-w-[42ch] text-purple mix-blend-color-burn">
+      <h2 class="text-lead-0 max-w-[42ch] text-purple-dark mix-blend-color-burn">
          
          {{# get the teaser data #}}
          {{ teaser }}
@@ -27,7 +27,7 @@
             {{ elseif type == "tooltip" }}
                
                {{# add the buttons for the modal #}}
-               {{ partial:components/button type='' as="a" class="inline-flex text-purple hover:text-green" label="{headline}" }}
+               {{ partial:components/button type='' as="a" class="inline-flex text-purple-dark hover:text-green" label="{headline}" }}
                   @click.prevent="modalOpen=true, headline='{{headline}}', text=`{{text}}` "
                {{ /partial:components/button }}
             {{ /if }}
