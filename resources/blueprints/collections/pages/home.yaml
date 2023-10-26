@@ -55,7 +55,7 @@ tabs:
               replicator_preview: true
               max_files: 1
               min_files: 1
-              folder: videos
+              folder: videos/backgrounds
           -
             import: teaser_text
   seo:
