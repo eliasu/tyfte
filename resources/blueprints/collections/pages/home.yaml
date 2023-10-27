@@ -34,7 +34,7 @@ tabs:
               instructions_position: above
               visibility: visible
               hide_display: false
-              width: 50
+              width: 33
           -
             handle: background_video
             field:
@@ -51,11 +51,25 @@ tabs:
               instructions_position: above
               visibility: visible
               hide_display: false
-              width: 50
+              width: 33
               replicator_preview: true
               max_files: 1
               min_files: 1
               folder: videos/backgrounds
+          -
+            handle: accent_color
+            field:
+              allow_any: true
+              default: '#ff00ea'
+              type: color
+              display: 'Accent Color'
+              icon: color
+              width: 33
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
           -
             import: teaser_text
   seo:

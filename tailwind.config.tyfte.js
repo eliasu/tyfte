@@ -24,6 +24,10 @@ module.exports = {
       transparent: 'transparent',
       inherit: 'inherit',
       
+      usercolor: {
+        DEFAULT: 'var(--usercolor)',
+      },
+
       light: {
         DEFAULT: '#fff',
         gray: '#E0E0E0',

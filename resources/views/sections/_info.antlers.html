@@ -12,11 +12,11 @@
          class="relative w-auto h-auto">
 
       {{# teaser h2 info text #}}
-      <h2 class="text-lead-0 max-w-[42ch] text-purple-dark mix-blend-color-burn">
+      <h2 class="text-lead-0 max-w-[42ch] text-usercolor mix-blend-color-burn">
          
          {{# inital text with love counter #}}
          We're a studio for artisan digital design from Berlin with
-         {{ partial:components/button cssid="love" type='' as="a" class="inline-flex text-purple-dark hover:text-green" label="love" }}
+         {{ partial:components/button cssid="love" type='' as="a" class="inline-flex text-usercolor hover:text-green" label="love" }}
             @click.prevent
          {{ /partial:components/button}}
 
@@ -33,7 +33,7 @@
             {{ elseif type == "tooltip" }}
                
                {{# add the buttons for the modal #}}
-               {{ partial:components/button type='' as="a" class="inline-flex text-purple-dark hover:text-green" label="{headline}" }}
+               {{ partial:components/button type='' as="a" class="inline-flex text-usercolor hover:text-green" label="{headline}" }}
                   @click.prevent="modalOpen=true, headline='{{headline}}', text=`{{text}}` "
                {{ /partial:components/button }}
             {{ /if }}
