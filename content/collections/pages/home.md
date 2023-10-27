@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1698335422
+updated_at: 1698408957
 info_sections:
   -
     id: ljgd1u7d
@@ -224,15 +224,15 @@ teaser:
     content:
       -
         type: text
-        text: "We're crafting exceptional "
+        text: "We're a studio for artisan digital design from Berlin with"
   -
     type: set
     attrs:
-      id: lnnq4vut
+      id: lo8ku4pf
       values:
         type: tooltip
-        headline: 'Online experiences'
-        text: "We're experts in crafting a wide range of online experiences. Whether it's a sleek, minimalist website, a complex and feature-rich platform, captivating animations, or interactive user interfaces, you name it, and we'll bring your digital vision to life. No project is too small or too big; we're here to make your online presence stand out."
+        headline: love
+        text: 'give em love'
   -
     type: paragraph
     attrs:
@@ -240,15 +240,15 @@ teaser:
     content:
       -
         type: text
-        text: "that resonate with your brand's unique essence. We are your partners throughout the entire journey, from "
+        text: '. We are your passionate partners, accompanying you from '
   -
     type: set
     attrs:
-      id: lnnpm6ix
+      id: lo8ivex3
       values:
         type: tooltip
-        headline: Concept
-        text: "From the initial stages of research and client workshops to understand your unique needs, to creating concepts, content models, wireframes, prototypes, and moodboards, we've got you covered."
+        headline: 'ideation to launch'
+        text: "We're experts in creating a wide range of online experiences. Whether it's a sleek, minimalist website, a complex and feature-rich platform, captivating animations, or interactive user interfaces, you name it, and we'll bring your digital vision to life. No project is too small or too big; we're here to make your online presence stand out."
   -
     type: paragraph
     attrs:
@@ -256,14 +256,14 @@ teaser:
     content:
       -
         type: text
-        text: "to completion. Our goal is to seamlessly translate your brand identity into a captivating visual language that reflects your unique vision. But we don't stop at "
+        text: ". We're all about diving into the nitty-gritty details of finely crafting the perfect "
   -
     type: set
     attrs:
-      id: lnnm8lwu
+      id: lo8ivxfz
       values:
         type: tooltip
-        headline: Design
+        headline: 'visual language '
         text: "Be it web design, screen design, or UI design: We commit to pixel perfection. Whether you're looking to embrace the latest design trends or opt for a timeless, classic style, we can craft a visual language that aligns with your vision, whether it's based on existing designs or a brand-new creation."
   -
     type: paragraph
@@ -272,14 +272,14 @@ teaser:
     content:
       -
         type: text
-        text: ". We're also your technical problem-solvers, handling all the  "
+        text: "that truly reflects your brand. Simultaneously, we ensure it's dead user-centric and checks off all of your business needs – they call it great UX. And when it comes to the "
   -
     type: set
     attrs:
-      id: lnnpkqse
+      id: lo8iwezj
       values:
         type: tooltip
-        headline: Behind-the-scenes
+        headline: 'tech side '
         text: "Our web development process is carried out with meticulous care. We employ a variety of technical approaches tailored to your project's specific requirements. Our code is not just functional; it's also clean and comprehensible, ensuring that other developers can easily understand and work with it."
   -
     type: paragraph
@@ -288,6 +288,6 @@ teaser:
     content:
       -
         type: text
-        text: 'subtleties. We can also handle hosting, basic server settings, and set up your emails, making sure your website runs smoothly post-launch.'
+        text: 'our wizards have it all covered – from information architecture and implementation to hosting and beyond. Let’s fry!'
 background_video: videos/backgrounds/bg1/tyfte_hero_bg.mpd
 ---
