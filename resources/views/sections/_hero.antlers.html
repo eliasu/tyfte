@@ -29,22 +29,15 @@
                 @click.prevent="slideOverOpen = true, formOpen= true"
             {{ /partial:components/button }}
         </div>
-        
-        {{# bg video and gradient animation #}}
-        {{# <div class="absolute top-0 w-full h-full z-behind mix-blend-lighten"> #}}
-            
-            {{# video wrapper #}}
-            <video data-dashjs-player
-                id="hero-video"
-                class="absolute object-cover w-full h-full mix-blend-lighten"
-                width="100%" height="100%"
-                muted playsinline loop autoplay
-                src="{{video}}">
-            </video>
-
-            
-            
-        {{# </div> #}}
+    
+        {{# hero video #}}
+        <video data-dashjs-player
+            id="hero-video"
+            class="absolute object-cover w-full h-full mix-blend-lighten"
+            width="100%" height="100%"
+            muted playsinline loop autoplay
+            src="{{video}}">
+        </video>
 
     </div>
 {{ /partial:layout/section }}
