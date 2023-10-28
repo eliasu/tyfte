@@ -28,12 +28,13 @@ tabs:
               show_filename: true
               show_set_alt: true
               type: assets
-              display: Video
+              display: 'Hero Video'
               icon: assets
               listable: hidden
               instructions_position: above
               visibility: visible
               hide_display: false
+              replicator_preview: true
               width: 33
           -
             handle: background_video
@@ -62,7 +63,7 @@ tabs:
               allow_any: true
               default: '#ff00ea'
               type: color
-              display: 'Accent Color'
+              display: 'Text Color'
               icon: color
               width: 33
               listable: hidden
@@ -70,6 +71,17 @@ tabs:
               visibility: visible
               replicator_preview: true
               hide_display: false
+              swatches:
+                - '#FFFFFF'
+                - '#0ACF83'
+                - '#1B9F6C'
+                - '#FFC32A'
+                - '#DDA600'
+                - '#E46A62'
+                - '#C23E3E'
+                - '#C175FD'
+                - '#8E63E2'
+                - '#8A536A'
           -
             import: teaser_text
   seo:

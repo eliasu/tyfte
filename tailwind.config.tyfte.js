@@ -25,7 +25,7 @@ module.exports = {
       inherit: 'inherit',
       
       usercolor: {
-        DEFAULT: 'var(--usercolor)',
+        DEFAULT: 'rgba(var(--usercolor), <alpha-value>)',
       },
 
       light: {

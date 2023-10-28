@@ -6,7 +6,7 @@
 <!-- sections/faq.antlers.html -->
 {{ partial:layout/section anchor="faq" class="flex-col items-start justify-center min-h-screen gap-frame-2 mix-blend-color-burn px-frame py-frame-5 sm:p-frame-3" }}
     {{# acordion wrapper #}}
-    <h2 class="w-full text-center text-head-1 text-red">Common Questions</h2>
+    <h2 class="w-full text-center text-head-1 text-usercolor">Common Questions</h2>
     
     <div data-mouse-shrink 
         x-data="{ 
@@ -15,11 +15,11 @@
             this.activeAccordion = (this.activeAccordion == id) ? '' : id 
         } 
     }" 
-    class="relative w-full mx-auto max-w-[48ch] overflow-hidden divide-y-2 text-red divide-red text-lead-0 border-y-2 border-purdivide-red"
+    class="relative w-full mx-auto max-w-[48ch] overflow-hidden divide-y-2 text-usercolor divide-usercolor text-lead-0 border-y-2"
     >
 
         {{ collection:faqs sort="order" }}
-            <div @click="setActiveAccordion(id)" x-data="{ id: $id('accordion') }" class="relative p-4 transition-all cursor-pointer hover:bg-red/5 group" :class="{ '': activeAccordion==id }">
+            <div @click="setActiveAccordion(id)" x-data="{ id: $id('accordion') }" class="relative p-4 transition-all cursor-pointer hover:bg-usercolor/5 group" :class="{ '': activeAccordion==id }">
                 
                 {{# botton/headline accordion #}}
                 <button class="flex items-center justify-between w-full gap-4 text-left origin-left select-none xs:gap-8 text-lead-1 max-w-none">

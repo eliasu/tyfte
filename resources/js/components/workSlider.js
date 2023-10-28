@@ -53,9 +53,9 @@ export default function initWorkSlider() {
     });   
     
     // animate the bg video tint in and out
-    tl.from("#hero-bg-video-tint", {autoAlpha: 0})
-      .to("#hero-bg-video-tint", {autoAlpha: .8})
-      .to("#hero-bg-video-tint", {autoAlpha: 0})
+    tl.from("#work-tint", {autoAlpha: 0})
+      .to("#work-tint", {autoAlpha: .8})
+      .to("#work-tint", {autoAlpha: 0})
 
     // create the projects slider
     fashionSlider = new Swiper('.swiper', {
@@ -126,7 +126,7 @@ export default function initWorkSlider() {
                     autoAlpha: 0,
             });
 
-                gsap.to("#hero-bg-video-tint", {
+                gsap.to("#work-tint", {
                     duration: 1,
                     ease: easeCurve,
                     backgroundColor: bgColors[e.activeIndex],
@@ -204,7 +204,7 @@ export default function initWorkSlider() {
                     });
                 });
 
-                gsap.set("#hero-bg-video-tint", {
+                gsap.set("#work-tint", {
                     duration: 1,
                     ease: easeCurve,
                     backgroundColor: bgColors[e.activeIndex],

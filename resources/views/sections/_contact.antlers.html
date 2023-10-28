@@ -10,19 +10,18 @@
         
         {{# buttons and CTAs #}}
         <div class="flex flex-col items-center sm:items-start xl:max-w-[44ch] 2xl:max-w-[64ch] col-start-2 gap-4 mix-blend-color-burn">
-            <h1 class="mb-12 text-head-1 text-purple">Drop us a line or fill out our survey.</h1>
+            <h1 class="mb-12 text-head-1 text-usercolor">Drop us a line or fill out our survey.</h1>
             
             {{# survey  #}}
-            {{ partial:components/button class="text-purple hover:text-dark" label="start survey" icon="arrup" }}
+            {{ partial:components/button class="text-usercolor hover:text-dark" label="start survey" icon="arrup" }}
                 @click.prevent="slideOverOpen = true, formOpen = true, formStep = 1"
             {{ /partial:components/button }}
             
             {{# write an email  #}}
-            {{ partial:components/button class="text-purple hover:text-dark" as="a" link_type="email" email="hello@tyfte.de" label="write mail" icon="email" }}
+            {{ partial:components/button class="text-usercolor hover:text-dark" as="a" link_type="email" email="hello@tyfte.de" label="write mail" icon="email" }}
 
         </div>
-        {{# style element #}}
-        {{# {{ svg id="contactBg" src="abstract" class="absolute top-0 left-0 -translate-x-1/2 pointer-events-none mix-blend-soft-light" aria-hidden="true" }} #}}
+        
         <img id="contactBg" src="/images/abstract-bg.png" class="absolute left-0 pointer-events-none top-1/4 -translate-x-1/4 mix-blend-soft-light" aria-hidden="true" alt="">
     </div>
     

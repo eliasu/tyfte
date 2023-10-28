@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1698419106
+updated_at: 1698450974
 info_sections:
   -
     id: ljgd1u7d
@@ -224,23 +224,7 @@ teaser:
     content:
       -
         type: text
-        text: "We're a studio for artisan digital design from Berlin with"
-  -
-    type: set
-    attrs:
-      id: lo8ku4pf
-      values:
-        type: tooltip
-        headline: love
-        text: 'give em love'
-  -
-    type: paragraph
-    attrs:
-      class: null
-    content:
-      -
-        type: text
-        text: '. We are your passionate partners, accompanying you from '
+        text: 'We are your passionate partners, accompanying you from '
   -
     type: set
     attrs:
@@ -289,6 +273,7 @@ teaser:
       -
         type: text
         text: 'our wizards have it all covered – from information architecture and implementation to hosting and beyond. Let’s fry!'
-background_video: videos/backgrounds/bg1/tyfte_hero_bg.mpd
-accent_color: '#5b76e1'
+background_video: videos/backgrounds/bg5/tyfte_hero_bg5.mpd
+accent_color: '#ffe6a8'
+video_color: '#8F1650'
 ---
