@@ -4,9 +4,9 @@
 #}}
 
 <!-- sections/info.antlers.html -->
-{{ partial:layout/section anchor="work" class="flex flex-col w-full gap-frame-2 lg:gap-frame py-frame" }}
+{{ partial:layout/section anchor="services" class="flex flex-col w-full gap-frame-2 lg:gap-frame py-frame" }}
 
-   <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn">What we do</h2>
+   <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn">How we work</h2>
 
    {{# very ugly but efficiemt tailwind selector: creating left right layout #}}
    <div class="[&>*:nth-child(even)>*:nth-child(even)>*]:justify-end [&>*:nth-child(even)>*:nth-child(even)>*]:right-0 [&>*:nth-child(even)>*:nth-child(odd)]:sm:order-1">
@@ -16,8 +16,8 @@
       
             {{# text #}}
             <div class="flex flex-col justify-center h-full mx-auto sm:min-w-[48ch]">
-               <h2 class="mb-4 font-bold text-lead-0 text-usercolor">{{ title }}</h2>
-               {{ partial:components/modaltext :handle="teaser" as="h3" class="text-lead-1" }}
+               <h2 class="mb-4 font-bold text-lead-0 text-usercolor"><span class="mr-2 font-mono text-[.9em] font-normal">{{index | add:1 }}</span> {{ title }}</h2>
+               {{ partial:components/modaltext :handle="teaser" as="h3" class="text-lead-1 max-w-[30ch]" }}
                {{# <p class="text-lead-1 text-usercolor">We're experts in creating a wide range of online experiences. Whether it's a sleek, minimalist website, a complex and feature-rich platform, captivating animations, or interactive user interfaces, you name it, and we'll bring your digital vision to life. No project is too small or too big; we're here to make your online presence stand out.</p> #}}
             </div>
             
