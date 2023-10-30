@@ -7,7 +7,7 @@
 <!-- sections/work.antlers.html -->
 {{ partial:layout/section anchor="work" class="flex flex-col w-full gap-frame py-frame" }}
 
-    <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn">What we do</h2>
+    <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn">Our work</h2>
 
     <!-- swiper Outer Wrapper -->
     <div id="swiper" class="relative w-full swiper h-screen-d">
@@ -43,7 +43,7 @@
                     {{ if website_address }}
                         {{# project link #}}
                         <div class="relative flex items-center gap-2 pb-1 leading-none cursor-pointer sm:top-frame-1/3 md:top-frame-1/2 lg:top-frame-1/4 xl:top-0 w-fit h-frame title-link group text-dark hover:text-light">
-                            <a data-mouse-shrink href="{{website_address}}" class="relative transition duration-300 group-hover:text-light text-lead-1 text-dark">{{ website_address }}</a>
+                            <a data-mouse-shrink target="_blank" href="{{ website_address | ensure_left('https://') }}" class="relative transition duration-300 group-hover:text-light text-lead-1 text-dark">{{ website_address | remove_left('https://') | remove_left('www.') }}</a>
                             <div data-icon="arrup" class="h-[1em] aspect-square bg-current group-hover:text-light transition duration-300"></div>
                         </div>
                     {{ /if }}
