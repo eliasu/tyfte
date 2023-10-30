@@ -2,6 +2,7 @@ import initLoveCounter from './components/love_counter';
 import initWorkSlider from './components/workSlider';
 import initHero from './components/hero';
 import initContact from './components/contact';
+import initInfoSection from './components/infoSection';
 
 import MediaPlayer from 'dashjs';
 
@@ -11,4 +12,5 @@ document.addEventListener('readystatechange', (event) => {
     initHero();
     initWorkSlider();
     initContact();
+    initInfoSection();
 });
