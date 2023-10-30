@@ -66,13 +66,13 @@
                x-transition:leave-start="opacity-100 scale-100"
                x-transition:leave-end="opacity-0 scale-90"
                class="relative w-full p-8 rounded bg-light/90 sm:max-w-lg">
-               <div class="flex items-center justify-between">
-                  <div x-text="headline" class="font-bold text-lead-1 text-dark">sdf</div>
+               <div class="flex flex-col-reverse items-end justify-between gap-8 xs:gap-4 xs:items-center xs:flex-row">
+                  <div x-text="headline" class="self-start font-bold text-lead-1 text-dark">sdf</div>
                   {{ partial:components/button class="duration-700 text-dark hover:text-red" label="close" icon="close" }}
                      @click="modalOpen=false"
                   {{ /partial:components/button }}
                </div>
-               <p class="mt-8 mb-0 text-modal text-dark" x-text="text">This is placeholder text. Replace it with your own content.</p>
+               <p class="mt-2 mb-0 xs:mt-8 text-modal text-dark" x-text="text">This is placeholder text. Replace it with your own content.</p>
             </div>
          </div>
       </template>
