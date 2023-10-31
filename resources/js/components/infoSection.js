@@ -16,12 +16,10 @@ export default function initInfoSection() {
 
             if (entry.isIntersecting) {
                 // Element is in view
-                console.log(`Element in view: ${element}`);
                 animation.play(); // Play the Lottie animation
                 element.style.opacity = 1; // Set opacity to 0.3 when not playing
             } else {
                 // Element is out of view
-                console.log(`Element out of view: ${element}`);
                 animation.pause(); // Stop the Lottie animation
                 element.style.opacity = 0.3; // Set opacity to 0.3 when not playing
             }

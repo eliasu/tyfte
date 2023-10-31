@@ -30,7 +30,7 @@ class="relative w-auto h-auto">
    {{ elseif type == "tooltip" }}
       
       {{# add the buttons for the modal #}}
-      {{ partial:components/button type='' as="a" class="inline-flex text-usercolor hover:text-green -top-1" label="{headline}" }}
+      {{ partial:components/button type='' as="a" class="inline-flex text-usercolor hover:text-green -top-0.5" label="{headline}" }}
          @click.prevent="modalOpen=true, headline='{{headline}}', text=`{{text}}` "
       {{ /partial:components/button }}
    {{ /if }}

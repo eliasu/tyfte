@@ -84,8 +84,8 @@ module.exports = {
           letterSpacing: '0.095em',
           fontWeight: '700',
         }],
-
-        'button': ['clamp(1.375rem, calc(1.5625rem + ((1vw - 0.3rem) * -0.375)), 1.5625rem);', {
+        
+        'button': ['clamp(1.25rem, 1.1739130434782608rem + 0.2717391304347826vw, 1.5rem);', {
           lineHeight: '90%',
           letterSpacing: '0.1em',
           fontWeight: '700',
