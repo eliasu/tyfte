@@ -1,5 +1,6 @@
 ---
 id: e5ba8afe-eb20-497f-94a1-09a3c1dfbce4
+published: false
 blueprint: info
 title: planning
 teaser:
@@ -28,6 +29,6 @@ teaser:
         type: text
         text: ", wireframes, prototypes, and moodboards, we've got you covered."
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1698709449
+updated_at: 1698766513
 animation: lottie/ani_lupe_811.json
 ---
