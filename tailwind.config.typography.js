@@ -28,6 +28,12 @@ module.exports = {
           fontWeight: '700',
         }],
 
+        'head-0': ['clamp(2.5rem, 1.6rem + 4.5vw, 7rem)', {
+          letterSpacing: '0.02em',
+          lineHeight: '105%',
+          fontWeight: '700',
+        }],
+
         'head-1': ['clamp(2.5rem, calc(2.5rem + ((1vw - 0.48rem) * 2.6042)), 4.375rem)', {
           letterSpacing: '0.02em',
           lineHeight: '105%',

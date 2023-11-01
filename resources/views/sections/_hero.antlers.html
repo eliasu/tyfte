@@ -8,7 +8,7 @@
     <div class="relative grid items-end w-screen gap-frame-3 sm:gap-4 grid-rows-hero sm:grid-cols-hero p-frame sm:h-screen-d">
             
         {{# header with headline and tags #}}
-        <div class="z-10 flex flex-col justify-end gap-4">
+        <div class="flex flex-col justify-end gap-4">
             {{# tag wrapper #}}
             {{ partial:components/tags class="flex" }}
                 {{ partial:components/tag text="The yellow from the egg" url="/" class="bg-yellow" }}
@@ -16,7 +16,7 @@
             {{ /partial:components/tags }}
             
             {{# Headline #}}
-            <h1 class="text-left text-dark">
+            <h1 class="z-10 text-left text-dark text-head-0">
                 Crafting <span class="font-mono text-yellow">eggceptional</span> <br class="max-md:hidden">
                 digital products.
             </h1>
