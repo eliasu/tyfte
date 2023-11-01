@@ -42,3 +42,15 @@ fields:
       visibility: visible
       replicator_preview: true
       hide_display: false
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - table

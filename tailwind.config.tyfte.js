@@ -108,6 +108,8 @@ module.exports = {
       },
       aspectRatio: {
         '16/11': '16 / 11',
+        'lottie118': '40 / 29',
+        'lottie32': '32 / 21',
       },
       padding: {
         '0.5': '0.125rem',

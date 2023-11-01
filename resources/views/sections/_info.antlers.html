@@ -9,10 +9,10 @@
    <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn">How we work</h2>
 
    {{# very ugly but efficiemt tailwind selector: creating left right layout #}}
-   <div class="[&>*:nth-child(even)>*:nth-child(even)>*]:justify-end [&>*:nth-child(even)>*:nth-child(even)>*]:right-0 [&>*:nth-child(even)>*:nth-child(odd)]:sm:order-1">
+   <div class="[&>*:nth-child(even)>*:nth-child(odd)]:sm:order-1 [&>*:nth-child(even)>[data-lottiecontainer]]:sm:justify-end">
       
       {{ collection:infos sort="order" }}
-         <div class="sm:grid w-full sm:min-h-screen sm:grid-cols-[1fr_1fr] gap-frame lg:gap-frame-3 p-frame xs:p-frame-4 sm:p-frame mix-blend-color-burn flex flex-col-reverse mb-8 sm:mb-0">
+         <div class="sm:grid w-full sm:min-h-screen sm:grid-cols-[1fr_1fr] gap-frame-2 lg:gap-frame-3 p-frame xs:p-frame-4 sm:p-frame mix-blend-color-burn flex flex-col-reverse mb-8 sm:mb-0">
       
             {{# text #}}
             <div class="flex flex-col justify-center h-full mx-auto sm:min-w-[48ch]">
@@ -20,13 +20,17 @@
                {{ partial:components/modaltext :handle="teaser" as="h3" class="text-lead-1 max-w-[30ch]" }}
             </div>
             
-            {{# animation #}}
-            <div class="relative w-full h-full">
-               {{# animation maks #}}
-               <div class="sm:absolute sm:h-full sm:w-[500vw] flex">
-      
-                  {{# lottie animation #}}
-                  <div data-lottie="{{ animation }}" class="transition duration-1000 h-full [&_path]:stroke-red"></div>
+            {{# animation grid container #}}
+            <div data-lottiecontainer class="w-full h-full sm:flex">
+               
+               {{# canvas must be sized with aspect ratios #}}
+               <div class="relative aspect-lottie32 sm:h-full sm:aspect-lottie118">
+                  
+                  {{# smaller version of animation stored here #}}
+                  {{ smallAnimation = animation | replace ('811', '32') }}
+                  
+                  {{# two animations based on screen size #}}
+                  <div data-lottie="{{ animation }}" data-lottie-small="{{ smallAnimation }}" class="absolute inset-0 transition duration-1000"></div>
                </div>
             </div>
          </div>
