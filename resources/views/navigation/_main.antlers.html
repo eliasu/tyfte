@@ -83,15 +83,13 @@
                                     </div>
                                     
                                     {{# inner nav cta #}}
-                                    <div class="relative flex justify-between w-full">
-                                        <div class="relative flex flex-col items-start w-full gap-2">
-                                            <p class="text-dark max-w-[20ch]">Start you project right away and fill out or 5 minute survey.</p>
-                                            
-                                            {{# start project #}}
-                                            {{ partial:components/button class="text-dark hover:text-purple" label="start project" }}
-                                                @click.prevent="formOpen = true, formStep = 1"
-                                            {{ /partial:components/button }}
-                                        </div>
+                                    <div class="relative flex flex-col items-start w-full gap-2">
+                                        <p class="text-dark max-w-[20ch]">Start your project right away and fill out or 5 minute survey.</p>
+                                        
+                                        {{# start project #}}
+                                        {{ partial:components/button class="text-dark hover:text-purple" label="start project" }}
+                                            @click.prevent="formOpen = true, formStep = 1"
+                                        {{ /partial:components/button }}
                                     </div>
                                 </div>
 
