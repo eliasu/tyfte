@@ -216,7 +216,7 @@
    }
    
    .love-div > p {
-      @apply absolute top-1/2 -translate-y-1/2 font-bold text-right -left-[85px] text-transparent text-lead-1 bg-clip-text;
+      @apply absolute top-1/2 -translate-y-1/2 font-bold text-right right-full -translate-x-1/2 text-transparent text-lead-1 bg-clip-text;
 
       animation: colorchange linear 1500ms infinite, bounce .3s cubic-bezier(0, 0, 0, 1) alternate infinite;
       background-image: conic-gradient(
