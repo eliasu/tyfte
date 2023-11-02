@@ -9,9 +9,7 @@
    {{ partial:components/modaltext :handle="teaser" as="h2" class="text-lead-0" }}
       {{# inital text with love counter #}}
       We're a studio for artisan digital design from Berlin with
-      {{ partial:components/button cssid="love" type='' as="a" class="inline-flex text-usercolor hover:text-green -top-0.5" label="love" }}
-         @click.prevent
-      {{ /partial:components/button}}
+      {{ partial:components/button cssid="love" type='' as="button" class="inline-flex text-usercolor hover:text-green -top-0.5" label="love" }}
       .
    {{ /partial:components/modaltext }}
 

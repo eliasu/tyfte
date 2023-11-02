@@ -150,16 +150,6 @@
       to { filter: hue-rotate(1turn); }
    }
 
-   /* this class get added if pressed on the love button */
-   .loveEmphasis {
-      @apply scale-[2.5] px-4;
-      animation: colorchange linear 1500ms infinite;
-      background-image: conic-gradient(
-         #0ACF83,
-         #FFC32A,
-         #0ACF83
-      );
-   }
 
 
    /* bg dot grid */
@@ -220,6 +210,25 @@
       @apply opacity-20 pointer-events-none scale-50
    }
 
+   /* cats flying around */
+   .love-div {
+      @apply absolute mix-blend-multiply bg-blend-multiply aspect-square h-64;
+   }
+   
+   .love-div > p {
+      @apply absolute top-1/2 -translate-y-1/2 font-bold -left-[72px] text-transparent text-lead-1 bg-clip-text;
+
+      animation: colorchange linear 1500ms infinite, bounce .3s cubic-bezier(0, 0, 0, 1) alternate infinite;
+      background-image: conic-gradient(
+         #0ACF83,
+         #FFC32A,
+         #0ACF83
+      );
+   }
+
+   @keyframes bounce {
+      to { scale: 1.2;}
+   }
 }
 
 @layer utilities {
