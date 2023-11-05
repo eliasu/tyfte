@@ -16,3 +16,4 @@ npm-debug.log
 yarn-error.log
 
 /public/build/
+/content/globals/love_counter.yaml
