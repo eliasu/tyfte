@@ -7,6 +7,7 @@ on:
 
 jobs:
   Deploy-AllInkl:
+    # this is the .env var for the deploy to work since it needs it in the vite.config.js
     env:
       APP_URL: 'http://tyfte.studio'
 
