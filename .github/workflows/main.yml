@@ -1,4 +1,4 @@
-name: 🖥️ Dev Deploy Website to All-Inkl gehts?
+name: 🖥️ MAIN Deploy Website to All-Inkl
 
 on:
   push:
@@ -24,10 +24,20 @@ jobs:
     
     - name: 🔨 Build
       run: |
-        npm run production
+        npm run build
     
     - name: 📦 Install Composer dependencies
       uses: php-actions/composer@v6
+      with:
+        # php_version: "8.1.2"
+        # version: 2.2.5
+        php_extensions: exif gd bcmath
+        args: --no-dev
+        # args: --ignore-platform-reqs
+      # uses: "ramsey/composer-install@v2"
+      # with:
+      #   dependency-versions: "highest"
+      # ignore-cache: "no"
 
     - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
@@ -48,11 +58,11 @@ jobs:
         # port: ${{ secrets.PORT_AI }}
         script: |
           echo "Dev Deployment started ..."
-          cd ${{ secrets.REMOTE_PATH }}
+          cd ${{ vars.REMOTE_PATH }}
           (php artisan down) || true
           composer install
           npm install
-          npm run production
+          npm run build
           php please cache:clear
           php please config:cache
           php please route:cache
