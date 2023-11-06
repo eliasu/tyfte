@@ -7,6 +7,8 @@ on:
 
 jobs:
   Deploy-AllInkl:
+    env:
+      APP_URL: 'http://tyfte.studio'
 
     runs-on: ubuntu-latest
 
