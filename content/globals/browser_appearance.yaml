@@ -3,13 +3,11 @@ data:
   disable_telephone_detection: false
   disable_email_detection: false
   disable_address_detection: false
+  display_standalone: false
   use_theme_color: false
-  use_theme_color_dark_mode: false
-  theme_color: '#FFFFFF'
-  theme_color_dark_mode: '#000000'
-  apple_mobile_web_app: false
-  apple_status_bar_black: false
-  android_mobile_web_app: false
-  use_favicons: false
-  safari_color: '#000000'
-  background: '#FFFFFF'
+  use_favicons: true
+  svg: favicon.svg
+  background: '#fff'
+  safari_icon: favicon.png
+  override_180: favicon2.png
+  override_512: favicon3.png
