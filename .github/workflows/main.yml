@@ -1,4 +1,4 @@
-name: 🖥️ MAIN Deploy Website to All-Inkl retrigger
+name: 🖥️ MAIN Deploy Website to All-Inkl retrigger agian
 
 on:
   push:
