@@ -55,6 +55,20 @@ tabs:
               instructions_position: above
               visibility: visible
               hide_display: false
+          -
+            handle: collaboration
+            field:
+              input_type: text
+              placeholder: 'Set a text if needed'
+              antlers: false
+              type: text
+              display: Collaboration
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
   sidebar:
     display: Sidebar
     sections:
