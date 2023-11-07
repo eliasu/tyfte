@@ -6,33 +6,41 @@
 <!-- sections/info.antlers.html -->
 {{ partial:layout/section anchor="services" class="flex flex-col w-full gap-frame-2 lg:gap-frame py-frame" }}
 
-   <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn">How we work</h2>
+   <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn translate-z-0">How we work</h2>
 
-   {{# very ugly but efficiemt tailwind selector: creating left right layout #}}
-   <div class="[&>*:nth-child(even)>*:nth-child(odd)]:sm:order-1 [&>*:nth-child(even)>[data-lottiecontainer]]:sm:justify-end">
+   {{# very ugly but efficient tailwind selector: creating left right layout #}}
+   <div class="[&>*:nth-child(even)>*:nth-child(odd)]:sm:order-1 
+               [&>*:nth-child(even)>video]:sm:object-right
+               [&>*:nth-child(odd)>video]:sm:object-left 
+               [&>*:nth-child(odd)]:sm:pr-0
+               [&>*:nth-child(even)]:sm:pl-0">
       
       {{ collection:infos sort="order" }}
          <div class="sm:grid w-full sm:min-h-screen sm:grid-cols-[1fr_1fr] gap-frame-2 lg:gap-frame-3 p-frame xs:p-frame-4 sm:p-frame mix-blend-color-burn flex flex-col-reverse mb-8 sm:mb-0">
       
             {{# text #}}
             <div class="flex flex-col justify-center h-full mx-auto sm:min-w-[48ch]">
-               <h2 class="mb-4 font-bold text-lead-0 text-usercolor">{{ title }}</h2>
-               {{ partial:components/modaltext :handle="teaser" as="h3" class="text-lead-1 max-w-[30ch]" }}
+                <h2 class="mb-16 font-mono font-light text-lead-1 text-usercolor">{{ title }}</h2>
+                
+                {{ partial:components/modaltext :handle="teaser" as="h3" class="mb-8 text-lead-1 max-w-[30ch]" }}
+
+                {{# {{ partial:components/tags class="flex mb-8 xl:max-w-1/2" }}
+                    {{ partial:components/tag text="Webflow" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Statamicasdas" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Webflow" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Entro" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Webflow" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Luli" url="/" class="text-light bg-usercolor" }}
+                {{ /partial:components/tags }} #}}
             </div>
             
-            {{# animation grid container #}}
-            <div data-lottiecontainer class="w-full h-full sm:flex">
                
-               {{# canvas must be sized with aspect ratios #}}
-               <div class="relative aspect-lottie32 sm:h-full sm:aspect-lottie118">
-                  
-                  {{# smaller version of animation stored here #}}
-                  {{ smallAnimation = animation | replace ('811', '32') }}
-                  
-                  {{# two animations based on screen size #}}
-                  <div data-lottie="{{ animation }}" data-lottie-small="{{ smallAnimation }}" class="absolute inset-0 transition duration-1000"></div>
-               </div>
-            </div>
+            {{# smaller animations name – ratio 8/11 or ratio 3/2 #}}
+            {{ smallAnimation = animation | replace ('11x8', '3x2') }}
+               
+            {{# two animations based on screen size #}}
+            <video width="100%" height="100%" data-video="{{ animation }}" data-video-small="{{ smallAnimation }}" autoplay loop muted class="relative object-cover transition duration-1000 mix-blend-color-burn sm:h-full">
+
          </div>
       
       {{ /collection:infos }}

@@ -20,7 +20,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 import lottie from 'lottie-web';
 
-let fashionSlider;
+let workSlider;
 
 export default function initWorkSlider() { 
     console.log("** init work slider from /components/workSlider.js **")
@@ -58,7 +58,7 @@ export default function initWorkSlider() {
       .to("#work-tint", {autoAlpha: 0})
 
     // create the projects slider
-    fashionSlider = new Swiper('.swiper', {
+    workSlider = new Swiper('.swiper', {
         modules: [Navigation, Pagination, Parallax, Keyboard],
         parallax: true,
         speed: slideTransitionMs,
@@ -92,10 +92,17 @@ export default function initWorkSlider() {
                     duration: timeVideoWrap[0],
                     ease: easeCurve,
                     scale: sizeVideoWrap[0],
-                    autoAlpha: .7,
                     onComplete: function(current) {
-                        playVideo(fashionSlider.slides[fashionSlider.activeIndex].querySelector("video"))
+                        playVideo(workSlider.slides[workSlider.activeIndex].querySelector("video"))
                     },
+                })
+                
+                gsap.to(".videowrap video", {
+                    autoAlpha: .7,
+                })
+
+                gsap.to(".videowrap [data-collaboration]", {
+                    autoAlpha: 1,
                 })
                 
                 gsap.to(e.slides[e.previousIndex].querySelector(".title-wrap"), {
@@ -153,12 +160,19 @@ export default function initWorkSlider() {
                     duration: timeVideoWrap[0],
                     ease: easeCurve,
                     scale: sizeVideoWrap[1],
-                    autoAlpha: 1,
                     onComplete: function(current) {
-                        if(fashionSlider.previousIndex == undefined) return;
-                        fashionSlider.slides[fashionSlider.previousIndex].querySelector("video").pause()
-                        fashionSlider.slides[fashionSlider.previousIndex].querySelector("video").currentTime = 0;
+                        if(workSlider.previousIndex == undefined) return;
+                        workSlider.slides[workSlider.previousIndex].querySelector("video").pause()
+                        workSlider.slides[workSlider.previousIndex].querySelector("video").currentTime = 0;
                     },
+                })
+
+                gsap.to(".videowrap video", {
+                    autoAlpha: 1,
+                })
+
+                gsap.to(".videowrap [data-collaboration]", {
+                    autoAlpha: 0,
                 })
             },
             init: e => {
@@ -175,7 +189,14 @@ export default function initWorkSlider() {
                             duration: timeVideoWrap[0],
                             ease: easeCurve,
                             scale: sizeVideoWrap[0],
+                        })
+
+                        gsap.to(".videowrap video", {
                             autoAlpha: .7,
+                        })
+        
+                        gsap.to(".videowrap [data-collaboration]", {
+                            autoAlpha: 1,
                         })
 
                         gsap.to(elem.previousElementSibling, {
@@ -199,7 +220,14 @@ export default function initWorkSlider() {
                             duration: timeVideoWrap[0],
                             ease: easeCurve,
                             scale: sizeVideoWrap[1],
+                        })
+
+                        gsap.to(".videowrap video", {
                             autoAlpha: 1,
+                        })
+        
+                        gsap.to(".videowrap [data-collaboration]", {
+                            autoAlpha: 0,
                         })
                     });
                 });
@@ -319,12 +347,12 @@ function handleIntersection(entries, observer) {
         if (entry.isIntersecting) {
             // Video is in view, so play it if the window is active
             if (document.visibilityState === 'visible') {
-                playVideo(fashionSlider.slides[fashionSlider.activeIndex].querySelector("video"))
+                playVideo(workSlider.slides[workSlider.activeIndex].querySelector("video"))
 
             }
         } else {
             // Video is out of view, so pause it
-            fashionSlider.slides[fashionSlider.activeIndex].querySelector("video").pause()
+            workSlider.slides[workSlider.activeIndex].querySelector("video").pause()
         }
     });
 }
