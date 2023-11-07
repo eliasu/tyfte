@@ -20,8 +20,18 @@
       
             {{# text #}}
             <div class="flex flex-col justify-center h-full mx-auto sm:min-w-[48ch]">
-               <h2 class="mb-4 font-bold text-lead-0 text-usercolor">{{ title }}</h2>
-               {{ partial:components/modaltext :handle="teaser" as="h3" class="text-lead-1 max-w-[30ch]" }}
+                <h2 class="mb-16 font-mono font-light text-lead-1 text-usercolor">{{ title }}</h2>
+                
+                {{ partial:components/modaltext :handle="teaser" as="h3" class="mb-8 text-lead-1 max-w-[30ch]" }}
+
+                {{# {{ partial:components/tags class="flex mb-8 xl:max-w-1/2" }}
+                    {{ partial:components/tag text="Webflow" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Statamicasdas" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Webflow" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Entro" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Webflow" url="/" class="text-light bg-usercolor" }}
+                    {{ partial:components/tag text="Luli" url="/" class="text-light bg-usercolor" }}
+                {{ /partial:components/tags }} #}}
             </div>
             
                
