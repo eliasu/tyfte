@@ -18,7 +18,7 @@ tabs:
               max_files: 1
               mode: list
               container: files
-              folder: lottie
+              folder: lottie-videos
               restrict: false
               allow_uploads: true
               show_filename: true
@@ -32,6 +32,7 @@ tabs:
               visibility: visible
               replicator_preview: true
               hide_display: false
+              instructions: 'Please add an .mp4 file, where a .webm version is provided in the same folder.'
           -
             import: teaser_text
   sidebar:

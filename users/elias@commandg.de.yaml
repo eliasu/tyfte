@@ -8,5 +8,3 @@ preferences:
       after_save: continue_editing
     faqs:
       after_save: create_another
-    infos:
-      after_save: continue_editing

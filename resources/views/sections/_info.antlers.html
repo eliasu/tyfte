@@ -10,7 +10,8 @@
 
    {{# very ugly but efficient tailwind selector: creating left right layout #}}
    <div class="[&>*:nth-child(even)>*:nth-child(odd)]:sm:order-1 
-               [&>*:nth-child(even)>[data-lottiecontainer]]:sm:justify-end
+               [&>*:nth-child(even)>video]:sm:object-right
+               [&>*:nth-child(odd)>video]:sm:object-left 
                [&>*:nth-child(odd)]:sm:pr-0
                [&>*:nth-child(even)]:sm:pl-0">
       
@@ -23,19 +24,13 @@
                {{ partial:components/modaltext :handle="teaser" as="h3" class="text-lead-1 max-w-[30ch]" }}
             </div>
             
-            {{# animation grid container #}}
-            <div data-lottiecontainer class="w-full h-full overflow-hidden sm:flex">
                
-               {{# canvas must be sized with aspect ratios #}}
-               <div class="relative aspect-lottie32 sm:h-full sm:aspect-lottie118">
-                  
-                  {{# path of smaller animation stored here – ratio 8/11 or ratio 3/2 #}}
-                  {{ smallAnimation = animation | replace ('811', '32') }}
-                  
-                  {{# two animations based on screen size #}}
-                  <div data-lottie="{{ animation }}" data-lottie-small="{{ smallAnimation }}" class="absolute inset-0 transition duration-1000"></div>
-               </div>
-            </div>
+            {{# smaller animations name – ratio 8/11 or ratio 3/2 #}}
+            {{ smallAnimation = animation | replace ('11x8', '3x2') }}
+               
+            {{# two animations based on screen size #}}
+            <video width="100%" height="100%" data-video="{{ animation }}" data-video-small="{{ smallAnimation }}" autoplay loop muted class="relative object-cover transition duration-1000 mix-blend-color-burn sm:h-full">
+
          </div>
       
       {{ /collection:infos }}

@@ -2,76 +2,71 @@
  * preloader component
  * import with "import initInfoSection from './components/infoSection';"
 **/
-import lottie from 'lottie-web';
 
 
 export default function initInfoSection() { 
-    console.log("** init info section from /components/infoSection.js **")
+  console.log("** init info section from /components/infoSection.js **")
 
-    // Function to handle intersection changes
-    const handleIntersection = (entries, observer) => {
-        entries.forEach((entry) => {
-            const element = entry.target;
-            const animation = element._lottieAnimation; // Retrieve the Lottie animation instance
+  // Get all elements with the data-video attribute
+  const videoElements = document.querySelectorAll('[data-video]');
 
-            if (entry.isIntersecting) {
-                // Element is in view
-                animation.play(); // Play the Lottie animation
-                element.style.opacity = 1; // Set opacity to 1 when playing
-            } else {
-                // Element is out of view
-                animation.pause(); // Stop the Lottie animation
-                element.style.opacity = 0.3; // Set opacity to 0.3 when not playing
-            }
-        });
-    };
+  // Function to load and play videos
+  function loadAndPlayVideo(element) {
+      let small = window.innerWidth < 640;
 
-    const elementsWithLottieData = document.querySelectorAll('[data-lottie]');
+      const videoSrcAttribute = small ? 'data-video-small' : 'data-video';
+      const videoSrc = element.getAttribute(videoSrcAttribute);
+      element.src = videoSrc;
 
-    // Initialize Intersection Observer
-    const observer = new IntersectionObserver(handleIntersection, {
-        root: null, // Use the viewport as the root
-        rootMargin: '0px',
-        threshold: 0,
-    });
+      // Stop observing the old element and start observing the new one
+      videoObserver.unobserve(element);
+      videoObserver.observe(element);
+  }
 
-    function updateAnimationPaths() {
-        elementsWithLottieData.forEach((element) => {
-            
-            const animationPath = window.innerWidth < 680 ? element.getAttribute('data-lottie-small') : element.getAttribute('data-lottie');
-            const animation = element._lottieAnimation;
-
-            if (animation) {
-                
-                // check if animation is allready loaded
-                if (animationPath.includes(animation.fileName) ) {
-                    
-                    // dont do anything if animation is allready present
-                    return;
-                }
-                
-                // if there is a different breakpoint delete the old animation
-                animation.destroy(); // Destroy the previous animation instance
-            }
-
-            // Create a new Lottie animation for each element
-            const newAnimation = lottie.loadAnimation({
-                container: element,
-                renderer: 'canvas',
-                loop: true,
-                autoplay: true,
-                path: animationPath,
-            });
-
-            element._lottieAnimation = newAnimation; // Store the new animation instance
-            observer.observe(element); // Start observing the element
-        });
+  // Add a resize listener to log "big" or "small" when the viewport changes
+  window.addEventListener('resize', () => {
+    if( checkBreakpoint() ) {
+      videoElements.forEach((element) => {
+        loadAndPlayVideo(element); // Load and play videos initially
+      });
     }
+  });
 
-    // Initial update of animation paths
-    updateAnimationPaths();
+  let isSmallViewport = window.innerWidth < 640;
 
-    // Bind an event listener to window resize
-    window.addEventListener('resize', updateAnimationPaths);
+  function checkBreakpoint() {
+    const newIsSmallViewport = window.innerWidth < 640;
+
+    if (newIsSmallViewport !== isSmallViewport) {
+      isSmallViewport = newIsSmallViewport;
+      return true;
+    }
+  }
+
+  // Function to pause and play videos based on visibility
+  function handleVideoVisibility(entries) {
+    entries.forEach((entry) => {
+
+      if (entry.isIntersecting) {
+        entry.target.play();
+        entry.target.style.opacity = 1;
+      } else {
+        entry.target.pause();
+        entry.target.style.opacity = .3;
+      }
+    });
+  }
+
+  // Use Intersection Observer to monitor video visibility
+  const videoObserver = new IntersectionObserver(handleVideoVisibility, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5, // Adjust the threshold as needed
+  });
+
+  videoElements.forEach((element) => {
+    loadAndPlayVideo(element); // Load and play videos initially
+    videoObserver.observe(element);
+  });
 }
 
