@@ -6,10 +6,13 @@
 <!-- sections/info.antlers.html -->
 {{ partial:layout/section anchor="services" class="flex flex-col w-full gap-frame-2 lg:gap-frame py-frame" }}
 
-   <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn">How we work</h2>
+   <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn translate-z-0">How we work</h2>
 
-   {{# very ugly but efficiemt tailwind selector: creating left right layout #}}
-   <div class="[&>*:nth-child(even)>*:nth-child(odd)]:sm:order-1 [&>*:nth-child(even)>[data-lottiecontainer]]:sm:justify-end">
+   {{# very ugly but efficient tailwind selector: creating left right layout #}}
+   <div class="[&>*:nth-child(even)>*:nth-child(odd)]:sm:order-1 
+               [&>*:nth-child(even)>[data-lottiecontainer]]:sm:justify-end
+               [&>*:nth-child(odd)]:sm:pr-0
+               [&>*:nth-child(even)]:sm:pl-0">
       
       {{ collection:infos sort="order" }}
          <div class="sm:grid w-full sm:min-h-screen sm:grid-cols-[1fr_1fr] gap-frame-2 lg:gap-frame-3 p-frame xs:p-frame-4 sm:p-frame mix-blend-color-burn flex flex-col-reverse mb-8 sm:mb-0">
@@ -21,12 +24,12 @@
             </div>
             
             {{# animation grid container #}}
-            <div data-lottiecontainer class="w-full h-full sm:flex">
+            <div data-lottiecontainer class="w-full h-full overflow-hidden sm:flex">
                
                {{# canvas must be sized with aspect ratios #}}
                <div class="relative aspect-lottie32 sm:h-full sm:aspect-lottie118">
                   
-                  {{# smaller version of animation stored here #}}
+                  {{# path of smaller animation stored here – ratio 8/11 or ratio 3/2 #}}
                   {{ smallAnimation = animation | replace ('811', '32') }}
                   
                   {{# two animations based on screen size #}}
