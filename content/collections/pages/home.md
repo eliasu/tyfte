@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1698798167
+updated_at: 1699454501
 teaser:
   -
     type: paragraph
@@ -68,7 +68,6 @@ teaser:
       -
         type: text
         text: 'our wizards have it all covered – from information architecture and implementation to hosting and beyond. Let’s fry!'
-background_video: videos/backgrounds/bg_2/tyfte_bg_2.mpd
 accent_color: '#C23E3E'
 video_color: '#8F1650'
 ---

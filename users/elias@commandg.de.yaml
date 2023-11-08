@@ -8,3 +8,6 @@ preferences:
       after_save: continue_editing
     faqs:
       after_save: create_another
+  assets:
+    files:
+      per_page: 500
