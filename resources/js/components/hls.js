@@ -5,8 +5,9 @@
 
 import Hls from 'hls.js'
 
+
 export default function initHLS() { 
-    
+
     // Function to handle the video loading process
     function loadOrPlayVideo(videoElement) {
         
@@ -67,15 +68,6 @@ export default function initHLS() {
         );
     }
 
-    // helper
-    function printElement(videoElement) {
-        console.log("##########");
-        console.log("loaded element:");
-        console.log(videoElement);
-        console.log("##########");
-        console.log("##########");
-    }
-
     // Options for the Intersection Observer
     const options = {
         root: null, // Use the viewport as the root
@@ -103,4 +95,59 @@ export default function initHLS() {
         // Start observing each video element
         observer.observe(videoElement);
     });
-}   
+}
+
+// Function to handle the video loading process
+export function loadVideo(videoElement) {
+
+    // Check if the video has been loaded initially
+    const loadedInitially = videoElement.getAttribute('data-hls-loaded');
+    
+    // if its already loaded, just play the video
+    if(loadedInitially) {
+        return;
+    }
+
+    // get the src of the video
+    const videoSrc = videoElement.getAttribute('data-hls');
+
+    // Check if the data-hls-lazy attribute is "false"
+    const noLazyLoad = videoElement.getAttribute('data-hls-lazy') === 'false';
+
+    // if its not lazy load, or it is, but its in view right away
+    if (noLazyLoad || isElementInViewport(videoElement)) {
+
+        // use native hls support if possible
+        if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+            
+            // append the src and play the video
+            videoElement.src = videoSrc;
+            
+            // set the attribute to prevent double loading
+            videoElement.setAttribute('data-hls-loaded', 'true'); // Mark as loaded initially
+            printElement(videoElement);
+        } 
+        
+        // use hls.js
+        else if (Hls.isSupported()) {
+            const hls = new Hls();
+            
+            // do hls.js magic and play the video
+            hls.loadSource(videoSrc);
+            hls.attachMedia(videoElement);
+            
+            // set the attribute to prevent double loading
+            videoElement.setAttribute('data-hls-loaded', 'true'); // Mark as loaded initially
+            printElement(videoElement);
+        }
+    }
+}
+
+// helper
+function printElement(videoElement) {
+    console.log("##########");
+    console.log("loaded element:");
+    console.log(videoElement);
+    console.log("##########");
+    console.log("##########");
+}
