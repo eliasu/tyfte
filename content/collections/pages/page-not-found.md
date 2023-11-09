@@ -1,31 +1,40 @@
 ---
 id: 059d4d8d-fc60-49f8-8823-7da10549e84e
-blueprint: page
+blueprint: utility_page
 title: 'Page not found'
-page_builder:
+background_video: videos/backgrounds/bg_grad_dark_loop/master.m3u8
+accent_color: '#C23E3E'
+article:
   -
-    article:
+    type: heading
+    attrs:
+      level: 1
+    content:
       -
-        type: heading
-        attrs:
-          level: 1
-        content:
+        type: text
+        text: 'Seite nicht gefunden'
+  -
+    type: set
+    attrs:
+      id: lor1jsqc
+      values:
+        type: buttons
+        buttons:
           -
-            type: text
-            text: '404 Page not found'
-      -
-        type: paragraph
-        content:
-          -
-            type: text
-            text: 'The page you requested is not available (anymore).'
-    type: article
-    enabled: true
-seo_noindex: true
+            id: lor1jti3
+            label: 'Go Back'
+            link_type: url
+            target_blank: false
+            button_type: button
+            attr_title: 'Go Back'
+            attr_aria: 'Go back to homepage'
+            url: /
+seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
-updated_by: 66c6ff90-a9a2-42ba-a4e1-c0872e344786
-updated_at: 1646921434
+updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
+updated_at: 1699525888
+template: '@blueprint'
 ---

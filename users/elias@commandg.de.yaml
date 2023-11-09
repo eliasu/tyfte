@@ -4,8 +4,6 @@ id: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
 password_hash: $2y$10$5tQkAoqp6hlXoM97ntcnGulMQnw88jJjg3yhIkqxxwTrv1gdFUN46
 preferences:
   collections:
-    pages:
-      after_save: continue_editing
     faqs:
       after_save: create_another
     projects:
