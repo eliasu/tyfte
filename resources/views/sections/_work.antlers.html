@@ -28,7 +28,7 @@
                         {{# colaboration #}}
                         {{ if collaboration }}
                             <div data-collaboration class="absolute z-50 flex flex-col items-start text-light top-frame-1/2 left-frame-1/2 max-w-1/3">
-                                {{ partial:components/tag text="in collaboration with" url="/" class="mb-1 text-dark bg-light" }}
+                                {{ partial:components/tag text="collaboration" url="/" class="xs:mb-1 text-dark bg-light" }}
                                 <div class="text-lead-1">{{ collaboration }}</div>
                             </div>
                         {{ /if }}
@@ -36,7 +36,7 @@
                         {{# video #}}
                         <video
                             data-hls="{{ project_video }}"
-                            data-hls-lazy="false"
+                            data-hls-lazy="{{ first ? 'false' : 'true' }}"
                             id="{{ title }}-video"
                             class="object-cover w-full h-full"
                             width="100%" height="100%"

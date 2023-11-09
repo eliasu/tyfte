@@ -86,7 +86,9 @@ export default function initWorkSlider() {
                     ease: easeCurve,
                     scale: sizeVideoWrap[0],
                     onStart: function(current) {
-                        loadVideo(workSlider.slides[workSlider.activeIndex].querySelector("video"))
+                        let nextSlidesVideo = workSlider.slides[workSlider.activeIndex].querySelector("video");
+                        loadVideo(nextSlidesVideo)
+                        nextSlidesVideo.play();
                     },
                 })
                 
