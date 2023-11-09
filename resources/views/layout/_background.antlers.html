@@ -21,12 +21,9 @@
 <div data-dotgrid class="fixed inset-0 pointer-events-none -z-20" id="dotgridBig"></div>
 
 {{# bg video wrapper #}}
-<video
-    src="{{ background_video }}"
-    id="hero-bg-video"
-    class="fixed top-0 object-cover w-full h-full -z-30 mix-blend-lighten opacity-90"
-    width="100%" height="100%"
-    muted playsinline loop autoplay>
+<video id="hero-bg-video" muted playsinline loop autoplay class="fixed top-0 object-cover w-full h-full -z-30 mix-blend-lighten opacity-90" width="100%" height="100%">
+    <source src="{{ background_video:url | remove_right('.mp4') | ensure_right('.webm') }}" type="video/webm">
+    <source src="{{ background_video:url | remove_right('.webm') | ensure_right('.mp4') }}" type="video/mp4">
 </video>
 
 {{# grain #}}

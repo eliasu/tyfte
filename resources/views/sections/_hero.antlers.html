@@ -37,12 +37,9 @@
         
             {{# hero video #}}
             <video
-                src="{{ video }}"
-                id="hero-video"
-                class="absolute object-cover w-full h-full mix-blend-lighten"
-                width="100%" height="100%"
-                muted playsinline loop autoplay
-                >
+                muted playsinline loop autoplay id="hero-video" class="absolute object-cover w-full h-full mix-blend-lighten" width="100%" height="100%">
+                <source src="{{ video:url | remove_right('.mp4') | ensure_right('.webm') }}" type="video/webm">
+                <source src="{{ video:url | remove_right('.webm') | ensure_right('.mp4') }}" type="video/mp4">
             </video>
         </div>
     </div>
