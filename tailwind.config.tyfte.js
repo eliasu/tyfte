@@ -119,6 +119,9 @@ module.exports = {
         '100': '100',
         '900': '900',
       },
+      transitionProperty: {
+        'height': 'height',
+      },
       transitionTimingFunction: {
         'bouncy': 'cubic-bezier(.47,1.64,.41,.8)',
         'slider': 'cubic-bezier(0.710, 0.075, 0.340, 0.835)',
