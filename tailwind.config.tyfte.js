@@ -114,6 +114,9 @@ module.exports = {
       padding: {
         '0.5': '0.125rem',
       },
+      overflow: {
+        'done': 'unset',
+      },
       zIndex: {
         'behind': '-1',
         '100': '100',

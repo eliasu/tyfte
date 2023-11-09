@@ -176,6 +176,15 @@ export default function initWorkSlider() {
                 // add big title animation on hover title link
                 document.querySelectorAll(".title-link").forEach(function (elem, index) {
                     
+                    // make transitionEnd the starting point
+                    e.emit('transitionEnd');
+
+                    // hide the links 
+                    gsap.set(elem, {
+                        autoAlpha: 0,
+                    });
+
+                    // add hover effect
                     elem.addEventListener('mouseenter', el => {
 
                         gsap.to(".videowrap", {
@@ -200,6 +209,7 @@ export default function initWorkSlider() {
                         })
                     });
 
+                    // add hover out effect
                     elem.addEventListener('mouseleave', el => {
                         
                         gsap.to(elem.previousElementSibling, {
@@ -232,8 +242,7 @@ export default function initWorkSlider() {
                     backgroundColor: bgColors[e.activeIndex],
                 })
 
-                // make transitionEnd the starting point
-                e.emit('transitionEnd');
+                
             },
         }
     });
