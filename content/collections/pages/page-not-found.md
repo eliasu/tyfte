@@ -35,6 +35,6 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699525888
+updated_at: 1699538229
 template: '@blueprint'
 ---
