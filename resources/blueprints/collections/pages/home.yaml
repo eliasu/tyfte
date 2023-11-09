@@ -36,6 +36,7 @@ tabs:
               hide_display: false
               replicator_preview: true
               width: 33
+              folder: videos
           -
             handle: background_video
             field:

@@ -8,3 +8,8 @@ preferences:
       after_save: continue_editing
     faqs:
       after_save: create_another
+    projects:
+      after_save: continue_editing
+  assets:
+    files:
+      per_page: 500

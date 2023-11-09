@@ -1,1 +1,1 @@
-import MediaPlayer from 'dashjs';
+import initHLS from './components/hls'

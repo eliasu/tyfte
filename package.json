@@ -19,6 +19,7 @@
     "focus-visible": "^5.2.0",
     "gradientify": "^1.1.5",
     "gsap": "^3.12.2",
+    "hls.js": "^1.4.12",
     "horizontal-scroll": "^1.1.0",
     "lottie-web": "^5.11.0",
     "puppeteer": "^19.9.1",

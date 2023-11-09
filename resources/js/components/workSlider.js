@@ -19,6 +19,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 
 import lottie from 'lottie-web';
+import { loadVideo } from '../components/hls'
 
 let workSlider;
 
@@ -26,7 +27,6 @@ export default function initWorkSlider() {
     console.log("** init work slider from /components/workSlider.js **")
 
     let bgColors = new Array();
-    const swiper = document.getElementById('swiper');
 
     let slideTransitionMs = 900
     let easeCurve = 'cubic-bezier(.34,.11,.43,.99)'
@@ -34,13 +34,6 @@ export default function initWorkSlider() {
     let timeTitle = [.4, .2] 
     let timeLink = [.4, .2] 
     let sizeVideoWrap = [.87, 1]
-
-    // Options for the Intersection Observer
-    const options = {
-        root: null, // Use the viewport as the root
-        rootMargin: '0px', // No margin
-        threshold: 0, // Trigger when at least 50% of the video is in view
-    };
 
     // create a scrolltrigger for the swiper element
     let tl = gsap.timeline({
@@ -92,8 +85,8 @@ export default function initWorkSlider() {
                     duration: timeVideoWrap[0],
                     ease: easeCurve,
                     scale: sizeVideoWrap[0],
-                    onComplete: function(current) {
-                        playVideo(workSlider.slides[workSlider.activeIndex].querySelector("video"))
+                    onStart: function(current) {
+                        loadVideo(workSlider.slides[workSlider.activeIndex].querySelector("video"))
                     },
                 })
                 
@@ -163,7 +156,6 @@ export default function initWorkSlider() {
                     onComplete: function(current) {
                         if(workSlider.previousIndex == undefined) return;
                         workSlider.slides[workSlider.previousIndex].querySelector("video").pause()
-                        workSlider.slides[workSlider.previousIndex].querySelector("video").currentTime = 0;
                     },
                 })
 
@@ -181,6 +173,7 @@ export default function initWorkSlider() {
                     bgColors[index] = e.slides[index].dataset.swipercolor
                 }
 
+                // add big title animation on hover title link
                 document.querySelectorAll(".title-link").forEach(function (elem, index) {
                     
                     elem.addEventListener('mouseenter', el => {
@@ -232,6 +225,7 @@ export default function initWorkSlider() {
                     });
                 });
 
+                // add the scroll triogger fro the background color
                 gsap.set("#work-tint", {
                     duration: 1,
                     ease: easeCurve,
@@ -246,15 +240,6 @@ export default function initWorkSlider() {
 
     // create Callbacks for navigation buttons
     initNavigationButtons();
-
-    // create observers for slider to play if slider is in view and window is active
-
-    // Create an Intersection Observer with the callback function and options
-    const observer = new IntersectionObserver(handleIntersection, options);
-
-    // Start observing the video element
-    observer.observe(swiper);
-
 }
 
 // helper functions
@@ -323,36 +308,4 @@ function renderCustomBulletPoints (swiper, current, total) {
                         <p class="text-small-1 mb-0">${current}</p><p class="text-small-1 mb-0"> / </p><p class="text-small-1 mb-0">${total}</p>
                     </div>`
     return outputHtml;
-}
-
-// helper function to prevent video to be played if there is no valid source
-function playVideo(videoElem) {
-    // Check if the video element has its meta data loaded
-    if (videoElem.readyState >= videoElem.HAVE_METADATA) {
-        // Play the video
-        videoElem.play();
-    } else {
-        // The source is not ready yet, so wait for it to be loaded
-        videoElem.addEventListener('loadedmetadata', () => {
-            // console.log(`***source for ${videoElem} loaded. Now playing …`)
-            videoElem.play();
-        });
-    }
-}
-
-// Callback function to handle intersections
-function handleIntersection(entries, observer) {
-    entries.forEach((entry) => {
-        // console.log(entry.target)
-        if (entry.isIntersecting) {
-            // Video is in view, so play it if the window is active
-            if (document.visibilityState === 'visible') {
-                playVideo(workSlider.slides[workSlider.activeIndex].querySelector("video"))
-
-            }
-        } else {
-            // Video is out of view, so pause it
-            workSlider.slides[workSlider.activeIndex].querySelector("video").pause()
-        }
-    });
 }
