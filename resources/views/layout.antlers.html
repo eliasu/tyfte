@@ -23,10 +23,13 @@
         {{ partial:statamic-peak-tools::components/toolbar }}
         {{ yield:seo_body }}
 
-        {{# {{ partial:layout/preloader }} #}}
+        {{ if environment != 'local' }}
+            {{ partial:layout/preloader }}
+        {{ /if }}
         {{ partial:navigation/main }}
         {{ template_content }}
         {{ partial:layout/background }}
     </body>
 </html>
 <!-- End: /layout.antlers.html -->
+

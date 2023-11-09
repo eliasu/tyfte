@@ -99,8 +99,8 @@ export function isElementInViewport(element) {
 // helper
 function load(videoElement) {
     if(loadVideo(videoElement)) {
-        console.log("loaded")
-        console.log(videoElement)
+        // console.log("loaded")
+        // console.log(videoElement)
     }
 }
 
