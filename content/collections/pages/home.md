@@ -2,7 +2,7 @@
 id: 5cdd6ecf-9b27-4877-aa49-e86b20916f12
 blueprint: home
 title: Home
-video: videos/tyfte_work_heroedition/master.m3u8
+video: videos/tyfte_work_heroedition.mp4
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699540302
+updated_at: 1699558915
 teaser:
   -
     type: paragraph
@@ -70,6 +70,6 @@ teaser:
         text: 'our wizards have it all covered – from information architecture and implementation to hosting and beyond. Let’s fry!'
 accent_color: '#C23E3E'
 video_color: '#8F1650'
-background_video: videos/backgrounds/bg_grad_dark_loop/master.m3u8
+background_video: videos/backgrounds/bg_grad_dark_loop.mp4
 seo_title: 'Studio Tyfte'
 ---

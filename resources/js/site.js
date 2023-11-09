@@ -11,7 +11,7 @@ import initMouse from './components/mouse';
 import initHandleVisibility from './components/handleVisibility';
 import initSurveyForm from './components/surveyForm';
 
-import initHLS from './components/hls'
+import initVideos from './components/videos'
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
@@ -34,9 +34,7 @@ Alpine.start()
 
 // if DOMContent has loaded
 window.addEventListener("DOMContentLoaded", (event) => {
-	initPreloader();
     initSurveyForm();
-    initHLS();
  });
 
 // if document is interactive
@@ -45,4 +43,6 @@ document.addEventListener('readystatechange', (event) => {
 	initDotgrid();
     initMouse();
     initHandleVisibility();
+    initVideos();
+    initPreloader();
 });
