@@ -6,13 +6,10 @@
 
 
 {{# Logo #}}
-<a href="/" class="absolute h-8 pointer-events-auto z-100 w-fit top-frame left-frame lg:h-10 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
-    {{ svg:tyfte_logo class="w-full h-full" aria-hidden="true" }}
-    {{ svg:tyfte_logo_reveal class="absolute -top-[20px] pointer-events-none w-full" aria-hidden="true" }}
+<a href="/" class="absolute h-8 pointer-events-auto z-100 top-frame left-frame lg:h-10 cursor-none group" id="homeLink" aria-label="Back to home" title="Back to home">
+    {{ svg:tyfte_logo class="w-auto h-full" aria-hidden="true" }}
+    {{ svg:tyfte_logo_reveal class="absolute -top-[20px] pointer-events-none w-full touch:hidden" aria-hidden="true" }}
 </a>
-<div class="fixed inset-0 z-50 pointer-events-none mix-blend-color-burn">
-    <div id="mouseFollower" class="absolute overflow-hidden -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 border-purple-dark touch:hidden w-96 h-96 bg-purple-dark"></div>
-</div>
 
 <nav x-data="{ complete: false, }" class="relative z-50 w-auto h-auto">
 
