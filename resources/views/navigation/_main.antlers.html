@@ -62,7 +62,8 @@
                                 </div>
                                 
                                 {{# nav links / initial state of navigation #}}
-                                <div class="absolute flex flex-col justify-between inset-frame-1/2 top-1/2" 
+                            
+                                <div class="flex flex-col gap-frame-1/2 md:gap-2"
                                     x-show="slideOverOpen && !formOpen"
                                     x-transition:enter="delay-500 duration-500"
                                     x-transition:enter-start="opacity-0 translate-x-8"
@@ -71,24 +72,23 @@
                                     x-transition:leave-start="opacity-100 translate-x-0"
                                     x-transition:leave-end="opacity-0 -translate-x-2"
                                     x-cloak 
-                                    >
-                                    <div class="flex flex-col gap-frame-1/2 md:gap-2">
-                                        <a href="/#services" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Services</a>
-                                        <a href="/#work" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Work</a>
-                                        <a href="/#faq" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Questions</a>
-                                        <a href="#contact" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Contact</a>
-                                    </div>
-                                    
-                                    {{# inner nav cta #}}
-                                    <div class="relative flex flex-col items-start w-full gap-2">
-                                        <p class="text-dark max-w-[20ch]">Start your project right away and fill out or 5 minute survey.</p>
-                                        
-                                        {{# start project #}}
-                                        {{ partial:components/button class="text-dark hover:text-purple" label="start project" }}
-                                            @click.prevent="formOpen = true, formStep = 1"
-                                        {{ /partial:components/button }}
-                                    </div>
+                                >
+                                    <a href="/#services" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Services</a>
+                                    <a href="/#work" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Work</a>
+                                    <a href="/#faq" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Questions</a>
+                                    <a href="/#contact" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Contact</a>
                                 </div>
+                                
+                                {{# inner nav cta #}}
+                                <div class="relative flex flex-col items-start w-full gap-2">
+                                    <p class="text-dark max-w-[20ch]">Start your project right away and fill out or 5 minute survey.</p>
+                                    
+                                    {{# start project #}}
+                                    {{ partial:components/button class="text-dark hover:text-purple" label="start project" }}
+                                        @click.prevent="formOpen = true, formStep = 1"
+                                    {{ /partial:components/button }}
+                                </div>
+                              
 
                                 {{# survey form #}}
                                 {{ form:contact class="flex flex-col items-start justify-between h-full" 
