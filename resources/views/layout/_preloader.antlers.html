@@ -8,13 +8,13 @@
 {{# screen height wrapper #}}
 
 {{# container fixed height #}}
-<div class="fixed inset-0 w-screen h-screen">
+<div class="fixed inset-0 w-screen h-screen pointer-events-none z-900">
 
     {{# container dynamic height #}}
-    <div class="flex justify-center w-full align-middle transition duration-500 pointer-events-none h-screen-d z-900 bg-dark" id="preloader">
+    <div class="flex items-center justify-center w-full h-screen-d bg-dark" id="preloader">
     
         {{# container preloader #}}
-        <div id="preloader-lottie" class="w-3/4 max-w-3xl "></div>
+        <img class="h-12 mix-blend-lighten" src="/files/gif/tyfte_logo_preloader.gif" alt="Tyfte Spinning Logo">
     </div>
 </div>
 

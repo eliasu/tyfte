@@ -78,7 +78,7 @@
    }
 
    #preloader.fin {
-      @apply opacity-0 scale-[2];
+      @apply transition duration-500 opacity-0 scale-[2];
    }
 
 

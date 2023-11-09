@@ -34,7 +34,6 @@ Alpine.start()
 
 // if DOMContent has loaded
 window.addEventListener("DOMContentLoaded", (event) => {
-	initPreloader();
     initSurveyForm();
     initVideos();
  });
@@ -45,4 +44,5 @@ document.addEventListener('readystatechange', (event) => {
 	initDotgrid();
     initMouse();
     initHandleVisibility();
+    initPreloader();
 });
