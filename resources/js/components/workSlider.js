@@ -19,7 +19,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 
 import lottie from 'lottie-web';
-import { loadVideo } from '../components/hls'
 
 let workSlider;
 
@@ -87,7 +86,6 @@ export default function initWorkSlider() {
                     scale: sizeVideoWrap[0],
                     onStart: function(current) {
                         let nextSlidesVideo = workSlider.slides[workSlider.activeIndex].querySelector("video");
-                        loadVideo(nextSlidesVideo)
                         nextSlidesVideo.play();
                     },
                 })
@@ -310,4 +308,8 @@ function renderCustomBulletPoints (swiper, current, total) {
                         <p class="text-small-1 mb-0">${current}</p><p class="text-small-1 mb-0"> / </p><p class="text-small-1 mb-0">${total}</p>
                     </div>`
     return outputHtml;
+}
+
+function clamp(number, min, max) {
+    return Math.min(Math.max(number, min), max);
 }

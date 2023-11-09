@@ -35,8 +35,7 @@
         
                             {{# video #}}
                             <video
-                                data-hls="{{ project_video }}"
-                                data-hls-lazy="{{ first ? 'false' : 'true' }}"
+                                src="{{ project_video }}"
                                 id="{{ title }}-video"
                                 class="object-cover w-full h-full"
                                 width="100%" height="100%"

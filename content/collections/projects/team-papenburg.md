@@ -6,6 +6,6 @@ website_address: 'https://teampapenburg.webflow.io'
 color_field: '#0ACF83'
 collaboration: Zentralnoden
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699472039
-project_video: videos/tyfte_work_teampapenburg/master.m3u8
+updated_at: 1699559135
+project_video: videos/tyfte_work_teampapenburg.mp4
 ---
