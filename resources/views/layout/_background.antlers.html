@@ -5,11 +5,16 @@
 
 <!-- /layout/_background.antlers.html -->
 
+{{# container for cats #}}
+<div id="lovecontainer" class="fixed inset-0 w-full h-full pointer-events-none z-900"></div>
+
 {{# video tint for work section #}}
 <div id="work-tint" class="fixed inset-0 w-full h-full pointer-events-none -z-10 opacity-80"></div>
 
-{{# container for cats #}}
-<div id="lovecontainer" class="fixed inset-0 w-full h-full pointer-events-none z-900"></div>
+{{# mouse follower #}}
+<div class="fixed inset-0 pointer-events-none -z-0 mix-blend-color-burn">
+    <div id="mouseFollower" class="absolute overflow-hidden -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 border-purple-dark touch:hidden w-96 h-96 bg-purple-dark"></div>
+</div>
 
 {{# dotgrid #}}
 <div data-dotgrid class="fixed inset-0 pointer-events-none -z-20" id="dotgrid"></div>

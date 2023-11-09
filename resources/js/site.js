@@ -11,6 +11,8 @@ import initMouse from './components/mouse';
 import initHandleVisibility from './components/handleVisibility';
 import initSurveyForm from './components/surveyForm';
 
+import initHLS from './components/hls'
+
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
     return await fetch('/!/statamic-peak-tools/dynamic-token/refresh')
@@ -34,6 +36,7 @@ Alpine.start()
 window.addEventListener("DOMContentLoaded", (event) => {
 	initPreloader();
     initSurveyForm();
+    initHLS();
  });
 
 // if document is interactive

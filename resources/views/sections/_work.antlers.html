@@ -9,74 +9,71 @@
 
     <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn translate-z-0">Our work</h2>
 
-    <!-- swiper Outer Wrapper -->
-    <div id="swiper" class="relative w-full swiper h-screen-d snap-center">
+    {{# outer container fixed height #}}
+    <div class="h-screen snap-center">
+
+        {{# swiper Outer Wrapper #}}
+        <div id="swiper" class="relative w-full duration-500 swiper h-screen-d transition-height">
         
-        <!-- swiper Wrapper -->
-        {{# swiper wrapper #}}
-        <div class="relative swiper-wrapper">
-
-            {{# projects collection #}}
-            {{ collection:projects }}
-                
-                <!-- single slide -->
-                <div data-swipercolor="{{ color_field }}" class="swiper-slide p-frame">
-
-                    {{# video wrapper #}}
-                    <div class="w-full h-[calc(100%-var(--frame)*4)] sm:h-[calc(100%-var(--frame)*2)] mb-frame sm:mb-0 md:h-[calc(100%-var(--frame)*1)] lg:h-[calc(100%-var(--frame)*.5)] xl:h-full videowrap">
-                        
-                        {{# colaboration #}}
-                        {{ if collaboration }}
-                            <div data-collaboration class="absolute z-50 flex flex-col items-start text-light top-frame-1/2 left-frame-1/2 max-w-1/3">
-                                {{ partial:components/tag text="in collaboration with" url="/" class="mb-1 text-dark bg-light" }}
-                                <div class="text-lead-1">{{ collaboration }}</div>
+            {{# swiper wrapper #}}
+            <div class="relative swiper-wrapper">
+                {{# projects collection #}}
+                {{ collection:projects }}
+        
+                    {{# single slide #}}
+                    <div data-swipercolor="{{ color_field }}" class="swiper-slide p-frame">
+                        {{# video wrapper #}}
+                        <div class="w-full h-[calc(100%-var(--frame)*4)] sm:h-[calc(100%-var(--frame)*2)] mb-frame sm:mb-0 md:h-[calc(100%-var(--frame)*1)] lg:h-[calc(100%-var(--frame)*.5)] xl:h-full videowrap">
+        
+                            {{# colaboration #}}
+                            {{ if collaboration }}
+                                <div data-collaboration class="absolute z-50 flex flex-col items-start text-light top-frame-1/2 left-frame-1/2 max-w-1/3">
+                                    {{ partial:components/tag text="collaboration" url="/" class="xs:mb-1 text-dark bg-light" }}
+                                    <div class="text-lead-1">{{ collaboration }}</div>
+                                </div>
+                            {{ /if }}
+        
+                            {{# video #}}
+                            <video
+                                data-hls="{{ project_video }}"
+                                data-hls-lazy="{{ first ? 'false' : 'true' }}"
+                                id="{{ title }}-video"
+                                class="object-cover w-full h-full"
+                                width="100%" height="100%"
+                                muted playsinline loop>
+                            </video>
+                        </div>
+        
+                        {{# title #}}
+                        <div class="absolute pointer-events-none left-frame bottom-frame-6 sm:bottom-frame-4 md:bottom-frame-2 lg:bottom-frame-1.5 xl:bottom-frame z-100 title-wrap mix-blend-soft-light">
+                            <h2 class="w-1/2 text-swiper-big">{{ title }}</h2>
+                        </div>
+                        {{# if there is a website link display it #}}
+                        {{ if website_address }}
+                            {{# project link #}}
+                            <div class="relative flex items-center gap-2 pb-1 leading-none cursor-pointer sm:top-frame-1/3 md:top-frame-1/2 lg:top-frame-1/4 xl:top-0 w-fit h-frame title-link group text-dark hover:text-light">
+        
+                                <a data-mouse-shrink target="_blank" href="{{ website_address | ensure_left('https://') }}" class="relative truncate transition duration-300 group-hover:text-light text-lead-1 text-dark">{{ website_address | remove_left('https://') | remove_left('www.') }}</a>
+                                <div data-icon="arrup" class="h-[1em] aspect-square bg-current group-hover:text-light transition duration-300"></div>
                             </div>
                         {{ /if }}
-                        
-                        {{# video #}}
-                        <video
-                            data-hls="{{ project_video }}"
-                            data-hls-lazy="false"
-                            id="{{ title }}-video"
-                            class="object-cover w-full h-full"
-                            width="100%" height="100%"
-                            muted playsinline loop>
-                        </video>
-                    </div> 
-                    
-                    {{# title #}}
-                    <div class="absolute pointer-events-none left-frame bottom-frame-6 sm:bottom-frame-4 md:bottom-frame-2 lg:bottom-frame-1.5 xl:bottom-frame z-100 title-wrap mix-blend-soft-light">
-                        <h2 class="w-1/2 text-swiper-big">{{ title }}</h2>
-                    </div>
-
-                    {{# if there is a website link display it #}}
-                    {{ if website_address }}
-                        {{# project link #}}
-                        <div class="relative flex items-center gap-2 pb-1 leading-none cursor-pointer sm:top-frame-1/3 md:top-frame-1/2 lg:top-frame-1/4 xl:top-0 w-fit h-frame title-link group text-dark hover:text-light">
-                            
-                            <a data-mouse-shrink target="_blank" href="{{ website_address | ensure_left('https://') }}" class="relative truncate transition duration-300 group-hover:text-light text-lead-1 text-dark">{{ website_address | remove_left('https://') | remove_left('www.') }}</a>
-                            <div data-icon="arrup" class="h-[1em] aspect-square bg-current group-hover:text-light transition duration-300"></div>
-                        </div>
-                    {{ /if }}
-                    
-                    
-                </div>
-            {{ /collection:projects }}
-        </div>
-
         
-        <!-- pagination -->
-        {{# pagination wrapper #}}
-        <div class="absolute flex items-center md:left-auto left-frame bottom-frame sm:bottom-frame-1/2 lg:bottom-frame-1/4 xl:bottom-0 right-frame h-frame md:w-[calc(50%-var(--frame))] z-100 text-dark">
-            {{# where pagination gets rendered in #}}
-            <div class="cursor-pointer swiper-pagination" style="position:initial"></div>
+        
+                    </div>
+                {{ /collection:projects }}
+            </div>
+        
+            <!-- pagination -->
+            {{# pagination wrapper #}}
+            <div class="absolute flex items-center md:left-auto left-frame bottom-frame sm:bottom-frame-1/2 lg:bottom-frame-1/4 xl:bottom-0 right-frame h-frame md:w-[calc(50%-var(--frame))] z-100 text-dark">
+                {{# where pagination gets rendered in #}}
+                <div class="cursor-pointer swiper-pagination" style="position:initial"></div>
+            </div>
+            <!-- navigation -->
+            {{# navigation buttons #}}
+            <div data-mouse-shrink class="absolute hidden transition rotate-180 -translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 left-frame-1/2 swiper-button-disabled touch:hidden after:hidden" id="prev"></div>
+            <div data-mouse-shrink class="absolute hidden transition translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 right-frame-1/2 touch:hidden after:hidden" id="next"></div>
         </div>
-
-        <!-- navigation -->
-        {{# navigation buttons #}}
-        <div data-mouse-shrink class="absolute hidden transition rotate-180 -translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 left-frame-1/2 swiper-button-disabled touch:hidden after:hidden" id="prev"></div>
-        <div data-mouse-shrink class="absolute hidden transition translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 right-frame-1/2 touch:hidden after:hidden" id="next"></div>
-
-    </div> 
+    </div>
 {{ /partial:layout/section }}
 <!-- End: sections/work.antlers.html -->

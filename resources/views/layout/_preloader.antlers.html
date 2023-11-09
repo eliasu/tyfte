@@ -5,8 +5,17 @@
 
 <!-- /layout/_preloader.antlers.html -->
 
-<div class="fixed inset-0 flex justify-center w-screen align-middle transition duration-500 pointer-events-none h-screen-d z-900 bg-dark" id="preloader">
-    <div id="preloader-lottie" class="w-3/4 max-w-3xl "></div>
+{{# screen height wrapper #}}
+
+{{# container fixed height #}}
+<div class="fixed inset-0 w-screen h-screen">
+
+    {{# container dynamic height #}}
+    <div class="flex justify-center w-full align-middle transition duration-500 pointer-events-none h-screen-d z-900 bg-dark" id="preloader">
+    
+        {{# container preloader #}}
+        <div id="preloader-lottie" class="w-3/4 max-w-3xl "></div>
+    </div>
 </div>
 
 <!-- End: /layout/_preloader.antlers.html -->

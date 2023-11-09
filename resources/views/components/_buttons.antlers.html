@@ -9,16 +9,16 @@
 {{ if buttons }}
     {{ if type == 'buttons' }}
         {{# Add a size utility and use different styling when called as a Bard set. #}}
-        <div class="flex flex-wrap gap-3 size-md not-prose">
+        <div class="flex flex-wrap gap-3 not-prose">
             {{ buttons }}
-                {{# {{ partial:components/button }} #}}
+                {{ partial:components/button as="a" type="lined" class="text-usercolor hover:text-dark" icon="arrup" }}
             {{ /buttons }}
         </div>
     {{ else }}
         {{# The styling when called from any other partial or template. #}}
         <div class="flex flex-wrap gap-3 {{ class }}">
             {{ buttons }}
-                {{# {{ partial:components/button }} #}}
+                {{ partial:components/button as="a" type="lined" class="text-usercolor hover:text-dark" icon="arrup" }}
             {{ /buttons }}
         </div>
     {{ /if }}

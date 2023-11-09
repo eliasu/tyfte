@@ -1,12 +1,24 @@
 title: SEO
 data:
+  title_separator: '-'
+  site_name: 'Studio Tyfte'
   noindex_local: true
   noindex_staging: true
   noindex_production: false
+  collection_defaults:
+    -
+      id: lor9z18o
+      collection: pages
+      fallback: custom_text
+      custom_text: "We're a studio for artisan digital design from Berlin with love. We are your passionate partners, accompanying you from ideation to launch. Let's fry!"
   hreflang_auto: true
   json_ld_type: none
   breadcrumbs: false
-  use_social_image_generation: false
+  use_social_image_generation: true
+  social_images_collections:
+    - pages
+  og_image: og-image.jpg
+  twitter_image: twitter-image.jpg
   sitemap_collections:
     - pages
   trackers_local: false

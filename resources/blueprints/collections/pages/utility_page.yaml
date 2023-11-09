@@ -13,6 +13,52 @@ tabs:
               validate:
                 - required
           -
+            handle: background_video
+            field:
+              mode: list
+              container: files
+              restrict: false
+              allow_uploads: false
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Background Video'
+              icon: assets
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              width: 33
+              replicator_preview: true
+              max_files: 1
+              min_files: 1
+              folder: videos/backgrounds
+          -
+            handle: accent_color
+            field:
+              allow_any: true
+              default: '#ff00ea'
+              type: color
+              display: 'Text Color'
+              icon: color
+              width: 33
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              swatches:
+                - '#FFFFFF'
+                - '#0ACF83'
+                - '#1B9F6C'
+                - '#FFC32A'
+                - '#DDA600'
+                - '#E46A62'
+                - '#C23E3E'
+                - '#C175FD'
+                - '#8E63E2'
+                - '#8A536A'
+          -
             import: article
   seo:
     display: SEO
