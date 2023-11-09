@@ -62,7 +62,7 @@ article:
         type: text
         text: 'Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699525207
+updated_at: 1699540412
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry

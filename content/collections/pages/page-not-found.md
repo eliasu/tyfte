@@ -29,12 +29,12 @@ article:
             attr_title: 'Go Back'
             attr_aria: 'Go back to homepage'
             url: /
-seo_noindex: false
+seo_noindex: true
 seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699538229
+updated_at: 1699540397
 template: '@blueprint'
 ---

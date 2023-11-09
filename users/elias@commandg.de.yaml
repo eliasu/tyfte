@@ -8,6 +8,12 @@ preferences:
       after_save: create_another
     projects:
       after_save: continue_editing
+    pages:
+      columns:
+        - title
+        - status
+        - accent_color
+        - og_image
   assets:
     files:
       per_page: 500

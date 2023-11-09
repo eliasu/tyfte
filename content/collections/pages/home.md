@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699487483
+updated_at: 1699540302
 teaser:
   -
     type: paragraph
@@ -71,4 +71,5 @@ teaser:
 accent_color: '#C23E3E'
 video_color: '#8F1650'
 background_video: videos/backgrounds/bg_grad_dark_loop/master.m3u8
+seo_title: 'Studio Tyfte'
 ---
