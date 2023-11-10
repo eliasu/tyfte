@@ -99,25 +99,28 @@ export default function initWorkSlider() {
                     autoAlpha: 1,
                 })
                 
-                gsap.to(e.slides[e.previousIndex].querySelector(".title-wrap"), {
-                    duration: timeTitle[0],
-                    ease: easeCurve,
-                    autoAlpha: 1,
-                    scale: 1,
-                });
+                // if its not the first animation (then there would be no "previousIndex")
+                if(workSlider.previousIndex != undefined) {
+                    gsap.to(e.slides[e.previousIndex].querySelector(".title-wrap"), {
+                        duration: timeTitle[0],
+                        ease: easeCurve,
+                        autoAlpha: 1,
+                        scale: 1,
+                    });
+
+                    gsap.to(e.slides[e.previousIndex].querySelector(".title-link"), {
+                        duration: timeLink[0],
+                        ease: easeCurve,
+                        translateX:"1rem",
+                        autoAlpha: 0,
+                    });
+                }
                 
                 gsap.to(e.slides[e.activeIndex].querySelector(".title-wrap"), {
                     duration: timeTitle[0],
                     ease: easeCurve,
                     autoAlpha: 1,
                     scale: 1,
-                });
-                
-                gsap.to(e.slides[e.previousIndex].querySelector(".title-link"), {
-                        duration: timeLink[0],
-                        ease: easeCurve,
-                        translateX:"1rem",
-                        autoAlpha: 0,
                 });
 
                 gsap.to(e.slides[e.activeIndex].querySelector(".title-link"), {

@@ -40,6 +40,7 @@ tabs:
               visibility: visible
               hide_display: false
               replicator_preview: true
+              instructions: 'Select a .mp4 video file'
           -
             handle: color_field
             field:
