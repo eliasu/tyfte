@@ -18,7 +18,7 @@
     </head>
     
 
-    <body x-data="{ slideOverOpen: false, formOpen: false, formStep: 1,}" class="relative bg-dark selection:bg-yellow selection:text-dark">
+    <body style="--usercolor: {{ accent_color | hex2rgb }}" x-data="{ slideOverOpen: false, formOpen: false, formStep: 1,}" class="relative bg-dark selection:bg-yellow selection:text-dark">
         {{ partial:statamic-peak-tools::snippets/noscript }}
         {{ partial:statamic-peak-tools::components/toolbar }}
         {{ yield:seo_body }}
