@@ -32,6 +32,7 @@ export default function initWorkSlider() {
     let timeVideoWrap = [.5, 0] 
     let timeTitle = [.4, .2] 
     let timeLink = [.4, .2] 
+    let endDelay = .5
     let sizeVideoWrap = [.87, 1]
 
     // create a scrolltrigger for the swiper element
@@ -98,25 +99,28 @@ export default function initWorkSlider() {
                     autoAlpha: 1,
                 })
                 
-                gsap.to(e.slides[e.previousIndex].querySelector(".title-wrap"), {
-                    duration: timeTitle[0],
-                    ease: easeCurve,
-                    autoAlpha: 1,
-                    scale: 1,
-                });
+                // if its not the first animation (then there would be no "previousIndex")
+                if(workSlider.previousIndex != undefined) {
+                    gsap.to(e.slides[e.previousIndex].querySelector(".title-wrap"), {
+                        duration: timeTitle[0],
+                        ease: easeCurve,
+                        autoAlpha: 1,
+                        scale: 1,
+                    });
+
+                    gsap.to(e.slides[e.previousIndex].querySelector(".title-link"), {
+                        duration: timeLink[0],
+                        ease: easeCurve,
+                        translateX:"1rem",
+                        autoAlpha: 0,
+                    });
+                }
                 
                 gsap.to(e.slides[e.activeIndex].querySelector(".title-wrap"), {
                     duration: timeTitle[0],
                     ease: easeCurve,
                     autoAlpha: 1,
                     scale: 1,
-                });
-                
-                gsap.to(e.slides[e.previousIndex].querySelector(".title-link"), {
-                        duration: timeLink[0],
-                        ease: easeCurve,
-                        translateX:"1rem",
-                        autoAlpha: 0,
                 });
 
                 gsap.to(e.slides[e.activeIndex].querySelector(".title-link"), {
@@ -139,18 +143,20 @@ export default function initWorkSlider() {
                     ease: easeCurve,
                     scale: 1.2,
                     autoAlpha: 0,
+                    delay: endDelay,
                 });
 
                 gsap.to(e.slides[e.activeIndex].querySelector(".title-link"), {
                     duration: timeLink[0],
                     ease: easeCurve,
-                    delay: timeLink[1],
+                    delay: endDelay+timeLink[1],
                     translateX:"0px",
                     autoAlpha: 1,
                 });
                 
                 gsap.to(".videowrap", {
                     duration: timeVideoWrap[0],
+                    delay: endDelay,
                     ease: easeCurve,
                     scale: sizeVideoWrap[1],
                     onComplete: function(current) {
@@ -161,10 +167,12 @@ export default function initWorkSlider() {
 
                 gsap.to(".videowrap video", {
                     autoAlpha: 1,
+                    delay: endDelay,
                 })
 
                 gsap.to(".videowrap [data-collaboration]", {
                     autoAlpha: 0,
+                    delay: endDelay,
                 })
             },
             init: e => {
@@ -255,7 +263,7 @@ export default function initWorkSlider() {
 
 function initNavigationButtons() {
     const ani_next = lottie.loadAnimation({
-        container: document.getElementById("next"), // Specify the container element
+        container: document.getElementById("next_lottie"), // Specify the container element
         renderer: 'svg',
         loop: true,
         autoplay: false,
@@ -263,14 +271,14 @@ function initNavigationButtons() {
     });
     
     const ani_prev = lottie.loadAnimation({
-        container: document.getElementById("prev"), // Specify the container element
+        container: document.getElementById("prev_lottie"), // Specify the container element
         renderer: 'svg',
         loop: true,
         autoplay: false,
         path: '/files/lottie/arrrightlottie2.json', // Specify the path to your animation JSON file
     });
     
-    const btnPrev = document.querySelector('#prev');
+    const btnPrev = document.querySelector('#prev_lottie');
     
     btnPrev.addEventListener('mouseenter', e => {
         ani_prev.setDirection(1);
@@ -282,7 +290,7 @@ function initNavigationButtons() {
     });
     
     
-    const btnNext = document.querySelector('#next');
+    const btnNext = document.querySelector('#next_lottie');
     
     btnNext.addEventListener('mouseenter', e => {
         ani_next.setDirection(1);
@@ -317,8 +325,4 @@ function renderCustomBulletPoints (swiper, current, total) {
                         <p class="text-small-1 mb-0">${current}</p><p class="text-small-1 mb-0"> / </p><p class="text-small-1 mb-0">${total}</p>
                     </div>`
     return outputHtml;
-}
-
-function clamp(number, min, max) {
-    return Math.min(Math.max(number, min), max);
 }
