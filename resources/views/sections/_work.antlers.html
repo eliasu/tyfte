@@ -7,7 +7,10 @@
 <!-- sections/work.antlers.html -->
 {{ partial:layout/section anchor="work" class="flex flex-col w-full gap-frame py-frame snap-center" }}
 
-    <h2 class="w-full text-center text-head-1 text-usercolor mix-blend-color-burn translate-z-0">Our work</h2>
+    <div>
+        <h2 class="w-full text-center touch:mb-1 text-head-1 text-usercolor mix-blend-color-burn translate-z-0">Our work</h2>
+        <p class="hidden w-full text-center touch:block text-small-2 text-usercolor mix-blend-color-burn translate-z-0">tab or swipe</p>
+    </div>
 
     {{# outer container fixed height #}}
     <div class="h-screen">
@@ -19,7 +22,7 @@
             <div class="relative swiper-wrapper">
                 
                 {{# projects collection #}}
-                {{ collection:projects }}
+                {{ collection:projects sort='order' }}
         
                     {{# single slide #}}
                     <div data-swipercolor="{{ color_field }}" class="swiper-slide max-md:pr-frame-1/2 py-frame md:p-frame">
@@ -69,8 +72,13 @@
             </div>
             <!-- navigation -->
             {{# navigation buttons #}}
-            <div data-mouse-shrink class="absolute hidden transition rotate-180 -translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 left-frame-1/2 swiper-button-disabled touch:hidden after:hidden" id="prev"></div>
-            <div data-mouse-shrink class="absolute hidden transition translate-x-1/2 cursor-pointer md:block top-1/2 z-900 w-frame-1/2 h-frame-1/2 right-frame-1/2 touch:hidden after:hidden" id="next"></div>
+            <div data-mouse-shrink id="prev" class="flex justify-center items-center absolute -left-frame md:left-0 w-1/4 cursor-pointer bottom-frame-5 sm:bottom-frame-3 md:bottom-frame-2 lg:bottom-frame-1.5 xl:bottom-frame top-frame swiper-button-disabled z-900 md:w-frame after:hidden">
+                <div class="transition rotate-180 touch:hidden max-w-frame-1/2" id="prev_lottie"></div>
+            </div>
+
+            <div data-mouse-shrink id="next" class="flex justify-center items-center absolute -right-frame md:right-0 w-1/4 cursor-pointer bottom-frame-5 sm:bottom-frame-3 md:bottom-frame-2 lg:bottom-frame-1.5 xl:bottom-frame top-frame swiper-button-disabled z-900 md:w-frame after:hidden">
+                <div class="transition touch:hidden max-w-frame-1/2" id="next_lottie"></div>
+            </div>
         </div>
     </div>
 {{ /partial:layout/section }}
