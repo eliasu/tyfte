@@ -1,6 +1,6 @@
 /**
- * hls component
- * import with "import initHLS from './components/hls';"
+ * videos component
+ * import with "import initVideos from './components/videos';"
 **/
 
 export default function initVideos() { 

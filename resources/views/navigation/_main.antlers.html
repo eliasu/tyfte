@@ -26,185 +26,178 @@
     
     {{# Navigation Slide in #}}
     <template x-teleport="body">
-        <div 
-            x-show="slideOverOpen"
-            @keydown.window.escape="slideOverOpen=false"
-            class="relative z-100">
+        
+        {{# navigation outer container whole screen #}}
+        <div x-show="slideOverOpen" @keydown.window.escape="slideOverOpen=false" class="relative z-100">
+            
+            {{# dark background #}}
             <div x-show="slideOverOpen" x-transition.opacity.duration.600ms @click="slideOverOpen = false" class="fixed inset-0 bg-dark bg-opacity-70"></div>
+            
+            {{# nav slider fixed container #}}
             <div class="fixed inset-0 overflow-hidden">
-                <div class="absolute inset-0 overflow-hidden">
-                    <div class="fixed inset-y-0 right-0 flex max-w-full">
-                        <div 
-                            x-show="slideOverOpen" 
-                            @click.away="slideOverOpen = false"
-                            x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" 
-                            x-transition:enter-start="translate-x-full" 
-                            x-transition:enter-end="translate-x-0" 
-                            x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" 
-                            x-transition:leave-start="translate-x-0" 
-                            x-transition:leave-end="translate-x-full" 
-                            class="w-screen max-w-full md:max-w-screen-3/4 lg:max-w-screen-sm xl:max-w-screen-sm">
+                
+                {{# nav slide pane #}}
+                <div x-show="slideOverOpen" 
+                    @click.away="slideOverOpen = false"
+                    x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" 
+                    x-transition:enter-start="translate-x-full" 
+                    x-transition:enter-end="translate-x-0" 
+                    x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" 
+                    x-transition:leave-start="translate-x-0" 
+                    x-transition:leave-end="translate-x-full" 
+                    class="absolute inset-y-0 right-0 w-screen max-w-full md:max-w-screen-3/4 lg:max-w-screen-sm xl:max-w-screen-sm">
+                    
+                    {{# wrapper navigation elements  #}}
+                    <div class="relative flex flex-col justify-between w-full h-full overflow-hidden shadow-lg p-frame lg:p-frame-1/2 bg-light">
+                        
+                        {{# headline and close button #}}
+                        <div class="relative z-10 flex items-center justify-end w-full xs:justify-between">
+                            {{# headline #}}
+                            <p  class="hidden mb-0 xs:block text-lead-2 text-dark" 
+                                id="slide-over-title">
+                                the yellow from the egg
+                            </p>
                             
-                            {{# wrapper navigation elements  #}}
-                            <div class="flex flex-col justify-between w-full h-full overflow-hidden shadow-lg p-frame-1/2 bg-light">
-                                
-                                {{# headline and close button #}}
-                                <div class="flex items-center justify-end w-full xs:justify-between">
-                                    {{# headline #}}
-                                    <p  class="hidden mb-0 xs:block text-lead-2 text-dark" 
-                                        id="slide-over-title">
-                                        the yellow from the egg
-                                    </p>
-                                    
-                                    {{ partial:components/button class="duration-700 text-dark hover:text-red" label="close" icon="close" }}
-                                        @click="slideOverOpen = false"
-                                    {{ /partial:components/button }}
-                                </div>
-                                
-                                {{# nav links / initial state of navigation #}}
+                            {{ partial:components/button class="duration-700 text-dark hover:text-red" label="close" icon="close" }}
+                                @click="slideOverOpen = false"
+                            {{ /partial:components/button }}
+                        </div>
+                        
+                        {{# nav links and cta #}}
+                        <div class="grid h-full grid-rows-[1fr_auto] items-center"
+                            x-show="slideOverOpen && !formOpen"
+                            x-transition:enter="delay-700 duration-500"
+                            x-transition:enter-start="opacity-0 translate-x-8"
+                            x-transition:enter-end="opacity-100 translate-x-0"
+                            x-transition:leave="duration-300"
+                            x-transition:leave-start="opacity-100 translate-x-0"
+                            x-transition:leave-end="opacity-0 -translate-x-2"
+                            x-cloak
+                        >
                             
-                                <div class="flex flex-col gap-frame-1/2 md:gap-2"
-                                    x-show="slideOverOpen && !formOpen"
-                                    # x-transition:enter="delay-500 duration-500"
-                                    x-transition:enter-start="opacity-0 translate-x-8"
-                                    x-transition:enter-end="opacity-100 translate-x-0"
-                                    x-transition:leave="duration-300"
-                                    x-transition:leave-start="opacity-100 translate-x-0"
-                                    x-transition:leave-end="opacity-0 -translate-x-2"
-                                    x-cloak 
-                                >
-                                    <a href="/#services" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Services</a>
-                                    <a href="/#work" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Work</a>
-                                    <a href="/#faq" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Questions</a>
-                                    <a href="/#contact" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Contact</a>
-                                </div>
-                                
-                                {{# inner nav cta #}}
-                                <div class="relative flex flex-col items-start w-full gap-2"
-                                    x-show="slideOverOpen && !formOpen"
-                                    x-transition:enter="delay-700 duration-500"
-                                    x-transition:enter-start="opacity-0 translate-x-8"
-                                    x-transition:enter-end="opacity-100 translate-x-0"
-                                    x-transition:leave="duration-300"
-                                    x-transition:leave-start="opacity-100 translate-x-0"
-                                    x-transition:leave-end="opacity-0 -translate-x-2"
-                                    x-cloak >
-                                    
-                                    {{# text #}}
-                                    <p class="text-dark max-w-[20ch]">Start your project right away and fill out or 5 minute survey.</p>
-                                    
-                                    {{# start project button #}}
-                                    {{ partial:components/button class="text-dark hover:text-purple" label="start project" }}
-                                        @click.prevent="formOpen = true, formStep = 1"
-                                    {{ /partial:components/button }}
-                                </div>
-                              
+                            {{# nav links / initial state of navigation #}}
+                            <div class="flex flex-col gap-frame-1/2 md:gap-2">
+                                <a href="/#services" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Services</a>
+                                <a href="/#work" class="cursor-pointer text-head-1 text-dark" @click="slideOverOpen = false">Work</a>
+                                <a href="/#faq" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Questions</a>
+                                <a href="/#contact" class="cursor-pointer text-dark text-head-1" @click="slideOverOpen = false">Contact</a>
+                            </div>
+                            
+                            {{# inner nav cta #}}
+                            <div class="relative flex flex-col items-start w-full gap-2">
+                            
+                                {{# text #}}
+                                <p class="text-dark max-w-[20ch]">Start your project right away and fill out or 5 minute survey.</p>
+                            
+                                {{# start project button #}}
+                                {{ partial:components/button class="text-dark hover:text-purple" label="start project" }}
+                                    @click.prevent="formOpen = true, formStep = 1"
+                                {{ /partial:components/button }}
+                            </div>
+                        </div>
+                        
+                        {{# survey form #}}
+                        {{ form:contact class="absolute flex flex-col items-start justify-between inset-frame lg:inset-frame-1/2" 
+                            x-show="formOpen"
+                            id="contact-form" 
+                            aria-label="contact form"
+                            x-transition:enter="delay-500 duration-700"
+                            x-transition:enter-start="opacity-0 translate-x-1/2"
+                            x-transition:enter-end="opacity-100 translate-x-0"
+                            x-transition:leave="duration-400"
+                            x-transition:leave-start="opacity-100 translate-x-0"
+                            x-transition:leave-end="opacity-0 -translate-x-4"
+                            x-cloak
+                            @submit="console.log('Submitted Form!!!')" 
+                        }}
+                        
+                            <input type="text" class="hidden" name="{{ honeypot ?? 'honeypot' }}">
+                            
+                            {{# form inner wrapper #}}
+                            <div class="relative w-full h-full">
+                            
+                                {{# loop through all form slides #}}
+                                {{ contact_form:form_slides }}
+                                    {{# single form slide  #}}
+                                    <div
+                                        x-transition:enter="duration-700"
+                                        x-transition:enter-start="opacity-0 translate-x-1/2"
+                                        x-transition:enter-end="opacity-100 translate-x-0"
+                                        x-transition:leave="duration-400"
+                                        x-transition:leave-start="opacity-100 translate-x-0"
+                                        x-transition:leave-end="opacity-0 -translate-x-4"
+                                        x-cloak 
+                                        x-show="formStep === {{ index + 1 }} && !complete"
+                                        class="absolute inset-0 flex flex-col justify-center w-full h-full gap-6 transition ease-slider sm:gap-8">
+                                        
+                                        <div>
+                                            {{# optional slide headline #}}
+                                            <h2 class="mb-4 text-dark text-lead-2">{{ headline }}</h2>
+                                            
+                                            {{# optional slide description #}}
+                                            <p class="text-dark text-lead-1">{{ description }}</p>
+                                        </div>
 
-                                {{# survey form #}}
-                                {{ form:contact class="flex flex-col items-start justify-between h-full" 
-                                    x-show="formOpen"
-                                    id="contact-form" 
-                                    aria-label="contact form"
-                                    x-show="formOpen"
-                                    x-transition:enter="delay-500 duration-700"
+                                        {{# loop through all form elements #}}
+                                        {{ form_elements }}
+                                            {{ partial:form/{type} }}
+                                        {{ /form_elements }}
+                                    </div>
+                                {{ /contact_form:form_slides }}
+
+                                {{# complete Message #}}
+                                <div 
+                                    x-transition:enter="duration-700"
                                     x-transition:enter-start="opacity-0 translate-x-1/2"
                                     x-transition:enter-end="opacity-100 translate-x-0"
                                     x-transition:leave="duration-400"
                                     x-transition:leave-start="opacity-100 translate-x-0"
                                     x-transition:leave-end="opacity-0 -translate-x-4"
-                                    x-cloak 
-                                    @submit="console.log('Submitted Form!!!')" 
-                                }}
-                              
-                                    <input type="text" class="hidden" name="{{ honeypot ?? 'honeypot' }}">
-                                    
-                                    {{# form inner wrapper #}}
-                                    <div class="relative w-full h-full">
-                                    
-                                        {{# loop through all form slides #}}
-                                        {{ contact_form:form_slides }}
-                                            {{# single form slide  #}}
-                                            <div
-                                                x-transition:enter="duration-700"
-                                                x-transition:enter-start="opacity-0 translate-x-1/2"
-                                                x-transition:enter-end="opacity-100 translate-x-0"
-                                                x-transition:leave="duration-400"
-                                                x-transition:leave-start="opacity-100 translate-x-0"
-                                                x-transition:leave-end="opacity-0 -translate-x-4"
-                                                x-cloak 
-                                                x-show="formStep === {{ index + 1 }} && !complete"
-                                                class="absolute inset-0 flex flex-col justify-center w-full h-full gap-6 transition ease-slider sm:gap-8">
-                                                
-                                                <div>
-                                                    {{# optional slide headline #}}
-                                                    <h2 class="mb-4 text-dark text-lead-2">{{ headline }}</h2>
-                                                    
-                                                    {{# optional slide description #}}
-                                                    <p class="text-dark text-lead-1">{{ description }}</p>
-                                                </div>
-
-                                                {{# loop through all form elements #}}
-                                                {{ form_elements }}
-                                                    {{ partial:form/{type} }}
-                                                {{ /form_elements }}
-                                            </div>
-                                        {{ /contact_form:form_slides }}
-
-                                        {{# complete Message #}}
-                                        <div 
-                                            x-transition:enter="duration-700"
-                                            x-transition:enter-start="opacity-0 translate-x-1/2"
-                                            x-transition:enter-end="opacity-100 translate-x-0"
-                                            x-transition:leave="duration-400"
-                                            x-transition:leave-start="opacity-100 translate-x-0"
-                                            x-transition:leave-end="opacity-0 -translate-x-4"
-                                            x-cloak x-show="complete" class="absolute inset-0 flex flex-col justify-center w-full h-full gap-6 sm:gap-8">
-                                            {{# optional slide headline #}}
-                                            <h2 class="text-dark text-lead-2">Thank you</h2>
-                                            {{# optional slide description #}}
-                                            <p class="text-dark text-lead-1">{{ contact_form:thank_you_message }}</p>
-                                        </div>
-                                    </div>
-                                    
-                                    {{# form buttons #}}
-                                    <div class="relative flex justify-between w-full">
-
-                                        {{# wrapper next/back buttons #}}
-                                        <div class="relative flex justify-between w-full gap-4 sm:justify-start">
-                                            
-                                            {{# back button #}}
-                                            {{ partial:components/button class="text-dark hover:text-red" type="backbutton" label="back" }}
-                                                
-                                                {{# disable back button on step 1 / hide it on thank you message  #}}
-                                                :class="{'opacity-30 pointer-events-none': formStep <= 1,
-                                                        'opacity-0 pointer-events-none': complete }"
-                                                @click.prevent="formStep--"
-                                            {{ /partial:components/button }}
-
-                                            {{# next button #}}
-                                            {{ partial:components/button class="text-dark hover:text-green" label="next" }}
-                                                
-                                                {{# hide next button on last step and thank you message  #}}
-                                                :class="{'opacity-0 pointer-events-none': formStep >= {{ contact_form:form_slides | count }} }"
-                                                @click.prevent="formStep++"
-                                            {{ /partial:components/button }}
-                                        </div>
-
-                                        {{# submit button #}}
-                                        {{ partial:components/button class="absolute right-0 text-dark hover:text-purple" label="Submit" icon="arrup"}}
-                                            
-                                            {{# show submit button only on last step and if its not completed yet #}}
-                                            x-show="formStep === {{ contact_form:form_slides | count }} && !complete"
-                                            @click="complete = true"
-                                            type="submit"
-                                            x-transition:enter.delay.500ms
-                                        {{ /partial:components/button }}
-
-                               
-                                    </div>
-                                {{ /form:contact }}
+                                    x-cloak x-show="complete" class="absolute inset-0 flex flex-col justify-center w-full h-full gap-6 sm:gap-8">
+                                    {{# optional slide headline #}}
+                                    <h2 class="text-dark text-lead-2">Thank you</h2>
+                                    {{# optional slide description #}}
+                                    <p class="text-dark text-lead-1">{{ contact_form:thank_you_message }}</p>
+                                </div>
                             </div>
-                        </div>
+                            
+                            {{# form buttons #}}
+                            <div class="relative flex justify-between w-full">
+
+                                {{# wrapper next/back buttons #}}
+                                <div class="relative flex justify-between w-full gap-4 sm:justify-start">
+                                    
+                                    {{# back button #}}
+                                    {{ partial:components/button class="text-dark hover:text-red" type="backbutton" label="back" }}
+                                        
+                                        {{# disable back button on step 1 / hide it on thank you message  #}}
+                                        :class="{'opacity-30 pointer-events-none': formStep <= 1,
+                                                'opacity-0 pointer-events-none': complete }"
+                                        @click.prevent="formStep--"
+                                    {{ /partial:components/button }}
+
+                                    {{# next button #}}
+                                    {{ partial:components/button class="text-dark hover:text-green" label="next" }}
+                                        
+                                        {{# hide next button on last step and thank you message  #}}
+                                        :class="{'opacity-0 pointer-events-none': formStep >= {{ contact_form:form_slides | count }} }"
+                                        @click.prevent="formStep++"
+                                    {{ /partial:components/button }}
+                                </div>
+
+                                {{# submit button #}}
+                                {{ partial:components/button class="absolute right-0 text-dark hover:text-purple" label="Submit" icon="arrup"}}
+                                    
+                                    {{# show submit button only on last step and if its not completed yet #}}
+                                    x-show="formStep === {{ contact_form:form_slides | count }} && !complete"
+                                    @click="complete = true"
+                                    type="submit"
+                                    x-transition:enter.delay.500ms
+                                {{ /partial:components/button }}
+
+                        
+                            </div>
+                        {{ /form:contact }}
                     </div>
                 </div>
             </div>

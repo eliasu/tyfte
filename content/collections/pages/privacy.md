@@ -6,11 +6,11 @@ article:
   -
     type: heading
     attrs:
-      level: 2
+      level: 1
     content:
       -
         type: text
-        text: 'Unsere Datenschutzerklärung'
+        text: Datenschutzerklärung
   -
     type: heading
     attrs:
@@ -767,7 +767,7 @@ article:
         type: text
         text: 'Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt.'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699573095
+updated_at: 1699613921
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry

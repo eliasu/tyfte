@@ -6,7 +6,15 @@ article:
   -
     type: heading
     attrs:
-      level: 2
+      level: 1
+    content:
+      -
+        type: text
+        text: Impressum
+  -
+    type: heading
+    attrs:
+      level: 3
     content:
       -
         type: text
@@ -14,7 +22,7 @@ article:
   -
     type: heading
     attrs:
-      level: 3
+      level: 4
     content:
       -
         type: text
@@ -48,21 +56,21 @@ article:
   -
     type: heading
     attrs:
-      level: 2
+      level: 3
     content:
       -
         type: text
-        text: 'Verbraucherstreitbeilegung  /  Universalschlichtungsstelle'
+        text: 'Verbraucherstreitbeilegung / Universalschlichtungsstelle'
   -
     type: heading
     attrs:
-      level: 3
+      level: 4
     content:
       -
         type: text
         text: 'Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699573089
+updated_at: 1699613860
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
