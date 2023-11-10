@@ -4,9 +4,9 @@
 #}}
 
 <!-- sections/info.antlers.html -->
-{{ partial:layout/section class="flex-col justify-center min-h-screen gap-6 items-left" }}
+{{ partial:layout/section class="flex-col justify-center min-h-screen gap-6 pt-frame-3 items-left" }}
 
-    <div class="p-frame sm:p-frame-3 text-dark mix-blend-color-burn">
+    <div class="p-frame sm:p-frame-3 text-usercolor mix-blend-color-burn">
         {{ partial:typography/prose as="article" class="contents" }}
             {{ article }}
                 {{ partial src="components/{type}" }}
@@ -14,6 +14,7 @@
         {{ /partial:typography/prose }}
     </div>
 
-    {{ partial:layout/footer }}
 {{ /partial:layout/section }}
+{{ partial:layout/footer }}
+
 <!-- End: sections/info.antlers.html -->

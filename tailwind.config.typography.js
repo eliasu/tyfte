@@ -97,12 +97,6 @@ module.exports = {
           fontWeight: '700',
         }],
 
-        'buttonunderline': ['clamp(1.375rem, calc(1.5625rem + ((1vw - 0.3rem) * -0.375)), 1.5625rem);', {
-          lineHeight: '90%',
-          letterSpacing: '0.05em',
-          fontWeight: '700',
-        }],
-
         'buttonbig': ['clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 1.0417)), 2.25rem);', {
           lineHeight: '90%',
           letterSpacing: '0.2em',

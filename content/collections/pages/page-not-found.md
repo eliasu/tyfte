@@ -2,7 +2,7 @@
 id: 059d4d8d-fc60-49f8-8823-7da10549e84e
 blueprint: utility_page
 title: 'Page not found'
-background_video: videos/backgrounds/bg_grad_dark_loop/master.m3u8
+background_video: videos/backgrounds/bg_grad_dark_loop.mp4
 accent_color: '#C23E3E'
 article:
   -
@@ -12,7 +12,7 @@ article:
     content:
       -
         type: text
-        text: 'Seite nicht gefunden'
+        text: 'Page not found'
   -
     type: set
     attrs:
@@ -35,6 +35,6 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699540397
+updated_at: 1699573140
 template: '@blueprint'
 ---

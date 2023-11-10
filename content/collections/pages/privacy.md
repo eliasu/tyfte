@@ -767,13 +767,13 @@ article:
         type: text
         text: 'Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt.'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699525197
+updated_at: 1699573095
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
-background_video: videos/backgrounds/bg_grad_dark_loop/master.m3u8
+background_video: videos/backgrounds/bg_grad_dark_loop.mp4
 accent_color: '#C23E3E'
 ---
