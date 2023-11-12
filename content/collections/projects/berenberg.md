@@ -5,8 +5,8 @@ title: 'Berenberg Verlag'
 website_address: www.berenberg-verlag.de
 color_field: '#0ACF83'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699628905
+updated_at: 1699800547
 duplicated_from: d3a0a3ee-5f81-442e-8a2d-d0b2c0ad02d6
 cooperation: 'Max Preti'
-project_video: videos/tyfte_work_afar.mp4
+project_video: videos/tyfte_work_berenberg.mp4
 ---

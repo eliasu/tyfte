@@ -41,6 +41,28 @@ tabs:
               hide_display: false
               replicator_preview: true
               instructions: 'Select a .mp4 video file'
+              width: 66
+          -
+            handle: poster_image
+            field:
+              max_files: 1
+              min_files: 1
+              mode: list
+              container: files
+              folder: videos
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Poster image'
+              icon: assets
+              width: 33
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
           -
             handle: color_field
             field:

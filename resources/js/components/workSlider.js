@@ -32,7 +32,7 @@ export default function initWorkSlider() {
     let timeVideoWrap = [.5, 0] 
     let timeTitle = [.4, .2] 
     let timeLink = [.4, .2] 
-    let endDelay = .5
+    let endDelay = 0
     let sizeVideoWrap = [.87, 1]
 
     // create a scrolltrigger for the swiper element
@@ -79,7 +79,7 @@ export default function initWorkSlider() {
 
         // add animation for swiper
         on: {
-            
+   
             transitionStart: e => {
                 gsap.to(".videowrap", {
                     duration: timeVideoWrap[0],
@@ -99,7 +99,7 @@ export default function initWorkSlider() {
                     autoAlpha: 1,
                 })
                 
-                // if its not the first animation (then there would be no "previousIndex")
+                // if its the first slide there is no "previousIndex")
                 if(workSlider.previousIndex != undefined) {
                     gsap.to(e.slides[e.previousIndex].querySelector(".title-wrap"), {
                         duration: timeTitle[0],
@@ -252,6 +252,8 @@ export default function initWorkSlider() {
 
                 
             },
+
+            
         }
     });
 
