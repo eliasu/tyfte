@@ -57,7 +57,7 @@ data:
           type: select
           enabled: true
       type: form_slide
-      enabled: false
+      enabled: true
     -
       id: lnofjwgm
       headline: Budget
@@ -74,11 +74,11 @@ data:
           type: slider
           enabled: true
       type: form_slide
-      enabled: false
+      enabled: true
     -
       id: lnofg8f6
-      headline: 'Tell us about your project?'
-      description: 'Give us some insights about what you are trying to accomplish. What is the problem that you are trying to solve – or what project do you have in mind?'
+      headline: 'Give us some insights about what you are trying to accomplish'
+      description: 'What is the problem that you are trying to solve – or what project do you have in mind?'
       form_elements:
         -
           id: lnofgmld
@@ -88,7 +88,7 @@ data:
           type: input
           enabled: true
       type: form_slide
-      enabled: false
+      enabled: true
     -
       id: lp6r22xt
       headline: Start
@@ -103,6 +103,9 @@ data:
               id: lp6r2l6j
               title: 'Now! – Yesterday actually!'
             -
+              id: lp6r368m
+              title: 'We need support ASAP to get started, but the real crunch time will be later.'
+            -
               id: lp6rbhrg
               title: '1 – 2 months from now'
             -
@@ -112,34 +115,26 @@ data:
               id: lp6rcuir
               title: '5 – 6+ months from now'
             -
-              id: lp6rcydb
-              title: 'next year'
-            -
-              id: lp6r368m
-              title: 'We need some consulting or assistance right now, to get the project started, but the real crunch time will be later.'
-            -
               id: lp6rc4v7
               title: 'We are completely flexible'
           type: select
           enabled: true
       type: form_slide
-      enabled: false
+      enabled: true
     -
       id: lp6rlhxj
-      headline: Deadline
-      description: |-
-        When do you need your product or service up and running?
-        Let us know the hard deadline
+      headline: 'Let us know the hard deadline'
+      description: 'When do you need your product or service up and running?'
       form_elements:
         -
           id: lp6rlr5x
           input_type: Line
           description: 'A date will do, but you can specify as well'
-          set_placeholder: 'Tomorrow ;) or 1.1.3000'
+          set_placeholder: 'Tomorrow ;) or 3.3.3333'
           type: input
           enabled: true
       type: form_slide
-      enabled: false
+      enabled: true
     -
       id: lnoflogp
       headline: 'Anything else?'
@@ -153,4 +148,4 @@ data:
           type: input
           enabled: true
       type: form_slide
-      enabled: false
+      enabled: true
