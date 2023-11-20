@@ -15,16 +15,35 @@ class="relative w-auto h-auto">
    {{# teaser h2 text #}}
    <{{ as or 'div' }} class="max-w-[42ch] text-usercolor mix-blend-color-burn translate-z-0 {{ class }}">
 
-   {{ slot }}
+   {{ slot  }}
 
+
+   {{mybard = handle | raw | bard_items  }}
+   
+   {{# {{ handle | raw | bard_html | dump}}
+   {{ handle | raw | bard_text | dump}} #}}
+   {{# {{ handle | raw | bard_items | dump}} #}}
    {{# get the teaser data #}}
-   {{ handle }}
+
+   {{ mybard | dump}}
+   {{ mybard }}
+
+
 
       {{# if its text #}}
       {{ if type == "text" }}
+
+      {{ index}}
          
          {{# strip the p tag, because its wrapped in a h2 #}}
-         {{ text | strip_tags }}
+         <p class="text-lead-0">
+            {{ text | strip_tags}}
+         </p>
+
+        
+
+        
+         {{# {{ text | dump}} #}}
       
       {{# if its a tooltip button set #}}
       {{ elseif type == "tooltip" }}
@@ -34,7 +53,7 @@ class="relative w-auto h-auto">
             @click.prevent="modalOpen=true, headline='{{headline}}', text=`{{text}}` "
          {{ /partial:components/button }}
       {{ /if }}
-   {{ /handle }}
+   {{ /mybard }}
    </{{ as or 'div' }}>
 
    {{# modal #}}
