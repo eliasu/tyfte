@@ -4,8 +4,8 @@ data:
   form_slides:
     -
       id: lnofbjxa
-      headline: Hello
-      description: 'Let us know you Name and give us something to contact you.'
+      headline: 'Hi there!'
+      description: "What's your name and how can we contact you?"
       type: form_slide
       enabled: true
       form_elements:
@@ -25,8 +25,8 @@ data:
           enabled: true
     -
       id: lnofe5h6
-      headline: 'What do you need?'
-      description: 'Please check those boxes which fit you project.'
+      headline: 'How can we assist you?'
+      description: 'Please check all boxes that seem relevant to your request.'
       form_elements:
         -
           id: lnoffbn5
@@ -35,62 +35,25 @@ data:
           items:
             -
               id: lnoffgz8
-              title: Redesign
-            -
-              id: lnoffl5q
-              title: Website
+              title: 'Design / UX'
             -
               id: lnoffmsi
-              title: App
+              title: 'Brand- / CI Development'
             -
               id: lnoffo9a
-              title: Workshops
+              title: 'Workshops, Consulting, Concept'
             -
-              id: lnoffqv9
-              title: Consulting
+              id: lnoffl5q
+              title: 'Website implementation'
+            -
+              id: lp6rxcee
+              title: 'eCommerce / Webshop'
             -
               id: lnofg1ma
-              title: Design
-          type: select
-          enabled: true
-      type: form_slide
-      enabled: true
-    -
-      id: lnofg8f6
-      headline: 'Tell us about your project?'
-      description: 'Give us some insights about your product. What do you need the website for?'
-      form_elements:
-        -
-          id: lnofgmld
-          input_type: Area
-          description: About
-          set_placeholder: 'My projects is about …'
-          type: input
-          enabled: true
-      type: form_slide
-      enabled: true
-    -
-      id: lnofhj97
-      headline: 'Whats important?'
-      description: 'What do you like more?'
-      form_elements:
-        -
-          id: lnofhrcv
-          select_type: radio
-          description: Radio
-          items:
+              title: 'Project Management'
             -
-              id: lnofjdaw
-              title: Apples
-            -
-              id: lnofjn35
-              title: Bananas
-            -
-              id: lnofjpqz
-              title: Pasta
-            -
-              id: lnofjtcn
-              title: Pizza
+              id: lnoffqv9
+              title: 'Datavisualization / explorative Data App'
           type: select
           enabled: true
       type: form_slide
@@ -98,7 +61,7 @@ data:
     -
       id: lnofjwgm
       headline: Budget
-      description: 'Give us an idea about how much money you want to spend.'
+      description: 'Give us an idea about the budget you are able to spend.'
       form_elements:
         -
           id: lnofk00w
@@ -113,32 +76,80 @@ data:
       type: form_slide
       enabled: true
     -
-      id: lnofkr04
-      headline: Deadline
-      description: 'When should your project be finished?'
+      id: lnofg8f6
+      headline: 'Tell us about your project?'
+      description: 'Give us some insights about what you are trying to accomplish. What is the problem that you are trying to solve – or what project do you have in mind?'
       form_elements:
         -
-          id: lnofku7v
-          description: Deadline
-          from_value: 1
-          to_value: 12
-          start_value: 4
-          steps: 1
-          suffix: Months
-          type: slider
+          id: lnofgmld
+          input_type: Area
+          description: About
+          set_placeholder: 'My projects is about … / the issue is …'
+          type: input
+          enabled: true
+      type: form_slide
+      enabled: true
+    -
+      id: lp6r22xt
+      headline: Start
+      description: 'When do you want to start? Do you need some support right now?'
+      form_elements:
+        -
+          id: lp6r29nq
+          select_type: checkbox
+          description: 'Select everything that applies'
+          items:
+            -
+              id: lp6r2l6j
+              title: 'Now! – Yesterday actually!'
+            -
+              id: lp6rbhrg
+              title: '1 – 2 months from now'
+            -
+              id: lp6rbzy4
+              title: '3 – 4 months from now'
+            -
+              id: lp6rcuir
+              title: '5 – 6+ months from now'
+            -
+              id: lp6rcydb
+              title: 'next year'
+            -
+              id: lp6r368m
+              title: 'We need some consulting or assistance right now, to get the project started, but the real crunch time will be later.'
+            -
+              id: lp6rc4v7
+              title: 'We are completely flexible'
+          type: select
+          enabled: true
+      type: form_slide
+      enabled: true
+    -
+      id: lp6rlhxj
+      headline: Deadline
+      description: |-
+        When do you need your product or service up and running?
+        Let us know the hard deadline
+      form_elements:
+        -
+          id: lp6rlr5x
+          input_type: Line
+          description: 'A date will do, but you can specify as well'
+          set_placeholder: 'Tomorrow ;) or 1.1.3000'
+          type: input
           enabled: true
       type: form_slide
       enabled: true
     -
       id: lnoflogp
       headline: 'Anything else?'
-      description: 'Do you have any other questions or things you want to tell us?'
+      description: 'Do you have any other questions or things you would like us to know?'
       form_elements:
         -
           id: lnoflrux
           input_type: Area
           description: 'Anything else'
-          set_placeholder: 'I wanted to say …'
+          set_placeholder: 'One last thing …'
           type: input
           enabled: true
       type: form_slide
