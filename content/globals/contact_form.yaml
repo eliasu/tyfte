@@ -57,7 +57,7 @@ data:
           type: select
           enabled: true
       type: form_slide
-      enabled: true
+      enabled: false
     -
       id: lnofjwgm
       headline: Budget
@@ -74,7 +74,7 @@ data:
           type: slider
           enabled: true
       type: form_slide
-      enabled: true
+      enabled: false
     -
       id: lnofg8f6
       headline: 'Tell us about your project?'
@@ -88,7 +88,7 @@ data:
           type: input
           enabled: true
       type: form_slide
-      enabled: true
+      enabled: false
     -
       id: lp6r22xt
       headline: Start
@@ -123,7 +123,7 @@ data:
           type: select
           enabled: true
       type: form_slide
-      enabled: true
+      enabled: false
     -
       id: lp6rlhxj
       headline: Deadline
@@ -139,7 +139,7 @@ data:
           type: input
           enabled: true
       type: form_slide
-      enabled: true
+      enabled: false
     -
       id: lnoflogp
       headline: 'Anything else?'
@@ -153,4 +153,4 @@ data:
           type: input
           enabled: true
       type: form_slide
-      enabled: true
+      enabled: false

@@ -10,7 +10,7 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 template: '@blueprint'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1700490045
+updated_at: 1700510474
 teaser:
   -
     type: paragraph
@@ -35,7 +35,17 @@ teaser:
     content:
       -
         type: text
-        text: ". We're all about diving into the nitty-gritty details of finely crafting the perfect "
+        text: '. '
+  -
+    type: horizontalRule
+  -
+    type: paragraph
+    attrs:
+      class: null
+    content:
+      -
+        type: text
+        text: "We're all about diving into the nitty-gritty details of finely crafting the perfect "
   -
     type: set
     attrs:
@@ -51,7 +61,17 @@ teaser:
     content:
       -
         type: text
-        text: "that truly reflects your brand. Simultaneously, we ensure it's dead user-centric and checks off all of your business needs – they call it great UX. And when it comes to the "
+        text: "that truly reflects your brand. Simultaneously, we ensure it's dead user-centric and checks off all of your business needs – they call it great UX. "
+  -
+    type: horizontalRule
+  -
+    type: paragraph
+    attrs:
+      class: null
+    content:
+      -
+        type: text
+        text: 'And when it comes to the '
   -
     type: set
     attrs:

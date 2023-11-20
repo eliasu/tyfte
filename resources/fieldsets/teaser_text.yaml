@@ -54,3 +54,4 @@ fields:
         - anchor
         - image
         - table
+        - horizontalrule
