@@ -10,14 +10,15 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        {{ yield:scripts }}
-        {{ vite src="resources/css/site.css|resources/js/site.js" }}
         {{ partial:statamic-peak-seo::snippets/seo }}
         {{ partial:statamic-peak-browser-appearance::snippets/browser_appearance }}
         {{ partial:statamic-peak-tools::snippets/live_preview }}
-   
-         <!-- Matomo -->
-         <script>
+
+        {{ yield:scripts }}
+        {{ vite src="resources/css/site.css|resources/js/site.js" }}
+    
+        <!-- Matomo -->
+        <script>
             var _paq = window._paq = window._paq || [];
             /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
             _paq.push(['trackPageView']);
@@ -44,6 +45,7 @@
         {{ if environment != 'local' }}
             {{ partial:layout/preloader }}
         {{ /if }}
+        
         {{ partial:navigation/main }}
         {{ template_content }}
         {{ partial:layout/background }}
