@@ -221,22 +221,6 @@ function transition(slider, start, hover = false) {
             duration: timeVideoWrap,
             ease: easeCurve,
             scale: sizeVideoWrap[start],
-            
-            // play the next slides video safly
-            onStart: function(current) {
-                let nextSlidesVideo = workSlider.slides[workSlider.activeIndex].querySelector("video");
-
-                //  a fix for chrome and safari
-                let playPromise = nextSlidesVideo.play();
- 
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        nextSlidesVideo.pause();
-                    })
-                    .catch(error => {
-                    });
-                }
-            },
         })
 
         // video element animation
@@ -270,5 +254,18 @@ function transition(slider, start, hover = false) {
             })
         }
     })
+
+    // play the next slides video safly
+    let nextVideo = slider.slides[slider.activeIndex].querySelector("video");
+
+    //  a fix for chrome and safari
+    let playPromise = nextVideo.play();
+
+    if (playPromise !== undefined) {
+        playPromise.then(_ => {
+        })
+        .catch(error => {
+        });
+    }
 }
 
