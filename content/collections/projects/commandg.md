@@ -6,6 +6,7 @@ website_address: commandg.de
 project_video: videos/tyfte_work_commandg.mp4
 color_field: '#C175FD'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699559094
+updated_at: 1700592124
 duplicated_from: 10805277-45e1-4bc5-b7d7-871ebe218925
+poster_image: videos/tyfte_work_commandg.jpg
 ---

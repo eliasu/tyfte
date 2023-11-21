@@ -6,5 +6,6 @@ website_address: 'https://www.helmutluck.com'
 project_video: videos/tyfte_work_helmutluck.mp4
 color_field: '#ffe800'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699623488
+updated_at: 1700592155
+poster_image: videos/tyfte_work_helmutluck.jpg
 ---

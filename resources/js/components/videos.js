@@ -9,7 +9,7 @@ export default function initVideos() {
     const options = {
         root: null, // Use the viewport as the root
         rootMargin: '0px', // No margin
-        threshold: 0.5, 
+        threshold: .5, 
     };
 
     // Find all video elements with ecept for the background video

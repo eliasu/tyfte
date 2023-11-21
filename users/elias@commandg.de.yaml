@@ -8,6 +8,10 @@ preferences:
       after_save: create_another
     projects:
       after_save: continue_editing
+      columns:
+        - title
+        - slug
+        - status
     pages:
       columns:
         - title

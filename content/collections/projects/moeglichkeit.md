@@ -6,6 +6,7 @@ website_address: moeglichkeit.org
 project_video: videos/tyfte_work_eddm.mp4
 color_field: '#1430ff'
 updated_by: 06410ee8-92e1-45e7-b0e3-9fd7e0400442
-updated_at: 1699559101
+updated_at: 1700592131
 duplicated_from: d3a0a3ee-5f81-442e-8a2d-d0b2c0ad02d6
+poster_image: videos/tyfte_work_eddm.jpg
 ---

@@ -21,19 +21,15 @@ gsap.registerPlugin(ScrollTrigger)
 import lottie from 'lottie-web';
 
 let workSlider;
+let slideTransitionMs = 900
+let easeCurve = 'cubic-bezier(.34,.11,.43,.99)'
 
 export default function initWorkSlider() { 
     console.log("** init work slider from /components/workSlider.js **")
 
     let bgColors = new Array();
 
-    let slideTransitionMs = 900
-    let easeCurve = 'cubic-bezier(.34,.11,.43,.99)'
-    let timeVideoWrap = [.5, 0] 
-    let timeTitle = [.4, .2] 
-    let timeLink = [.4, .2] 
-    let endDelay = 0
-    let sizeVideoWrap = [.87, 1]
+    
 
     // create a scrolltrigger for the swiper element
     let tl = gsap.timeline({
@@ -81,54 +77,7 @@ export default function initWorkSlider() {
         on: {
    
             transitionStart: e => {
-                gsap.to(".videowrap", {
-                    duration: timeVideoWrap[0],
-                    ease: easeCurve,
-                    scale: sizeVideoWrap[0],
-                    onStart: function(current) {
-                        let nextSlidesVideo = workSlider.slides[workSlider.activeIndex].querySelector("video");
-                        nextSlidesVideo.play();
-                    },
-                })
-                
-                gsap.to(".videowrap video", {
-                    autoAlpha: .7,
-                })
-
-                gsap.to(".videowrap [data-collaboration]", {
-                    autoAlpha: 1,
-                })
-                
-                // if its the first slide there is no "previousIndex")
-                if(workSlider.previousIndex != undefined) {
-                    gsap.to(e.slides[e.previousIndex].querySelector(".title-wrap"), {
-                        duration: timeTitle[0],
-                        ease: easeCurve,
-                        autoAlpha: 1,
-                        scale: 1,
-                    });
-
-                    gsap.to(e.slides[e.previousIndex].querySelector(".title-link"), {
-                        duration: timeLink[0],
-                        ease: easeCurve,
-                        translateX:"1rem",
-                        autoAlpha: 0,
-                    });
-                }
-                
-                gsap.to(e.slides[e.activeIndex].querySelector(".title-wrap"), {
-                    duration: timeTitle[0],
-                    ease: easeCurve,
-                    autoAlpha: 1,
-                    scale: 1,
-                });
-
-                gsap.to(e.slides[e.activeIndex].querySelector(".title-link"), {
-                    duration: timeLink[0],
-                    ease: easeCurve,
-                    translateX:"1rem",
-                    autoAlpha: 0,
-            });
+                transition(workSlider, 1)
 
                 gsap.to("#work-tint", {
                     duration: 1,
@@ -137,43 +86,7 @@ export default function initWorkSlider() {
                 })
             },
             transitionEnd: e => {
-
-                gsap.to(e.slides[e.activeIndex].querySelector(".title-wrap"), {
-                    duration: timeTitle[0],
-                    ease: easeCurve,
-                    scale: 1.2,
-                    autoAlpha: 0,
-                    delay: endDelay,
-                });
-
-                gsap.to(e.slides[e.activeIndex].querySelector(".title-link"), {
-                    duration: timeLink[0],
-                    ease: easeCurve,
-                    delay: endDelay+timeLink[1],
-                    translateX:"0px",
-                    autoAlpha: 1,
-                });
-                
-                gsap.to(".videowrap", {
-                    duration: timeVideoWrap[0],
-                    delay: endDelay,
-                    ease: easeCurve,
-                    scale: sizeVideoWrap[1],
-                    onComplete: function(current) {
-                        if(workSlider.previousIndex == undefined) return;
-                        workSlider.slides[workSlider.previousIndex].querySelector("video").pause()
-                    },
-                })
-
-                gsap.to(".videowrap video", {
-                    autoAlpha: 1,
-                    delay: endDelay,
-                })
-
-                gsap.to(".videowrap [data-collaboration]", {
-                    autoAlpha: 0,
-                    delay: endDelay,
-                })
+                transition(workSlider, 0)
             },
             init: e => {
                 // fill array with colors from cms
@@ -183,63 +96,15 @@ export default function initWorkSlider() {
 
                 // add big title animation on hover title link
                 document.querySelectorAll(".title-link").forEach(function (elem, index) {
-                    
-                    // make transitionEnd the starting point
-                    e.emit('transitionEnd');
-
-                    // hide the links 
-                    gsap.set(elem, {
-                        autoAlpha: 0,
-                    });
 
                     // add hover effect
                     elem.addEventListener('mouseenter', el => {
-
-                        gsap.to(".videowrap", {
-                            duration: timeVideoWrap[0],
-                            ease: easeCurve,
-                            scale: sizeVideoWrap[0],
-                        })
-
-                        gsap.to(".videowrap video", {
-                            autoAlpha: .7,
-                        })
-        
-                        gsap.to(".videowrap [data-collaboration]", {
-                            autoAlpha: 1,
-                        })
-
-                        gsap.to(elem.previousElementSibling, {
-                            duration: timeTitle[0],
-                            ease: easeCurve,
-                            scale: 1,
-                            autoAlpha: 1,
-                        })
+                        transition(workSlider, 1, true)
                     });
 
                     // add hover out effect
                     elem.addEventListener('mouseleave', el => {
-                        
-                        gsap.to(elem.previousElementSibling, {
-                            duration: timeTitle[0],
-                            ease: easeCurve,
-                            scale: 1,
-                            autoAlpha: 0,
-                        })
-
-                        gsap.to(".videowrap", {
-                            duration: timeVideoWrap[0],
-                            ease: easeCurve,
-                            scale: sizeVideoWrap[1],
-                        })
-
-                        gsap.to(".videowrap video", {
-                            autoAlpha: 1,
-                        })
-        
-                        gsap.to(".videowrap [data-collaboration]", {
-                            autoAlpha: 0,
-                        })
+                        transition(workSlider, 0, true)
                     });
                 });
 
@@ -249,16 +114,15 @@ export default function initWorkSlider() {
                     ease: easeCurve,
                     backgroundColor: bgColors[e.activeIndex],
                 })
-
-                
             },
-
-            
         }
     });
 
     // create Callbacks for navigation buttons
     initNavigationButtons();
+
+    // make transitionEnd the starting point
+    transition(workSlider, 0)
 }
 
 // helper functions
@@ -328,3 +192,83 @@ function renderCustomBulletPoints (swiper, current, total) {
                     </div>`
     return outputHtml;
 }
+
+
+
+
+function transition(slider, start, hover = false) {
+    
+    let timeVideoWrap = .5 
+    let sizeVideoWrap = [1, .87]
+    
+    let timeTitle = .4 
+    let timeLink = .4 
+
+    
+    // create an array which contains all slides, ehich are affected
+    let affectedSlides = new Array()
+    
+    // push the current slides and the previous/next slides as well if availabe
+    affectedSlides.push(slider.slides[slider.activeIndex])
+    slider.activeIndex > 0 ? affectedSlides.push(slider.slides[slider.activeIndex-1]) : console.log("no previous slide")
+    slider.activeIndex < slider.slides.length - 1 ? affectedSlides.push(slider.slides[slider.activeIndex+1]) : console.log("no next slide")
+
+    // animate the corresponding slides
+    affectedSlides.forEach( (slide) => {
+        
+        // video wrap animation
+        gsap.to(slide.querySelector(".videowrap"), {
+            duration: timeVideoWrap,
+            ease: easeCurve,
+            scale: sizeVideoWrap[start],
+            
+            // play the next slides video safly
+            onStart: function(current) {
+                let nextSlidesVideo = workSlider.slides[workSlider.activeIndex].querySelector("video");
+
+                //  a fix for chrome and safari
+                let playPromise = nextSlidesVideo.play();
+ 
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        nextSlidesVideo.pause();
+                    })
+                    .catch(error => {
+                    });
+                }
+            },
+        })
+
+        // video element animation
+        gsap.to(slide.querySelector("video"), {
+            autoAlpha: start ? .7 : 1,
+        })
+
+        // big title animation
+        gsap.to(slide.querySelector(".title-wrap"), {
+            duration: timeTitle,
+            ease: easeCurve,
+            autoAlpha: start,
+            scale: start ? 1 : 1.2,
+        });
+
+        // link animation (dont animate on hover)
+        if(!hover) {
+            gsap.to(slide.querySelector(".title-link"), {
+                duration: timeLink,
+                ease: easeCurve,
+                translateX: start ? "0rem" : "1rem",
+                autoAlpha: start ? 0 : 1,
+            });
+        }
+
+        // (if there is) collaboration animation
+        let data = slide.querySelector("[data-collaboration]")
+        if(data) {
+            gsap.to(data, {
+                autoAlpha: start,
+            })
+        }
+    })
+}
+
