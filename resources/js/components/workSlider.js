@@ -256,12 +256,14 @@ function transition(slider, start, hover = false) {
         
         // play the next slides video (activeIndex changes on tansition start)
         let nextVideo = slider.slides[slider.activeIndex].querySelector("video");
+        let prevVideo = slider.slides[slider.previousIndex]
 
         //  a fix for chrome and safari
         let playPromise = nextVideo.play();
 
         if (playPromise !== undefined) {
             playPromise.then(_ => {
+                if(prevVideo)prevVideo.querySelector("video").pause()
             })
             .catch(error => {
             });

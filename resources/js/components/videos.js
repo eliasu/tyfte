@@ -3,56 +3,73 @@
  * import with "import initVideos from './components/videos';"
 **/
 
+// create objection observers for hero video and work section
+// play hero video if in vew
+// play active work slides video if on view
+
 export default function initVideos() { 
 
     // Options for the Intersection Observer
     const options = {
         root: null, // Use the viewport as the root
         rootMargin: '0px', // No margin
-        threshold: .5, 
+        threshold: .1, 
     };
 
-    // Find all video elements with ecept for the background video
-    const videoElements = document.querySelectorAll('video:not(#hero-bg-video)');
+    let heroVideo = document.querySelector('#hero-video')
+    let workSection = document.querySelector('#work')
+    let slider = document.querySelector('#swiper')
 
-    // Create Intersection Observer for each video element
-    videoElements.forEach((videoElement) => {
-        //  a fix for chrome and safari
-        let playPromise
+    let callbackHero = (entries, observer) => {
+        entries.forEach((entry) => {
+            
+            let playPromise
+            if (entry.isIntersecting) {
+                
+                playPromise = entry.target.play();
 
-        
-        // load all elements that are in view and play them
-        if(isElementInViewport(videoElement) ) {
-            playPromise = videoElement.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                })
-                .catch(error => {
-                });
-            }
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    playPromise = videoElement.play();
-
-                    if (playPromise !== undefined) {
-                        playPromise.then(_ => {
-                        })
-                        .catch(error => {
-                        });
-                    }
-                } else {
-                    videoElement.pause();
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                    })
+                    .catch(error => {
+                    });
                 }
-            });
-        }, options);
+            } else {
+                entry.target.pause();
+            }
+        });
+    };
+    
+    let callbackWork = (entries, observer) => {
+        entries.forEach((entry) => {
+            
+            let playPromise
+            let video = slider.swiper.slides[slider.swiper.activeIndex].querySelector("video")
 
-        // Start observing each video element
-        observer.observe(videoElement);
-    });
+            if (entry.isIntersecting) {
+                
+                playPromise = video.play()
+
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                    })
+                    .catch(error => {
+                    });
+                }
+            } else {
+                video.pause();
+            }
+        });
+    };
+
+    let observerHero = new IntersectionObserver(callbackHero, options) 
+    let observerWork = new IntersectionObserver(callbackWork, options) 
+
+    // Start observing hero video 
+    observerHero.observe(heroVideo);
+    
+    // Start observing work section
+    observerWork.observe(workSection);
 
     // Function to check if an element is in the viewport (on init)
     function isElementInViewport(element) {

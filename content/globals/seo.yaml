@@ -17,8 +17,8 @@ data:
   use_social_image_generation: true
   social_images_collections:
     - pages
-  og_image: og-image.jpg
-  twitter_image: twitter-image.jpg
+  og_image: og-image-1700670177.jpg
+  twitter_image: twitter-image-1700670156.jpg
   sitemap_collections:
     - pages
   trackers_local: false
