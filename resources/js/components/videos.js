@@ -17,16 +17,33 @@ export default function initVideos() {
 
     // Create Intersection Observer for each video element
     videoElements.forEach((videoElement) => {
+        //  a fix for chrome and safari
+        let playPromise
 
+        
         // load all elements that are in view and play them
         if(isElementInViewport(videoElement) ) {
-            videoElement.play();
+            playPromise = videoElement.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                })
+                .catch(error => {
+                });
+            }
         }
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    videoElement.play();
+                    playPromise = videoElement.play();
+
+                    if (playPromise !== undefined) {
+                        playPromise.then(_ => {
+                        })
+                        .catch(error => {
+                        });
+                    }
                 } else {
                     videoElement.pause();
                 }
