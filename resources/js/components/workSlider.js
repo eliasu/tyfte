@@ -24,6 +24,10 @@ let workSlider;
 let slideTransitionMs = 900
 let easeCurve = 'cubic-bezier(.34,.11,.43,.99)'
 
+let affectedSlides = new Array()
+
+
+
 export default function initWorkSlider() { 
     console.log("** init work slider from /components/workSlider.js **")
 
@@ -77,7 +81,7 @@ export default function initWorkSlider() {
         on: {
    
             transitionStart: e => {
-                transition(workSlider, 1)
+                transition(workSlider, true)
 
                 gsap.to("#work-tint", {
                     duration: 1,
@@ -86,7 +90,7 @@ export default function initWorkSlider() {
                 })
             },
             transitionEnd: e => {
-                transition(workSlider, 0)
+                transition(workSlider, false)
             },
             init: e => {
                 // fill array with colors from cms
@@ -99,12 +103,12 @@ export default function initWorkSlider() {
 
                     // add hover effect
                     elem.addEventListener('mouseenter', el => {
-                        transition(workSlider, 1, true)
+                        transition(workSlider, true, true)
                     });
 
                     // add hover out effect
                     elem.addEventListener('mouseleave', el => {
-                        transition(workSlider, 0, true)
+                        transition(workSlider, false, true)
                     });
                 });
 
@@ -122,7 +126,7 @@ export default function initWorkSlider() {
     initNavigationButtons();
 
     // make transitionEnd the starting point
-    transition(workSlider, 0)
+    transition(workSlider, false)
 }
 
 // helper functions
@@ -197,16 +201,9 @@ function renderCustomBulletPoints (swiper, current, total) {
 
 
 function transition(slider, start, hover = false) {
-    
-    let timeVideoWrap = .5 
-    let sizeVideoWrap = [1, .87]
-    
-    let timeTitle = .4 
-    let timeLink = .4 
-
-    
+       
     // create an array which contains all slides, ehich are affected
-    let affectedSlides = new Array()
+    affectedSlides = []
     
     // push the current slides and the previous/next slides as well if availabe
     affectedSlides.push(slider.slides[slider.activeIndex])
@@ -215,12 +212,12 @@ function transition(slider, start, hover = false) {
 
     // animate the corresponding slides
     affectedSlides.forEach( (slide) => {
-        
+
         // video wrap animation
         gsap.to(slide.querySelector(".videowrap"), {
-            duration: timeVideoWrap,
+            duration: .5,
             ease: easeCurve,
-            scale: sizeVideoWrap[start],
+            scale: start ? .87 : 1,
         })
 
         // video element animation
@@ -230,16 +227,16 @@ function transition(slider, start, hover = false) {
 
         // big title animation
         gsap.to(slide.querySelector(".title-wrap"), {
-            duration: timeTitle,
+            duration: .4,
             ease: easeCurve,
-            autoAlpha: start,
+            autoAlpha: start ? 1 : 0,
             scale: start ? 1 : 1.2,
         });
 
-        // link animation (dont animate on hover)
+        // link animation (dont animate on link hover)
         if(!hover) {
             gsap.to(slide.querySelector(".title-link"), {
-                duration: timeLink,
+                duration: .4,
                 ease: easeCurve,
                 translateX: start ? "0rem" : "1rem",
                 autoAlpha: start ? 0 : 1,
@@ -250,7 +247,7 @@ function transition(slider, start, hover = false) {
         let data = slide.querySelector("[data-collaboration]")
         if(data) {
             gsap.to(data, {
-                autoAlpha: start,
+                autoAlpha: start ? 1 : 0,
             })
         }
     })
