@@ -43,7 +43,7 @@
                             <video preload="none" muted playsinline poster="{{ poster_image }}" loop id="{{ title }}-video" class="absolute inset-0 object-cover w-full h-full -z-20 bg-light/20" width="100%" height="100%">
                                 <source src="{{ project_video:url | remove_right('.mp4') | ensure_right('.webm') }}" type="video/webm">
                                 <source src="{{ project_video:url | remove_right('.webm') | ensure_right('.mp4') }}" type="video/mp4">
-                                Your browser does not support the video tag.             
+                                Your browser does not support the video tag.      
                             </video>
                         </div>
                         

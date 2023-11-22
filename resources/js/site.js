@@ -43,6 +43,6 @@ document.addEventListener('readystatechange', (event) => {
 	initDotgrid();
     initMouse();
     initHandleVisibility();
-    // initVideos();
+    initVideos();
     initPreloader();
 });
