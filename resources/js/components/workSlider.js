@@ -238,7 +238,7 @@ function transition(slider, start, hover = false) {
             gsap.to(slide.querySelector(".title-link"), {
                 duration: .4,
                 ease: easeCurve,
-                translateX: start ? "0rem" : "1rem",
+                translateX: start ? "1rem" : "0rem",
                 autoAlpha: start ? 0 : 1,
             });
         }
