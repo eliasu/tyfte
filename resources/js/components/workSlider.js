@@ -252,17 +252,20 @@ function transition(slider, start, hover = false) {
         }
     })
 
-    // play the next slides video safly
-    let nextVideo = slider.slides[slider.activeIndex].querySelector("video");
+    if(start && !hover) {
+        
+        // play the next slides video (activeIndex changes on tansition start)
+        let nextVideo = slider.slides[slider.activeIndex].querySelector("video");
 
-    //  a fix for chrome and safari
-    let playPromise = nextVideo.play();
+        //  a fix for chrome and safari
+        let playPromise = nextVideo.play();
 
-    if (playPromise !== undefined) {
-        playPromise.then(_ => {
-        })
-        .catch(error => {
-        });
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+            })
+            .catch(error => {
+            });
+        }
     }
 }
 
