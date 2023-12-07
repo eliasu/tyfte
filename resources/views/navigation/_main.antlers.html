@@ -87,10 +87,10 @@
                             <div class="relative flex flex-col items-start w-full gap-2">
                             
                                 {{# text #}}
-                                <p class="text-dark max-w-[20ch]">Start your project right away and fill out or 5 minute survey.</p>
+                                <p class="text-dark max-w-[20ch]">Interested in working with us? We have some common questions.</p>
                             
                                 {{# start project button #}}
-                                {{ partial:components/button class="text-dark hover:text-purple" label="start project" }}
+                                {{ partial:components/button class="text-dark hover:text-purple" label="Project request" }}
                                     @click.prevent="formOpen = true, formStep = 1"
                                 {{ /partial:components/button }}
                             </div>
@@ -108,10 +108,10 @@
                             x-transition:leave-start="opacity-100 translate-x-0"
                             x-transition:leave-end="opacity-0 -translate-x-4"
                             x-cloak
-                            @submit="console.log('Submitted Form!!!')" 
+                            @submit="console.log('main click Submitted Form!!!')" 
                         }}
                         
-                            <input type="text" class="hidden" name="{{ honeypot ?? 'honeypot' }}">
+                            <input type="text" class="hidden" name="Fax">
                             
                             {{# form inner wrapper #}}
                             <div class="relative w-full h-full">

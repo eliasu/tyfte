@@ -10,15 +10,15 @@
         
         {{# buttons and CTAs #}}
         <div class="flex flex-col items-center sm:items-start xl:max-w-[44ch] 2xl:max-w-[64ch] col-start-2 gap-4 mix-blend-color-burn translate-z-0">
-            <h1 class="mb-12 text-head-1 text-usercolor">Drop us a line or fill out our survey.</h1>
+            <h2 class="mb-12 text-head-1 text-usercolor">Contact us. For projects and anything else.</h2>
             
             {{# survey  #}}
-            {{ partial:components/button class="text-usercolor hover:text-dark" label="start survey" icon="arrup" }}
+            {{ partial:components/button class="text-usercolor hover:text-dark" label="Project request" icon="arrup" }}
                 @click.prevent="slideOverOpen = true, formOpen = true, formStep = 1"
             {{ /partial:components/button }}
             
             {{# write an email  #}}
-            {{ partial:components/button class="text-usercolor hover:text-dark" as="a" link_type="email" email="hello@tyfte.de" label="write mail" icon="email" }}
+            {{ partial:components/button class="text-usercolor hover:text-dark" as="a" link_type="email" email="hello@tyfte.de" label="Anything else" icon="email" }}
 
         </div>
         

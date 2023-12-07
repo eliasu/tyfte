@@ -27,13 +27,22 @@ export default function initSurveyForm() {
 		let formData = new FormData(form);
         let formDataString = '';
 		e.preventDefault();
+
+    
         
         // Loop through all form fields and add it to the submit string in a formated way
         let formFields = form.querySelectorAll('input, select, textarea, [type="range"]');
+
+        let honeypot_full = false;
+
         formFields.forEach(function (field) {
+
+            if (field.name == 'Fax' && field.value != "" ) {
+                honeypot_full = true;
+            }
             
             // do not add token and honeypot fields
-            if (field.name !== '_token' && field.name !== 'honeypot') {
+            if (field.name !== '_token' && field.name !== 'Fax') {
 
                 // Check if the field is a checkbox or radio buttons and is checked
                 if ( (field.type === 'checkbox' || field.type === 'radio')  && field.checked) {
@@ -56,9 +65,15 @@ export default function initSurveyForm() {
                 }
             }
         });
+        debugger
+
+        if (honeypot_full) {
+            return;
+        }
         
         // add the data to the formData object
         formData.append('infos', formDataString);
+
 		
         // submit data
 		axios.post(form.action, formData)
@@ -67,6 +82,8 @@ export default function initSurveyForm() {
 			})
 			.catch(error => {
 				console.log(error)
+                console.log(error.response.data);
+                
 			})
 	});
 
