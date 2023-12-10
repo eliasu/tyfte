@@ -10,4 +10,5 @@ document.addEventListener('readystatechange', (event) => {
     initWorkSlider();
     initContact();
     initInfoSection();
+    initVideos();
 });
