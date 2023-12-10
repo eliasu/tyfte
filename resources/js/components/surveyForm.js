@@ -65,7 +65,6 @@ export default function initSurveyForm() {
                 }
             }
         });
-        debugger
 
         if (honeypot_full) {
             return;
