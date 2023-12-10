@@ -1,0 +1,11 @@
+name: Elias
+super: true
+avatar: favicon2.png
+id: 4dcd6c7d-df94-4d58-8a1f-37bcd1693cbf
+password_hash: $2y$10$EiYTv6taQEfN4lbsqj3sUO0.amhS3BsS1FIKJ0P0NQ8aK3zz6AwhK
+preferences:
+  forms:
+    contact:
+      columns:
+        - datestamp
+        - infos
