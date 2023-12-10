@@ -103,8 +103,10 @@ return [
     */
 
     'commands' => [
+        'git add composer.json',
+        'git add composer.lock',
         'git add {{ paths }}',
-        'git -c "user.name={{ name }}" -c "user.email={{ email }}" commit -m "{{ message }} [BOT]"',
+        'git -c "user.name={{ name }}" -c "user.email={{ email }}" commit -m "{{ message }} [BOT] [skip actions]"',
     ],
 
     /*
