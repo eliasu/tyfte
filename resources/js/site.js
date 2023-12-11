@@ -11,8 +11,6 @@ import initMouse from './components/mouse';
 import initHandleVisibility from './components/handleVisibility';
 import initSurveyForm from './components/surveyForm';
 
-import initVideos from './components/videos'
-
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
     return await fetch('/!/statamic-peak-tools/dynamic-token/refresh')
@@ -43,6 +41,5 @@ document.addEventListener('readystatechange', (event) => {
 	initDotgrid();
     initMouse();
     initHandleVisibility();
-    // initVideos();
     initPreloader();
 });
